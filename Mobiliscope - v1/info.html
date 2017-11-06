@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<title>Mobiliscope</title>
+	<meta name="description" content="Mobiliscope is a geovisualization tool for interactive exploration of social segregation around the clock in the metropolitan areas" />
+	<script type="text/javascript" src="js/jquery.min.js"></script> 
+
+	<script src="js/loads.js"></script>
+	<script src="js/popups.js"></script>
+
+	<link rel="icon" href="Pictos/favicon.png">
+	<link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+
+<body>
+ 
+<div id="container">
+
+	<div id= "titre">
+		<div class = "cont" id = "main"><span class = "fittext1" id = "mainTitle">MOBILISCOPE</span></div>
+
+		<div id = "home"><span><img class = "picto" src = "Pictos/home.png" onclick = "window.location.href='index.html' ;"></img></span></div>
+		<div id = "moreinfo"><img class = "picto" src = "Pictos/menu.png"></img></div>
+		
+	</div>
+
+	
+	<div id= "menu">
+		<div class = "niv1" id="txt1"><p>TEAM</p></div>
+		<div class = "niv1" id="txt2"><p>DEFINITIONS</p></div>
+		<div class = "niv1" id="txt3"><p>METHODOLOGY</p></div>
+		<div class = "niv1" id="txt5"><p>LEGAL MENTIONS</p></div>	
+	</div>
+	
+	
+	<div class = "corps" id="text1">
+		<h2>TEAM</h2>
+		</br>
+		<h3>Julie Vallée</h3>
+		<p>Julie Vallée is CNRS researcher in geography at Geographie-cités laboratory (Paris, France). She is the scientific coordinator of the Mobiliscope. Julie is conducting research devoted to spatial mechanisms of social inequalities in metropolitan areas (see <span class = "highlight"><a style = "color : black ; text-decoration : none ;" target="_blank" href = "http://relathealth.parisgeo.cnrs.fr/?page_id=397&lang=en">RelatHealth project</a></span>). She is focusing on people’s daily mobility to discuss rigid conceptualization of places prevailing in literature of neighborhood effects (notably in health literature).<span style = "font-style : italic ;"> More information <span class = "highlight"><a style = "color : black ; text-decoration : none ;" target="_blank" href = "http://www.parisgeo.cnrs.fr/spip.php?article298&lang=en">here</a></span></span></p>
+		
+		<h3>Constance Lecomte</h3>
+		<p>Constance Lecomte is an engineer in data analysis and a cartographer. She is graduated from Université Paris 1 Panthéon Sorbonne. She contributes to different research projects in geography since 2014. She specializes in data management and she has a particular interest in automatic and interactive cartography. She is the developper of the Mobiliscope. <span style = "font-style : italic ;">More information <span class = "highlight"><a style = "color : black ; text-decoration : none ;" target="_blank" href = "https://www.linkedin.com/in/constance-lecomte-051305a4/">here</a></span></span></p>
+	
+		<h3>Guillaume Le Roux</h3>
+		<p>Guillaume Le Roux is PhD in Geography and engineer in Statistics. Guillaume is focusing on socio-spatial transformations and mobilities in metropolitan areas. He put a lot of work into exploring EGT database to analyze social segregation around the clock in the Paris region.<span style = "font-style : italic ;"> More information <span class = "highlight"><a style = "color : black ; text-decoration : none ;" target="_blank" href = "https://www.researchgate.net/profile/Guillaume_Le_Roux">here</a></span></span></p>
+
+		<h3>Hadrien Commenges</h3>
+		<p>Hadrien Commenges is an associate professor at the University Paris 1 Panthéon-Sorbonne. His research focuses on quantitative methods applied to urban geography, mainly in the field of urban mobility and transportation.<span style = "font-style : italic ;"> More information <span class = "highlight"><a style = "color : black ; text-decoration : none ;" target="_blank" href = "http://www.parisgeo.cnrs.fr/spip.php?article87">here</a></span></span></p>
+	
+		<h3>Acknowledgments</h3>
+		<p>We are grateful to STIF, OMNIL, DRIEA and ADISP-CMH who have made EGT data available through « Réseau Quetelet »</p>
+		<p>The Mobiliscope team wishes to thank Robin Cura (PHD student), Mattia Bunuel (engineer), Saber Marrouchi (IT manager) and the whole Géographie-cités team for their contribution to this project.</p>
+		<p>The <a style = "color : black ; text-decoration : none ;" target="_blank"  href = "http://www.geotests.net/couleurs/gradients_inflex_en.html"><span class = "highlight" style = "font-style : italic ;">color gradients explorer</span></a> developped by Laurent Jégou (lecturer at Université Toulouse Jean Jaurès) was used for the cartography.</p>
+		
+	</div>
+	
+	<div class = "corps" id="text2">
+		<h2>DEFINITIONS</h2>
+		</br>
+		<h3>Enquête Globale Transport (EGT, 2010)</h3>
+		<p>The Enquête Globale Transport (EGT) is a large household travel survey carried out every ten years in the Paris region (Ile-de-France) since 1976. Here we used the last edition which took place during two periods: from October 2009 to May 2010 and from October 2010 to May 2011 (i.e. over 16 months of surveys). The EGT was limited to inhabitants living in the Paris region. 
+		We only selected respondents aged 16 years or over, considering that younger people were not sufficiently autonomous in their daily mobility. To reduce spatiotemporal heterogeneity between trips occurring on weekends and on weekdays, we also restricted our dataset to weekday trips (Monday-Friday). The sample of daily trips at weekends was too small in the EGT survey to explore what happens during the weekend.
+		Here, the final sample contains 25,499 respondents aged 16 or over with a total of 101,814 weekdays trips and 127,245 locations.
+		</p>
+
+		<h3>EGT district</h3>
+		<p>The Paris region has been subdivided into 109 districts (“secteurs”) in EGT survey. They correspond to groups of municipalities or arrondissements in Paris and consist of approximately 100,000 inhabitants. Smaller in inner Paris and larger in the peripheral areas, their sizes vary from 3 to 1,326 km2 (with a median area of 14 km²). Districts are the primary sampling units in EGT survey. In the present analysis (restricted to EGT respondents aged 16 or over and interviewed about their weekday trips), the number of respondents per districts varied from 124 to 406, with a median of 229. 
+		The Mobiliscope only displays the name of the threee more populated municipalities or arrondissements in every EGT district (<span style = "font-style : italic ;">see complete <a class = "highlight" style = "color : black ; text-decoration : none ;" href = "pdf/EGTDistricts.pdf" target="_blank">list of municipalities in EGT districts)</a></span></p>
+
+		<h3>Socioprofessional status</h3>
+		<p>From respondents’ socioprofessional EGT data (initially in 24 groups, which were combined and ranked), we computed a social indicator corresponding to the lowest socioprofessional category of the adults in the household. Called “socioprofessional status”, this variable was composed of five groups: unemployed (unemployed long term, housework); low (workers and domestic services); middle-low (employees, craftsmen); middle-high (intermediary professionals, merchants, farm operators); and high (managers, intellectual professionals, employers of more than ten employees). </p>
+
+		<h3>Educational status</h3>
+		<p>From EGT data about respondents’ achieved level of education (initially in ten groups), we computed a first social indicator corresponding to the lowest level of education of the adults in the household. Called ‘educational status’, this variable was composed of four groups: low (middle school or less), middle-low (high school without Baccalauréat), middle-high (Baccalauréat to two years after Baccalauréat), and high (three years or more after Baccalauréat). </p>
+
+
+		<h3>Segregation index</h3>
+		<p>From the EGT dataset location, segregation indices were computed hourly (from 4:00 am to 3:00 am) regardless of the day of the week. If individuals were in transportation (in a not “adherent” mode), they were removed from the calculation. To assess the extent of social segregation for each subgroup, we crossed two unigroup indexes: the first (Duncan’s dissimilarity index) gave information about the dispersal of every subgroup across spatial units and the second (Moran’s index) is a measure of spatial autocorrelation of subgroups within the city.
+		</br><span style = "font-weight : bold ;">Duncan’s dissimilarity index</span> is commonly used as a measure of pairwise segregation (e.g. Black versus White) but it can also be used when measuring segregation of a social indicator divided in more than two groups. In this case, Duncan’s dissimilarity index expresses the proportion of individuals of a given social group who would have to change their spatial unit (without replacement) to get an even distribution of the group relative to the total population. 
+		</br><span style = "font-weight : bold ;">Moran’s index</span> is a measure of spatial autocorrelation. Its values vary from -1 (the group perfectly repulses itself) to 1 (the group is perfectly clustered in space), and a zero value indicates an absence of spatial structure. 
+		</p>
+	</div>
+	
+	<div class = "corps" id="text3">
+		<h2>METHODOLOGY</h2>
+		</br>
+		<h3>Geovisualization</h3>
+		<p>This geovisualization has been integrally developped using front-end development technologies. The layout has been developped with pure HTML, CSS and Javascript (without framework). Data are stored in csv and geojson format on the webserver. Data are visualized thanks to the <a style = "color : black ; text-decoration : none ;" target="_blank"  href = "https://d3js.org/"><span class = "highlight">D3.js visualisation library</span></a> developped by Mike Bostock.</p>
+		
+		<h3>Data computation</h3>
+		<p>Methods which have been used to compute data are described in the following paper : <span class = "highlight"><a href = "https://halshs.archives-ouvertes.fr/halshs-01472039" target="_blank" style = "text-decoration : none ; color : black ;">Guillaume Le Roux, Julie Vallée, Hadrien Commenges. 2017. Social segregation around the clock in the Paris region (France). Journal of Transport Geography, Volume 59, pp. 134-145.</a></span>.</p>
+		
+		<h3>Github</h3>
+		<p>The scripts of this visualization are available on Github : <span class = "highlight">link to be</span></p>
+	</div>
+	
+	<div class = "corps" id="text5">
+		<h2>MENTIONS LÉGALES</h2>
+		</br>
+		<h3>Informations légales</h3>
+		<p>UMR 8504 Géographie-cités
+		</br>13, rue du Four, 75006 Paris
+		</br>tel : 01 40 46 40 00
+		</br></br>
+		Responsable de la publication : Julie Vallée (julie.vallee@parisgeo.cnrs.fr)
+		</br></br>Hébergement du site : serveur parisgeo
+		</br></br>Date de création du site : mai 2017</p>
+		<h3>Protection des informations nominatives</h3>
+		<p>Ce site de service public est dispensé de faire l’objet des déclarations légales auprès du Procureur de la République et de la CNIL (conformément à la loi N° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés).
+			Délibération n°2006-138 du 9 mai 2006 décidant de la dispense de déclaration des traitements constitués à des fins d’information ou de communication externe (Dispense de n°7).
+			Les personnes citées dans le site ont été informées de leurs droits. Le droit d’accès est immédiat. Le droit de rectification s’exerce auprès du responsable de la publication du site en utilisant le mail de contact.</p>
+		<h3>Conditions d'utilisation</h3>
+		<ul>
+			<li>Clause de non-responsabilité</li>
+			<p>La responsabilité de l’UMR Géographie-cités ne peut, en aucune manière, être engagée quant au contenu des informations figurant sur ce site ou aux conséquences pouvant résulter de leur utilisation ou interprétation.</p>
+			<li>Propriété intellectuelle</li>
+			<p>Les textes, articles et contenus scientifiques publiés sur le Mobiliscope sont diffusés gratuitement pour l’usage privé de la lecture et de la recherche.
+				L’ensemble du site Mobiliscope relève de la législation française et internationale sur le droit d’auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les textes, logos et les photographies. Toute reprise est dès lors conditionnée à l’accord de l’auteur en vertu de l’article L.122-4 du Code de la Propriété Intellectuelle.</p>
+			<li>Liens hypertextes</li>
+			<p>Le Mobiliscope autorise tout site Internet ou tout autre support à le citer ou à mettre en place un lien hypertexte pointant vers son contenu sous réserve que les liens ne contreviennent pas aux intérêts du projet Mobiliscope et qu’ils garantissent la possibilité pour l’utilisateur d’identifier l’origine et l’auteur du document.
+				L’autorisation de mise en place d’un lien est valable pour tout support, à l’exception de ceux diffusant des informations à caractère polémique, pornographique, xénophobe ou pouvant, dans une plus large mesure porter atteinte à la sensibilité du plus grand nombre. Le Mobiliscope est susceptible de renvoyer à d’autres sites au moyen de liens ; le Mobiliscope ne saurait être tenu responsable du contenu de ceux-ci.</p>
+		</ul>
+		<p></p>
+	</div>
+	
+
+	
+</div>
+ 
+<script>
+// INIT
+$('.niv1:first').css('background-color', '#514d47') ;
+$('.niv1:first').css('color', 'white') ;
+
+// BEHAVIOUR
+$('.niv1').click(function(){
+	$('.niv1').css('background-color', '#f2f2f2') ;
+	$('.niv1').css('color', 'black') ;
+	$(this).css('background-color', '#514d47') ;
+	$(this).css('color', 'white') ;
+}) ;
+
+// TEXT
+$(".corps").css('display', 'none') ; 
+$("#text1").css('display', 'block') ; 
+
+$('#txt1').click(function(){$(".corps").css('display', 'none') ; $("#text1").css('display', 'block') ;  }) ; 
+$('#txt2').click(function(){$(".corps").css('display', 'none') ; $("#text2").css('display', 'block') ;  }) ; 
+$('#txt3').click(function(){$(".corps").css('display', 'none') ; $("#text3").css('display', 'block') ;  }) ;
+$('#txt4').click(function(){$(".corps").css('display', 'none') ; $("#text4").css('display', 'block') ;  }) ; 
+$('#txt5').click(function(){$(".corps").css('display', 'none') ; $("#text5").css('display', 'block') ;  }) ; 
+
+// HEADLINE AUTO SIZE
+	var fontSize ; 
+var textContainer ;
+
+var update_fontsize = function(){
+	
+	$( ".fittext1" ).each(function(  ) {
+		
+		textContainer = $(this).closest(".cont") ; 	
+		fontSize = parseInt(textContainer.height() * 0.5 ) + 'px';		
+
+		$(this).css('font-size', fontSize);
+		$(this).css('line-height', textContainer.height() + 'px');
+		
+		var fontWidth = parseInt($(this).css("width")) ;
+		var containerWidth = parseInt(textContainer.css("width")) ;
+			
+		if(fontWidth >= containerWidth){
+
+			newfontSize = ( fontSize.slice(0, -2) * (containerWidth * 0.9) ) / fontWidth; 
+
+			$(this).css('font-size', newfontSize);
+			$(this).css('line-height', textContainer.height() + 'px');
+
+		}			
+	}) ;		
+};
+
+$(window).resize(function() {
+	update_fontsize();			
+});
+
+$(document).ready(function() {
+	update_fontsize();
+});
+</script>
+ 
+</body>
+
+</html>

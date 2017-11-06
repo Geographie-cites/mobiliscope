@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+	<title>Mobiliscope</title>
+	<meta name="description" content="Mobiliscope is a geovisualization tool for interactive exploration of social segregation around the clock in the metropolitan areas" />
+
+	<script src="js/d3.v3.min.js"></script>
+	<script src="https://d3js.org/d3-array.v1.min.js"></script>
+	<script type="text/javascript" src="js/d3.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script> 
+   
+   <script src="js/loads.js"></script>
+   <script src="js/popups.js"></script>
+  
+  <link rel="icon" href="Pictos/favicon.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="js/d3.slider.css">
+</head>
+
+<body onload = "map25();">
+ 
+<div id="container">
+
+	<div id= "alerte">
+		<p>WARNING</p>
+		<p>This website has been optimized for <strong>Firefox</strong>, <strong>Chrome</strong> and <strong>Opera</strong>. Please check your browser.</p>
+		<p><span style = "font-size : 1vw ;">Click to access website</span></p>
+	</div>
+
+	<div id= "titre">
+		<div class = "cont" id = "main"><span class = "fittext1" id = "mainTitle">MOBILISCOPE</span></div>
+		
+		<div class = "cont" id = "subtitle"><span class = "fittext1" id = "seg">Segregation around the clock in the Paris region</span></div>
+	
+		<div id = "home"><span><img class = "picto" src = "Pictos/home.png"></img></span></div>
+		<div id = "moreinfo"><img class = "picto" src = "Pictos/menu.png" onclick = "window.location.href='info.html' ;"></img></div>
+		
+	</div>
+	
+	<div id= "menu">
+	
+		<div class = "niv11"><p>GENERAL</p></div>
+		
+		<div class = "niv30" style = "border-left-color : #000093 ; "><p>Present population</p><button class ="nb" onclick = "map11()">nb</button></div>
+			<div class = "desc"><p>Number and proportion of people are weighted. EGT weighting coefficients have been computed at household and individual levels to afford every district the same distribution in household profile (size and housing type) and population profile (age, sex, occupation, and socioprofessional group) as the distribution observed in the 2008 French census.</p></div>	
+		
+		<div class = "niv12"><p>BY SOCIAL INDICATORS</p></div>
+		
+		<div class = "niv2"><p>Socioprofessional status<span class = 'help' onclick = 'popup1()'>&nbsp;&nbsp;(i)</span></p></div>
+		
+		<div class = "niv31" style = "border-left-color : #ab0f31 ;"><p>High</p><button id = "first" class ="part" onclick = "map25()">%</button><button class ="nb" onclick = "map25b()">nb</button></div>
+			<div id = "def"  class = "desc"><p>Managers, intellectual professionals, employers of more than ten employees</p></div>
+		<div class = "niv31" style = "border-left-color : #d69b01 ;"><p>Middle-high</p><button class ="part" onclick = "map24()">%</button><button class ="nb" onclick = "map24b()">nb</button></div>
+			<div class = "desc"><p>Intermediary professionals, merchants, farm operators</p></div>
+		<div class = "niv31" style = "border-left-color : #188e31 ;"><p>Middle-low</p><button class ="part" onclick = "map23()">%</button><button class ="nb" onclick = "map23b()">nb</button></div>
+			<div class = "desc"><p>Employees, craftsmen</p></div>
+		<div class = "niv31" style = "border-left-color : #624f98 ;"><p>Low</p><button class ="part" onclick = "map22()">%</button><button class ="nb" onclick = "map22b()">nb</button></div>
+			<div class = "desc"><p>Workers and domestic services</p></div>	
+		<div class = "niv31" style = "border-left-color: #008791 ;"><p>Unemployed</p><button class ="part" onclick = "map21()">%</button><button class ="nb" onclick = "map21b()">nb</button></div>
+			<div class = "desc"><p>Unemployed long term, housework</p></div>
+
+		<div class = "niv2"><p>Educational status<span class = 'help' onclick = 'popup2()'>&nbsp;&nbsp;(i)</span></p></div>
+		
+		<div class = "niv32" style = "border-left-color : #c02767 ;"><p>High</p><button class ="part" onclick = "map34()">%</button><button class ="nb" onclick = "map34b()">nb</button></div>
+			<div class = "desc"><p>Three years or more after Baccalauréat</p></div>
+		<div class = "niv32" style = "border-left-color : #ec721b ;"><p>Middle-high</p><button class ="part" onclick = "map33()">%</button><button class ="nb" onclick = "map33b()">nb</button></div>
+			<div class = "desc"><p>Baccalauréat to two years after Baccalauréat</p></div>
+		<div class = "niv32" style = "border-left-color : #17a97a ;"><p>Middle-low</p><button class ="part" onclick = "map32()">%</button><button class ="nb" onclick = "map32b()">nb</button></div>
+			<div class = "desc"><p>High school without Baccalauréat</p></div>
+		<div class = "niv32" style = "border-left-color : #4b6dac ;"><p>Low</p><button class ="part" onclick = "map31()">%</button><button class ="nb" onclick = "map31b()">nb</button></div>
+			<div class = "desc"><p>Middle school or less</p></div>
+
+	
+	</div>
+	
+			
+	<div id="play"><img id = "playB" src = "Pictos/player2.png"></img></div>
+	<div id="timeline">	
+		<div id="slider"></div>
+		<div id="timeAxis"></div>	
+	</div>
+	
+	<div id="hour"></div>
+	
+	<div class = "cont" id = "mapTitleCont"><span class = "fittext1" id = "mapTitle"></span></div>
+	<div id="map-container">
+		<div id="zoom"><div class= "zoomB" id="zoomIn">+</div><div class= "zoomB" id="zoomOut">-</div></div>
+		<div id="source">Source : EGT, 2010 <span class = "help" style = "font-size : 1em ;" onclick = "popup6()">(i)</span></br><span style = "font-size : 0.8em ; color : #4F4F4F">(STIF, OMNIL, DRIEA)</span></div>
+		<div id="legende"></div>
+		<div id="copyright">&#9400; Mobiliscope, Géographie-cités, 2017</div>
+	</div>
+	
+
+	<div id= "popup">
+		<img id = "close" src = "Pictos/close.png"></img>
+		<div id = "text"></div>
+	</div>
+
+
+	<div id = "graphiques">
+	
+		<div id = "mainGr1Cont"><span id = "mainGr1">IN THE WHOLE PARIS REGION</span></div>
+		<div class="cont" id = "titleGr1Cont"><span class = "fittext1" id = "titleGr1"></span></div>	
+		<div id= "grIDF"></div>
+		<div id = "bloc1"></div><div id="altGr21" class= "altGr1">Duncan</div><div id="altGr11" class= "altGr2">Moran</div>
+		
+		<div id = "mainGr2Cont"><span id="mainGr2"></span></div>
+		<div class="cont" id = "titleGr2Cont"><span class = "fittext1" id = "titleGr2"></span></div>
+		<div id= "grSect"></div>
+		<div id = "bloc2"></div><div id="altGr22" class= "altGr1">Unique</div><div id="altGr12" class= "altGr2">Stacked</div>
+		
+	</div>
+	
+</div>
+ 
+ 
+<script>
+// ALERT MESSAGE
+$(window).ready(function() { $("#alerte").css('display', 'block') }) ;
+$("body").click(function(){ $("#alerte").css('display', 'none') }) ;
+
+// ACCORDION
+// Init
+$(".niv30").css('display', 'none') ;
+$(".niv31").css('display', 'block') ;
+$(".niv32").css('display', 'none') ;
+$(".desc").css('display', 'none') ;
+
+$("#def").css('display', 'block') ;
+$(".niv31:first").css("background-color", "rgba(171, 15, 49, .1)") ;
+
+$("#first").css("background-color", "grey") ; 
+$("#first").css("color", "white") ; 
+
+// NIV3
+$("button").click(function() {
+
+	if(!isPlaying){
+	// 1 : button aspect
+	$("button").css("background-color", "#DDDCDD") ; 
+	$("button").css("color", "black") ;
+	$(this).css("background-color", "grey") ;
+	$(this).css("color", "white") ;
+	
+	//2 : open desc
+	$('.desc').css('display', 'none');
+	$(this).closest('div').next().css('display', 'block !important');
+
+	// 3 : change background-color from border-left color
+	$('div[class^= "niv3"]').css('background-color', 'white');
+	$(this).closest($('div[class^= "niv3"]')).css('background-color', ($(this).closest($('div[class^= "niv3"]')).css("border-left-color")).replace('rgb', 'rgba').slice(0, -1) + ', 0.1)');
+	$(this).closest($('div[class^= "niv3"]')).css('fill-opacity', $(this).closest($('div[class^= "niv3"]')).css("border-left-color"));
+	}
+}) ;
+	
+$('[class^="niv3"]').click(function(){
+
+	if(!isPlaying){
+	//2 : open desc
+		if($(this).closest('div').next().css("display") == "none"){
+			$('.desc').css('display', 'none');
+			$(this).closest('div').next().css('display', 'block');
+		}
+		else{
+			$(this).closest('div').next().css('display', 'none');
+		}
+	}
+
+}) ;
+
+//NIV2
+$(".niv2").click(function() {
+	$('[class^="niv3"]').css('display', 'none') ;
+	$(this).nextUntil($('.niv2')).css('display', 'block') ;
+	$('.desc').css('display', 'none') ;
+	
+}) ;
+
+//NIV1
+$('.niv11').click(function(){
+
+	$(this).nextUntil($('.niv1')).css('display', 'block') ;
+	$(this).closest('div').next().next().css('display', 'none');
+	$('.niv12').nextAll().css('display', 'none') ;
+
+}) ;
+
+$('.niv12').click(function(){
+
+	$(".niv2").css('display', 'block') ;
+	$(".niv30").css('display', 'none') ;
+	$(".niv31").css('display', 'block') ;
+	$(".niv32").css('display', 'none') ;
+	$(".desc").css('display', 'none') ;
+
+}) ;
+
+
+// TAB STYLES
+var style1 = "background-color : white ; border : 1px solid #dadad9 ; border-top : none" ;
+var style2 = "color : black ; background-color : #F0F1F1 ; border : none ; border-top : 1px solid #dadad9" ; 
+var style3 = "background-color : #f2f2f2 ; color : #dadad9 ; border : none ; border-top : 1px solid #dadad9" ;
+
+
+// GEOVIZ
+var width = 1066,
+	height = 730;
+
+var proj = d3.geo.mercator()
+  .center([2.487066, 48.65771])
+	.scale(23000)
+	.translate([width / 2, height / 2]);
+
+var radius = d3.scale.sqrt()
+	.domain([0, 1e6])
+	.range([0, 50]);
+	
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);	
+	
+var svg = d3.select("#map-container").append("svg")
+	.attr("width", width)
+	.attr("height", height)
+    .classed("svg-container", true) 
+	//.attr("preserveAspectRatio", "xMinYMin meet")
+	.attr("viewBox", "0 0 1066 700")
+	.classed("svg-content-responsive", true); 
+
+var path = d3.geo.path()
+	.projection(proj);
+	
+var g = svg.append("g");
+var dep = svg.append("g");
+var gr = d3.select("#graphiques").append("g") ;
+
+var isPlaying = false ;
+
+var slider ;
+var	interval ;
+var currentFrame = 4 ;
+var xAxis ;
+
+var typeGrIDF = "Duncan" ;
+var typeGraph = "simple" ;
+
+var currSect ;
+var nameSect ;
+
+var radius = d3.scale.sqrt()
+	.domain([0, 1e6])
+	.range([0, 100]);
+	
+var currentZoom ;
+var indic ; 
+
+svg.call(zoom)
+    .call(zoom.event);
+	
+var info = d3.select("#map-container").append("div")
+	.attr("class", "info")
+	.style("opacity", 0);
+	
+var gammeCs = ["#008792", "#624f98", "#188e31", "#d69b01", "#ab0f31"] ; 
+var gammeSP = ["#4b6dac", "#17a97a", "#ec721b", "#c02767"] ;
+
+var chemin ;
+
+function load(chemin, colDom, col){
+
+	// HEADLINE AUTO SIZE
+	var fontSize ; 
+	var textContainer ;
+
+	var update_fontsize = function(){
+		
+		$( ".fittext1" ).each(function(  ) {
+			
+			textContainer = $(this).closest(".cont") ; 	
+			fontSize = parseInt(textContainer.height() * 0.5 ) + 'px';		
+
+			$(this).css('font-size', fontSize);
+			$(this).css('line-height', textContainer.height() + 'px');
+			
+			var fontWidth = parseInt($(this).css("width")) ;
+			var containerWidth = parseInt(textContainer.css("width")) ;
+				
+			if(fontWidth >= containerWidth){
+
+				newfontSize = ( fontSize.slice(0, -2) * (containerWidth * 0.9) ) / fontWidth; 
+
+				$(this).css('font-size', newfontSize);
+				$(this).css('line-height', textContainer.height() + 'px');
+
+			}			
+		}) ;		
+	};
+
+	$(window).resize(function() {
+		update_fontsize();			
+	});
+
+	$(document).ready(function() {
+		update_fontsize();
+	});
+
+	// LOAD MAP
+	displayMap(chemin) ;
+	
+	// Build IDF chart
+	// Initialisation 
+	d3.select("#grIDF").html("") ; 
+	
+	displayGraph("#grIDF" // div d'insertion du graphique
+				,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+				, "hour" //valeurs de l'axe x
+				,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+				,"Duncan index" // domain de l'axe y
+				);	
+			
+	// CHANGE CHART FUNCTIONS
+
+	$("#altGr11").on("click", function(d){
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGrIDF = "Moran" ;
+	
+		$("#altGr11").css('cssText', style1);
+		$("#altGr21").css('cssText', style2);
+
+		
+		d3.select("#grIDF").html('') ;
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			,"hour" //valeurs de l'axe x
+			,"Moran"//Object.keys(d)[1] // valeurs de l'axe y
+			,"Moran index" // domain de l'axe y) 
+			);
+			
+		}
+		
+	}) ;
+	
+	$("#altGr21").on("click", function(d){
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGrIDF = "Duncan" ;
+
+		$("#altGr21").css('cssText', style1);
+		$("#altGr11").css('cssText', style2);
+		
+		$("#grIDF").html('') ;
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			, "hour" //valeurs de l'axe x
+			,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+			, "Duncan index" // nom de l'axe y 
+			);	
+		}
+			
+	}) ;
+	
+	$("#altGr12").on("click", function(){ 
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGraph = "stacked" ; 
+	
+		// Initialisation
+		$("#altGr12").css('cssText', style1);
+		$("#altGr22").css('cssText', style2);
+		
+		$("#grSect").html('') ;
+		
+		// Display stackedchart
+		stackedBarChart(currSect) ;
+		
+		}
+		
+	}) ;
+		
+	$("#altGr22").on("click", function(){ 
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGraph = "simple" ; 
+		 
+		// Initialisation
+		$("#altGr22").css('cssText', style1);
+		$("#altGr12").css('cssText', style2);
+		
+		$("#grSect").html('') ;
+		
+		// Display simple chart
+		$("#titleGr2").html(titleGr2) ;
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+		
+		}
+	
+	}) ;
+	
+	// DISPLAY SECTOR CHARTS FROM SELECTION
+	if(typeGrIDF == "Moran"){
+	
+		//  Initialisation
+		$("#grIDF").html('') ;
+		
+		$("#altGr11").css('cssText', style1);
+		$("#altGr21").css('cssText', style2);
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			,"hour" //valeurs de l'axe x
+			,"Moran"//Object.keys(d)[1] // valeurs de l'axe y
+			,"Moran index" // domain de l'axe y) 
+		);
+	
+	}
+	
+	if(typeGrIDF == "Duncan"){
+		
+		//  Initialisation
+		$("#grIDF").html('') ;
+		
+		$("#altGr21").css('cssText', style1);
+		$("#altGr11").css('cssText', style2);
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			, "hour" //valeurs de l'axe x
+			,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+			, "Duncan index" // nom de l'axe y 
+		);	
+	}
+	
+	if (currSect && typeGraph == "simple"){ 
+	
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		$("#titleGr2").html(titleGr2);
+		
+		$("#altGr12").css('cssText', style2);
+		
+		d3.select("#grSect").html("") ; 
+
+		// Build sector chart
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+	}
+	
+	if (currSect && typeGraph == "stacked" && chemin != "pop_prop/geo/secteursData.geojson"){
+	
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		
+		$("#altGr12").css('cssText', style1);
+		$("#altGr22").css('cssText', style2);
+		
+		d3.select("#grSect").html("") ; 
+	
+		// Build sector chart
+		stackedBarChart(currSect) ;
+
+	}
+	
+	if (currSect && chemin == "pop_prop/geo/secteursData.geojson"){
+		
+		$("#altGr12").css('cssText', style3);
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		
+		$("#grIDF").html("<p id='message'>Select a social indicator</br>to get segregation index</p>") ;
+		
+	}
+		
+	if (currSect && typeGraph == "stacked" && chemin == "pop_prop/geo/secteursData.geojson"){
+	
+		typeGraph = "simple" ;
+	
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		$("#titleGr2").html(titleGr2);
+		
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		$("#altGr22").css('cssText', style1);
+		
+		$("#grIDF").html("<p id='message'>Select a social indicator</br>to get segregation index</p>") ;
+	
+		d3.select("#grSect").html("") ; 
+	
+		// Build sector chart
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+
+	}
+	
+	if(!currSect && chemin == "pop_prop/geo/secteursData.geojson"){
+	
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		
+		$("#grIDF").html("<p id='message'>Select a social indicator</br>to get segregation index</p>") ;
+	
+	}
+	
+	if (!currSect) { 
+	
+		// Initialisation
+		$("#mainGr2").html("");
+		$("#titleGr2").html("");
+		
+		$("#altGr12").css('cssText', style3);
+		$("#altGr22").css('cssText', style3);
+
+		$("#grSect").html("<p id='message'>Click a district in the map</br>to get local information</p>") ;
+
+	}
+
+	// Création de la slidebar
+	createSlider() ;
+				
+	// Activation de la fonction d'animation		
+	d3.select("#play")
+	  .attr("title","Play animation")
+	  .on("click",function(){
+		if ( !isPlaying ){
+		  isPlaying = true;
+		  d3.select(this).classed("pause",true).attr("title","Pause animation");
+		  d3.select("#play").html('<img id = "playB" src = "Pictos/pause.png">') ;
+		  animate();
+		} else {
+		  isPlaying = false;
+		  d3.select(this).classed("pause",false).attr("title","Play animation");
+		  d3.select("#play").html('<img id = "playB" src = "Pictos/player2.png">') ;
+		  clearInterval( interval );
+		}
+		
+	  });
+
+
+	// FONCTIONS
+	
+	// Fonction pour afficher les valeurs avec un séparateur de milliers
+	function format(nbr) {
+		var nombre = ''+nbr;
+		var retour = '';
+		var count=0;
+		for(var i=nombre.length-1 ; i>=0 ; i--)
+		{
+			if(count!=0 && count % 3 == 0)
+				retour = nombre[i]+' '+retour ;
+			else
+				retour = nombre[i]+retour ;
+			count++;
+		}
+		return retour;
+	}
+
+	function displayGraph(div, csvGr, varX, varY, nameY){
+		
+		// Definition du format
+		var	margin = {top: 0, right: 0, bottom: 0, left: 30},
+			width = 380 ,
+			height = 178;
+		 
+		// Set the ranges
+		var	x = d3.scale.ordinal().domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"]).rangePoints([0, width], .5);
+		var	y = d3.scale.linear().range([height, 1]);
+
+		//Set the axis
+		var xAxis = d3.svg.axis().scale(x)
+			.tickValues(["4am", "6am", "8am", "10am", "12am", "2pm", "4pm", "6pm", "8pm", "10pm", "12pm", "2am"])
+			.orient("bottom");
+
+		// define the line
+		var valueline = d3.svg.line()
+			.x(function(d) { return x(d[varX]); })
+			.y(function(d) { return y(d[varY]); });
+		
+		var gr = d3.select(div).append("svg")
+			.attr("width", width)
+			.attr("height", height)
+			/*.attr("transform",
+				  "translate(" + margin.left + "," + margin.top + ")")*/;
+				  	
+		// Responsive
+		gr.classed("svg-container", true)
+			.attr("viewBox", "-25 -12 430 210")
+			.classed("svg-content-responsive", true);
+				  
+		// add the tooltip area to the webpage
+		var tooltip = d3.select(div).append("div")
+			.attr("class", "tooltip")
+			.style("opacity", 0);
+
+		// Get the data
+		d3.csv(csvGr, function(error, data) {
+		  if (error) throw error;
+			
+			var tabVal = [] ;
+			var valMax = 0 ;
+			var tform ;
+			var domY ;
+			
+			for (i = 0 ; i < 24 ; i++){					
+				tabVal.push(data[i][varY]) ;
+			}
+			
+			valMax = Math.max.apply(Math, tabVal) ;
+			
+			if(typeGrIDF == "Duncan"){
+				tform = '.2f' ;	
+				domY = [0, 0.4] ;		
+			}
+
+			if(typeGrIDF == "Moran"){
+				tform = '.2f' ;	
+				domY = [0, 0.8] ;		
+			}
+			
+			if (valMax > 1000){	
+				tform = '.2s' ;
+				domY = [1000, 120000];
+			}
+			
+			if (valMax > 1000 && chemin == "pop_prop/geo/secteursData.geojson"){	
+				tform = '.2s' ;
+				domY = [10000, 280000];
+			}
+			
+			if (valMax > 2 && valMax < 100){
+				tform = '.0f' ;
+				domY = [0, 60];
+			}
+
+		  	//Tickformat must depend on values of y
+			var yAxis = d3.svg.axis().scale(y)
+				.orient("left")
+				.tickFormat(d3.format(tform))
+				.innerTickSize(-width)
+				.outerTickSize(0);															
+		  
+			//Définir le domain de y
+			y.domain(domY);
+
+			// Add the valueline path.
+			gr.append("path")
+			  .data([data])
+			  .attr("class", "line")
+			  .attr("d", valueline)
+			  .style("stroke", col[4]);
+			
+			// Add shadow line with current hour
+			var dayTime ;
+			
+			if(slider.value() >= 4 & slider.value() <= 12){
+				dayTime = slider.value() + "am" ; 
+			}
+			if(slider.value() > 12 & slider.value() <= 24){
+				dayTime = (slider.value() - 12) + "pm" ; 
+			}
+			if(slider.value() > 24){
+				dayTime = (slider.value() - 24) + "am" ; 
+			}
+			
+			gr.append("line")
+				.attr("class", "shadow")
+			   .attr("x1", (x(dayTime)))
+			   .attr("x2", (x(dayTime)))
+			   .attr("y1", y.range()[0])
+			   .attr("y2", y.range()[1])
+			   .style("stroke", "black")
+			   .style("stroke-width", 10)
+			   .style("stroke-opacity", .2) ;
+   				 				 
+			// Add the scatterplot
+			gr.selectAll("dot")
+				.data(data)
+			  .enter().append("circle")
+				.attr("r", 2.5)
+				.attr("class", "dots")
+				.attr("cx", function(d) { return x(d[varX]); })
+				.attr("cy", function(d) { return y(d[varY]); })
+				.style("stroke", col[4])
+				.style("fill", "white");			
+				
+			// Add the X Axis
+			gr.append("g")
+			  .attr("transform", "translate(0," + height + ")")
+			  .attr("class", "axis")
+			  .call(xAxis);
+
+			// Add the Y Axis
+			gr.append("g")
+			  .attr("class", "axis")
+			  .call(yAxis);
+			  
+			//Add Y Axis name in grIDF
+			gr.append("text")
+				//.attr("transform", "rotate(-90)")
+				.attr("y", -margin.top)
+				.attr("x", margin.left + 1)
+				.attr("dy", "10px")
+				.style("text-anchor", "middle")
+				.text(nameY)
+				.style("font-size", "1.25em")
+				.style("fill", "#393939");
+			 
+			//Add mouseover event
+			var yVal = data.map(function(d) {
+				  return d[varY]
+				});
+	
+			var focus = gr.append("g")
+			  .attr("class", "focus")
+			  .style("display", "none");
+
+			focus.append("circle")
+			  .attr("r", 2.5)
+			  .style("fill", col[4])
+			  .style("stroke", col[4]);
+
+			focus.append("text")
+			  .attr("x", 0)
+			  .attr("dy", "-1.5em");
+
+			gr.append("rect")
+			  .attr("class", "overlay")
+			  .attr("width", width)
+			  .attr("height", height)
+			  .on("mouseover", function() {
+				focus.style("display", null);
+			  })
+			  .on("mouseout", function() {
+				focus.style("display", "none");
+			  })
+			  .on("mousemove", mousemove);
+			
+			var tickPos = x.range();
+			
+			function mousemove(d){
+			  var m = d3.mouse(this),
+				  lowDiff = 1e99,
+				  xI = null;
+
+			  for (var i = 0; i < tickPos.length; i++){
+				var diff = Math.abs(m[0] - tickPos[i]);
+				
+				if (diff < lowDiff){
+					lowDiff = diff;
+					xI = i;
+				}
+			  }
+			  
+				var vFoc ;
+			  
+				if (valMax < 1){ 	
+					vFoc = (Math.round(yVal[xI]*100)/100).toFixed(2) ;	
+				}
+				
+				if (valMax > 1 & valMax < 100){	
+					vFoc = (Math.round(yVal[xI]*10)/10).toFixed(1) ;	
+				}
+				
+				if (valMax > 1000){	
+					vFoc = format(Math.round(yVal[xI])) ;	
+				}
+			  
+			  focus
+				.select('text')
+				.text(vFoc)
+				.style("font-size", "1.5em");
+
+			  focus
+				.attr("transform","translate(" + tickPos[xI] + "," + y(data[xI][varY]) + ")");
+			}
+		  
+		});
+
+	}
+	
+	function stackedBarChart(currSect){
+	
+		// Set title
+		$("#titleGr2").html('') ;
+		
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cs"){
+			$("#titleGr2").html('Proportion (%) of people by <strong>socioprofessional status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cleduc"){
+			$("#titleGr2").html('Proportion (%) of people by <strong>educational status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cs"){
+			$("#titleGr2").html('Number (n) of people by <strong>socioprofessional status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cleduc"){
+			$("#titleGr2").html('Number (n) of people by <strong>educational status</strong>') ;
+		}
+
+		// Definition du format
+		var	margin = {top: 0, right: 0, bottom: 0, left: 30},
+			width = 380 ,
+			height = 178;
+			
+		var	x = d3.scale.ordinal();
+		var	y = d3.scale.linear().range([height, 1]);
+		
+		// Gamme de couleur
+		var gamme ;
+		if ((chemin.split('_')[0]).slice(0, -1) == 'cs'){
+			gamme = gammeCs ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'cleduc'){
+			gamme = gammeSP ;
+		}
+		
+		var color = d3.scale.ordinal().range(gamme);
+			
+		var area = d3.svg.area()
+		    .interpolate("monotone")  //Here
+			.x(function(d) { return x(d.hour); })
+			.y0(function(d) { return y(d.y0); })
+			.y1(function(d) { return y(d.y0 + d.y); });
+			
+		var line = d3.svg.line()
+			.interpolate("monotone")
+			.x(function(d) { return x(d.hour); })
+			.y(function(d) { return y(d.y0 + d.y); });
+
+		var stack = d3.layout.stack()
+			.values(function(d) { return d.values; });
+			
+		var gr = d3.select("#grSect").append("svg")
+			.attr("width", width)
+			.attr("height", height);
+			
+		gr.classed("svg-container", true)
+			//.attr("preserveAspectRatio", "xMinYMin meet")
+			.attr("viewBox", "-30 -12 430 210")
+			.classed("svg-content-responsive", true);
+				
+		d3.csv("stacked/" + (chemin.split('_')[0]).slice(0, -1) + '_' + (chemin.split('/')[0]).split('_')[1] + "_stacked.csv", function(error, data) {
+		
+			color.domain(d3.keys(data[0]).filter(function(key) { return key !== "hour" && key !== "secteur"; }));
+			data.forEach(function(d) {
+				d.hour = d.hour;
+			});
+		
+			if (error) throw error;
+
+			// Filter data by district code
+			data = data.filter(function(row){
+			return row["secteur"] == currSect ;
+			}) ;
+  
+			var browsers = stack(color.domain().map(function(name) {
+			return {
+			  name: name,
+			  values: data.map(function(d) {
+				return {hour: d.hour, y: d[name] * 1};
+			  })
+			};
+			}));
+
+			var browser = gr.selectAll(".browser")
+			  .data(browsers)
+			.enter().append("g")
+			  .attr("class", "browser");
+			  
+			//Set the axis
+			// Find the value of the day with highest total value
+			var valMax = d3.max(data, function(d){
+				var vals = d3.keys(d).map(function(key){ return key !== "hour"  && key !== "secteur" ? d[key] : 0 });
+				return d3.sum(vals);
+			});
+			
+			if (valMax > 1000){	
+				tform = '.2s' ;		
+			}
+			else { tform = '.0f' ;}
+				
+			var xAxis = d3.svg.axis().scale(x)
+				.tickValues(["4am", "6am", "8am", "10am", "12am", "2pm", "4pm", "6pm", "8pm", "10pm", "12pm", "2am"])
+				.orient("bottom");
+				
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.tickFormat(d3.format(tform));
+			  
+			// Set domains for axes  			
+			x.domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"]).rangePoints([0, width], .5);
+			y.domain([0, valMax]);
+									
+			// Add shadow line with current hour
+			var dayTime ;
+			
+			if(slider.value() >= 4 & slider.value() <= 12){
+				dayTime = slider.value() + "am" ; 
+			}
+			if(slider.value() > 12 & slider.value() <= 24){
+				dayTime = (slider.value() - 12) + "pm" ; 
+			}
+			if(slider.value() > 24){
+				dayTime = (slider.value() - 24) + "am" ; 
+			}
+			
+			gr.append("line")
+				.attr("class", "shadow")
+			   .attr("x1", (x(dayTime)))
+			   .attr("x2", (x(dayTime)))
+			   .attr("y1", y.range()[0])
+			   .attr("y2", y.range()[1])
+			   .style("stroke", "black")
+			   .style("stroke-width", 10)
+			   .style("stroke-opacity", .2) ;
+			   
+			   
+			//Pattern
+			var pattern = browser.append("defs")
+				.append("pattern")
+				.attr('id', function(d) {return ('hash_' + d.name);})
+					.attr({ width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(45)"})
+				
+			pattern.append("rect")
+					.attr("width", 4)
+					.attr("height", 8)
+					.attr("fill", function(d) {return color(d.name);});
+			
+			// Append areas
+			browser.append("path")
+			  .attr("class", "area")
+			  .attr("d", function(d) { return area(d.values); })
+			  .style("fill" , function(d) {
+					if(d.name == (chemin.split('/')[0]).split('_')[0]){
+						return color(d.name) ;
+					}
+					else{
+						return "url(#hash_" + d.name + ")" ;
+					}			
+				})
+				.style("opacity" , function(d) {
+					if(d.name == (chemin.split('/')[0]).split('_')[0]){
+						return 0.75 ;
+					}
+					else{
+						return 0.3 ; 
+					}			
+				}); 
+			
+			// Add lines
+			var lines = gr.selectAll(".line")
+			  .data(browsers)
+				.enter().append("g")
+			  .attr("class", "line")
+			  .style("stroke", function(d) {return color(d.name)}) ;
+
+			lines.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) {return line(d.values); })
+				
+			// Add dots
+			var dots = gr.selectAll('.name')
+			  .data(browsers, function(d) {
+				return d.name;
+			  });
+
+			var lE = dots.enter()
+				.append('g')
+				.attr('class', 'name');
+
+			lE.selectAll("dots")
+				.data(function(d){
+					return d.values
+				})
+				.enter()
+				.append("circle")
+				.attr("r", 2.5)
+				.attr("cx", line.x())
+				.attr("cy", line.y())	
+				.attr("stroke", function(d){
+					return color(d3.select(this.parentNode).datum().name);
+				  })
+				.style("fill", "white") ;			
+	
+			// Display axis
+			gr.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis);
+
+			gr.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis);
+			
+			
+			// Tooltip 
+			// append a g for all the mouse over nonsense
+			var mouseG = gr.append("g")
+			  .attr("class", "mouse-over-effects");
+
+			// this is the vertical line
+			mouseG.append("path")
+			  .attr("class", "mouse-line")
+			  .style("stroke", "black")
+			  .style("stroke-width", "1px")
+			  .style("opacity", "0");
+
+			// here's a g for each circle and text on the line
+			var mousePerLine = mouseG.selectAll('.mouse-per-line')
+			  .data(browsers)
+			  .enter()
+			  .append("g")
+			  .attr("class", "mouse-per-line");
+
+			// the circle
+			mousePerLine.append("circle")
+			  .attr("r", 2.5)
+			  .style("fill", function(d) {return color(d.name)}) 
+			  .style("stroke-width", "1px")
+			  .style("opacity", "0");
+
+			// the rectangle
+			mousePerLine.append("rect")
+				.attr("height", "12px")
+				.style("fill", "white")
+				.style("opacity", "0.8")
+				.attr("x", "10px")
+				.attr("y", "-8px");
+			
+			// the text
+			mousePerLine.append("text")
+			  .style("font-size", "1.5em")
+			  .attr("transform", "translate(10,3)");
+			
+			var tickPos = x.range();
+			var xI = null ;
+			
+			// rect to capture mouse movements
+			mouseG.append('svg:rect')
+			  .attr('width', width)
+			  .attr('height', height)
+			  .attr('fill', 'none')
+			  .attr('pointer-events', 'all')
+			  .on('mouseout', function() { // on mouse out hide line, circles and text
+				d3.select(".mouse-line")
+				  .style("opacity", "0");
+				d3.selectAll(".mouse-per-line circle")
+				  .style("opacity", "0");
+				d3.selectAll(".mouse-per-line text")
+				  .style("opacity", "0")
+				d3.selectAll(".mouse-per-line rect")
+				  .style("opacity", "0");
+			  })
+			  .on('mouseover', function() { // on mouse in show line, circles and text
+				d3.select(".mouse-line")
+				  .style("opacity", "1");
+				d3.selectAll(".mouse-per-line circle")
+				  .style("opacity", "1");
+				d3.selectAll(".mouse-per-line text")
+				  .style("opacity", "1")
+				d3.selectAll(".mouse-per-line rect")
+				  .style("opacity", "1");
+			  })
+			  .on('mousemove', mousemove2) ;
+			  
+			  function mousemove2() { // mouse moving over canvas
+			  
+			  	var m = d3.mouse(this),
+					  lowDiff = 1e99;
+
+					for (var i in tickPos){
+						var diff = Math.abs(m[0] - tickPos[i]);
+
+						if (diff < lowDiff){
+							lowDiff = diff;
+							xI = i;
+						}
+												
+					}
+			
+				// position the circle and text
+				d3.selectAll(".mouse-per-line")
+				  .attr("transform", function(d, i) {
+					
+					var orY = Object.values(browsers[0])[1][xI].y ;
+					
+					var vFoc ;
+					
+					if (orY < 100){	
+						vFoc = (Math.round(Object.values(d)[1][xI].y * 10)/10).toFixed(1) ;	
+					}
+					
+					if (orY > 100){	
+						vFoc = format(Math.round(Object.values(d)[1][xI].y)) ;	
+					}
+					
+					// update the text with y value			
+					d3.select(this).select('text')
+					  .text(vFoc);
+					  
+					// update the rect width
+					d3.select(this).select('rect')	
+						.attr("width", d3.select(this).select('text').node().getBBox()["width"]) ;					;
+
+					// return position
+					return "translate(" + tickPos[xI] + "," +  y(Object.values(d)[1][xI].y0 + Object.values(d)[1][xI].y) + ")";
+				
+				});
+  
+			}
+
+		}); 
+	
+	}
+
+	function displayMap(chemin){
+
+		if ((chemin.split('/')[0]).split('_')[1] == "choro"){
+	
+			d3.json(chemin, function(json) {
+			
+				d3.select(".filtre").remove() ;
+		
+				//Arguments pour la construction de la légende
+				var ext_color_domain =  colDom ;
+				var color_domain = ext_color_domain.slice(1, ext_color_domain.length + 1)
+				
+				var legend_labels = [ext_color_domain[1] + "% "+ " or less",
+									ext_color_domain[1] + "% to " + ext_color_domain[2] + "%",
+									ext_color_domain[2] + "% to " +  ext_color_domain[3] + "%",
+									ext_color_domain[3] + "% to " +  ext_color_domain[4] + "%",
+									ext_color_domain[4] + "%" + " or more"] 
+				
+				var color = d3.scale.threshold()
+					.domain(color_domain)
+					.range(col);
+					
+				var hour = Math.trunc(slider.value()) ;
+				indic = (chemin.split('/')[0]).split('_')[0] + "_h" + hour ;
+							
+				// Choro      
+				var color = d3.scale.threshold()
+					.domain(color_domain)
+					.range(col);
+
+				var secteurs = json.features;
+				
+				var densities = secteurs
+					  .map(function(d) { return d.properties.indic ; })
+					  .sort(function(a, b) { return a - b; });
+				
+
+				g.selectAll(".legende").remove() ;
+				g.selectAll("g").remove() ;
+				
+				g.append("g")
+					  .attr("class", "secteurs")
+					.selectAll("path")
+					  .data(secteurs)
+					.enter().append("path")
+					  .style("fill", function(d) { return color(d.properties[indic]); })
+					  .style("stroke", "white")
+					  .style("stroke-width", 0.5 / currentZoom)
+					  .attr("d", path) ; 
+					  
+				// Add selected sector if a sector was already clicked	
+				if(currSect){				
+					var chemins = secteurs.map(function (d){					
+						if(d.properties.SECT_EGT == currSect){					
+							return path(d) ;					
+						}
+					});
+					
+					d3.select(".filtre").remove() ;
+					
+					var clickedSect = chemins.filter(function(i){return i != null ;}) ;
+				}
+				
+				g.append("path")
+					.attr("class", "filtre")
+					.attr("d", clickedSect) 
+					.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+				  
+				// Mouseover and onclick functions								
+				g.selectAll("path").on("mouseover", function(d){
+					
+					var sectover = d3.select(this).attr("d") ;
+				
+					g.append("path")
+						.attr("class", "sectover")
+						.attr("d", sectover) 
+						.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;				
+														
+					d3.select(this).style({'cursor' :'pointer'}) ;
+					
+					info.transition()
+						   .duration(200)
+						   .style("opacity", .8);
+					info.text(d.properties.LIB) 
+						.style("left", (d3.event.pageX - 300) + "px")
+						.style("top", (d3.event.pageY - 250) + "px")
+						.style("background-color", "white")
+						.style("display", "block");
+										
+					 })
+					.on("mouseout", function(d){
+					
+						$(".sectover").css('display', 'none') ;
+						
+						info.transition()
+						   .duration(500)
+						   .style("opacity", 0 );
+						  
+					})
+					.on("click", function(d){
+	
+						$("#titleGr2").html('');
+						d3.select("#grSect").selectAll("svg").remove() ; 
+						
+						$("#grSect").html('') ;
+						
+						nameSect = d.properties.LIB ;
+						d3.select("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+					
+						// DISPLAY SECTOR CHARTS FROM SELECTION
+						currSect = d.properties.SECT_EGT ;
+						if (currSect && typeGraph == "simple"){ 
+						
+							// Initialisation
+							$("#titleGr2").html(titleGr2);
+							$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
+							
+							$("#altGr22").css('cssText', style1);
+							$("#altGr12").css('cssText', style2);
+
+							// Build sector chart
+							displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+						}
+						
+						if (currSect && typeGraph == "stacked" && chemin != "pop_prop/geo/secteursData.geojson"){
+						
+							// Build sector chart
+							stackedBarChart(currSect) ;
+
+						}
+						
+						currSect = d.properties.SECT_EGT ;
+						
+						// Selected sector
+						d3.select(".filtre").remove() ;
+						
+						g.append("path")
+							.attr("class", "filtre")
+							.attr("d", d3.select(this).attr("d")) 
+							.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+						
+					});		
+
+				//Dessin de la légende
+				d3.select("#legende").html("") ;
+				
+				var legend = d3.select("#legende").append("svg")
+						.attr("width", 160)
+						.attr("height", 200)
+						.attr("class", "legende")
+						.classed("svg-container", true) 
+						//.attr("preserveAspectRatio", "xMinYMin meet")
+						.attr("viewBox", "0 0 160 200")
+						.classed("svg-content-responsive", true); 
+						
+				var blocs = legend.selectAll("rect")
+						.data(ext_color_domain)
+						.enter().append("rect");
+						
+				var blocsAttributes = blocs
+					.attr("x", 25)
+					.attr("y", function(d, i){ return 175 - (i*25) - 2*25;})
+					.attr("width", 25)
+					.attr("height", 25)
+					.style("fill", function(d, i) { return color(d); })
+					.style("stroke", "white");
+					
+				var text = legend.selectAll("text")
+					.data(legend_labels)
+					.enter();	
+					
+				var textLabels = text
+					.append("text")
+					.attr("x", 60)
+					.attr("y", function(d, i){ return 175 - (i*25) - 25 - 7;})
+					.text(function(d, i){ return legend_labels[i]; }) ;
+				
+			});
+			
+		}
+			
+		if ((chemin.split('/')[0]).split('_')[1] == "prop"){
+			
+			d3.json(chemin, function(json) {
+			
+				d3.select(".filtre").remove() ;
+						
+				var hour = Math.trunc(slider.value()) ;
+				indic = (chemin.split('/')[0]).split('_')[0] + "_h" + hour ;
+			
+				g.selectAll(".secteurs").remove() ;
+				g.selectAll("circle").remove() ;
+				d3.select("#legende").selectAll(".legende").remove() ;
+			
+				// Définition du fond de carte
+				g.append("g")
+					.attr("class", "secteurs")
+					.selectAll("path")
+					.data(json.features)
+					.enter()
+					.append("path")
+					.attr("d", path)
+					.style("stroke", "white")
+					.style("stroke-width", 0.5  / currentZoom) ;
+
+				// Add selected sector if a sector was already clicked					
+				if(currSect){				
+					var chemins = json.features.map(function (d){					
+						if(d.properties.SECT_EGT == currSect){					
+							return path(d) ;					
+						}
+					});
+					
+					d3.select(".filtre").remove() ;
+					var clickedSect = chemins.filter(function(i){return i != null ;}) ;
+			
+				}
+				
+				g.append("path")
+					.attr("class", "filtre")
+					.attr("d", clickedSect) 
+					.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+				
+				g.selectAll("path").on("mouseover", function(d){
+							
+					var sectover = d3.select(this).attr("d") ;
+				
+					g.append("path")
+						.attr("class", "sectover")
+						.attr("d", sectover) 
+						.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;				
+														
+					d3.select(this).style({'cursor' :'pointer'}) ;
+						
+					info.transition()
+					   .duration(200)
+					   .style("opacity", .9);
+					info.html(d.properties.LIB) 
+						.style("left", (d3.event.pageX - 300) + "px")
+					   .style("top", (d3.event.pageY - 250) + "px")
+					   .style("background-color", "#EFEBE5")
+					   .style("width", "auto")
+					   .style("height", "auto")
+					   .style("display", "block");
+					 })
+					.on("mouseout", function(d){
+					
+						$(".sectover").css('display', 'none') ;
+					
+						info.transition()
+						   .duration(500)
+						   .style("opacity", 0 );
+					})
+					.on("click", function(d){
+
+						$("#titleGr2").html('');
+						d3.select("#grSect").selectAll("svg").remove() ; 
+						
+						$("#grSect").html('') ;
+						
+						nameSect = d.properties.LIB ;
+						d3.select("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+					
+						// DISPLAY SECTOR CHARTS FROM SELECTION
+						currSect = d.properties.SECT_EGT ;
+						if (currSect && typeGraph == "simple"){ 
+							
+							// Initialisation
+							$("#titleGr2").html(titleGr2);
+							$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
+							
+							$("#altGr22").css('cssText', style1);
+							$("#altGr12").css('cssText', style2);
+
+							// Build sector chart
+							displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+						
+						}
+						
+						if (currSect && typeGraph == "stacked" && chemin != "pop_prop/geo/secteursData.geojson"){
+						
+							// Build sector chart
+							stackedBarChart(currSect) ;
+
+						}
+						
+						if(currSect && chemin == "pop_prop/geo/secteursData.geojson"){
+						
+							$("#altGr22").css('cssText', style1);
+							$("#altGr12").css('cssText', style3);
+						
+						}
+					
+						currSect = d.properties.SECT_EGT ;
+						
+						// Selected sector
+						d3.select(".filtre").remove() ;
+						
+						g.append("path")
+							.attr("class", "filtre")
+							.attr("d", d3.select(this).attr("d")) 
+							.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+
+					});	
+			
+				// Ajout des cercles proportionnels	
+				if (chemin == "pop_prop/geo/secteursData.geojson"){
+					var rayon = function(d) { return (radius(d.properties[indic])/2)/ currentZoom } ;
+				}
+				else{
+					var rayon = function(d) { return radius(d.properties[indic])/ currentZoom } ;
+				}
+							
+				var features = json.features;
+				var centroids = features.map(function (feature){
+					return path.centroid(feature);
+				});
+					
+				g.selectAll(".centroid").data(centroids)
+				.enter().append("circle")
+				  .attr("class", "bubble")
+				  .attr("fill", col[4])
+				  .attr("cx", function (d){ return d[0]; })
+				  .attr("cy", function (d){ return d[1]; })
+					.data(features)
+					.attr("r", rayon);	
+					
+				// DESSIN DE LA LEGENDE
+				// Stockage des valeurs min, max et moyenne de l'indicateur pour la légende des cercles proportionnels
+				tabVal = [] ;
+				
+				for (var i = 0; i < json.features.length; i++){
+					tabVal.push(json.features[i].properties[indic]) ; 
+				}
+
+				var valMax = Math.max.apply(Math,tabVal.map(function(o){return o;})) ;
+				var valMin = Math.min.apply(Math,tabVal.map(function(o){return o;})) ;
+				var valMed = (valMax + valMin)/2 ;
+				
+				var dataset = [valMax, valMed, valMin] ;
+				
+				// Dessin de la légende
+				var legend = d3.select("#legende").append("svg")
+						.attr("class", "legende")
+						.classed("svg-container", true) 
+						//.attr("preserveAspectRatio", "xMinYMin meet")
+						.attr("viewBox", "0 0 160 150")
+						.classed("svg-content-responsive", true); ;
+						
+				var circles = legend.selectAll("circle")
+						.data(dataset)
+						.enter().append("circle");
+				
+				var circleAttributes = circles
+					.attr("cx", 50)
+					.attr("cy", function(d){
+						if (chemin == "pop_prop/geo/secteursData.geojson"){
+							return 85 - (radius(d)/2) ;
+						}
+						else{
+							return 85 - radius(d) ;
+						}
+						})
+					.attr("r", function(d) { 
+						if (chemin == "pop_prop/geo/secteursData.geojson"){
+							return radius(d) / 2 ;
+						}
+						else{
+							return radius(d); 
+						}
+					})
+					.style("fill", col[4])
+					.style("fill-opacity", 0.75)
+					.style("stroke", "white");
+
+				var text = legend.selectAll("text")
+					.data(dataset)
+					.enter()
+					.append("text");	
+					
+				var textLabels = text
+					.attr("x", 90)
+					.attr("y", function(d){
+						if (chemin == "pop_prop/geo/secteursData.geojson"){
+							return 85 - radius(d) ;
+						}
+						else{
+							return 85 - (2*radius(d)) ;
+						}
+					 })
+					.text( function (d) { return format(Math.floor(d)); }) ;
+								
+			}) ;
+
+		}		
+				
+		// AJOUT DES DEPARTEMENTS
+		d3.json("LAYERS/depIdf.geojson", function(json){
+
+			dep.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("class", "depBorder")
+				.attr("d", path)
+				.style("fill", "none")
+				.style("stroke", "#575756")
+				.style("stroke-width", "0.5");
+		}) ;
+	
+	}
+
+	function createSlider() {
+	
+		d3.select("#slider").html("") ;
+		d3.select("#timeAxis").html("") ;
+	
+		// Set the ranges
+		var	x = d3.scale.ordinal().domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"])
+			.rangePoints([0, 957], .5);
+			
+		var xb = d3.scale.linear().domain([4, 27]).range([4, 376]) ;
+
+		//Set the axis
+		xAxis = d3.svg.axis().scale(x)
+			.tickValues(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"])
+			.orient("bottom");
+		
+		var val = slider ? slider.value() : 4;
+		
+		slider = d3.slider()
+				.min(4).max(27).step(1)
+				/*.axis(d3.svg.axis()
+					.orient("bottom")
+					.ticks(23))*/
+			.on("slide",function(event,value){
+			  if ( isPlaying ){
+				clearInterval(interval);
+			  }
+			  currentFrame = value;
+			  displayMap(chemin) ;
+			 
+			var currHour = xAxis.tickValues()[(slider.value()-4)] ;
+			
+			d3.select("#hour").text(currHour) ;
+			  
+			if (chemin != "pop_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#graphiques").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			}
+			if (chemin == "pop_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#grSect").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			} 
+			})				
+			.on("slideend",function(){
+			  if ( isPlaying ) animate();
+			})
+		.value(val);
+		
+		//Tickformat must depend on values of y
+		var timeAxis = d3.select("#timeAxis")
+			.append("svg")
+			.attr("width", 957)
+			.attr("height", 15)
+			.classed("svg-container", true) 
+			.attr("preserveAspectRatio", "xMinYMin meet")
+			.attr("viewBox", "0 0 958 25")
+			.classed("svg-content-responsive", true)
+			.call(xAxis) ;	
+			
+		d3.select("#hour").text(xAxis.tickValues()[(slider.value()-4)]) ;
+			
+		d3.select("#slider")
+			.append("div")
+			.call(slider);
+		
+	}
+
+	function animate() {
+
+		interval = setInterval(function(){
+		
+			currentFrame++ ;
+			
+			if (currentFrame == 28) currentFrame = 4 ;
+			
+			slider.value(currentFrame) ;
+			
+			d3.select("#hour").text(xAxis.tickValues()[(slider.value()-4)]) ;
+			
+			displayMap(chemin) ;
+			
+			// Add shadow line with current hour
+			var xb = d3.scale.linear().domain([4, 27]).range([4, 376]) ;
+
+			if (chemin != "pop_prop/geo/secteursData.geojson"){
+			d3.select("#graphiques").selectAll(".shadow").remove() ;
+			d3.select("#graphiques").selectAll("svg").insert("line", ".dots")
+				.attr("class", "shadow")
+				.attr("x1", xb(currentFrame))
+				.attr("x2", xb(currentFrame))
+				.attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				.attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				.style("stroke", "black")
+				.style("stroke-width", 10)
+				.style("stroke-opacity", .2) ;   
+			}
+			if (chemin == "pop_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#grSect").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			} 
+			
+			if (currentFrame == 28){
+			
+			isPlaying = false ;
+			d3.select("#play").classed("pause",false).attr("title","Jouer l'animation");
+			clearInterval( interval );
+			return;
+			
+			}
+		
+		}, 1000) ;
+						
+	}
+
+}
+
+function zoomed(){
+
+	currentZoom = zoom.scale(); 
+	
+	g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	dep.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+
+	g.select(".secteurs").selectAll("path")
+		.style("stroke-width", 0.5 / currentZoom) ;
+	
+	if (chemin == "pop_prop/geo/secteursData.geojson"){
+		g.selectAll("circle")
+			.attr("r", function(d){ return (radius(d.properties[indic])/2)/currentZoom; })
+	}
+	else{
+		g.selectAll("circle")
+			.attr("r", function(d){ return radius(d.properties[indic])/currentZoom; })
+	}
+	
+}
+
+</script>
+ 
+ <script>
+ // GOOGLE ANALYSTICS
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72654922-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>
