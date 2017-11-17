@@ -24,9 +24,6 @@
  
 <div id="container">
 
- <div class="alert">
-  
-</div> 
 	
 	<div id= "alerte2" style = "text-align: center;">
  		<strong>The MOBILISCOPE</strong></br>
@@ -285,7 +282,7 @@ $(".niv2").click(function() {
 
 // Buttons
 $(".nb:first").css("margin-right", "4em") ;
-$("button").click(function() {
+$(".part, .nb, .flow").click(function() {
 
 	if(!isPlaying){
 	
@@ -1692,6 +1689,8 @@ function load(chemin, colDom, col){
 						$("#altGr22").css('cssText', style1);
 						$("#altGr12").css('cssText', style3);
 					
+						// Build sector chart
+						displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
 					}
 					
 					// Selected sector
@@ -1943,8 +1942,7 @@ function load(chemin, colDom, col){
 								$("#titleGr2").html(titleGr2);
 								$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
 
-								// Build sector chart
-								displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+								
 							}
 							
 							if (currSect && typeGraph == "stacked" && chemin.split('_')[0] != "pop0"){
@@ -1962,6 +1960,8 @@ function load(chemin, colDom, col){
 								$("#altGr22").css('cssText', style1);
 								$("#altGr12").css('cssText', style3);
 							
+							// Build sector chart
+							displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
 							}
 							
 							// Selected sector
@@ -2547,6 +2547,22 @@ function zoomed(){
   ga('send', 'pageview');
 
 </script>
+
+<script type="text/javascript">
+// PIWIK
+   var _paq = _paq || [];
+   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+   _paq.push(['trackPageView']);
+   _paq.push(['enableLinkTracking']);
+   (function() {
+     var u="//mobiliscope.parisgeo.cnrs.fr/statweb/";
+     _paq.push(['setTrackerUrl', u+'piwik.php']);
+     _paq.push(['setSiteId', '1']);
+     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+   })();
+</script>
+
 
 </body>
 

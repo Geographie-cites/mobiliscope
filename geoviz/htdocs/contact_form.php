@@ -68,7 +68,7 @@ function checkboxLim(f_name, nbr_limit){
 	<div class="cont" id="subtitle"><span class="fittext1" id="seg">Contact Form</span></div>
     		
 		<div id="picto"> 
-			<img id="home" src = "Pictos/home2.png" title = "Maps & Graphs"  onclick = "window.location.href='index.html';"></img>
+			<img id="home" src = "Pictos/home2.png" title = "Maps & Graphs"  onclick = "window.location.href='http://mobiliscope.parisgeo.cnrs.fr';"></img>
 			<img id="moreinfo" src = "Pictos/menu2.png" title = "Infos"  onclick = "window.location.href='info.html';"></img>
 			<img id="contact" src = "Pictos/contact.png" title = "Contact form"  onclick = "window.open('http://mobiliscope.parisgeo.cnrs.fr/contact_form.php', '_blank');"></img>
 		</div>
@@ -78,7 +78,7 @@ function checkboxLim(f_name, nbr_limit){
     <div class = "corps" id="text1" style="margin-left : 17% ; ">
   
 <p>PLEASE FILL OUT THE FORM BELOW TO STAY UP TO DATE WITH THE MOBILISCOPE</p>
-<p>Email address and country are required fields and are marked with a star.</p>
+<p><span style = "font-style : italic ;">Email address and country are required fields and are marked with a star.</span></p>
 
 <form name="MBS_contact_form" id="MBS_contact_form" method="post" action="Submit.php">
 <p>
