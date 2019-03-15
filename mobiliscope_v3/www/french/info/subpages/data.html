@@ -1,0 +1,341 @@
+<div class = "corps">
+    <h2>Données</h2>
+
+	<p>
+		<b>22 villes françaises et leur périphérie</b> sont accessibles dans la version actuelle du Mobiliscope.
+	</p>
+
+    <h3>Enquêtes ménage-déplacement </h3>
+    <p>
+		Les données proviennent de 22 grandes enquêtes sur les déplacements des Français (Enquête Ménage Déplacement - EMD ; Enquête Globale Transport - EGT CEREMA) disponibles via <a href = "http://www.progedo-adisp.fr/" target="_blank">ADISP</a> (Archives de Données Issues de la Statistique Publique).</br>
+		Ces enquêtes portent sur un échantillon de ménages représentatif de la population du territoire enquêté. Au cours d’entretiens en face à face ou téléphoniques, les personnes ont été invitées à décrire le déroulement de leur journée de la veille en précisant les points de départ et d’arrivée de chaque déplacement, l'heure précise du début et de la fin du déplacement, le motif du déplacement et le moyen de transport utilisé.</br>
+		Nous avons tranformé cette <b>table de déplacements</b> en <b>table de présences</b> dans laquelle :
+			<ul>
+				<li>Chaque ligne comporte la présence d'un individu localisée à l'échelle d'un secteur (soit la plus petite unité spatiale dans laquelle il était pertinent - pour des raisons de puissance statistique - d'agrégrer les données) et à une heure donnée (découpage en tranches de 24h).</li>
+				<li>Toutes les présences sont incluses dans une journée type d'une durée de 24h de 4h à 3h. Un découpage en 24 tranches horaires a été défini afin d'avoir 24 photographies de la population présente au cours de cette journée type.</li>
+				<li>Les périodes de déplacement ont été supprimées de la géovisualisation, à l'exception des déplacements réalisés avec un mode de transport doux (marche à pied, vélo etc.). Dans ce cas, les marcheurs, cyclistes etc. sont pris en compte dans les secteurs où ils se déplacent (au contraire des individus se déplaçant en voiture, train etc.) : la moitié du temps de déplacement est considérée comme une présence dans le secteur de départ, l'autre moitié est comptée comme présence dans le secteur d'arrivée. </li>
+			</ul>
+		</p>
+
+    <h3>Population étudiée </h3>
+    <p>
+		Seuls les enquêtés <b>âgés de 16 ans et plus</b> (suffisamment autonomes dans leur mobilité quotidienne) ont été retenus. Par ailleurs, les données relatives aux déplacements du weekend n'étant disponibles que pour l'Île-de-France (enquête globale transport - EGT), nous avons restreint notre jeu de données aux déplacements réalisés un <b>jour de semaine (lundi-vendredi)</b>.</br>
+		Chacune des mesures publiées dans le Mobiliscope a été estimée heure par heure (de 4h à 3h) en prenant en compte les <b>coefficients de pondération</b> :
+		<ul>
+			<li>Pour l'Île-de-France (EGT, 2010), les coefficients de pondération ont été calculés à l'échelle des individus et à l'échelle des ménages afin de garantir pour chaque secteur une distribution des ménages (taille et type de logement) et des individus (âge, sexe, occupation et catégorie socioprofessionnelle) similaire à celle observée dans le recensement de la population de 2008 (INSEE).</li>
+			<li>Pour les autres enquêtes ménage-déplacement (EMD), les coefficients de pondération ont été mesurés aux niveaux des ménages et des individus afin de respecter, pour chaque secteur, la distribution (taille des ménages et âge des individus) observée dans les recensements de l'INSEE.</li>
+		</ul>
+	</p>
+
+    <h3>Secteurs</h3>
+    <p>
+		Les <b>secteurs</b> correspondent à l'unité spatiale minimale pour la diffusion des résultats des enquêtes ménage-déplacement.
+		Le même nombre d'habitants a été enquêté dans chaque secteur (sauf en Île-de-France). La superficie des secteurs varie selon la densité de population : ils sont plus petits au coeur des villes et plus étendus en périphérie.
+        <ul>
+            <li>Dans les villes centres, les secteurs correspondent à de grands quartiers (ou des arrondissements pour Paris, Lyon et Marseille).</li>
+            <li>En dehors, les secteurs correspondent à un groupe de communes (le Mobiliscope n'affiche que le nom des trois communes les plus peuplées de chaque secteur).</li>
+        </ul>
+	</p>
+	<p>
+		Vous trouverez plus d'information concernant la méthodologie dans l'article <a href = "https://halshs.archives-ouvertes.fr/halshs-01472039/document" target="_blank">Social segregation around the clock in the Paris region</a>.
+	</p>
+	
+	<p>
+	<div class="btn-c"><a class="btn"href="/fr/info/methods/indicators">Découvrez les indicateurs</a></div>
+	</p>
+
+	<h3>Informations sur l'échantillon de population</h3>
+
+   <table>
+   <thead>
+    <tr>
+        <th>Ville</th>
+        <th>Année</th>
+        <th>Nombre d'enquêtés de 16 ans et plus</th> 
+        <th>Nombres de déplacements</th>
+        <th>Nombre de présences</th>
+        <th>Nombre de secteurs</th>
+        <th>Taille des secteurs km². Superficie médiane (min-max)</th>
+        <th>Nombre d'enquêtés par secteur . Médiane (min-max) à 3h</th>
+        <th>Nombre d'enquêtés par secteur . Médiane (min-max) à 15h</th>
+    </tr>
+	</thead>
+	<tbody>
+    <tr>
+        <td data-label="Ville">Albi et sa région</td>
+        <td data-label="Année">2011</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">2 339</td>
+        <td data-label="Nombres de déplacements">9 171</td>
+        <td data-label="Nombre de présences">10 518</td>
+        <td data-label="Nombre de secteurs">15</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">7 (1,3-54)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">155 (148-160)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">122 (80-282)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Angers et sa région</td>
+        <td data-label="Année">2012</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">3 983</td>
+        <td data-label="Nombres de déplacements">18 399</td>
+        <td data-label="Nombre de présences">18 908</td>
+        <td data-label="Nombre de secteurs">28</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">17 (2-110)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">139 (125-160)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">105 (65-272)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Angoulême et sa région</td>
+        <td data-label="Année">2012</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">2 684</td>
+        <td data-label="Nombres de déplacements">11 300</td>
+        <td data-label="Nombre de présences">12 463</td>
+        <td data-label="Nombre de secteurs">18</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">14 (1,5-151)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">146 (139-172)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">129 (71-257)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Béziers et sa région</td>
+        <td data-label="Année">2014</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">4 212</td>
+        <td data-label="Nombres de déplacements">18 661</td>
+        <td data-label="Nombre de présences">19 719</td>
+        <td data-label="Nombre de secteurs">30</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">52 (1,2-822)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">138 (130-153)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">120 (78-196)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Bordeaux et sa région</td>
+        <td data-label="Année">2009</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">10 677</td>
+        <td data-label="Nombres de déplacements">48 462</td>
+        <td data-label="Nombre de présences">52 014</td>
+        <td data-label="Nombre de secteurs">76</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">5 (0,4-203)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">140 (124-156)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">116 (65-268)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Caen et sa région</td>
+        <td data-label="Year">2011</td>
+        <td data-label="Number of respondents aged 16 or over">10 000</td>
+        <td data-label="Nombres de déplacements">43 194</td>
+        <td data-label="Nombre de présences">48 466</td>
+        <td data-label="Nombre de secteurs">67</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">15 (0,5-647)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">151 (125-165)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">121 (72-475)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Clermont-Ferrand et sa région</td>
+        <td data-label="Année">2012</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">8 051</td>
+        <td data-label="Nombres de déplacements">34 182</td>
+        <td data-label="Nombre de présences">37 638</td>
+        <td data-label="Nombre de secteurs">56</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">39 (0,7-471)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">144 (131-158)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">110 (75-359)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Grenoble et sa région</td>
+        <td data-label="Année">2010</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">13 834</td>
+        <td data-label="Nombres de déplacements">63 336</td>
+        <td data-label="Nombre de présences">67 131</td>
+        <td data-label="Nombre de secteurs">97</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">14 (0,2-834)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">139 (124-273)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">106 (53-463)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">La Rochelle et sa région</td>
+        <td data-label="Année">2011</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">2 902</td>
+        <td data-label="Nombres de déplacements">12 203</td>
+        <td data-label="Nombre de présences">13 847</td>
+        <td data-label="Nombre de secteurs">19</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">8 (1,3-40)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">153 (137-166)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">121 (75-408)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Lille et sa région</td>
+        <td data-label="Année">2016</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">7 950</td>
+        <td data-label="Nombres de déplacements">38 180</td>
+        <td data-label="Nombre de présences">39 031</td>
+        <td data-label="Nombre de secteurs">57</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">5 (1-56)</td>
+        <td data-label="Nombre d'enquêtés par secteur. Médiane (min-max) à 3h">138 (123-154)</td>
+        <td data-label="Nombre d'enquêtés par secteur. Médiane (min-max) à 15h">118 (72-300)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Lyon et sa région</td>
+        <td data-label="Année">2015</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">24 071</td>
+        <td data-label="Nombres de déplacements">99 585</td>
+        <td data-label="Nombre de présences">107 666</td>
+        <td data-label="Nombre de secteurs">169</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">10 (0,4-346)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">140 (121-252)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">122 (71-462)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Marseille et sa région</td>
+        <td data-label="Année">2013</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">19 380</td>
+        <td data-label="Nombres de déplacements">87 031</td>
+        <td data-label="Nombre de présences">93 970</td>
+        <td data-label="Nombre de secteurs">137</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">18 (0,3-342)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">141 (117-162)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">120 (68-390)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Montpellier et sa région</td>
+        <td data-label="Année">2014</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">11 433</td>
+        <td data-label="Nombres de déplacements">52 387</td>
+        <td data-label="Nombre de présences">55 662</td>
+        <td data-label="Nombre de secteurs">80</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">10 (0,3-547)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">140 (125-240)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">116 (72-399)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Nancy et sa région</td>
+        <td data-label="Année">2013</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">9 657</td>
+        <td data-label="Nombres de déplacements">40 664</td>
+        <td data-label="Nombre de présences">43 563</td>
+        <td data-label="Nombre de secteurs">68</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">19 (0,6-407)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">142 (124-160)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">108 (60-539)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Nantes et sa région</td>
+        <td data-label="Année">2015</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">17 358</td>
+        <td data-label="Nombres de déplacements">81 924</td>
+        <td data-label="Nombre de présences">85 372</td>
+        <td data-label="Nombre de secteurs">123</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">21 (0,6-331)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">139 (113-195)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">117 (71-370)</td>
+    </tr>
+
+    <!-- <tr>
+        <td data-label="Ville">Nice et sa région</td>
+        <td data-label="Année">2009</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">13 433</td>
+        <td data-label="Nombres de déplacements">58 239</td>
+        <td data-label="Nombre de présences">59 293</td>
+        <td data-label="Nombre de secteurs">104</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">5 (0,4-505)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">142 (1-162)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">115 (2-401)</td>
+    </tr> -->
+
+    <tr>
+        <td data-label="Ville">Paris et sa région</td>
+        <td data-label="Année">2010</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">26 180</td>
+        <td data-label="Nombres de déplacements">124 262</td>
+        <td data-label="Nombre de présences">130 802</td>
+        <td data-label="Nombre de secteurs">109</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">26 (3-1324,4)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">232 (23-416)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">196 (77-730)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Quimper et sa région</td>
+        <td data-label="Année">2013</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">4 696</td>
+        <td data-label="Nombres de déplacements">17 291</td>
+        <td data-label="Nombre de présences">20 382</td>
+        <td data-label="Nombre de secteurs">30</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">57 (2,5-260)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">152 (142-201)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">128 (100-266)</td>
+    </tr>
+	
+	<tr>
+        <td data-label="Ville">Rennes et sa région</td>
+        <td data-label="Année">2018</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">9 317</td>
+        <td data-label="Nombres de déplacements">44 004</td>
+        <td data-label="Nombre de présences">45 964</td>
+        <td data-label="Nombre de secteurs">68</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">39 (0,8-466)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">136 (118-157)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">106 (61-367)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Saint-Étienne et sa région</td>
+        <td data-label="Année">2010</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">8 525</td>
+        <td data-label="Nombres de déplacements">38 576</td>
+        <td data-label="Nombre de présences">40 284</td>
+        <td data-label="Nombre de secteurs">52</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">31 (1,2-345)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">156 (137-220)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">128 (75-339)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Strasbourg et sa région</td>
+        <td data-label="Année">2009</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">10 052</td>
+        <td data-label="Nombres de déplacements">46 935</td>
+        <td data-label="Nombre de présences">48 815</td>
+        <td data-label="Nombre de secteurs">67</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">35 (0,6-581)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">145 (128-224)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">127 (70-271)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Toulouse et sa région</td>
+        <td data-label="Année">2013</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">11 136</td>
+        <td data-label="Nombres de déplacements">48 919</td>
+        <td data-label="Nombre de présences">53 431</td>
+        <td data-label="Nombre de secteurs">66</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">11 (0,9-237)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">155 (128-330)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">124,5 (64-512)</td>
+    </tr>
+
+    <tr>
+        <td data-label="Ville">Valenciennes et sa région</td>
+        <td data-label="Année">2010</td>
+        <td data-label="Nombre d'enquêtés de 16 ans et plus">5 718</td>
+        <td data-label="Nombres de déplacements">23 313</td>
+        <td data-label="Nombre de présences">23 775</td>
+        <td data-label="Nombre de secteurs">41</td>
+        <td data-label="Taille des secteurs km². Superficie médiane (min-max)">12 (0,9-51)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 3h">139 (119-159)</td>
+        <td data-label="Nombre d'enquêtés par secteur . Médiane (min-max) à 15h">118 (75-275)</td>
+    </tr> 
+	</tbody>
+    </table>
+</div>
