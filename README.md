@@ -10,7 +10,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/gpl
 
 Mobiliscope v2 to be released in November 2017
 
-![Mobiliscope v2](/img/img.png?raw=true "")
+![Mobiliscope v3](/img/v3.png?raw=true "")
 
 # Useful links
 
