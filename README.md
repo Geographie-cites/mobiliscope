@@ -1,4 +1,4 @@
-# Mobiliscope - v2
+# Mobiliscope - v3
 
 Mobiliscope is a free and open-source web mapping platform for the interactive exploration of neighborhood social composition around the clock in metropolitan areas
 It is intended to help people to explore cities around the clock.
