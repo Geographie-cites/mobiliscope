@@ -64,7 +64,7 @@ com23ED <- com23ED %>%
 
 # # sauvegarde
 # write.csv2(com23ED, "scriptsr/txt/listCom.csv", row.names = F)
-# write_json(com23ED, "mobiliscope/cities/cities_list.json")
+# write_json(com23ED, "www/cities/cities_list.json")
 
                    
 
