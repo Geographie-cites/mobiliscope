@@ -42,9 +42,9 @@ sfSec <- left_join(sfSec, libSect, by = "Secteur_EM")
 rm(libSect)
 
 # Création des répertoires "stacked" et "indice_segreg"
-dir.create(paste("mobiliscope/data/",nomEnq, sep = ''))
-dir.create(paste("mobiliscope/data/",nomEnq,"/stacked", sep = ''))
-dir.create(paste("mobiliscope/data/",nomEnq,"/indice_segreg", sep = ''))
+dir.create(paste("www/data/",nomEnq, sep = ''))
+dir.create(paste("www/data/",nomEnq,"/stacked", sep = ''))
+dir.create(paste("www/data/",nomEnq,"/indice_segreg", sep = ''))
 
 
 # 1. Sélection des présences autonomes et stationnaires et transfo de la table au format large
