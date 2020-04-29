@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+	<title>Mobiliscope</title>
+	<meta name="description" content="Mobiliscope is a free and open-source web mapping platform for the interactive exploration of neighborhood social composition around the clock in metropolitan areas" />
+	<meta name="author" content="Constance Lecomte">
+	
+	<script src="js/d3.v3.min.js"></script>
+	<script src="https://d3js.org/d3-array.v1.min.js"></script>
+	<script type="text/javascript" src="js/d3.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/bowser.js"></script>
+   
+   <script src="js/loads.js"></script>
+   <script src="js/popups.js"></script>
+  
+  <link rel="icon" href="Pictos/favicon.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="js/d3.slider.css">
+</head>
+
+<body onload = "rev4_choro();">
+ 
+<div id="container">
+
+	
+	<div id= "alerte2" style = "text-align: center;">
+ 		<strong>The MOBILISCOPE</strong></br>
+		<strong>A free and open-source web mapping platform to explore cities around the clock</strong>
+		<p> The Mobiliscope is licensed under the <strong>GNU GPLv3</strong> license (a free, copyleft license). </br>
+		The <a style = "color : black ; text-decoration : underline ;" target="_blank" href = "https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License v3</a></span> is intended to guarantee freedom to share and change all versions of a program to make sure it remains free software for all its users.<p>
+		
+		<p>To cite the Mobiliscope:</br>
+		Géographie-cités (2017). Mobiliscope (Version 2). Available from <a href = "http://mobiliscope.parisgeo.cnrs.fr/" style = "text-decoration : underline ; color : black ;"  target="_blank">http://mobiliscope.parisgeo.cnrs.fr/</a></span>.</p>
+	
+		<p>Mobiliscope has been optimized for <strong>Firefox</strong>, <strong>Chrome</strong> and <strong>Opera</strong>. Please check your browser.</p>
+	
+		<button onclick="boxLicence()" 	style=" background-color: #514d47 ; font-family: JLT ; font-size : 1.2em ;	color: white ; border : none ;">  &nbsp I understand &nbsp </button>	
+	</div>
+
+	
+	<div id= "titre">
+		<div class = "cont" id = "main"><span class = "fittext1" id = "mainTitle">MOBILISCOPE</span></div>
+		
+		<div class = "cont" id = "subtitle"><span class = "fittext1" id = "seg">Cities around the clock: the Paris region</span></div>
+		
+		<div id="picto"> 
+			<img id="home" src = "Pictos/home2.png" title = "Maps & Graphs"></img>
+			<img id="moreinfo" src = "Pictos/menu2.png" title = "Infos"  onclick = "window.location.href='info.html';"></img>
+			<img id="contact" src = "Pictos/contact.png" title = "Contact form"  onclick = "window.open('http://mobiliscope.parisgeo.cnrs.fr/contact_form.php', '_blank');"></img>
+		</div>
+		
+	</div>
+	
+
+
+	
+	<div id= "menu">
+	
+		<div class = "niv1"><p>GLOBAL OVERVIEW</p></div>
+		
+			<div class = "niv2"><p>Whole population<span class = 'helpAcc' onclick = 'popup11()'>I</span></p></div>
+		
+				<div class = "niv3" style = "border-left-color : #000093 ; "><p>Whole population</p><button class ="nb" onclick = "pop0_prop()">nb</button><button class ="flow" onclick = "pop0_flow()">✴</button></div>
+			
+			
+		<div class = "niv1"><p>DEMOGRAPHIC PROFILE</p></div>
+		
+			<div class = "niv2"><p>Age groups<span class = 'helpAcc' onclick = 'popup21()'>I</span></p></div>
+
+				<div class = "niv3" style = "border-left-color : #816c53 ;"><p>65 and more</p><button class ="part" onclick = "age4_choro()">%</button><button class ="nb" onclick = "age4_prop()">nb</button><button class ="flow" onclick = "age4_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #67539b ;"><p>35-64</p><button class ="part" onclick = "age3_choro()">%</button><button class ="nb" onclick = "age3_prop()">nb</button><button class ="flow" onclick = "age3_flow()">✴</button></div>
+			
+				<div class = "niv3" style = "border-left-color : #e9621d ;"><p>25-34</p><button class ="part" onclick = "age2_choro()">%</button><button class ="nb" onclick = "age2_prop()">nb</button><button class ="flow" onclick = "age2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #da0846 ;"><p>17-24</p><button class ="part" onclick = "age1_choro()">%</button><button class ="nb" onclick = "age1_prop()">nb</button><button class ="flow" onclick = "age1_flow()">✴</button></div>
+	
+			<div class = "niv2"><p>Sex<span class = 'helpAcc' onclick = 'popup22()'>I</span></p></div>
+				
+				<div class = "niv3" style = "border-left-color : #47b291 ;"><p>Female</p><button class ="part" onclick = "sex2_choro()">%</button><button class ="nb" onclick = "sex2_prop()">nb</button><button class ="flow" onclick = "sex2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #4e3e8e ;"><p>Male</p><button class ="part" onclick = "sex1_choro()">%</button><button class ="nb" onclick = "sex1_prop()">nb</button><button class ="flow" onclick = "sex1_flow()">✴</button></div>
+				
+		
+		<div class = "niv1"><p>SOCIAL PROFILE</p></div>
+
+			<div class = "niv2"><p>Educational level<span class = 'helpAcc' onclick = 'popup32()'>I</span></p></div>
+		
+				<div class = "niv3" style = "border-left-color : #c02767 ;"><p>High</p><button class ="part" onclick = "cleduc4_choro()">%</button><button class ="nb" onclick = "cleduc4_prop()">nb</button><button class ="flow" onclick = "cleduc4_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #ec721b ;"><p>Middle-high</p><button class ="part" onclick = "cleduc3_choro()">%</button><button class ="nb" onclick = "cleduc3_prop()">nb</button><button class ="flow" onclick = "cleduc3_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #17a97a ;"><p>Middle-low</p><button class ="part" onclick = "cleduc2_choro()">%</button><button class ="nb" onclick = "cleduc2_prop()">nb</button><button class ="flow" onclick = "cleduc2_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #4b6dac ;"><p>Low</p><button class ="part" onclick = "cleduc1_choro()">%</button><button class ="nb" onclick = "cleduc1_prop()">nb</button><button class ="flow" onclick = "cleduc1_flow()">✴</button></div>
+
+			<div class = "niv2"><p>Household income<span class = 'helpAcc' onclick = 'popup34()'>I</span></p></div>
+
+				<div class = "niv3" style = "border-left-color: #dc2c48 ;"><p>High</p><button class ="part" onclick = "rev4_choro()">%</button><button class ="nb" onclick = "rev4_prop()">nb</button><button class ="flow" onclick = "rev4_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #fe7562 ;"><p>Middle-high</p><button class ="part" onclick = "rev3_choro()">%</button><button class ="nb" onclick = "rev3_prop()">nb</button><button class ="flow" onclick = "rev3_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #7fb72c ;"><p>Middle-low</p><button class ="part" onclick = "rev2_choro()">%</button><button class ="nb" onclick = "rev2_prop()">nb</button><button class ="flow" onclick = "rev2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #348e89 ;"><p>Low</p><button id = "first" class ="part" onclick = "rev1_choro()">%</button><button class ="nb" onclick = "rev1_prop()">nb</button><button class ="flow" onclick = "rev1_flow()">✴</button></div>
+
+			<div class = "niv2"><p>Socioprofessional status<span class = 'helpAcc' onclick = 'popup31()'>I</span></p></div>
+		
+				<div class = "niv3" style = "border-left-color : #ab0f31 ;"><p>High</p><button id = "first" class ="part" onclick = "cs5_choro()">%</button><button class ="nb" onclick = "cs5_prop()">nb</button><button class ="flow" onclick = "cs5_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #d69b01 ;"><p>Middle-high</p><button class ="part" onclick = "cs4_choro()">%</button><button class ="nb" onclick = "cs4_prop()">nb</button><button class ="flow" onclick = "cs4_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #188e31 ;"><p>Middle-low</p><button class ="part" onclick = "cs3_choro()">%</button><button class ="nb" onclick = "cs3_prop()">nb</button><button class ="flow" onclick = "cs3_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color : #624f98 ;"><p>Low</p><button class ="part" onclick = "cs2_choro()">%</button><button class ="nb" onclick = "cs2_prop()">nb</button><button class ="flow" onclick = "cs2_flow()">✴</button></div>
+
+				<div class = "niv3" style = "border-left-color: #008791 ;"><p>Unemployed</p><button class ="part" onclick = "cs1_choro()">%</button><button class ="nb" onclick = "cs1_prop()">nb</button><button class ="flow" onclick = "cs1_flow()">✴</button></div>
+					
+			<div class = "niv2"><p>Occupational status<span class = 'helpAcc' onclick = 'popup33()'>I</span></p></div>
+
+				<div class = "niv3" style = "border-left-color: #f8bd08 ;"><p>Inactive</p><button class ="part" onclick = "occ5_choro()">%</button><button class ="nb" onclick = "occ5_prop()">nb</button><button class ="flow" onclick = "occ5_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color: #957c60 ;"><p>Retired</p><button class ="part" onclick = "occ4_choro()">%</button><button class ="nb" onclick = "occ4_prop()">nb</button><button class ="flow" onclick = "occ4_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #586aa3 ;"><p>Unemployed</p><button class ="part" onclick = "occ3_choro()">%</button><button class ="nb" onclick = "occ3_prop()">nb</button><button class ="flow" onclick = "occ3_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #97bc59 ;"><p>Student</p><button class ="part" onclick = "occ2_choro()">%</button><button class ="nb" onclick = "occ2_prop()">nb</button><button class ="flow" onclick = "occ2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #e4406e ;"><p>Active</p><button id = "first" class ="part" onclick = "occ1_choro()">%</button><button class ="nb" onclick = "occ1_prop()">nb</button><button class ="flow" onclick = "occ1_flow()">✴</button></div>
+
+		
+		<div class = "niv1"><p>RESIDENTIAL AREA</p></div>
+		
+			<div class = "niv2"><p>Departement of residence<span class = 'helpAcc' onclick = 'popup12()'>I</span></p></div>
+
+				<div class = "niv3" style = "border-left-color : #2d365e ;"><p>Greater Paris</p><button class ="part" onclick = "dep5_choro()">%</button><button class ="nb" onclick = "dep5_prop()">nb</button><button class ="flow" onclick = "dep5_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #167e88 ;"><p>Hauts-de-Seine</p><button class ="part" onclick = "dep4_choro()">%</button><button class ="nb" onclick = "dep4_prop()">nb</button><button class ="flow" onclick = "dep4_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #58c2ef ;"><p>Val-de-Marne</p><button class ="part" onclick = "dep3_choro()">%</button><button class ="nb" onclick = "dep3_prop()">nb</button><button class ="flow" onclick = "dep3_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #ec7646 ;"><p>Seine-Saint-Denis</p><button class ="part" onclick = "dep2_choro()">%</button><button class ="nb" onclick = "dep2_prop()">nb</button><button class ="flow" onclick = "dep2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #9a2679 ;"><p>Paris</p><button class ="part" onclick = "dep1_choro()">%</button><button class ="nb" onclick = "dep1_prop()">nb</button><button class ="flow" onclick = "dep1_flow()">✴</button></div>
+
+		
+		<div class = "niv1"><p>ACTIVITY</p></div>
+		
+			<div class = "niv2"><p>Activity<span class = 'helpAcc' onclick = 'popup13()'>I</span></p></div>
+
+				<div class = "niv3" style = "border-left-color : #7e3a61 ;"><p>Leisure</p><button class ="part" onclick = "act5_choro()">%</button><button class ="nb" onclick = "act5_prop()">nb</button><button class ="flow" onclick = "act5_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #e7564d ;"><p>Shopping</p><button class ="part" onclick = "act4_choro()">%</button><button class ="nb" onclick = "act4_prop()">nb</button><button class ="flow" onclick = "act4_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #379fac ;"><p>Studying</p><button class ="part" onclick = "act3_choro()">%</button><button class ="nb" onclick = "act3_prop()">nb</button><button class ="flow" onclick = "act3_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #76ad71 ;"><p>At work</p><button class ="part" onclick = "act2_choro()">%</button><button class ="nb" onclick = "act2_prop()">nb</button><button class ="flow" onclick = "act2_flow()">✴</button></div>
+				
+				<div class = "niv3" style = "border-left-color : #17297c ;"><p>At home</p><button class ="part" onclick = "act1_choro()">%</button><button class ="nb" onclick = "act1_prop()">nb</button><button class ="flow" onclick = "act1_flow()">✴</div>
+
+	</div>
+	
+			
+	<div id="play"><img id = "playB" src = "Pictos/player2.png"></img></div>
+	<div id="timeline">	
+		<div id="slider"></div>
+		<div id="timeAxis"></div>	
+	</div>
+	
+	<div id="hour"></div>
+	
+	<div class = "cont" id = "mapTitleCont"><span class = "fittext1" id = "mapTitle"></span></div>
+	<div id="map-container">
+		<div id="zoom"><div class= "zoomB" id="zoomIn" data-zoom="+1">+</div><div class= "zoomB" id="zoomOut" data-zoom="-1">-</div></div>
+		<div id="layers"><img style = "height : 100% ;" src = "Pictos/layers.png"/></div>
+		<div id="layers2">
+			<div id="reduce"><img style = "width : 100% ;" src = "Pictos/reduce.png"/></div>			
+			
+			<div class="checkbox">
+				<input type="checkbox" id="dep" checked />
+				<label for="dep">Departements</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" id="routes"/>
+				<label for="routes">Main roads</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" id="hydro"/>
+				<label for="hydro">Main rivers</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" id="villes" checked />
+				<label for="villes">Main cities</label>
+			</div>
+		</div>
+		<div id="legende"></div>
+		<div id="copyright">&#9400; Mobiliscope, Géographie-cités, 2017</div>
+		<div id="source">Source : Enquête Globale Transport (EGT) - 2010, DRIEA-STIF-OMNIL (producer), ADISP-CMH (distributor) <span class = "help" style = "font-size : 1em ;" onclick = "popup6()">I</span></div>
+	</div>
+	
+
+	<div id= "popup">
+		<img id = "close" src = "Pictos/close.png"></img>
+		<div id = "text"></div>
+	</div>
+
+
+	<div id = "graphiques">
+	
+		<div id = "mainGr1Cont"><span id = "mainGr1">IN THE WHOLE METROPOLITAN AREA</span></div>
+			
+		<div class = "cont" id = "titleGr1Cont"><span class = "fittext1" id = "titleGr1"></span></div>
+		<div id= "grIDF"></div>
+		<div id = "bloc1"></div><div id="altGr21" class= "altGr1">Duncan</div><div id="altGr11" class= "altGr2">Moran</div>
+		
+		<div id = "mainGr2Cont"><span id="mainGr2"></span></div>
+		<div class="cont" id = "titleGr2Cont"><span class = "fittext1" id = "titleGr2"></span></div>
+		<div id= "grSect"></div>
+		<div id = "bloc2"></div><div id="altGr22" class= "altGr1">Unique</div><div id="altGr12" class= "altGr2">Stacked</div>
+		
+	</div>
+	
+</div>
+ 
+ 
+<script>
+
+// ALERT MESSAGE LICENSE
+  
+ $(window).ready(function () {
+    if (sessionStorage.getItem("hasCodeRunBefore") === null) {
+       $("#alerte2").css('display', 'block')  ;
+        sessionStorage.setItem("hasCodeRunBefore", true);
+    }   
+}) ;	
+
+function boxLicence () {$("#alerte2").css('display', 'none')}; 
+	
+
+// ACCORDION
+// Init
+$('.niv3').css('display', 'none') ;
+$('.niv2').css('display', 'none') ;
+$('.niv4').css('display', 'none') ;
+
+var nextN1 = $('.niv1').eq(3) ;
+$(".niv1").eq(2).nextUntil(nextN1, '.niv2').css('display', 'block') ;
+
+var nextN2 = $('.niv2').eq(5) ;
+$('.niv2').eq(4).nextUntil(nextN2, '.niv3').css('display', 'block') ;
+
+$('.niv2').eq(4).next('.niv3').css("background-color", "rgba(220, 44, 72, .1)") ;
+$('.niv2').eq(4).next('.niv3').children("button:first").css("background-color", "grey") ;
+$('.niv2').eq(4).next('.niv3').children("button:first").css("color", "white") ;
+
+$('.flow').eq(34).css("display", "none") ;
+
+// NIV1
+$(".niv1").click(function() {
+	
+	$('.niv2, .niv3, .niv4').css('display', 'none') ;
+	
+	var nextN1 = $(this).nextAll('.niv1').eq(0) ;
+	$(this).nextUntil(nextN1, '.niv2').css('display', 'block') ;
+
+	var nextN2 = $(this).nextAll('.niv2').eq(1) ;
+	$(this).nextUntil(nextN2, '.niv3').css('display', 'block') ;
+
+}) ;
+
+// NIV2
+$(".niv2").click(function() {
+
+	$('.niv3, .niv4').css('display', 'none') ;
+			
+	var nextN2 = $(this).nextAll('.niv2').eq(0) ;
+	$(this).nextUntil(nextN2, '.niv3').css('display', 'block') ;
+
+}) ;
+
+// Buttons
+$(".nb:first").css("margin-right", "4em") ;
+$(".part, .nb, .flow").click(function() {
+
+	if(!isPlaying){
+	
+	// 1 : button aspect
+	$("button").css("background-color", "#DDDCDD") ; 
+	$("button").css("color", "black") ;
+	$(this).css("background-color", "grey") ;
+	$(this).css("color", "white") ;
+
+	// 2 : change background-color from border-left color
+	$('div[class^= "niv3"]').css('background-color', 'white');
+	$(this).closest($('div[class^= "niv3"]')).css('background-color', ($(this).closest($('div[class^= "niv3"]')).css("border-left-color")).replace('rgb', 'rgba').slice(0, -1) + ', 0.1)');
+	$(this).closest($('div[class^= "niv3"]')).css('fill-opacity', $(this).closest($('div[class^= "niv3"]')).css("border-left-color"));
+	}
+}) ;
+
+// HEADLINE AUTO SIZE
+var fontSize ; 
+var textContainer ;
+	
+function update_fontsize(){
+
+$( ".fittext1" ).each(function() {
+	
+	textContainer = $(this).closest(".cont") ; 	
+	fontSize = parseInt(textContainer.height() * 0.5 ) + 'px';		
+
+	$(this).css('font-size', fontSize);
+	$(this).css('line-height', textContainer.height() + 'px');
+	
+	var fontWidth = parseInt($(this).css("width")) ;
+	var containerWidth = parseInt(textContainer.css("width")) ;
+		
+	if(fontWidth >= (containerWidth*0.96)){
+
+		newfontSize = ( fontSize.slice(0, -2) * (containerWidth * 0.9) ) / fontWidth; 
+
+		$(this).css('font-size', newfontSize);
+		$(this).css('line-height', textContainer.height() + 'px');
+
+	}			
+}) ;		
+};
+
+// TAB STYLES
+var style1 = "background-color : white ; border : 1px solid #dadad9 ; border-top : none" ;
+var style2 = "color : black ; background-color : #F0F1F1 ; border : none ; border-top : 1px solid #dadad9" ; 
+var style3 = "background-color : #f2f2f2 ; color : #dadad9 ; border : none ; border-top : 1px solid #dadad9" ;
+
+
+// GEOVIZ
+var width = 1066,
+	height = 730;
+
+var proj = d3.geo.mercator()
+  .center([2.487066, 48.66071])
+	.scale(23000)
+	.translate([width / 2, height / 2]);
+
+var radius = d3.scale.sqrt()
+	.domain([0, 1e6])
+	.range([0, 50]);
+	
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 8])
+	.center([width / 2.3, height / 3.5])
+    .on("zoom", zoomed);	
+	
+var svg = d3.select("#map-container").append("svg")
+	.attr("width", width)
+	.attr("height", height)
+    .classed("svg-container", true) 
+	//.attr("preserveAspectRatio", "xMinYMax meet")
+	.attr("viewBox", "0 0 1066 730")
+	.classed("svg-content-responsive", true); 
+
+var path = d3.geo.path()
+	.projection(proj);
+	
+var g = svg.append("g");
+var dep = svg.append("g");
+var routes = svg.append("g");
+var hydro = svg.append("g");
+var fl = svg.append("g") ;
+var villes = svg.append("g");
+var gr = d3.select("#graphiques").append("g") ;
+
+var countBySect = {};
+
+var isPlaying = false ;
+
+var slider ;
+var	interval ;
+var currentFrame = 4 ;
+var xAxis ;
+
+var typeGrIDF = "Duncan" ;
+var typeGraph = "stacked" ;
+
+var currSect ;
+var nameSect ;
+
+var radius = d3.scale.sqrt()
+	.domain([0, 1e6])
+	.range([0, 100]);
+	
+var currentZoom ;
+var indic ; 
+
+svg.call(zoom)
+    .call(zoom.event);
+	
+var info = d3.select("#map-container").append("div")
+	.attr("class", "info")
+	.style("opacity", 0);
+	
+var gammeCs = ["#008792", "#624f98", "#188e31", "#d69b01", "#ab0f31"] ; 
+var gammeSP = ["#4b6dac", "#17a97a", "#ec721b", "#c02767"] ;
+var gammeAct = ["#17297c", "#76ad71", "#379fac", "#e7564d", "#7e3a61"] ;
+var gammeDep = ["#9a2679", "#ee865c", "#58c2ef", "#167e88", "#2d365e"] ; 
+var gammeAge = ["#da0846", "#e9621d", "#67539b", "#816c53"] ; 
+var gammeOcc = ["#e4406e", "#97bc59", "#586aa3", "#957c60", "#f8bd08"] ; 
+var gammeSex = ["#4e3e8e", "#47b291"] ; 
+var gammeRev = ["#348e89", "#7fb72c", "#fe7562", "#dc2c48"] ;
+
+var chemin ;
+
+function load(chemin, colDom, col){
+
+	update_fontsize() ; 
+	
+	$(window).resize(function() {
+		update_fontsize();			
+	});
+
+	// LOAD MAP
+	displayMap(chemin) ;
+	
+	// Build IDF chart
+	// Initialisation 
+	d3.select("#grIDF").html("") ; 
+	
+	displayGraph("#grIDF" // div d'insertion du graphique
+				,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+				, "hour" //valeurs de l'axe x
+				,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+				,"" // domain de l'axe y
+				);	
+			
+	// CHANGE CHART FUNCTIONS
+	$("#altGr11").on("click", function(d){
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGrIDF = "Moran" ;
+	
+		$("#altGr11").css('cssText', style1);
+		$("#altGr21").css('cssText', style2);
+
+		
+		d3.select("#grIDF").html('') ;
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			,"hour" //valeurs de l'axe x
+			,"Moran"//Object.keys(d)[1] // valeurs de l'axe y
+			,"" // domain de l'axe y) 
+			);
+			
+		}
+		
+	}) ;
+	
+	$("#altGr21").on("click", function(d){
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGrIDF = "Duncan" ;
+
+		$("#altGr21").css('cssText', style1);
+		$("#altGr11").css('cssText', style2);
+		
+		$("#grIDF").html('') ;
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			, "hour" //valeurs de l'axe x
+			,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+			, "" // nom de l'axe y 
+			);	
+		}
+			
+	}) ;
+	
+	$("#altGr12").on("click", function(){ 
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGraph = "stacked" ; 
+	
+		// Initialisation
+		$("#altGr12").css('cssText', style1);
+		$("#altGr22").css('cssText', style2);
+		
+		$("#grSect").html('') ;
+		
+		// Display stackedchart
+		stackedBarChart(currSect) ;
+		
+		}
+		
+	}) ;
+		
+	$("#altGr22").on("click", function(){ 
+	
+		if($(this).css("color") != "rgb(218, 218, 217)"){
+	
+		typeGraph = "simple" ; 
+		 
+		// Initialisation
+		$("#altGr22").css('cssText', style1);
+		$("#altGr12").css('cssText', style2);
+		
+		$("#grSect").html('') ;
+		
+		// Display simple chart
+		$("#titleGr2").html(titleGr2) ;
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+		
+		}
+	
+	}) ;
+	
+	// DISPLAY SECTOR CHARTS FROM SELECTION
+	if(typeGrIDF == "Moran"){
+	
+		//  Initialisation
+		$("#grIDF").html('') ;
+		
+		$("#altGr11").css('cssText', style1);
+		$("#altGr21").css('cssText', style2);
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			,"hour" //valeurs de l'axe x
+			,"Moran"//Object.keys(d)[1] // valeurs de l'axe y
+			,"" // domain de l'axe y) 
+		);
+	
+	}
+	
+	if(typeGrIDF == "Duncan"){
+		
+		//  Initialisation
+		$("#grIDF").html('') ;
+		
+		$("#altGr21").css('cssText', style1);
+		$("#altGr11").css('cssText', style2);
+		
+		displayGraph("#grIDF" // div d'insertion du graphique
+			,chemin.split('/')[0] + "/data/dataIDF.csv" // chemin du fichier de données
+			, "hour" //valeurs de l'axe x
+			,"Duncan"//Object.keys(d)[1] // valeurs de l'axe y
+			, "" // nom de l'axe y 
+		);	
+	}
+	
+	if (currSect && typeGraph == "simple"){ 
+	
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		$("#titleGr2").html(titleGr2);
+		
+		$("#altGr12").css('cssText', style2);
+		
+		d3.select("#grSect").html("") ; 
+
+		// Build sector chart
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+	}
+	
+	if (currSect && typeGraph == "stacked" && chemin.split('_')[0] != "pop0"){
+
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		
+		$("#altGr12").css('cssText', style1);
+		$("#altGr22").css('cssText', style2);
+		
+		d3.select("#grSect").html("") ; 
+	
+		// Build sector chart
+		stackedBarChart(currSect) ;
+
+	}
+	
+	if (currSect && (chemin.split('_')[0] == "pop0" || (chemin.split('/')[0]).split('_')[1] == "flow")){
+		
+		
+		if(chemin.split('_')[0] == "pop0"){
+			$("#altGr12").css('cssText', style3);
+		}
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		
+		$("#grIDF").html("<p id='message'>Select an indicator in nb. or %</br>to get spatial distribution indices</p>") ;
+		
+	}
+		
+	if (currSect && typeGraph == "stacked" && chemin.split('_')[0] == "pop0"){
+	
+		typeGraph = "simple" ;
+	
+		// Initialisation
+		$("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+		$("#titleGr2").html(titleGr2);
+		
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		$("#altGr22").css('cssText', style1);
+		
+		$("#grIDF").html("<p id='message'>Select an indicator in nb. or %</br>to get spatial distribution indices</p>") ;
+	
+		d3.select("#grSect").html("") ; 
+	
+		// Build sector chart
+		displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+
+	}
+
+	if(!currSect && (chemin.split('_')[0] == "pop0" || (chemin.split('/')[0]).split('_')[1] == "flow")){
+	
+		$("#altGr11").css('cssText', style3);
+		$("#altGr21").css('cssText', style3);
+		
+		$("#grIDF").html("<p id='message'>Select an indicator in nb. or %</br>to get spatial distribution indices</p>") ;
+	
+	}
+	
+	if (!currSect) { 
+	
+		// Initialisation
+		$("#mainGr2").html("");
+		$("#titleGr2").html("");
+		
+		$("#altGr12").css('cssText', style3);
+		$("#altGr22").css('cssText', style3);
+
+		$("#grSect").html("<p id='message'>Click a district in the map</br>to get local information</p>") ;
+
+	}
+
+	// Création de la slidebar
+	createSlider() ;
+				
+	// Activation de la fonction d'animation		
+	d3.select("#play")
+	  .attr("title","Play animation")
+	  .on("click",function(){
+		if ( !isPlaying ){
+		  isPlaying = true;
+		  d3.select(this).classed("pause",true).attr("title","Pause animation");
+		  d3.select("#play").html('<img id = "playB" src = "Pictos/pause.png">') ;
+		  animate();
+		} else {
+		  isPlaying = false;
+		  d3.select(this).classed("pause",false).attr("title","Play animation");
+		  d3.select("#play").html('<img id = "playB" src = "Pictos/player2.png">') ;
+		  clearInterval( interval );
+		}
+		
+	  });
+
+
+	// FONCTIONS
+	
+	// Fonction pour afficher les valeurs avec un séparateur de milliers
+	function format(nbr) {
+		var nombre = ''+nbr;
+		var retour = '';
+		var count=0;
+		for(var i=nombre.length-1 ; i>=0 ; i--)
+		{
+			if(count!=0 && count % 3 == 0)
+				retour = nombre[i]+' '+retour ;
+			else
+				retour = nombre[i]+retour ;
+			count++;
+		}
+		return retour;
+	}
+
+	function displayGraph(div, csvGr, varX, varY, nameY){
+		
+		// Definition du format
+		var	margin = {top: 0, right: 0, bottom: 0, left: 30},
+			width = 380 ,
+			height = 178;
+		 
+		// Set the ranges
+		var	x = d3.scale.ordinal().domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"]).rangePoints([0, width], .5);
+		var	y = d3.scale.linear().range([height, 1]);
+
+		//Set the axis
+		var xAxis = d3.svg.axis().scale(x)
+			.tickValues(["4am", "6am", "8am", "10am", "12am", "2pm", "4pm", "6pm", "8pm", "10pm", "12pm", "2am"])
+			.orient("bottom");
+
+		// define the line
+		var valueline = d3.svg.line()
+			.x(function(d) { return x(d[varX]); })
+			.y(function(d) { return y(d[varY]); });
+		
+		var gr = d3.select(div).append("svg")
+			.attr("width", width)
+			.attr("height", height)
+			/*.attr("transform",
+				  "translate(" + margin.left + "," + margin.top + ")")*/;
+				  	
+		// Responsive
+		gr.classed("svg-container", true)
+			.attr("viewBox", "-25 -12 430 210")
+			.classed("svg-content-responsive", true);
+				  
+		// add the tooltip area to the webpage
+		var tooltip = d3.select(div).append("div")
+			.attr("class", "tooltip")
+			.style("opacity", 0);
+
+		// Get the data
+		d3.csv(csvGr, function(error, data) {
+		  if (error) throw error;
+
+			var tform ; // format of axis
+			var domY ; // domain of y axis
+
+			if(csvGr.split("/")[2] == "dataIDF.csv" && typeGrIDF == "Duncan"){
+				tform = '.2f' ;	
+				domY = [data[0].Duncan * 0.8, data[1].Duncan * 1.1] ;		
+				$("#titleGr1").html(titleDuncan) ;
+				
+				// Check if difference between min and max is > 0.4
+				if((data[1].Duncan * 1.1) - (data[0].Duncan * 0.8) < 0.4){
+					var downVal = data[0].Duncan ;
+					var topVal = data[1].Duncan * 1.1 ;
+					var diff = 0.4 - (topVal - downVal) ; // compute difference with 0.4
+					if(Number(downVal) - Number(diff/2) < 0){
+						domY = [0, 0.4] ;
+					}
+					else{
+						domY = [Number(downVal) - Number(diff/2), Number(topVal) + Number(diff/2)] ; // else add the difference
+					}
+				}
+			}
+
+			if(csvGr.split("/")[2] == "dataIDF.csv" && typeGrIDF == "Moran"){
+				tform = '.2f' ;	
+				domY = [data[0].Moran * 0.8, data[1].Moran * 1.1] ;
+				$("#titleGr1").html(titleMoran) ;
+				
+				// Check if difference between min and max is > 0.4
+				if((data[1].Moran * 1.1) - (data[0].Moran * 0.8) < 0.4){
+					var downVal = data[0].Moran ;
+					var topVal = data[1].Moran * 1.1 ;
+					var diff = 0.4 - (topVal - downVal) ; // compute difference with 0.4
+					domY = [Number(downVal) - Number(diff/2), Number(topVal) + Number(diff/2)] ; // else add the difference
+				}
+			}
+			
+			if (csvGr.split("/")[2] == "dataSect.csv" && (chemin.split('/')[0]).split('_')[1] == "choro"){
+				tform = '.0f' ;
+				var valMin = Number(data[0]["7501"]) ; 
+				var valMax = Number(data[1]["7501"]) ; 
+				domY = [valMin * 0.8, 100];
+			}
+			
+			if(csvGr.split("/")[2] == "dataSect.csv" && ((chemin.split('/')[0]).split('_')[1] == "prop" || (chemin.split('/')[0]).split('_')[1] == "flow")){
+				tform = '.2s' ;
+				var valMin = Number(data[0]["7501"]) ; 
+				var valMax = Number(data[1]["7501"]) ; 
+				domY = [valMin * 0.8, valMax * 1.1];
+			}
+			
+			update_fontsize() ; 
+			
+			// Redefine data without min and max as value (cf Duncan and Moran)
+			data = data.filter(function(x) { return x.hour != "min" & x.hour != "max" }) ;
+			
+		  	//Tickformat must depend on values of y
+			var yAxis = d3.svg.axis().scale(y)
+				.orient("left")
+				.tickFormat(d3.format(tform))
+				.innerTickSize(-width)
+				.outerTickSize(0);															
+		  
+			//Définir le domain de y
+			y.domain(domY);
+
+			// Add the valueline path.
+			gr.append("path")
+			  .data([data])
+			  .attr("class", "line")
+			  .attr("d", valueline)
+			  .style("stroke", col[4]);
+			
+			// Add shadow line with current hour
+			var dayTime ;
+			
+			if(slider.value() >= 4 & slider.value() <= 12){
+				dayTime = slider.value() + "am" ; 
+			}
+			if(slider.value() > 12 & slider.value() <= 24){
+				dayTime = (slider.value() - 12) + "pm" ; 
+			}
+			if(slider.value() > 24){
+				dayTime = (slider.value() - 24) + "am" ; 
+			}
+			
+			gr.append("line")
+				.attr("class", "shadow")
+			   .attr("x1", (x(dayTime)))
+			   .attr("x2", (x(dayTime)))
+			   .attr("y1", y.range()[0])
+			   .attr("y2", y.range()[1])
+			   .style("stroke", "black")
+			   .style("stroke-width", 10)
+			   .style("stroke-opacity", .2) ;
+   				 				 
+			// Add the scatterplot
+			gr.selectAll("dot")
+				.data(data)
+			  .enter().append("circle")
+				.attr("r", 2.5)
+				.attr("class", "dots")
+				.attr("cx", function(d) { return x(d[varX]); })
+				.attr("cy", function(d) { return y(d[varY]); })
+				.style("stroke", col[4])
+				.style("fill", "white");			
+				
+			// Add the X Axis
+			gr.append("g")
+			  .attr("transform", "translate(0," + height + ")")
+			  .attr("class", "axis")
+			  .call(xAxis);
+
+			// Add the Y Axis
+			gr.append("g")
+			  .attr("class", "axis")
+			  .call(yAxis);
+			  
+			//Add Y Axis name in grIDF
+			gr.append("text")
+				//.attr("transform", "rotate(-90)")
+				.attr("y", -margin.top)
+				.attr("x", margin.left + 1)
+				.attr("dy", "10px")
+				.style("text-anchor", "middle")
+				.text(nameY)
+				.style("font-size", "1.25em")
+				.style("fill", "#393939");
+			 
+			//Add mouseover event
+			var yVal = data.map(function(d) {
+				  return d[varY]
+				});
+	
+			var focus = gr.append("g")
+			  .attr("class", "focus")
+			  .style("display", "none");
+
+			focus.append("circle")
+			  .attr("r", 2.5)
+			  .style("fill", col[4])
+			  .style("stroke", col[4]);
+			  
+			focus.append("rect")
+			  .attr("x", 0)
+			  .attr("y", "-2em")
+			  .attr("height", "1.5em")
+			  .attr("width", 100)
+			  .style("fill", "white");
+
+			focus.append("text")
+			  .attr("x", 0)
+			  .attr("dy", "-.5em");
+
+			gr.append("rect")
+			  .attr("class", "overlay")
+			  .attr("width", width)
+			  .attr("height", height)
+			  .on("mouseover", function() {
+				focus.style("display", null);
+			  })
+			  .on("mouseout", function() {
+				focus.style("display", "none");
+			  })
+			  .on("mousemove", mousemove);
+			
+			var tickPos = x.range();
+			
+			function mousemove(d){
+			  var m = d3.mouse(this),
+				  lowDiff = 1e99,
+				  xI = null;
+
+			  for (var i = 0; i < tickPos.length; i++){
+				var diff = Math.abs(m[0] - tickPos[i]);
+				
+				if (diff < lowDiff){
+					lowDiff = diff;
+					xI = i;
+				}
+			  }
+			  
+				var vFoc ;
+			  
+				if (csvGr.split("/")[2] == "dataIDF.csv"){ 	
+					vFoc = (Math.round(yVal[xI]*100)/100).toFixed(2) ;	
+				}
+				
+				if (csvGr.split("/")[2] == "dataSect.csv" && (chemin.split('/')[0]).split('_')[1] == "choro"){	
+					vFoc = (Math.round(yVal[xI]*10)/10).toFixed(1) ;	
+				}
+				
+				if (csvGr.split("/")[2] == "dataSect.csv" && ((chemin.split('/')[0]).split('_')[1] == "prop"  || (chemin.split('/')[0]).split('_')[1] == "flow")){	
+					vFoc = format(Math.round(yVal[xI])) ;	
+				}
+			  
+			  focus
+				.select('text')
+				.text(vFoc)
+				.style("font-size", "1.5em");
+				
+				// update the rect width
+				focus.select('rect')	
+					.attr("width", focus.select('text').node().getBBox()["width"]) ;
+
+			  focus
+				.attr("transform","translate(" + tickPos[xI] + "," + y(data[xI][varY]) + ")");
+			}
+		  
+		});
+
+	}
+	
+	function stackedBarChart(currSect){
+	
+		// Set title
+		$("#titleGr2").html('') ;
+
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cs"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>socioprofessional status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cs"){
+			$("#titleGr2").html('Estimated number of people by <strong>socioprofessional status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cs"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>socioprofessional status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cleduc"){
+			$("#titleGr2").html('Estimated number of people by <strong>educational level</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cleduc"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>educational level</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "cleduc"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>educational level</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "act"){
+			$("#titleGr2").html('Estimated number of people by <strong>activity</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "act"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>activity</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "act"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>activity</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "dep"){
+			$("#titleGr2").html('Estimated number of people by <strong>departement of residence</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "dep"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>departement of residence</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "dep"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>departement of residence</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "age"){
+			$("#titleGr2").html('Estimated number of people by <strong>age groups</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "age"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>age groups</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "age"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>age groups</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "occ"){
+			$("#titleGr2").html('Estimated number of people by <strong>occupational status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "occ"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>occupational status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "occ"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>occupational status</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "sex"){
+			$("#titleGr2").html('Estimated number of people by <strong>sex</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "sex"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>sex</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "sex"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>sex</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "prop" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "rev"){
+			$("#titleGr2").html('Estimated number of people by <strong>household income</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "choro" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "rev"){
+			$("#titleGr2").html('Estimated proportion (%) of people by <strong>household income</strong>') ;
+		}
+		if((chemin.split('/')[0]).split('_')[1] == "flow" & ((chemin.split('/')[0]).split('_')[0]).slice(0,-1) == "rev"){
+			$("#titleGr2").html('Estimated number of non resident people by <strong>household income</strong>') ;
+		}
+
+		// Definition du format
+		var	margin = {top: 0, right: 0, bottom: 0, left: 30},
+			width = 380 ,
+			height = 178;
+			
+		var	x = d3.scale.ordinal();
+		var	y = d3.scale.linear().range([height, 1]);
+		
+		// Gamme de couleur
+		var gamme ;
+		if ((chemin.split('_')[0]).slice(0, -1) == 'cs'){
+			gamme = gammeCs ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'cleduc'){
+			gamme = gammeSP ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'act'){
+			gamme = gammeAct ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'dep'){
+			gamme = gammeDep ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'age'){
+			gamme = gammeAge ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'occ'){
+			gamme = gammeOcc ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'sex'){
+			gamme = gammeSex ;
+		}
+		if ((chemin.split('_')[0]).slice(0, -1) == 'rev'){
+			gamme = gammeRev ;
+		}
+		
+		var color = d3.scale.ordinal().range(gamme);
+			
+		var area = d3.svg.area()
+		    .interpolate("monotone")  //Here
+			.x(function(d) { return x(d.hour); })
+			.y0(function(d) { return y(d.y0); })
+			.y1(function(d) { return y(d.y0 + d.y); });
+			
+		var line = d3.svg.line()
+			.interpolate("monotone")
+			.x(function(d) { return x(d.hour); })
+			.y(function(d) { return y(d.y0 + d.y); });
+
+		var stack = d3.layout.stack()
+			.values(function(d) { return d.values; });
+			
+		var gr = d3.select("#grSect").append("svg")
+			.attr("width", width)
+			.attr("height", height);
+			
+		gr.classed("svg-container", true)
+			//.attr("preserveAspectRatio", "xMinYMin meet")
+			.attr("viewBox", "-30 -12 430 210")
+			.classed("svg-content-responsive", true);
+				
+		d3.csv("stacked/" + (chemin.split('_')[0]).slice(0, -1) + '_' + (chemin.split('/')[0]).split('_')[1] + "_stacked.csv", function(error, data) {
+		
+			color.domain(d3.keys(data[0]).filter(function(key) { return key !== "hour" && key !== "district"; }));
+			data.forEach(function(d) {
+				d.hour = d.hour;
+			});
+		
+			if (error) throw error;
+
+			// Filter data by district code
+			data = data.filter(function(row){
+			return row["district"] == currSect ;
+			}) ;
+  
+			var browsers = stack(color.domain().map(function(name) {
+			return {
+			  name: name,
+			  values: data.map(function(d) {
+				return {hour: d.hour, y: d[name] * 1};
+			  })
+			};
+			}));
+
+			var browser = gr.selectAll(".browser")
+			  .data(browsers)
+			.enter().append("g")
+			  .attr("class", "browser");
+			  
+			//Set the axis
+			// Find the value of the day with highest total value
+			var valMax = d3.max(data, function(d){
+				var vals = d3.keys(d).map(function(key){ return key !== "hour"  && key !== "district" ? d[key] : 0 });
+				return d3.sum(vals);
+			});
+			
+			if (valMax > 1000){	
+				tform = '.2s' ;		
+			}
+			else { tform = '.0f' ;}
+				
+			var xAxis = d3.svg.axis().scale(x)
+				.tickValues(["4am", "6am", "8am", "10am", "12am", "2pm", "4pm", "6pm", "8pm", "10pm", "12pm", "2am"])
+				.orient("bottom");
+				
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.tickFormat(d3.format(tform));
+			  
+			// Set domains for axes  			
+			x.domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"]).rangePoints([0, width], .5);
+			y.domain([0, valMax]);
+									
+			// Add shadow line with current hour
+			var dayTime ;
+			
+			if(slider.value() >= 4 & slider.value() <= 12){
+				dayTime = slider.value() + "am" ; 
+			}
+			if(slider.value() > 12 & slider.value() <= 24){
+				dayTime = (slider.value() - 12) + "pm" ; 
+			}
+			if(slider.value() > 24){
+				dayTime = (slider.value() - 24) + "am" ; 
+			}
+			
+			gr.append("line")
+				.attr("class", "shadow")
+			   .attr("x1", (x(dayTime)))
+			   .attr("x2", (x(dayTime)))
+			   .attr("y1", y.range()[0])
+			   .attr("y2", y.range()[1])
+			   .style("stroke", "black")
+			   .style("stroke-width", 10)
+			   .style("stroke-opacity", .2) ;
+			   
+			   
+			//Pattern
+			var pattern = browser.append("defs")
+				.append("pattern")
+				.attr('id', function(d) {return ('hash_' + d.name);})
+					.attr({ width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(45)"})
+				
+			pattern.append("rect")
+					.attr("width", 4)
+					.attr("height", 8)
+					.attr("fill", function(d) {return color(d.name);});
+			
+			// Append areas
+			browser.append("path")
+			  .attr("class", "area")
+			  .attr("d", function(d) { return area(d.values); })
+			  .style("fill" , function(d) {
+					if(d.name == (chemin.split('/')[0]).split('_')[0]){
+						return color(d.name) ;
+					}
+					else{
+						return "url(#hash_" + d.name + ")" ;
+					}			
+				})
+				.style("opacity" , function(d) {
+					if(d.name == (chemin.split('/')[0]).split('_')[0]){
+						return 0.75 ;
+					}
+					else{
+						return 0.3 ; 
+					}			
+				}); 
+			
+			// Add lines
+			var lines = gr.selectAll(".line")
+			  .data(browsers)
+				.enter().append("g")
+			  .attr("class", "line")
+			  .style("stroke", function(d) {return color(d.name)}) ;
+
+			lines.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) {return line(d.values); })
+				
+			// Add dots
+			var dots = gr.selectAll('.name')
+			  .data(browsers, function(d) {
+				return d.name;
+			  });
+
+			var lE = dots.enter()
+				.append('g')
+				.attr('class', 'name');
+
+			lE.selectAll("dots")
+				.data(function(d){
+					return d.values
+				})
+				.enter()
+				.append("circle")
+				.attr("r", 2.5)
+				.attr("cx", line.x())
+				.attr("cy", line.y())	
+				.attr("stroke", function(d){
+					return color(d3.select(this.parentNode).datum().name);
+				  })
+				.style("fill", "white") ;			
+	
+			// Display axis
+			gr.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis);
+
+			gr.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis);
+			
+			
+			// Tooltip 
+			// append a g for all the mouse over nonsense
+			var mouseG = gr.append("g")
+			  .attr("class", "mouse-over-effects");
+
+			// this is the vertical line
+			mouseG.append("path")
+			  .attr("class", "mouse-line")
+			  .style("stroke", "black")
+			  .style("stroke-width", "1px")
+			  .style("opacity", "0");
+
+			// here's a g for each circle and text on the line
+			var mousePerLine = mouseG.selectAll('.mouse-per-line')
+			  .data(browsers)
+			  .enter()
+			  .append("g")
+			  .attr("class", "mouse-per-line");
+
+			// the circle
+			mousePerLine.append("circle")
+			  .attr("r", 2.5)
+			  .style("fill", function(d) {return color(d.name)}) 
+			  .style("stroke-width", "1px")
+			  .style("opacity", "0");
+
+			// the rectangle
+			mousePerLine.append("rect")
+				.attr("height", "12px")
+				.style("fill", "white")
+				.style("opacity", "0.8")
+				.attr("x", "10px")
+				.attr("y", "-8px");
+			
+			// the text
+			mousePerLine.append("text")
+			  .style("font-size", "1.5em")
+			  .attr("transform", "translate(10,3)");
+			
+			var tickPos = x.range();
+			var xI = null ;
+			
+			// rect to capture mouse movements
+			mouseG.append('svg:rect')
+			  .attr('width', width)
+			  .attr('height', height)
+			  .attr('fill', 'none')
+			  .attr('pointer-events', 'all')
+			  .on('mouseout', function() { // on mouse out hide line, circles and text
+				d3.select(".mouse-line")
+				  .style("opacity", "0");
+				d3.selectAll(".mouse-per-line circle")
+				  .style("opacity", "0");
+				d3.selectAll(".mouse-per-line text")
+				  .style("opacity", "0")
+				d3.selectAll(".mouse-per-line rect")
+				  .style("opacity", "0");
+			  })
+			  .on('mouseover', function() { // on mouse in show line, circles and text
+				d3.select(".mouse-line")
+				  .style("opacity", "1");
+				d3.selectAll(".mouse-per-line circle")
+				  .style("opacity", "1");
+				d3.selectAll(".mouse-per-line text")
+				  .style("opacity", "1")
+				d3.selectAll(".mouse-per-line rect")
+				  .style("opacity", "1");
+			  })
+			  .on('mousemove', mousemove2) ;
+			  
+			  function mousemove2() { // mouse moving over canvas
+			  
+			  	var m = d3.mouse(this),
+					  lowDiff = 1e99;
+
+					for (var i in tickPos){
+						var diff = Math.abs(m[0] - tickPos[i]);
+
+						if (diff < lowDiff){
+							lowDiff = diff;
+							xI = i;
+						}
+												
+					}
+			
+				// position the circle and text
+				d3.selectAll(".mouse-per-line")
+				  .attr("transform", function(d, i) {
+					
+					var orY = Object.values(browsers[0])[1][xI].y ;
+					
+					var vFoc ;
+
+					if ((chemin.split('/')[0]).split('_')[1] == "choro"){	
+						vFoc = (Math.round(Object.values(d)[1][xI].y * 10)/10).toFixed(1) ;	
+					}
+					
+					if ((chemin.split('/')[0]).split('_')[1] == "prop" || (chemin.split('/')[0]).split('_')[1] == "flow"){	
+						vFoc = format(Math.round(Object.values(d)[1][xI].y)) ;	
+					}
+					if (vFoc > 0){
+						vFoc = vFoc ; 
+					}
+					if(vFoc == 0){
+						vFoc = "" ; 
+					}
+					
+					// update the text with y value			
+					d3.select(this).select('text')
+					  .text(vFoc);
+					  
+					// update the rect width
+					d3.select(this).select('rect')	
+						.attr("width", d3.select(this).select('text').node().getBBox()["width"]) ;
+
+					// return position
+					return "translate(" + tickPos[xI] + "," +  y(Object.values(d)[1][xI].y0 + Object.values(d)[1][xI].y) + ")";
+				
+				});
+  
+			}
+
+		}); 
+	
+	}
+
+	function displayMap(chemin){
+
+		if ((chemin.split('/')[0]).split('_')[1] == "choro"){
+	
+			d3.json(chemin, function(json) {
+			
+				d3.select(".filtre").remove() ;
+		
+				//Arguments pour la construction de la légende
+				var ext_color_domain =  colDom ;
+				var color_domain = ext_color_domain.slice(1, ext_color_domain.length + 1)
+				
+				var legend_labels = [ext_color_domain[1] + "% "+ " or less",
+									ext_color_domain[1] + "% to " + ext_color_domain[2] + "%",
+									ext_color_domain[2] + "% to " +  ext_color_domain[3] + "%",
+									ext_color_domain[3] + "% to " +  ext_color_domain[4] + "%",
+									ext_color_domain[4] + "%" + " or more"] 
+				
+				var color = d3.scale.threshold()
+					.domain(color_domain)
+					.range(col);
+					
+				var hour = Math.trunc(slider.value()) ;
+				indic = (chemin.split('/')[0]).split('_')[0] + "_h" + hour ;
+							
+				// Choro      
+				var color = d3.scale.threshold()
+					.domain(color_domain)
+					.range(col);
+
+				var secteurs = json.features;
+				
+				var densities = secteurs
+					  .map(function(d) { return d.properties.indic ; })
+					  .sort(function(a, b) { return a - b; });
+				
+
+				g.selectAll(".legende").remove() ;
+				g.selectAll("g").remove() ;
+				fl.selectAll("circle, path").remove() ;
+				
+				g.append("g")
+					  .attr("class", "secteurs")
+					.selectAll("path")
+					  .data(secteurs)
+					.enter().append("path")
+					  .style("fill", function(d) { return color(d.properties[indic]); })
+					  .style("stroke", "white")
+					  .style("stroke-width", 0.5 / currentZoom)
+					  .attr("d", path) ; 
+					  
+				// Add selected sector if a sector was already clicked	
+				if(currSect){				
+					var chemins = secteurs.map(function (d){					
+						if(d.properties.SECT_EGT == currSect){					
+							return path(d) ;					
+						}
+					});
+					
+					d3.select(".filtre").remove() ;
+					
+					var clickedSect = chemins.filter(function(i){return i != null ;}) ;
+				}
+				
+				g.append("path")
+					.attr("class", "filtre")
+					.attr("d", clickedSect) 
+					.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+				  
+				// Mouseover and onclick functions								
+				g.selectAll("path").on("mouseover", function(d){
+					
+					var sectover = d3.select(this).attr("d") ;
+				
+					g.append("path")
+						.attr("class", "sectover")
+						.attr("d", sectover) 
+						.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;				
+														
+					d3.select(this).style({'cursor' :'pointer'}) ;
+					
+					info.transition()
+						   .duration(200)
+						   .style("opacity", .8);
+					info.text(d.properties.LIB)
+						.style("left", (d3.event.pageX - 300) + "px")
+						.style("top", (d3.event.pageY - 250) + "px")
+						.style("background-color", "white")
+						.style("display", "block");
+										
+					 })
+					.on("mouseout", function(d){
+					
+						$(".sectover").css('display', 'none') ;
+						
+						info.transition()
+						   .duration(500)
+						   .style("opacity", 0 );
+						  
+					})
+					.on("click", function(d){
+	
+						$("#titleGr2").html('');
+						d3.select("#grSect").selectAll("svg").remove() ; 
+						
+						$("#grSect").html('') ;
+						
+						nameSect = d.properties.LIB ;
+						d3.select("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+					
+						// DISPLAY SECTOR CHARTS FROM SELECTION
+						currSect = d.properties.SECT_EGT ;
+						if (currSect && typeGraph == "simple"){ 
+						
+							// Initialisation
+							$("#titleGr2").html(titleGr2);
+							$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
+
+							// Build sector chart
+							displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+						}
+						
+						if (currSect && typeGraph == "stacked" && chemin != "pop0_prop/geo/secteursData.geojson"){
+						
+							// Build sector chart
+							stackedBarChart(currSect) ;
+							
+							$("#altGr22").css('cssText', style2);
+							$("#altGr12").css('cssText', style1);
+
+						}
+						
+						currSect = d.properties.SECT_EGT ;
+						
+						// Selected sector
+						d3.select(".filtre").remove() ;
+						
+						g.append("path")
+							.attr("class", "filtre")
+							.attr("d", d3.select(this).attr("d")) 
+							.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+						
+					});		
+
+				// LEGEND
+				svg.selectAll(".legendbloc, .legendbloc2, .lgchoro, .lgprop, .lgflow").remove() ;
+				d3.selectAll(".notabene").remove() ;
+				
+				/*var legende = d3.select("#legende")
+					.append("svg")
+					.attr("height", 210)
+					.attr("width", 192) ; */
+					
+				var legendGroup = svg.append("g") ;
+				
+				legendGroup.append("rect")
+					.attr("width", "192px")
+					.attr("height", "210px")
+					.attr("x", "20px")
+					.attr("y",(height - 210 - (height * 0.04))+"px")
+					.attr("class", "legendbloc");
+					
+				// Notabene
+				legendGroup.append('foreignObject')
+					.attr("width", "175px")
+					.attr("height", "100px")
+					.attr('x', "30px")
+					.attr('y', "645px")
+					.append("xhtml:div")
+					.html('<div class="notabene">For each group, same class intervals apply over the 24h period.</div>');
+			
+				var lgchoro = legendGroup.selectAll("g.lgchoro")
+					.data(ext_color_domain)
+					.enter().append("g")
+					.attr("class", "lgchoro");
+
+				var ls_w = 25, ls_h = 25;
+
+				lgchoro.append("rect")
+					.attr("x", 60)
+					.attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h - 70 ;})
+					.attr("width", ls_w)
+					.attr("height", ls_h)
+					.style("fill", function(d, i) { return color(d); })
+					.style("opacity", 1);
+
+				lgchoro.append("text")
+					.attr("x", 90)
+					.attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 77;})
+					.text(function(d, i){ return legend_labels[i]; });	
+					
+				
+				
+			});
+			
+		}
+			
+		if ((chemin.split('/')[0]).split('_')[1] == "prop"){
+			
+			var circles = fl.append("svg:g")
+			.attr("id", "circles")
+			.attr("class", "bubble")
+			.attr("fill", col[4]) ;
+					
+			var cells = fl.append("g")
+				.attr("id", "cells");
+
+			d3.json(chemin, function(json) {
+			
+				g.selectAll(".secteurs").remove() ;
+			
+				d3.select(".filtre").remove() ;
+						
+				var hour = Math.trunc(slider.value()) ;
+				indic = (chemin.split('/')[0]).split('_')[0] + "_h" + hour ;
+			
+				g.selectAll(".secteurs").remove() ;
+			
+				// Définition du fond de carte
+				g.append("g")
+					.attr("class", "secteurs")
+					.selectAll("path")
+					.data(json.features)
+					.enter()
+					.append("path")
+					.attr("d", path)
+					.style("stroke", "white")
+					.style("stroke-width", 0.5  / currentZoom) ;
+					
+				// Add selected sector if a sector was already clicked					
+				if(currSect){				
+					var chemins = json.features.map(function (d){					
+						if(d.properties.SECT_EGT == currSect){					
+							return path(d) ;					
+						}
+					});
+					
+					d3.select(".filtre").remove() ;
+					var clickedSect = chemins.filter(function(i){return i != null ;}) ;
+			
+				}
+				
+				g.append("path")
+					.attr("class", "filtre")
+					.attr("d", clickedSect) 
+					.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+									
+			var hour = "h" + Math.trunc(slider.value()) ;
+					
+			g.selectAll("circle").remove() ;
+			fl.selectAll("circle").remove() ;
+			fl.selectAll("path").remove() ;
+			d3.select("#legende").selectAll(".legende").remove() ;
+			
+			// Filter on hour				
+			var linksByOrigin = {},
+			locationBySect = {},
+			positions = [];
+
+			json.features = json.features
+				  .sort(function(a, b) { return b.properties[indic] - a.properties[indic]; }) ;
+			
+			sectct = json.features.filter(function(sectEGT) {
+				var loc = [+sectEGT.properties.CENTROID_X, +sectEGT.properties.CENTROID_Y];
+				locationBySect[sectEGT.properties.SECT_EGT] = loc;
+				positions.push(proj(loc));
+				return true;
+			});
+		
+			var mapccl = cells.selectAll("g")
+				.data(json.features)
+				.enter().append("svg:g");
+
+			mapccl.append("path")
+				.attr("class", "cell")
+				.attr("d", path)
+				.on("mouseover", function(d) { 
+
+					var sectover = d3.select(this).attr("d") ;
+				
+					g.append("path")
+						.attr("class", "sectover")
+						.attr("d", sectover) 
+						.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;				
+														
+					d3.select(this).style({'cursor' :'pointer'}) ;
+					
+					info.transition()
+						   .duration(200)
+						   .style("opacity", .8);
+						   
+					info.text(d.properties.LIB) 
+						.style("left", (d3.event.pageX - 300) + "px")
+						.style("top", (d3.event.pageY - 250) + "px")
+						.style("background-color", "white")
+						.style("display", "block");
+										
+				})
+				.on("mouseout", function(d){
+				
+					$(".sectover").css('display', 'none') ;
+					
+					info.transition()
+					   .duration(500)
+					   .style("opacity", 0 );
+					  
+				})
+				.on("click", function(d){ 
+				
+					currSect = d.properties.SECT_EGT ;
+					
+					$("#grSect").html('') ;
+					
+					nameSect = d.properties.LIB ;
+					d3.select("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+				
+					// DISPLAY SECTOR CHARTS FROM SELECTION
+					if (currSect && typeGraph == "simple"){ 
+						
+						// Initialisation
+						$("#titleGr2").html(titleGr2);
+						$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
+
+						// Build sector chart
+						displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+					}
+					
+					if (currSect && typeGraph == "stacked" && chemin.split('_')[0] != "pop0"){
+					
+						// Build sector chart
+						stackedBarChart(currSect) ;
+						
+						$("#altGr22").css('cssText', style2);
+						$("#altGr12").css('cssText', style1);
+
+					}
+					
+					if(currSect && chemin.split('_')[0] == "pop0"){
+					
+						$("#altGr22").css('cssText', style1);
+						$("#altGr12").css('cssText', style3);
+					
+						// Build sector chart
+						displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+					}
+					
+					// Selected sector
+					d3.select(".filtre").remove() ;
+					
+					g.append("path")
+						.attr("class", "filtre")
+						.attr("d", d3.select(this).attr("d")) 
+						.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+				
+				}) ;
+
+			circles.selectAll("circle")
+				.data(json.features)
+			  .enter().append("circle")
+				.attr("cx", function(d, i) { return positions[i][0] ; })
+				.attr("cy", function(d, i) { return positions[i][1] ; })
+				.attr("r", function(d) { return radius(d.properties[indic])/currentZoom; })
+				.style("stroke-width",  .5 / currentZoom) ;
+
+				
+			// DESSIN DE LA LEGENDE
+			// Stockage des valeurs min, max et moyenne de l'indicateur pour la légende des cercles proportionnels
+			var valMax = 0 ;
+			var valMin = 1000000000 ;
+			var lengthI = (indic.split('_')[0]).length - 1 ;
+			
+			for (var i = 0; i < json.features.length; i++){
+
+				var values = json.features[i].properties ;
+								
+				for (j in values){
+					if(j.substring(0, lengthI) == indic.substring(0, lengthI)){		
+
+						if (Number(values[j]) > valMax ){							
+							valMax = Number(values[j]) ;
+						}							
+						if (Number(values[j]) < valMin && Number(values[j]) != 0){							
+							valMin = Number(values[j]) ;
+						}							
+					}						
+				}
+			}
+			
+			// Dessin de la légende
+			svg.selectAll(".legendbloc, .legendbloc2, .lgchoro, .lgprop, .lgflow").remove() ;
+			d3.selectAll(".notabene").remove() ;
+				
+			var valMed = (valMax + valMin)/2 ;
+			var dataset = [valMax, valMed, valMin] ; 
+			
+			var legendGroup = svg.append("g") ;
+			
+			legendGroup.append("rect")
+				.attr("width", "192px")
+				.attr("height", "210px")
+				.attr("x", "20px")
+				.attr("y",(height - 220 - (height * 0.04))+"px")
+				.attr("class", "legendbloc");
+				
+			// Notabene
+			svg.append('foreignObject')
+				.attr("width", "175px")
+				.attr("height", "100px")
+				.attr('x', "30px")
+				.attr('y', "645px")
+				.append("xhtml:div")
+				.html('<div class="notabene">Circles are proportionally sized according to the number of people and are similar for all maps.</div>') ;
+		
+			var lgprop = legendGroup.selectAll("g.lgprop")
+				.data(dataset)
+				.enter().append("g")
+				.attr("class", "lgprop");
+
+			var ls_w = 25, ls_h = 25;
+
+			lgprop.append("circle")
+				.attr("cx", 90)
+				.attr("cy", function(d){return 630 - radius(d) ;})
+				.attr("r", function(d) {return radius(d) ;})
+				.style("fill", col[4])
+				.style("fill-opacity", 0.75)
+				.style("stroke", "white");
+
+			lgprop.append("text")
+				.attr("x", 95 + radius(dataset[0]))
+				.attr("y", function(d){return 630 - (2*radius(d)) ; })
+				.text(function (d) { return format(Math.floor(d)); });	
+			
+			// Update height
+			var newy = 630 - 25 - (radius(dataset[0])*2) ;
+			d3.select(".legendbloc").attr("y", newy+"px") ;
+			d3.select(".legendbloc").attr("height", (height - newy - (height * 0.04))+"px");
+			
+			}) ;
+
+		}
+		
+
+
+		if((chemin.split('/')[0]).split('_')[1] == "flow"){
+			
+			var circles = fl.append("svg:g")
+				.attr("id", "circles")
+				.attr("class", "bubble")
+				.attr("fill", col[4]) ;
+					
+			var cells = fl.append("g")
+				.attr("id", "cells");
+
+			d3.json(chemin, function(json) {
+			
+				g.selectAll(".secteurs").remove() ;
+			
+				d3.select(".filtre").remove() ;
+						
+				var hour = Math.trunc(slider.value()) ;
+				indic = (chemin.split('/')[0]).split('_')[0] + "_h" + hour ;
+			
+				g.selectAll(".secteurs").remove() ;
+			
+				// Définition du fond de carte
+				g.append("g")
+					.attr("class", "secteurs")
+					.selectAll("path")
+					.data(json.features)
+					.enter()
+					.append("path")
+					.attr("d", path)
+					.style("stroke", "white")
+					.style("stroke-width", 0.5  / currentZoom) ;
+					
+				// Add selected sector if a sector was already clicked					
+				if(currSect){				
+					var chemins = json.features.map(function (d){					
+						if(d.properties.SECT_EGT == currSect){					
+							return path(d) ;					
+						}
+					});
+					
+					d3.select(".filtre").remove() ;
+					var clickedSect = chemins.filter(function(i){return i != null ;}) ;
+			
+				}
+				
+				g.append("path")
+					.attr("class", "filtre")
+					.attr("d", clickedSect) 
+					.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+
+					
+			}) ;
+
+			d3.csv(chemin.split('/')[0] + "/geo/flowData.csv", function(flux) {
+									
+				var hour = "h" + Math.trunc(slider.value()) ;
+	
+				// Filter on hour
+				flux = flux.filter(function(x) { return x.variable == hour}) ;				
+				var linksByOrigin = {},
+				locationBySect = {},
+				positions = [];
+				
+				countBySect = {} ;
+
+				var arc = d3.geo.greatArc()
+					.source(function(d) { return locationBySect[d.source]; })
+					.target(function(d) { return locationBySect[d.target]; });
+
+				flux.forEach(function(flight) {
+					var origin = flight.code_sec,
+					destination = flight.ressect,
+					poids = flight.poidsp,
+					links = linksByOrigin[origin] || (linksByOrigin[origin] = []);
+					links.push({source: origin, target: destination, poids});
+					countBySect[origin] = (countBySect[origin] || 0) + 1;
+					//countBySect[destination] = (countBySect[destination] || 0) + 1;
+
+				});
+			
+				d3.json(chemin, function(json) {
+						
+					g.selectAll("circle").remove() ;
+					fl.selectAll("circle").remove() ;
+					fl.selectAll("path").remove() ;
+					d3.select("#legende").selectAll(".legende").remove() ;
+					
+					json.features = json.features
+						.sort(function(a, b) { return b.properties[indic] - a.properties[indic]; }) ;
+
+					sectct = json.features.filter(function(sectEGT) {
+						var loc = [+sectEGT.properties.CENTROID_X, +sectEGT.properties.CENTROID_Y];
+						locationBySect[sectEGT.properties.SECT_EGT] = loc;
+						positions.push(proj(loc));
+						return true;
+					});
+				
+					var flowmap = cells.selectAll("g")
+						.data(json.features)
+						.enter().append("svg:g");
+
+					flowmap.append("path")
+						.attr("class", "cell")
+						.attr("d", path)
+						.on("mouseover", function(d) { 
+
+							var sectover = d3.select(this).attr("d") ;
+						
+							g.append("path")
+								.attr("class", "sectover")
+								.attr("d", sectover) 
+								.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;				
+																
+							d3.select(this).style({'cursor' :'pointer'}) ;
+							
+							info.transition()
+								   .duration(200)
+								   .style("opacity", .8);
+								   
+							info.text(d.properties.LIB) 
+								.style("left", (d3.event.pageX - 300) + "px")
+								.style("top", (d3.event.pageY - 250) + "px")
+								.style("background-color", "white")
+								.style("display", "block");
+												
+						})
+						.on("mouseout", function(d){
+						
+							$(".sectover").css('display', 'none') ;
+							
+							info.transition()
+							   .duration(500)
+							   .style("opacity", 0 );
+							  
+						})
+						.on("click", function(d){ 
+						
+							currSect = d.properties.SECT_EGT ;
+							
+							$("#grSect").html('') ;
+							
+							nameSect = d.properties.LIB ;
+							d3.select("#mainGr2").html("IN THE SELECTED DISTRICT<span id = 'nameSect'></br>" + nameSect + "</span>");
+						
+							// DISPLAY SECTOR CHARTS FROM SELECTION
+							if (currSect && typeGraph == "simple"){ 
+								
+								// Initialisation
+								$("#titleGr2").html(titleGr2);
+								$("#titleGr2").css("font-size", $("#titleGr1").css("font-size")) ;
+
+								
+							}
+							
+							if (currSect && typeGraph == "stacked" && chemin.split('_')[0] != "pop0"){
+							
+								// Build sector chart
+								stackedBarChart(currSect) ;
+								
+								$("#altGr22").css('cssText', style2);
+								$("#altGr12").css('cssText', style1);
+
+							}
+							
+							if(currSect && chemin.split('_')[0] == "pop0"){
+							
+								$("#altGr22").css('cssText', style1);
+								$("#altGr12").css('cssText', style3);
+							
+							// Build sector chart
+							displayGraph("#grSect", chemin.split('/')[0] + "/data/dataSect.csv", "hour", currSect, "") ;
+							}
+							
+							// Selected sector
+							d3.select(".filtre").remove() ;
+							
+							g.append("path")
+								.attr("class", "filtre")
+								.attr("d", d3.select(this).attr("d")) 
+								.style({'fill' : 'none' , 'stroke-width' : '1px' , 'stroke' : 'black', 'stroke-opacity' : '0.8', 'stroke-linejoin' : 'round', 'stroke-linecap': 'round', 'cursor' :'pointer'}) ;
+						
+						}) ;
+									
+					flowmap.selectAll("path.arc")
+						.data(function(d) { return linksByOrigin[d.properties.SECT_EGT] || []; })
+					  .enter().append("path")
+						.attr("class", "arc")
+						.attr("d", function(d) { return path(arc(d)); })
+						.attr("stroke-width", function(d){
+							var poids = d.poids ; 
+							if(poids < 1000){
+								return 0.25 /currentZoom;
+							}
+							if(poids >= 1000 && poids < 2000){
+								return 1 / currentZoom;
+							}
+							if(poids >= 2000){
+								return 3 / currentZoom ;
+							}
+						}) ;
+
+					circles.selectAll("circle")
+						.data(json.features)
+					  .enter().append("svg:circle")
+						.attr("cx", function(d, i) { return positions[i][0]; })
+						.attr("cy", function(d, i) { return positions[i][1]; })
+						.attr("r", function(d) { return radius(d.properties[indic])/currentZoom ; })
+						.style("stroke-width",  .5 / currentZoom) ;
+			
+						
+					// DESSIN DE LA LEGENDE
+					// Stockage des valeurs min, max et moyenne de l'indicateur pour la légende des cercles proportionnels
+			
+					var valMax = 0 ;
+					var valMin = 1000000000 ;
+					var lengthI = (indic.split('_')[0]).length - 1 ;
+					
+					for (var i = 0; i < json.features.length; i++){
+
+						var values = json.features[i].properties ;
+										
+						for (j in values){
+							if(j.substring(0, lengthI) == indic.substring(0, lengthI)){		
+
+								if (Number(values[j]) > valMax ){							
+									valMax = Number(values[j]) ;
+								}							
+								if (Number(values[j]) < valMin && Number(values[j]) != 0){							
+									valMin = Number(values[j]) ;
+								}							
+							}						
+						}
+					}
+					
+					// Dessin de la légende
+					var valMed = (valMax + valMin)/2 ;
+					var dataset = [valMax, valMed, valMin] ; 
+					
+					svg.selectAll(".legendbloc, .legendbloc2, .lgchoro, .lgprop, .lgflow").remove() ;
+					d3.selectAll(".notabene").remove() ;
+						
+					var valMed = (valMax + valMin)/2 ;
+					var dataset = [valMax, valMed, valMin] ; 
+					
+					var legendGroup = svg.append("g") ;
+					
+					legendGroup.append("rect")
+						.attr("width", "192px")
+						.attr("height", "210px")
+						.attr("x", "20px")
+						.attr("y", (height - 280 - (height * 0.04))+"px")
+						.attr("class", "legendbloc2");
+						
+					// Notabene 1 (links)
+					svg.append('foreignObject')
+						.attr('x', "30px")
+						.attr('y', "630px")
+						.attr("width", "175px")
+						.attr("height", "100px")
+						.append("xhtml:div")
+						.html('<div class="notabene">Link thickness represents people flow from their districts of residence to the district where they are located.</div>') ;
+				
+					// Links
+					datasetLiens = [
+					{y : 585, strk : 0.25, txt : "< 1 000"},
+					{y : 600, strk : 1, txt : "1 000-2 000"},
+					{y : 615, strk : 3, txt : "> 2 000"}] ;
+					
+					var lgflow = legendGroup.selectAll("g.lgflow")
+						.data(dataset)
+						.enter().append("g")
+						.attr("class", "lgflow");
+		
+					var liens = lgflow.selectAll("line")
+						.data(datasetLiens)
+						.enter()
+						.append("line") ;
+						
+					var liensAtt = liens
+						.attr("x1", 40)
+						.attr("y1", function(d){return d.y })
+						.attr("x2", 65)
+						.attr("y2", function(d){return d.y })
+						.attr("stroke-width", function(d){ return d.strk })
+						.attr("stroke", "black") ;
+
+					var text2 = lgflow.selectAll(".textL")
+						.attr("class", "textL")
+						.data(datasetLiens)
+						.enter()
+						.append("text") ;	
+						
+					var textLabels2 = text2
+						.attr("x", 90)
+						.attr("y", function(d){return d.y })
+						.text(function(d){return d.txt })
+						.style("font-size", "0.8em") ;						
+					
+					// Circles
+					// Notabene 2 (circles)
+					svg.append('foreignObject')
+						.attr('x', "30px")
+						.attr('y', "510px")
+						.attr("width", "175px")
+						.attr("height", "100px")
+						.append("xhtml:div")
+						.html('<div class="notabene">Circles are proportionally sized according to the number of non-resident people and are similar for all maps.</div>') ;
+				
+					var ls_w = 25, ls_h = 25;
+
+					lgflow.append("circle")
+						.attr("cx", 90)
+						.attr("cy", function(d){return 500 - radius(d) ;})
+						.attr("r", function(d) {return radius(d) ;})
+						.style("fill", col[4])
+						.style("fill-opacity", 0.75)
+						.style("stroke", "white");
+
+					lgflow.append("text")
+						.attr("x", 95 + radius(dataset[0]))
+						.attr("y", function(d){return 500 - (2*radius(d)) ; })
+						.text(function (d) { return format(Math.floor(d)); });				
+								
+					// Update height
+					var newy = 500 - 25 - (radius(dataset[0])*2) ;
+					d3.select(".legendbloc2").attr("y", newy+"px") ;
+					d3.select(".legendbloc2").attr("height", (height - newy - (height * 0.04))+"px") ;
+			
+				}) ;
+		  
+			});
+
+		}
+	
+	}
+
+	function createSlider() {
+	
+		d3.select("#slider").html("") ;
+		d3.select("#timeAxis").html("") ;
+	
+		// Set the ranges
+		var	x = d3.scale.ordinal().domain(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"])
+			.rangePoints([0, 957], .5);
+			
+		var xb = d3.scale.linear().domain([4, 27]).range([4, 376]) ;
+
+		//Set the axis
+		xAxis = d3.svg.axis().scale(x)
+			.tickValues(["4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm", "1am", "2am", "3am"])
+			.orient("bottom");
+		
+		var val = slider ? slider.value() : 4;
+		
+		slider = d3.slider()
+				.min(4).max(27).step(1)
+				/*.axis(d3.svg.axis()
+					.orient("bottom")
+					.ticks(23))*/
+			.on("slide",function(event,value){
+			  if ( isPlaying ){
+				clearInterval(interval);
+			  }
+			  currentFrame = value;
+			  displayMap(chemin) ;
+			 
+			var currHour = xAxis.tickValues()[(slider.value()-4)] ;
+			
+			d3.select("#hour").text(currHour) ;
+			  
+			if (chemin != "pop0_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#graphiques").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			}
+			if (chemin == "pop0_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#grSect").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			} 
+			})				
+			.on("slideend",function(){
+			  if ( isPlaying ) animate();
+			})
+		.value(val);
+		
+		//Tickformat must depend on values of y
+		var timeAxis = d3.select("#timeAxis")
+			.append("svg")
+			.attr("width", 957)
+			.attr("height", 15)
+			.classed("svg-container", true) 
+			.attr("preserveAspectRatio", "xMinYMin meet")
+			.attr("viewBox", "0 0 958 25")
+			.classed("svg-content-responsive", true)
+			.call(xAxis) ;	
+			
+		d3.select("#hour").text(xAxis.tickValues()[(slider.value()-4)]) ;
+			
+		d3.select("#slider")
+			.append("div")
+			.call(slider);
+		
+	}
+
+	function animate() {
+
+		interval = setInterval(function(){
+		
+			currentFrame++ ;
+			
+			if (currentFrame == 28) currentFrame = 4 ;
+			
+			slider.value(currentFrame) ;
+			
+			d3.select("#hour").text(xAxis.tickValues()[(slider.value()-4)]) ;
+			
+			displayMap(chemin) ;
+			
+			// Add shadow line with current hour
+			var xb = d3.scale.linear().domain([4, 27]).range([4, 376]) ;
+
+			if (chemin != "pop0_prop/geo/secteursData.geojson"){
+			d3.select("#graphiques").selectAll(".shadow").remove() ;
+			d3.select("#graphiques").selectAll("svg").insert("line", ".dots")
+				.attr("class", "shadow")
+				.attr("x1", xb(currentFrame))
+				.attr("x2", xb(currentFrame))
+				.attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				.attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				.style("stroke", "black")
+				.style("stroke-width", 10)
+				.style("stroke-opacity", .2) ;   
+			}
+			if (chemin == "pop0_prop/geo/secteursData.geojson"){  
+				d3.select("#graphiques").selectAll(".shadow").remove() ;
+			  
+				d3.select("#grSect").selectAll("svg").insert("line", ".dots")
+					.attr("class", "shadow")
+				   .attr("x1", xb(currentFrame))
+				   .attr("x2", xb(currentFrame))
+				   .attr("y1", d3.scale.linear().range([178, 1]).range()[0])
+				   .attr("y2", d3.scale.linear().range([178, 1]).range()[1])
+				   .style("stroke", "black")
+				   .style("stroke-width", 10)
+				   .style("stroke-opacity", .2) ;
+			  
+			} 
+			
+			if (currentFrame == 28){
+			
+			isPlaying = false ;
+			d3.select("#play").classed("pause",false).attr("title","Jouer l'animation");
+			clearInterval( interval );
+			return;
+			
+			}
+		
+		}, 1000) ;
+						
+	}
+		
+	
+}
+
+// ADD DEPARTEMENTS BY DEFAULT
+d3.json("LAYERS/depIdf.geojson", function(json){
+	dep.selectAll("path")
+		.data(json.features)
+		.enter()
+		.append("path")
+		.attr("class", "depBorder")
+		.attr("d", path)
+		.style("fill", "none")
+		.style("stroke", "#575756")
+		.style("stroke-width", ".5");
+}) ;
+
+// ADD MAIN CITIES BY DEFAULT
+d3.json("LAYERS/commSectPrinc.geojson", function(json){
+
+	villes.selectAll(".centroid")
+		.data(json.features)
+		.enter()
+		.append("circle")
+		.attr("class", "centroid")
+		.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+		.attr("r", (2/currentZoom)+"px")
+		.style("fill", "black") ;
+		
+	var node = villes.selectAll("g.node")
+		.data(json.features)
+		.enter()
+		.append("g")
+		.attr("class", "node")
+		
+	// the rectangle
+	node.append("rect")
+		.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+		.attr("y", -18 / currentZoom)
+		.attr("height", 14 / currentZoom)
+		.attr("width", 12 / currentZoom)
+		.style("fill", "white")
+		.style("opacity", ".8") ;
+			
+	// the toponyme			
+	node.append("text")
+		.attr("class", "labels")
+		.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+		.attr("dy", -6 / currentZoom)
+		.style("font-size", (14/currentZoom) + "px")
+		.text(function(d) { return d.properties.NOM_COMM ; }) ;
+
+	node.selectAll('rect')
+		.attr("width", function(d) {return this.parentNode.getBBox().width;})
+  
+}) ;
+
+// DISPLAY LAYERS ON CLICK
+$('#layers').on("click", function(){
+	$('#layers').css('display', 'none') ;
+	$('#layers2').css('display', 'block') ;
+}) ;
+
+$('#reduce').on("click", function(){
+	$('#layers2').css('display', 'none') ;
+	$('#layers').css('display', 'block') ;
+}) ;
+
+// Display departements
+$('input[id="dep"]').on("click", function(){
+	if ( $(this).is(':checked') ) {
+		d3.json("LAYERS/depIdf.geojson", function(json){
+			dep.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.style("fill", "none")
+				.style("stroke", "#575756")
+				.style("stroke-width", .5 / currentZoom);
+		}) ;
+	} 
+	else{
+		dep.selectAll("path").remove() ;
+	}
+}) ;
+
+// Display routes
+$('input[id="routes"]').on("click", function(){
+	if ( $(this).is(':checked') ) {
+		d3.json("LAYERS/routes_idf_simp.geojson", function(json){
+			routes.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.style("fill", "none")
+				.style("stroke", "rgba(0, 0, 0, .65)")
+				.style("stroke-width", 1.5 / currentZoom);
+		}) ;
+	} 
+	else{
+		routes.selectAll("path").remove() ;
+	}
+}) ;
+
+// Display hydro
+$('input[id="hydro"]').on("click", function(){
+	if ( $(this).is(':checked') ) {
+		d3.json("LAYERS/hydro_IDF_simp.geojson", function(json){
+			hydro.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.style("fill", "none")
+				.style("stroke", "rgba(149, 197, 255, 1)")
+				.style("stroke-width", 1.5 / currentZoom);
+		}) ;
+	} 
+	else{
+		hydro.selectAll("path").remove() ;
+	}
+}) ;
+
+// Display cities
+$('input[id="villes"]').on("click", function(){
+	if ( $(this).is(':checked') ) {
+		d3.json("LAYERS/commSectPrinc.geojson", function(json){
+		
+			villes.selectAll(".centroid")
+				.data(json.features)
+				.enter()
+				.append("circle")
+				.attr("class", "centroid")
+				.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+				.attr("r", (2/currentZoom)+"px")
+				.style("fill", "black") ;
+				
+			var node = villes.selectAll("g.node")
+				.data(json.features)
+				.enter()
+				.append("g")
+				.attr("class", "node")
+				
+			// the rectangle
+			node.append("rect")
+				.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+				.attr("y", -18 / currentZoom)
+				.attr("height", 14 / currentZoom)
+				.attr("width", 12 / currentZoom)
+				.style("fill", "white")
+				.style("opacity", ".8") ;
+					
+			// the toponyme			
+			node.append("text")
+				.attr("class", "labels")
+				.attr("transform", function(d) { return "translate(" + proj(d.geometry.coordinates) + ")"; })
+				.attr("dy", -6 / currentZoom)
+				.style("font-size", (14/currentZoom) + "px")
+				.text(function(d) { return d.properties.NOM_COMM ; }) ;
+
+			node.selectAll('rect')
+				.attr("width", function(d) {return this.parentNode.getBBox().width;})
+		  
+		}) ;
+	} 
+	else{
+		villes.selectAll("circle").remove() ;
+		villes.selectAll(".node").remove() ;
+	}
+}) ;
+
+
+// Activation zoom buttons
+d3.selectAll("div[data-zoom]")
+    .on("click", clicked);
+	
+function clicked() {
+
+  svg.call(zoom.event); // https://github.com/mbostock/d3/issues/2387
+  
+  // Record the coordinates (in data space) of the center (in screen space).
+  var center0 = zoom.center(), translate0 = zoom.translate(), coordinates0 = coordinates(center0);
+  zoom.scale(zoom.scale() * Math.pow(2, +this.getAttribute("data-zoom")));
+
+  // Translate back to the center.
+  var center1 = point(coordinates0);
+  zoom.translate([translate0[0] + center0[0] - center1[0], translate0[1] + center0[1] - center1[1]]);
+
+  svg.transition().duration(750).call(zoom.event);
+
+}
+
+function coordinates(point) {
+	var scale = zoom.scale(), translate = zoom.translate();
+	return [(point[0] - translate[0]) / scale, (point[1] - translate[1]) / scale];
+}
+
+function point(coordinates) {
+	var scale = zoom.scale(), translate = zoom.translate();
+	return [coordinates[0] * scale + translate[0], coordinates[1] * scale + translate[1]];
+}
+
+function zoomed(){
+
+	currentZoom = zoom.scale(); 
+	
+	g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	dep.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	routes.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	hydro.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	villes.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	fl.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+		
+	g.select(".secteurs").selectAll("path")
+		.style("stroke-width", 0.5 / currentZoom) ;
+		
+	dep.selectAll("path")
+		.style("stroke-width", .5 / currentZoom) ;
+		
+	routes.selectAll("path")
+		.style("stroke-width", 1.5 / currentZoom) ;
+	
+	hydro.selectAll("path")
+		.style("stroke-width", 1.5 / currentZoom) ;
+		
+	villes.selectAll(".centroid")
+		.attr("r", (2/currentZoom)+"px") ;
+		
+	villes.selectAll(".node").selectAll("text")
+		.style("font-size", (14/currentZoom) + "px")
+		.attr("dy", -6 / currentZoom) ;
+		
+	villes.selectAll(".node").selectAll("rect")
+		.attr("y", -18 / currentZoom)
+		.attr("height", 14 / currentZoom)
+		.attr("width", 12 / currentZoom)
+		.attr("width", function(d) {return this.parentNode.getBBox().width ;}) ;
+		
+	fl.selectAll("circle")
+		.attr("r",  function(d) { return radius(d.properties[indic])/currentZoom; })
+		.style("stroke-width", 0.5 /currentZoom) ;
+		
+	fl.selectAll("path")
+		.attr("stroke-width", function(d){ 
+			var poids = d.poids ; 
+			if(poids < 1000){
+				return 0.25 /currentZoom;
+			}
+			if(poids >= 1000 && poids < 2000){
+				return 1 / currentZoom;
+			}
+			if(poids >= 2000){
+				return 3 / currentZoom ;
+			}
+		}) ;
+	
+	g.selectAll("circle")
+		.attr("r", function(d, i) { return radius(d.properties[indic])/currentZoom; })
+		.style("stroke-width", 0.5 /currentZoom) ;		
+	
+}
+
+</script>
+ 
+ <script>
+ // GOOGLE ANALYSTICS
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72654922-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+// PIWIK
+   var _paq = _paq || [];
+   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+   _paq.push(['trackPageView']);
+   _paq.push(['enableLinkTracking']);
+   (function() {
+     var u="//mobiliscope.parisgeo.cnrs.fr/statweb/";
+     _paq.push(['setTrackerUrl', u+'piwik.php']);
+     _paq.push(['setSiteId', '1']);
+     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+   })();
+</script>
+
+
+</body>
+
+</html>

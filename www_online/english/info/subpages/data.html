@@ -1,0 +1,454 @@
+<div class = "corps">
+<section>
+<h2>Data</h2>
+
+<p>There are <b>29 city regions</b> (in France and Canada) in the actual version of the Mobiliscope.</p>
+
+</section>
+
+<section>
+<h3>Origin-destination surveys</h3>
+
+<p>The data comes from large 'Origin-Destination' surveys</p>
+  <ul>
+    <li><b>French</b> surveys (called Enquêtes Ménages-Déplacements - EMD / Enquête Globale Transport - EGT) are available from <a href="http://www.progedo-adisp.fr/">ADISP</a> (National Archive of Data from Official Statistics in France). Some of them are also available in open data (<a href="https://www.data.gouv.fr/fr/datasets/enquete-deplacements-en-loire-atlantique-2/">Nantes</a>, <a href="http://data.montpellier3m.fr/dataset/enquete-menages-deplacements">Montpellier</a> and <a href="https://opendata.lillemetropole.fr/explore/dataset/enquete-deplacement-2016/information/">Lille</a>).</li>
+
+    <li><b>Canadian</b> surveys have been provided by the <a href="http://www.transports.gouv.qc.ca/">Ministry of Transportation of Quebec</a>.</li>
+
+  </ul>
+
+</p>
+   
+<p>
+  In the 'Origin-Destination' surveys, every trip made on the day before the survey was reported by respondents. The following variables were available for each trip: precise localisation of place of departure and place of arrival, time of departure and time of arrival (with exact minutes), trip purpose, and mode of transportation used.
+  <br>
+
+  In the Canadian surveys, time of arrival was not requested from every respondent. These missing values have been replaced either from trip duration of comparable trips or from GIS computation.
+</p>
+
+</section>
+
+<section>
+<h3>Hourly location</h3>
+<p>The<b> trip dataset</b> was transformed into <b>location dataset</b> in which:</p>
+  <ul>
+    <li>every location was defined at district level (ie. the smallest unit in which it is relevant to aggregate data due to survey design);</li>
+    <li>24 hourly time steps were defined to get 24 cross-sectional pictures of respondents' locations;</li>
+    <li>Transportation periods were removed, except if respondents reported the use of an 'adherent' mode of transportation (ie. walking or cycling). In this case, half of the trip was considered as located in the district of origin and the other half as located in the district of destination.</li>
+  </ul>
+
+<p>Only trips occurring during the week (Monday-Friday) are considered to estimate hourly location during a <b>typical weekday</b>.
+<br>
+</p>
+
+<h3>Studied population</h3>
+<p>Only respondents <b>aged 16 years and over</b> (sufficiently autonomous in their daily mobility) are taken in to consideration.</p>
+<p>Measures displayed in the Mobiliscope have been estimated taking into account <b>weighting coefficients</b> to grant the same distribution observed in population census.
+  <ul>
+    <li>In French cities, weighting coefficients are based on household profile (size and housing type) and on individual profile (age, sex, and for the Paris Region, occupation and socioprofessional group).</li>
+    <li>In Canadian cities, weighting coefficients are only based on sex and age of participants.</li>
+  </ul>
+</p>
+
+</section>
+
+<section>
+<h3>Districts</h3>
+
+<p>In the Mobiliscope, cities have been subdivided into <b>districts</b>. Districts are smaller in inner cities and larger in the peripheral areas. In every city region, there is roughly the same number of surveyed residents by district./p>
+  <ul>
+    <li>In French cities, districts (called 'secteurs' in french 'Origin-Destination' surveys) are the primary sampling units. They correspond to <b>large neighbourhoods</b> in urban areas and to a <b>'commune'</b> (or a group of communes) in suburban/peripheral areas. When more than three communes are included in one district, only the names of three more populated communes are displayed on mouseover.</li>
+    <li>In Canadian cities, districts correspond to <b>municipalities.</b></li>
+  </ul>
+</p>
+</section>
+  
+<p>More methodological details can be found in the paper <a href="https://halshs.archives-ouvertes.fr/halshs-01472039/document">Social segregation around the clock in the Paris region</a>.
+</p>
+
+<p>
+<div class="btn-c"><a class="btn"href="/en/info/methods/indicators">Discover indicators</a></div>
+</p>
+
+</br>
+<h3> Survey description for every city region</h3>
+
+ <table>
+ <thead>
+  <tr>
+      <th>City region</th>
+      <th>Year</th>
+      <th>Number of respondents (16 yrs. and over)</th>
+      <th>Number of weekdays trips</th>
+      <th>Number of locations</th>
+      <th>Number of districts</th>
+      <th>District size in km². Median area (min-max)</th>
+      <th>Number of respondents per district. Median (min-max) at 3am</th>
+      <th>Number of respondents per district. Median (min-max) at 3pm</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+      <td data-label="City">Albi region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">2,339</td>
+      <td data-label="Number of weekdays trips">9,171</td>
+      <td data-label="Number of locations">10,518</td>
+      <td data-label="Number of districts">15</td>
+      <td data-label="District size in km². Median area (min-max)">7 (1.3-54)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">155 (148-160)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">122 (80-282)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Angers region</td>
+      <td data-label="Year">2012</td>
+      <td data-label="Number of respondents aged 16 or over">3,983</td>
+      <td data-label="Number of weekdays trips">18,399</td>
+      <td data-label="Number of locations">18,908</td>
+      <td data-label="Number of districts">28</td>
+      <td data-label="District size in km². Median area (min-max)">17 (2-110)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">139 (125-160)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">105 (65-272)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Angoulême region</td>
+      <td data-label="Year">2012</td>
+      <td data-label="Number of respondents aged 16 or over">2,684</td>
+      <td data-label="Number of weekdays trips">11,300</td>
+      <td data-label="Number of locations">12,463</td>
+      <td data-label="Number of districts">18</td>
+      <td data-label="District size in km². Median area (min-max)">14 (1.5-151)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">146 (139-172)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">129 (71-257)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Béziers region</td>
+      <td data-label="Year">2014</td>
+      <td data-label="Number of respondents aged 16 or over">4,212</td>
+      <td data-label="Number of weekdays trips">18,661</td>
+      <td data-label="Number of locations">19,719</td>
+      <td data-label="Number of districts">30</td>
+      <td data-label="District size in km². Median area (min-max)">52 (1.2-822)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">138 (130-153)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">120 (78-196)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Bordeaux region</td>
+      <td data-label="Year">2009</td>
+      <td data-label="Number of respondents aged 16 or over">10,677</td>
+      <td data-label="Number of weekdays trips">48,462</td>
+      <td data-label="Number of locations">52,014</td>
+      <td data-label="Number of districts">76</td>
+      <td data-label="District size in km². Median area (min-max)">5 (0.4-203)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">140 (124-156)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">116 (65-268)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Caen region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">10,000</td>
+      <td data-label="Number of weekdays trips">43,194</td>
+      <td data-label="Number of locations">48,466</td>
+      <td data-label="Number of districts">67</td>
+      <td data-label="District size in km². Median area (min-max)">15 (0.5-647)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">151 (125-165)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">121 (72-475)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Clermont-ferrand region</td>
+      <td data-label="Year">2012</td>
+      <td data-label="Number of respondents aged 16 or over">8,051</td>
+      <td data-label="Number of weekdays trips">34,182</td>
+      <td data-label="Number of locations">37,638</td>
+      <td data-label="Number of districts">56</td>
+      <td data-label="District size in km². Median area (min-max)">39 (0.7-471)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">144 (131-158)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">110 (75-359)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Grenoble region</td>
+      <td data-label="Year">2010</td>
+      <td data-label="Number of respondents aged 16 or over">13,834</td>
+      <td data-label="Number of weekdays trips">63,336</td>
+      <td data-label="Number of locations">67,131</td>
+      <td data-label="Number of districts">97</td>
+      <td data-label="District size in km². Median area (min-max)">14 (0.2-834)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">139 (124-273)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">106 (53-463)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">La Rochelle region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">2,902</td>
+      <td data-label="Number of weekdays trips">12,203</td>
+      <td data-label="Number of locations">13,847</td>
+      <td data-label="Number of districts">19</td>
+      <td data-label="District size in km². Median area (min-max)">8 (1.3-40)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">153 (137-166)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">121 (75-408)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Lille region</td>
+      <td data-label="Year">2016</td>
+      <td data-label="Number of respondents aged 16 or over">7,950</td>
+      <td data-label="Number of weekdays trips">38,180</td>
+      <td data-label="Number of locations">39,031</td>
+      <td data-label="Number of districts">57</td>
+      <td data-label="District size in km². Median area (min-max)">5 (1-56)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">138 (123-154)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">118 (72-300)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Lyon region</td>
+      <td data-label="Year">2015</td>
+      <td data-label="Number of respondents aged 16 or over">24,071</td>
+      <td data-label="Number of weekdays trips">99,585</td>
+      <td data-label="Number of locations">107,666</td>
+      <td data-label="Number of districts">169</td>
+      <td data-label="District size in km². Median area (min-max)">10 (0.4-346)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">140 (121-252)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">122 (71-462)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Marseille region</td>
+      <td data-label="Year">2009</td>
+      <td data-label="Number of respondents aged 16 or over">19,380</td>
+      <td data-label="Number of weekdays trips">87,031</td>
+      <td data-label="Number of locations">93,970</td>
+      <td data-label="Number of districts">137</td>
+      <td data-label="District size in km². Median area (min-max)">18 (0.3-342)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">141 (117-162)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">120 (68-390)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Montpellier region</td>
+      <td data-label="Year">2014</td>
+      <td data-label="Number of respondents aged 16 or over">11,433</td>
+      <td data-label="Number of weekdays trips">52,387</td>
+      <td data-label="Number of locations">55,662</td>
+      <td data-label="Number of districts">80</td>
+      <td data-label="District size in km². Median area (min-max)">10 (0.3-547)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">140 (125-240)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">116 (72-399)</td>
+  </tr>
+
+
+  <tr>
+      <td data-label="City">Montreal region</td>
+      <td data-label="Year">2013</td>
+      <td data-label="Number of respondents aged 16 or over">157,263</td>
+      <td data-label="Number of weekdays trips">394,133</td>
+      <td data-label="Number of locations">505,078</td>
+      <td data-label="Number of districts">113</td>
+      <td data-label="District size in km². Median area (min-max)">27 (1-741)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">1047 (115-4414)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">864 (10-8821)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Nancy region</td>
+      <td data-label="Year">2013</td>
+      <td data-label="Number of respondents aged 16 or over">9,657</td>
+      <td data-label="Number of weekdays trips">40,664</td>
+      <td data-label="Number of locations">43,563</td>
+      <td data-label="Number of districts">68</td>
+      <td data-label="District size in km². Median area (min-max)">19 (0.6-407)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">142 (124-160)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">108 (60-539)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Nantes region</td>
+      <td data-label="Year">2015</td>
+      <td data-label="Number of respondents aged 16 or over">17,358</td>
+      <td data-label="Number of weekdays trips">81,924</td>
+      <td data-label="Number of locations">85,372</td>
+      <td data-label="Number of districts">123</td>
+      <td data-label="District size in km². Median area (min-max)">21 (0.6-331)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">139 (113-195)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">117 (71-370)</td>
+  </tr>
+
+ <tr>
+      <td data-label="City">Nîmes region</td>
+      <td data-label="Year">2015</td>
+      <td data-label="Number of respondents aged 16 or over">4,519</td>
+      <td data-label="Number of weekdays trips">18,598</td>
+      <td data-label="Number of locations">19,271</td>
+      <td data-label="Number of districts">31</td>
+      <td data-label="District size in km². Median area (min-max)">8 (0.3-152)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">143 (133-168)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">114 (66-337)</td>
+  </tr>
+
+  <!-- <tr>
+      <td data-label="City">Nice region</td>
+      <td data-label="Year">2009</td>
+      <td data-label="Number of respondents aged 16 or over">13,433</td>
+      <td data-label="Number of weekdays trips">58,239</td>
+      <td data-label="Number of locations">59,293</td>
+      <td data-label="Number of districts">104</td>
+      <td data-label="District size in km². Median area (min-max)">5 (0,4-505)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">142 (1-162)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">115 (2-401)</td>
+  </tr> -->
+
+  <tr>
+      <td data-label="City">Ottawa-Gatineau region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">52,579</td>
+      <td data-label="Number of weekdays trips">147,820</td>
+      <td data-label="Number of locations">183,951</td>
+      <td data-label="Number of districts">26</td>
+      <td data-label="District size in km². Median area (min-max)">56 (2.5-1241.9)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">1878 (472-4546)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">1898 (511-5142)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Paris region</td>
+      <td data-label="Year">2010</td>
+      <td data-label="Number of respondents aged 16 or over">26,180</td>
+      <td data-label="Number of weekdays trips">124,262</td>
+      <td data-label="Number of locations">130,802</td>
+      <td data-label="Number of districts">109</td>
+      <td data-label="District size in km². Median area (min-max)">26 (3-1.324)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">232 (23-416)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">196 (77-730)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Quebec region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">51,129</td>
+      <td data-label="Number of weekdays trips">134,179</td>
+      <td data-label="Number of locations">170,533</td>
+      <td data-label="Number of districts">69</td>
+      <td data-label="District size in km². Median area (min-max)">15 (1.5-686.6)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">671 (312-1507)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">571 (221-2156)</td>
+  </tr>
+
+
+  <tr>
+      <td data-label="City">Quimper region</td>
+      <td data-label="Year">2013</td>
+      <td data-label="Number of respondents aged 16 or over">4,696</td>
+      <td data-label="Number of weekdays trips">17,291</td>
+      <td data-label="Number of locations">20,382</td>
+      <td data-label="Number of districts">30</td>
+      <td data-label="District size in km². Median area (min-max)">57 (2.5-260)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">152 (142-201)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">128 (100-266)</td>
+  </tr>
+
+    <tr>
+      <td data-label="City">Rennes region</td>
+      <td data-label="Year">2018</td>
+      <td data-label="Number of respondents aged 16 or over">9,317</td>
+      <td data-label="Number of weekdays trips">44,004</td>
+      <td data-label="Number of locations">45,964</td>
+      <td data-label="Number of districts">68</td>
+      <td data-label="District size in km². Median area (min-max)">39 (0.8-466)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">136 (118-157)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">106 (61-367)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Saguenay region</td>
+      <td data-label="Year">2015</td>
+      <td data-label="Number of respondents aged 16 or over">14,701</td>
+      <td data-label="Number of weekdays trips">41,575</td>
+      <td data-label="Number of locations">50,894</td>
+      <td data-label="Number of districts">21</td>
+      <td data-label="District size in km². Median area (min-max)">26 (3-614.6)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">694 (509-782)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">613 (410-1148)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Saint-Étienne region</td>
+      <td data-label="Year">2010</td>
+      <td data-label="Number of respondents aged 16 or over">8,525</td>
+      <td data-label="Number of weekdays trips">38,576</td>
+      <td data-label="Number of locations">40,284</td>
+      <td data-label="Number of districts">52</td>
+      <td data-label="District size in km². Median area (min-max)">31 (1.2-345)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">156 (137-220)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">128 (75-339)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Sherbrooke region</td>
+      <td data-label="Year">2012</td>
+      <td data-label="Number of respondents aged 16 or over">21,154</td>
+      <td data-label="Number of weekdays trips">58,002</td>
+      <td data-label="Number of locations">71,841</td>
+      <td data-label="Number of districts">28</td>
+      <td data-label="District size in km². Median area (min-max)">21 (1.7-346.4)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">676 (563-1208)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">584 (362-1791)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Strasbourg region</td>
+      <td data-label="Year">2009</td>
+      <td data-label="Number of respondents aged 16 or over">10,052</td>
+      <td data-label="Number of weekdays trips">46,935</td>
+      <td data-label="Number of locations">48,815</td>
+      <td data-label="Number of districts">67</td>
+      <td data-label="District size in km². Median area (min-max)">35 (0.6-581)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">145 (128-224)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">127 (70-271)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Toulouse region</td>
+      <td data-label="Year">2013</td>
+      <td data-label="Number of respondents aged 16 or over">11,136</td>
+      <td data-label="Number of weekdays trips">48,919</td>
+      <td data-label="Number of locations">53,431</td>
+      <td data-label="Number of districts">66</td>
+      <td data-label="District size in km². Median area (min-max)">11 (0.9-237)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">155 (128-330)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">124,5 (64-512)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Trois-Rivieres region</td>
+      <td data-label="Year">2011</td>
+      <td data-label="Number of respondents aged 16 or over">19,273</td>
+      <td data-label="Number of weekdays trips">52,040</td>
+      <td data-label="Number of locations">62,182</td>
+      <td data-label="Number of districts">29</td>
+      <td data-label="District size in km². Median area (min-max)">61 (1.9-298.8)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">540 (1-1458)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">456 (316-1301)</td>
+  </tr>
+
+  <tr>
+      <td data-label="City">Valenciennes region</td>
+      <td data-label="Year">2010</td>
+      <td data-label="Number of respondents aged 16 or over">5,718</td>
+      <td data-label="Number of weekdays trips">23,313</td>
+      <td data-label="Number of locations">23,775</td>
+      <td data-label="Number of districts">41</td>
+      <td data-label="District size in km². Median area (min-max)">12 (0.9-51)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3am">139 (119-159)</td>
+      <td data-label="Number of respondents per district. Median (min-max) at 3pm">118 (75-275)</td>
+  </tr> 
+</tbody>
+  </table>
+</div>

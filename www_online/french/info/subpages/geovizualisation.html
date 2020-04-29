@@ -1,0 +1,75 @@
+<div class = "corps">
+	<section>
+    <h2>Géovisualisation</h2>
+	</section>
+	
+	<section>
+	<h3>Une géovisualisation par ville</h3>
+
+	<p>
+		L’axe de temps positionné au dessus de la carte permet d’animer les données heure par heure. Dans le menu des indicateurs (à gauche), l’utilisateur peut choisir d’afficher l’ensemble de la population présente (indicateur « Global ») ou bien de regarder la population présente selon son profil démographique (sexe et âge), son profil social (niveau d'éducation, catégorie socioprofessionnelle, revenu du ménage et occupation professionnelle), ou encore son lieu de résidence. Il est aussi possible d'observer les types d’activités réalisées par la population présente dans chacun des secteurs à une heure choisie, ainsi que le mode de transport utilisé pour se rendre à destination.</br> 
+	</p>
+	<p>
+		Au centre de l’écran, les cartes s’affichent selon l’indicateur choisi dans le bloc indicateur. La carte est dynamique : on peut la zoomer, s’y déplacer, afficher le nom des secteurs au survol de la souris. Il est également possible d’afficher certaines couches de repérage (emprise de la ville centre, principales routes et villes, réseau hydrographique). Trois modes de représentation cartographique sont proposés : des cartes en stock, en part ou en oursins. Ces dernières permettent de visualiser la dispersion spatiale des secteurs de résidence de la population présente dans un secteur à une heure donnée.</br>  
+	</p>
+	<p>
+		Dans la partie droite de l’écran, un premier graphique (en haut) renseigne sur la distribution spatiale des groupes de population par secteur pour la région considérée.</br>
+		Un second graphique (en bas) permet d’afficher des informations détaillées pour le secteur sélectionné sur la carte et de suivre l’évolution au cours de la journée de la distribution de la population présente dans ce secteur (en stock ou en part). 
+	</p>
+	</section>
+	
+	<section>
+	<h3>Carte centrale</h3>
+    <p> 
+    	Dans les <b>cartes choroplèthes</b> (où sont représentées par secteur les <b>parts </b> estimées de personnes d'un groupe donné), la légende est toujours définie par cinq classes. Pour chaque modalité, les bornes des classes demeurent les mêmes au cours de la journée dans une region donnée.
+		<ul>
+			<li>Indicateur relatif au sexe. Les classes ont été définies manuellement : la classe centrale inclut toujours la moyenne du pourcentage d'hommes ou de femmes (qui varie respectivement entre 40% et 50% et entre 50% et 60% selon les enquêtes) quelle que soit la région observée. Les bornes des classes sont donc identiques pour toutes les villes. De la sorte, la comparaison inter-villes de la proportion de femmes (ou d'hommes) est facilitée.</li>
+			<li>Pour les modalités relatives à la zone de résidence et aux activités, les bornes des classes ont été définies manuellement et sont identiques pour toutes les villes. Il est alors possible d'effectuer des comparaisons entre les différentes villes disponibles dans le Mobiliscope.</li>
+			<li>Pour les autres indicateurs (groupe d'âge, niveau d'éducation, CSP, statut d'occupation et mode de transport), la méthode de discrétisation en quintile a été utilisée pour toutes les villes : chaque classe regoupe 20% des secteurs de la région considérée sur les 24h de la journée. La distribution étant differente d'une ville à l'autre, les bornes de classes varient également d'une ville à l'autre.</li>
+			<li>Concernant l'Île-de-France, deux indicateurs supplémentaires ont été créés en raison de la disponibilité de l'information dans la base de données. Pour l'indicateur "revenu du ménage", la construction de la légende a été réalisée suivant la méthode en amplitude égale : la distribution statistique a été découpée en cinq classes possédant la même amplitude. Pour l'indicateur "département de résidence", les classes ont été déterminées manuellement selon les seuils naturels des distributions.</li>
+			<li>Concernant les villes du Québec, l'indicateur "revenu du ménage" est discrétisé suivant la méthode en amplitude égale comme pour l'Île-de-France.</li>
+		</ul>
+	</p>
+
+	<p>
+		Les gradients de couleur ont été construits grâce à l'application <a target="_blank"  href = "http://www.geotests.net/couleurs/gradients_inflex_en.html">color gradients explorer</a>.
+	</p>
+	
+	<p>
+		Dans les <b>cartes en cercles proportionnels</b> (qui représentent le <b>nombre </b>estimé de personnes d'un groupe donné à l'échelle des secteurs), la taille des cercles est proportionnelle au stock de personnes présentes dans les secteurs. La proportionnalité est rigoureusement similaire pour toutes les cartes d'une même région et à toute heure (elle peut varier selon la région observée).
+	</p>
+	
+	
+	<p>
+		Dans les <b>cartes en oursins</b>, les liens (qui s'affichent au survol de la souris) représentent le flux estimé de personnes entre leur secteur de résidence et le secteur où ils sont présents sans y résider. Cette information n'est pas affichée pour la modalité "à la maison" de l'indicateur "activité". L'épaisseur des liens est similaire pour toutes les cartes d'une même région et à toute heure (mais peut varier en fonction de la région observée).<br />Pour des raisons de confidentialité et de puissance statistique, nous avons appliqué un seuil de 12 personnes (en donnée brute non pondérée) en deça duquel nous ne représentons pas la présence des non-résidents dans les secteurs. 
+	</p>
+	</section>
+	
+	<section>
+	<h3>Graphique du haut</h3>
+
+	<p>
+		Le graphique du haut propose deux mesures de la ségrégation à l'échelle de la région observée calculées pour chacune des heures de la journée. 
+		<ul>
+			<li><b>L'indice de dissimilarité de Duncan</b> varie entre 0 et 1. Il exprime la proportion d'individus d'un groupe donné qu'il faudrait déplacer pour obtenir une répartition égale de ce groupe par rapport à la population totale. Il mesure l'ampleur de la ségrégation spatiale </li>
+			<li><b>L'indice de Moran</b> est une mesure d'autocorrélation spatiale. Il varie de -1 (le groupe est parfaitement dispersé dans l'espace) à 1 (le groupe est parfaitement concentré dans l'espace), une valeur proche de zéro indiquant une absence de structure spatiale.</li>
+		</ul><br />
+	<p>
+		Dans les graphiques de Duncan et de Moran, les valeurs minimum et maximum sont les mêmes pour toutes les modalités d'un même indicateur afin de permettre la comparaison. De plus, l'amplitude entre le minimum et le maximum ne peut pas être en deça de 0,4 pour ne pas donner trop d'importance à d'éventuelles variations mineures dans la structure spatiale (cf. par exemple l'indicateur "sexe")</p>
+	</p>
+	</section>
+	
+	<section>
+	<h3>Graphique du bas</h3>
+
+	<p>
+		Le graphique du bas montre heure par heure l'évolution de la population présente (en nombre ou en pourcentage) dans le secteur sélectionné (par un clic sur la carte centrale). Ce graphique se décline en deux modes : affichage d'une seule modalité ("simple") ou affichage de l'ensemble des modalités d'un indicateur ("empilé").
+	</p>
+	
+	</section>
+	
+	<p>
+	<div class="btn-c"><a class="btn"href="/fr/info/news">Découvrez nos activités de valorisation</a></div>
+	</p>
+	
+</div>
