@@ -9,9 +9,10 @@ The Mobiliscope is licensed under the GNU GPLv3 license (a free, copyleft licens
 The GNU General Public License is intended to guarantee freedom to share and change all versions of a program to make sure it remains free software for all its users.
 Please have a look at the terms and conditions (https://www.gnu.org/licenses/gpl-3.0.en.html) for copying, distribution and modification.
 
+#
 
 # To cite the Mobiliscope
-Mobiliscope - 2020 (v3.3). Cities around the clock - La ville à toute heure. https://mobiliscope.parisgeo.cnrs.fr.
+Mobiliscope - 2020 (v3.3). Cities around the clock - La ville Ã  toute heure. https://mobiliscope.parisgeo.cnrs.fr.
 doi:10.5281/zenodo.3628713
 
 ![Mobiliscope v3](/img_v3.3.png?raw=true "")
@@ -33,7 +34,7 @@ In the third version, new cities have been added. A bilingual interface (French/
 21 French cities have been added. [March 2019]
 
 ### v3.2.
-With one more French city (Nîmes). [December 2019]
+With one more French city (NÃ®mes). [December 2019]
 
 ### v3.3. 
 6 Canadian cities have been added. Indicators are slightly less numerous (sex, age, income, occupational status, activity carried out and last mode of transport used). [April 2020]
