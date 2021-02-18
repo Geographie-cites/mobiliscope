@@ -5,7 +5,7 @@ Mobiliscope is a free and open-source web mapping platform for the interactive e
 29 city regions are included in the actual version (v3.3) of the Mobiliscope : 23 French cities and 6 Canadian cities.
 https://mobiliscope.cnrs.fr/
 
-Mobiliscope is licensed under the AGPL-3.0 License.
+Mobiliscope is licensed under the **AGPL-3.0 License**.
 Please have a look at the terms and conditions (https://www.gnu.org/licenses/agpl-3.0.fr.html) for copying, distribution and modification.
 
 
@@ -15,7 +15,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 *In French -* Mobiliscope, un outil de geovisualisation des villes à toute heure. https://mobiliscope.cnrs.fr.
 
-You can also use our Digital Object Identifier (DOI) : doi:10.5281/zenodo.3628713
+You can also use our Digital Object Identifier (DOI) : [doi:10.5281/zenodo.3628713](doi:10.5281/zenodo.3628713)
 
 ![Mobiliscope v3](/img_v3.3.png?raw=true)
 
