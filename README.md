@@ -1,23 +1,24 @@
 # Mobiliscope - v3.3 (April 2020)
 
-Mobiliscope is a free and open-source web mapping platform for the interactive exploration of neighborhood social composition around the clock in metropolitan areas.
+Mobiliscope is a free and open-source web mapping platform for the interactive exploration of cities around the clock.
 
-It is intended to help people to explore cities around the clock. 29 city regions are included in the actual version of the Mobiliscope : 23 French cities and 6 Canadian cities.
-https://mobiliscope.parisgeo.cnrs.fr/
+29 city regions are included in the actual version (v3.3) of the Mobiliscope : 23 French cities and 6 Canadian cities.
+https://mobiliscope.cnrs.fr/
 
-The Mobiliscope is licensed under the GNU GPLv3 license (a free, copyleft license).
-The GNU General Public License is intended to guarantee freedom to share and change all versions of a program to make sure it remains free software for all its users.
-Please have a look at the terms and conditions (https://www.gnu.org/licenses/gpl-3.0.en.html) for copying, distribution and modification.
+Mobiliscope is licensed under the AGPL-3.0 License.
+Please have a look at the terms and conditions (https://www.gnu.org/licenses/agpl-3.0.fr.html) for copying, distribution and modification.
 
-#
 
 # To cite the Mobiliscope
-Mobiliscope - 2020 (v3.3). Cities around the clock - La ville à toute heure. https://mobiliscope.parisgeo.cnrs.fr.
+[In English] : Mobiliscope, a geovisualization platform to explore cities around the clock. https://mobiliscope.cnrs.fr.
+[In French] : Mobiliscope, un outil de geovisualistaion des villes à toute heure. https://mobiliscope.cnrs.fr.
+
+You can also use our Digital Object Identifier (DOI) :
 doi:10.5281/zenodo.3628713
 
-![Mobiliscope v3](/img_v3.3.png?raw=true "")
+[Mobiliscope v3](/img_v3.3.png?raw=true "")
 
-# Previous versions
+# Version history
 
 ## v1. 
 Focused on the Paris region, the first version (only in english) allows to explore the population present over 24 hours of the day according to three indicators (total population, level of education and socioprofessional status of the household), with two modes of representation (choropleth maps and proportional symbol maps). 
@@ -36,7 +37,7 @@ In the third version, new cities have been added. A bilingual interface (French/
 ### v3.2.
 With one more French city (Nîmes). [December 2019]
 
-### v3.3. 
+### v3.3. - ONLINE -
 6 Canadian cities have been added. Indicators are slightly less numerous (sex, age, income, occupational status, activity carried out and last mode of transport used). [April 2020]
 
 # Future developments
