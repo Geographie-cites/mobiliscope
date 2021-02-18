@@ -10,7 +10,9 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 
 # To cite the Mobiliscope
+
 [In English] : Mobiliscope, a geovisualization platform to explore cities around the clock. https://mobiliscope.cnrs.fr.
+
 [In French] : Mobiliscope, un outil de geovisualistaion des villes à toute heure. https://mobiliscope.cnrs.fr.
 
 You can also use our Digital Object Identifier (DOI) :
