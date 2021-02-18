@@ -15,7 +15,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 *In French -* Mobiliscope, un outil de geovisualisation des villes à toute heure. https://mobiliscope.cnrs.fr.
 
-You can also use our Digital Object Identifier (DOI) : [doi:10.5281/zenodo.3628713](doi:10.5281/zenodo.3628713)
+You can also use our Digital Object Identifier (DOI) : [10.5281/zenodo.3628713](https://doi.org/10.5281/zenodo.3628713)
 
 ![Mobiliscope v3](/img_v3.3.png?raw=true)
 
