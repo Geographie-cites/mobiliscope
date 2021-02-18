@@ -11,12 +11,11 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 # To cite the Mobiliscope
 
-[In English] : Mobiliscope, a geovisualization platform to explore cities around the clock. https://mobiliscope.cnrs.fr.
+*In English* Mobiliscope, a geovisualization platform to explore cities around the clock. https://mobiliscope.cnrs.fr.
 
-[In French] : Mobiliscope, un outil de geovisualistaion des villes à toute heure. https://mobiliscope.cnrs.fr.
+*In French* Mobiliscope, un outil de geovisualistaion des villes à toute heure. https://mobiliscope.cnrs.fr.
 
-You can also use our Digital Object Identifier (DOI) :
-doi:10.5281/zenodo.3628713
+You can also use our Digital Object Identifier (DOI) : doi:10.5281/zenodo.3628713
 
 [Mobiliscope v3](/img_v3.3.png?raw=true "")
 
