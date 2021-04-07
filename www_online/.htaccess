@@ -1,14 +1,17 @@
 #AuthType Basic
-#AuthName "Mobiliscope Preproduction"
-#AuthUserFile /var/www/html/mobiliscope/.htpasswd
+#AuthName "Mobiliscope Beta v4_2021"
+#AuthUserFile /lab1343/beta.mobiliscope.cnrs.fr/www/.htpasswd
 #Require valid-user
 
 RewriteEngine on
 RewriteBase /
 
 #REWRITE www.mobiliscope.parisgeo.cnrs.fr to mobiliscope.parisgeo.cnrs.fr
-RewriteCond %{HTTP_HOST} ^www.mobiliscope.parisgeo.cnrs.fr [NC]
-RewriteRule ^(.*)$ https://mobiliscope.parisgeo.cnrs.fr/$1 [L,R=301]
+#RewriteCond %{HTTP_HOST} ^mobiliscope.cnrs.fr [NC]
+#RewriteRule ^(.*)$ https://mobiliscope.cnrs.fr/$1 [L,R=301]
+
+#RewriteCond %{HTTP_HOST} ^www.mobiliscope.parisgeo.cnrs.fr [NC]
+#RewriteRule ^(.*)$ https://mobiliscope.parisgeo.cnrs.fr/$1 [L,R=301]
 
 
 #old url redirections
@@ -20,15 +23,28 @@ RewriteRule ^pdf/EGTDistricts.pdf$ /fr/info/methods/data [L,R=301]
 
 RewriteRule ^(.*)/$ /$1 [L,R] #enforce a no-trailing slash policy
 
-#RewriteRule ^scripts\/(.*\.js)$ /combine.php?type=javascript&files=$1
+#RewriteRule ^dist\/(.*\.js)$ /combine.php?type=javascript&files=$1
 
 #ENGLISH
 RewriteCond %{HTTP:Accept-Language} ^en [NC]
 RewriteRule ^$ /en [L,R=301]
 
+#REDIRECTION OLD PAGES
+RewriteRule ^en\/info\/about$ /en/info/about/summary [L,R=301]
+RewriteRule ^en\/info\/methods$ /en/info/about/summary [L,R=301]
+RewriteRule ^en\/info\/news$ /en/info/about/summary [L,R=301]
+RewriteRule ^en\/info\/multitask-tool$ /en/info/about/summary [L,R=301]
+RewriteRule ^en\/info\/news\/events$ /en/info/about/summary [L,R=301]
+RewriteRule ^en\/info\/news\/publications$ /en/info/about/publications [L,R=301]
+RewriteRule ^en\/info\/about\/evolution$ /en/info/open/evolution [L,R=301]
+
 RewriteRule ^en\/info\/(.+)\/(.+)$ /english/info/info.php?page=$1&subpage=$2 [L]
 RewriteRule ^en\/info\/(.+)$ /english/info/info.php?page=$1 [L]
 RewriteRule ^en\/info$ /english/info/info.php [L]
+
+RewriteRule ^ajax\/en\/info\/(.+)\/(.+)$ /english/info/infoajax.php?page=$1&subpage=$2 [L]
+RewriteRule ^ajax\/en\/info\/(.+)$ /english/info/infoajax.php?page=$1 [L]
+RewriteRule ^ajax\/en\/info$ /english/info/infoajax.php [L]
 
 
 
@@ -42,10 +58,24 @@ RewriteRule ^en/geoviz$ /english/geoviz/geoviz.php [L]
 RewriteCond %{HTTP:Accept-Language} ^fr [NC]
 RewriteRule ^$ /fr [L,R=301]
 
+
+
+# REDIRECTIONS V4
+RewriteRule ^fr\/info\/about$ /fr/info/about/summary [L,R=301]
+RewriteRule ^fr\/info\/methods$ /fr/info/about/summary [L,R=301]
+RewriteRule ^fr\/info\/news$ /fr/info/about/summary [L,R=301]
+RewriteRule ^fr\/info\/multitask-tool$ /fr/info/about/summary [L,R=301]
+RewriteRule ^fr\/info\/news\/events$ /fr/info/about/summary [L,R=301]
+RewriteRule ^fr\/info\/news\/publications$ /fr/info/about/publications [L,R=301]
+RewriteRule ^fr\/info\/about\/evolution$ /fr/info/open/evolution [L,R=301]
+
 RewriteRule ^fr\/info\/(.+)\/(.+)$ /french/info/info.php?page=$1&subpage=$2 [L]
 RewriteRule ^fr\/info\/(.+)$ /french/info/info.php?page=$1 [L]
 RewriteRule ^fr\/info$ /french/info/info.php [L]
 
+RewriteRule ^ajax\/fr\/info\/(.+)\/(.+)$ /french/info/infoajax.php?page=$1&subpage=$2 [L]
+RewriteRule ^ajax\/fr\/info\/(.+)$ /french/info/infoajax.php?page=$1 [L]
+RewriteRule ^ajax\/fr\/info$ /french/info/infoajax.php [L]
 
 
 RewriteRule ^fr\/geoviz\/(.+)$ /french/geoviz/geoviz.php?city=$1 [L]

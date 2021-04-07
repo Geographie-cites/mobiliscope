@@ -1,64 +1,76 @@
 // Déclaration des variables propres à l'enquête observée
 
-	// Déclaration du nom de l'enquête pour guider le chemin vers les données (loads.js)
-	var nomED = "OTTAWA GATINEAU";
+// Déclaration du nom de l'enquête pour guider le chemin vers les données (loads.js)
+var nomED = 'OTTAWA GATINEAU';
+// Nom de la ville centre
+var nomVC = 'Ottawa-Gatineau';
+// Année de fin d'enquête
+var anneeED = '2011';
 
-	// Nom de la ville centre
-	var nomVC = "Ottawa-Gatineau";
+// Source des données
+var dataSource = "Enquête Origine-Destination 2011 - Ottawa-Gatineau, Ministère des transports du Québec";
 
-	// Source des données
-	var dataSource = "Source: Enquête Origine-Destination 2011 - Ottawa-Gatineau, Ministère des transports du Québec";
+// Centrer la projection leaflet sur la ville centre (load.js)
+var setview = [45.45, -75.81];
+// Paramétrer les niveaux de zoom leaflet (load.js)
+var zoom = 9,
+minZoom = 9,
+maxZoom = 15;
 
-	// Centrer la projection sur la ville centre (load.js)
-	var centerProj = [- 75.9, 45.4],
-		scaleProj = 35000;
-	// Centrer le zoom sur la ville centre (load.js)
-	var centerZ_w = 1.6,
-		centerZ_h = 2.1;
+// Stockage du nom de la 1ere colonne dans le csv dataSect (sert à pointer vers les valeurs min et max pour l'affichage du graph simple)
+var nomCol = '001';
+var nameSec = "OTTAWA CENTRE";
 
-	// Stockage du nom de la 1ere colonne dans le csv dataSect (sert à pointer vers les valeurs min et max pour l'affichage du graph simple)
-	var nomCol = "001"
+// Adapter la taille min/max des cercles proportionnels en fonction des ordres de grandeur des données (load.js)
+var radiusRange = [0, 130];
 
-	// Adapter la taille min/max des cercles proportionnels en fonction des ordres de grandeur des données (load.js)
-	var radiusRange = [0, 140];
+// Déclaration des valeurs des cercles proportionnels des légendes uniques (load.js)
+var datasetProp = [99000, 50000, 24000, 100],
+datasetFlow = [79000, 40000, 19000, 100];
 
-	// Déclaration des valeurs des cercles proportionnels des légendes uniques (loads.js)
-	var datasetProp = [100000, 50000, 10000, 500],
-		datasetFlow = [60000, 30000, 10000, 200];
+// Seuils des liens (carte et légende flow)
+var sLink = [27, 1000, 5000, 11100];
 
-    // Seuils des liens (carte et légende flow)
-    var sLink = [500, 1000];
+// Déclaration des bornes de classes pour chaque modalité (loads.js)
+// Moyennes emboîtées, 8 classes
+var colDom_dens = [7, 150, 570, 1100, 1600, 2500, 4900, 12000, 33400];
 
-	// Déclaration des bornes de classes pour chaque modalité (loads.js)
-	var colDom_age1 = [0, 11, 13, 14, 15],
-		colDom_age2 = [0, 9, 10, 12, 14],
-		colDom_age3 = [0, 53, 55, 57, 60],
-		colDom_age4 = [0, 15, 18, 20, 23];
+// Discrétisation en amplitude égale
+var colDom_res1 = [0, 19, 38, 57, 76, 96];
+var colDom_res2 = [4, 24, 43, 62, 81, 100];
 
-	var colDom_sex1 = [0, 35, 40, 50, 55],
-		colDom_sex2 = [0, 45, 50, 60, 65];
+//Méthode des quintiles
+var colDom_age1 = [4, 13, 15, 16, 17, 28];
+var colDom_age2 = [6, 13, 15, 17, 19, 33];
+var colDom_age3 = [40, 48, 50, 54, 57, 67];
+var colDom_age4 = [3, 12, 15, 17, 20, 25];
 
-	var colDom_occ1 = [0, 50, 52, 55, 58],
-		colDom_occ2 = [0, 9, 10, 11, 13],
-		colDom_occ3 = [0, 2, 3, 4, 5],
-		colDom_occ4 = [0, 22, 26, 28, 30],
-		colDom_occ5 = [0, 5, 6, 7, 8];
+// Discrétisation manuelle
+var colDom_sex1 = [17, 35, 40, 50, 55, 73];
+var colDom_sex2 = [27, 45, 50, 60, 65, 83];
 
-	var colDom_act1 = [0, 40, 55, 70, 85],
-		colDom_act2 = [0, 6, 15, 30, 45],
-		colDom_act3 = [0, 3, 6, 12, 18],
-		colDom_act4 = [0, 3, 6, 12, 18],
-		colDom_act5 = [0, 3, 6, 12, 18];
+//Méthode en amplitude égale
+var colDom_rev1 = [2, 9, 14, 20, 25, 32];
+var colDom_rev2 = [9, 14, 18, 22, 27, 31];
+var colDom_rev3 = [17, 22, 26, 30, 34, 38];
+var colDom_rev4 = [6, 12, 18, 23, 29, 35];
+var colDom_rev5 = [19, 24, 28, 32, 36, 41];
 
-	var colDom_mod3 = [0, 4, 6, 8, 10],
-		colDom_mod2 = [0, 72, 77, 83, 90],
-		colDom_mod1 = [0, 7, 11, 15, 18];
+//Méthode des quintiles
+var colDom_occ1 = [44, 52, 54, 58, 62, 93];
+var colDom_occ2 = [2, 10, 11, 13, 14, 32];
+var colDom_occ3 = [0, 1.9, 2.3, 3, 3, 10];
+var colDom_occ4 = [4, 18, 21, 24, 27, 34];
+var colDom_occ5 = [0, 5, 5, 6, 7, 13];
 
-	var colDom_rev1 = [0, 4, 7, 9, 10],
-		colDom_rev2 = [0, 14, 16, 17, 19],
-		colDom_rev3 = [0, 25, 26, 28, 29],
-		colDom_rev4 = [0, 19, 23, 25, 28],
-		colDom_rev5 = [0, 22, 24, 26, 27]; //revenu "inconnu"
+//Seuils naturels (fisher)
+var colDom_act1 = [3, 43, 61, 77, 91, 100];
+var colDom_act2 = [0, 7, 18, 30, 46, 84];
+var colDom_act3 = [0, 2, 8, 16, 35, 65];
+var colDom_act4 = [0, 1, 4, 10, 22, 45];
+var colDom_act5 = [0, 2, 6, 10, 18, 54];
 
-
-
+//Méthode des quintiles
+var colDom_mod1 = [3, 7, 11, 17, 21, 44];
+var colDom_mod2 = [35, 69, 75, 81, 89, 96];
+var colDom_mod3 = [0, 3, 6, 9, 11, 47];

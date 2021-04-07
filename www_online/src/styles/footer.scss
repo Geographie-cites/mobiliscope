@@ -1,0 +1,68 @@
+/** FOOTER **/
+@import "variables";
+
+.sectionFooter {
+  padding: 1em 0;
+}
+
+.footer h3{
+  font-family: $fontBR;
+}
+
+.footer {
+  background-color: $greyColor;
+  color: $fontcolor;
+  height: auto;
+  display: block;
+  text-align: center;
+  width: 100%;
+  a {
+    color: $fontcolor;
+  }
+
+  .svg-inline--fa {
+    margin-right: 10px;
+    font-size: 1.3em;
+  }
+
+  .mail-link{
+    color: $fontcolor;
+    font-size: inherit;
+  }
+
+  .footer-menu-item {
+    span a {
+      margin: 7px;
+      color: $fontcolor;
+      &:hover {
+        text-decoration: underline;
+        color:#ffa11c;
+      }
+    }
+  }
+
+  figure.inline {
+    margin: 10px;
+  }
+
+  #copyright {
+    font-size: 1em;
+    width:100%;
+    background: #575757;
+    padding: 6px 0 15px 0;
+    color: white;
+    a {
+      color: white;
+    }
+    a:hover{
+      color: #ffa11c;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .footer .mail-link{
+      font-size:12px;
+    }
+}

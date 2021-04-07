@@ -1,0 +1,58 @@
+#AuthType Basic
+#AuthName "Mobiliscope Preproduction"
+#AuthUserFile /var/www/html/mobiliscope/.htpasswd
+#Require valid-user
+
+RewriteEngine on
+RewriteBase /
+
+#REWRITE www.mobiliscope.parisgeo.cnrs.fr to mobiliscope.parisgeo.cnrs.fr
+RewriteCond %{HTTP_HOST} ^www.mobiliscope.parisgeo.cnrs.fr [NC]
+RewriteRule ^(.*)$ https://mobiliscope.parisgeo.cnrs.fr/$1 [L,R=301]
+
+
+#old url redirections
+RewriteRule ^index.html$ / [L,R=301]
+RewriteRule ^info.html$ /fr/info/about [L,R=301]
+RewriteRule ^contact_form.php$ / [L,R=301]
+RewriteRule ^pdf/EGTDistricts.pdf$ /fr/info/methods/data [L,R=301]
+
+
+RewriteRule ^(.*)/$ /$1 [L,R] #enforce a no-trailing slash policy
+
+#RewriteRule ^scripts\/(.*\.js)$ /combine.php?type=javascript&files=$1
+
+#ENGLISH
+RewriteCond %{HTTP:Accept-Language} ^en [NC]
+RewriteRule ^$ /en [L,R=301]
+
+RewriteRule ^en\/info\/(.+)\/(.+)$ /english/info/info.php?page=$1&subpage=$2 [L]
+RewriteRule ^en\/info\/(.+)$ /english/info/info.php?page=$1 [L]
+RewriteRule ^en\/info$ /english/info/info.php [L]
+
+
+
+RewriteRule ^en\/geoviz\/(.+)$ /english/geoviz/geoviz.php?city=$1 [L]
+
+RewriteRule ^en$ /english/index.php [L]
+
+RewriteRule ^en/geoviz$ /english/geoviz/geoviz.php [L]
+
+#FRENCH
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteRule ^$ /fr [L,R=301]
+
+RewriteRule ^fr\/info\/(.+)\/(.+)$ /french/info/info.php?page=$1&subpage=$2 [L]
+RewriteRule ^fr\/info\/(.+)$ /french/info/info.php?page=$1 [L]
+RewriteRule ^fr\/info$ /french/info/info.php [L]
+
+
+
+RewriteRule ^fr\/geoviz\/(.+)$ /french/geoviz/geoviz.php?city=$1 [L]
+
+RewriteRule ^fr$ /french/index.php [L]
+
+RewriteRule ^fr/geoviz$ /french/geoviz/geoviz.php [L]
+
+
+

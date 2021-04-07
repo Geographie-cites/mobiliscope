@@ -1,0 +1,52 @@
+{
+  "name": "mobiliscope",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "build:dev": "webpack --mode=development --w",
+    "build:prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Adblanchot@bitbucket.org/rebe100x/mobiliscope.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/rebe100x/mobiliscope#readme",
+  "dependencies": {
+    "@node-minify/core": "^6.1.0",
+    "@node-minify/google-closure-compiler": "^6.1.0",
+    "@node-minify/uglify-js": "^6.1.0",
+    "caniuse-lite": "^1.0.30001202",
+    "d3": "^3.5.17",
+    "google-closure-compiler": "^20200920.0.0",
+    "html-loader": "^1.1.0",
+    "jquery": "^3.5.1",
+    "minify": "^5.2.0",
+    "terser": "^5.3.2",
+    "uglify-js": "^3.10.4",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-run-after-build-plugin": "0.0.1",
+    "yuicompressor": "^2.4.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "autoprefixer": "^9.8.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "requirejs": "^2.3.6",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge-and-include-globally": "^2.1.25"
+  }
+}

@@ -1,0 +1,142 @@
+@import "variables";
+
+
+
+.page-container{
+  margin-top: 0px;
+  display: flex;
+}
+
+
+#page-loader{
+
+}
+
+.thead{
+ z-index: 0!important;
+}
+
+table:not(.horizontal) {
+  max-height: none;
+  z-index: 0!important;
+}
+
+.corps {
+  text-align: inherit;
+  animation: fadein 2s;
+  padding: 0px 10px 10px;
+
+  background-image: url(/dist/assets/line-image-footer.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  min-height: 63.2vh;
+  section h2{
+    font-size: 3em;
+    text-align: center;
+    font-family: $fontBR;
+    margin-top: 0px;
+  }
+  section h3{
+    font-size: 2em;
+    font-family: $fontBR;
+  }
+
+  p, ul li {
+    line-height: 1.5em;
+  }
+  p {
+    &.white-center {
+      position: relative;
+      padding: 2em 2%;
+      background: white;
+      color: #000;
+      text-align: center;
+    }
+
+    &::before, &::after {
+      position: absolute;
+      content: '';
+      pointer-events: none;
+    }
+
+    /* 3 dots separator */
+
+
+  &.ss-style-dots {
+    padding-bottom: 100px;
+
+    &::before {
+      bottom: 0px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      background: #e29424;
+      box-shadow: 30px 0 #e29424, -30px 0 #e29424;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+  }
+
+
+
+    position: relative;
+    padding: 0.5em 0;
+    text-align: left;
+    color: black;
+  }
+
+
+  ul {
+    margin-top: -10px;
+    margin-bottom: -10px;
+
+    &.hlist li {
+      display: inline-block;
+    }
+  }
+
+  .highlight {
+    background-color: rgba(171, 15, 49, 0.2);
+  }
+
+  .b {
+    font-weight: bold;
+  }
+
+  .i {
+    font-style: italic;
+  }
+
+  a.button {
+    display: table;
+    &:active:before {
+      color: #0F0;
+    }
+  }
+
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 1080px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+
+  .corps{
+    padding-top : 50px;
+    .btn-c {
+      text-align: center;
+    }
+  }
+
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}

@@ -1,95 +1,119 @@
 <div class = "corps">
     <section>
-	<h2>Un outil libre et en évolution</h2>
+	<h2>Historique des versions</h2>
 	</section>
+
 	
 	<section>
-	<h3>Un outil reproductible</h3>
-	
+	<p>
+		Le Mobiliscope est un outil en constante évolution depuis la mise en ligne de la première version en 2017.
+	</p>
+	</section>
+
+		<section>
+		<h3>v1. v2.</h3> 
+		
+ 		<h5>[2017]</h5>
+		
 		<p>
-			Le Mobiliscope s’inscrit dans une démarche de science ouverte. Il est proposé sous licence <a href = "https://www.gnu.org/licenses/gpl-3.0.en.html"   target="_blank">GPL</a> et les scripts qui ont servi au traitement de la donnée et à son affichage sont accessibles sur un dépôt <a href = "https://github.com/Geographie-cites/mobiliscope" target="_blank">github</a>.
-		</p>
-	
-		<p>
-			Le Mobiliscope est développé en HTML, CSS (framework <a href = "https://minicss.org/" target = "_blank"> mini.css</a>), javascript et PHP. La géovisualisation est codée en javascript et s’appuie intégralement, pour l'interactivité des cartes et graphiques, sur la librairie <a  href = "https://d3js.org/" target="_blank" >d3.js</a>.
-		</p>
-	
-		<p>		
-			Les données sont stockées localement sous forme de fichiers geojson pour les données spatiales et csv pour les données attributaires sans géométrie. Elles sont générées automatiquement en amont grâce à deux scripts R : le premier transforme les données de déplacements issues des enquêtes en données de présences ; le second produit l’ensemble des fichiers nécessaires à la représentation (carto)graphique pour chaque indicateur.
-		</p>
-	
-		<p>		
-			Actuellement, l'outil de géovisualisation est optimisé pour les navigateurs Firefox, Chrome, Opera et IE Edge.</br>
+			Les deux premières  versions étaient centrées sur l’Ile-de-France.
+
+			<ul>
+				<li><b>v1</b>. La première version permet d'explorer la population présente au cours des 24 heures de la journée selon trois indicateurs (population totale, niveau d’éducation et catégorie socio-professionnelle du ménage) et avec deux modes de représentations de la population présente (en stock et en parts). La population étudiée est âgée de plus de 16 ans. Une carte centrale donne à voir la population présente dans les différents secteurs de la région. Un premier graphique permet de visualiser les indices de ségrégation (Duncan et Moran) pour l’ensemble de la région. Un second graphique permet de visualiser la population présente dans le secteur sélectionné sur la carte.<i> [mai 2017]</i></li>
+				
+				<li><b>v2</b>. Dans la deuxième version, six nouveaux indicateurs permettant de caractériser la population présente au cours de la journée sont ajoutés (sexe, âge, revenus, occupation, lieu de résidence et activité réalisée). Un nouveau mode de représentation cartographique (en oursins) de la population non résidente est proposé.<i> [septembre 2017]</i></li>
+			</ul>
 		</p>
 		
-	</section>
-	
-	<section>
-	<h3>Comment citer la version actuelle ?</h3>
-	<p>
-		Mobiliscope - 2020 (v3.3). Cities around the clock - La ville à toute heure. <a href = "https://mobiliscope.parisgeo.cnrs.fr"   target="_blank">https://mobiliscope.parisgeo.cnrs.fr</a>.</br>
-		<a href="https://doi.org/10.5281/zenodo.3628713" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3628713.svg" alt="doi"></a>.
-	</p>
+		</section>
 
-	</section>
-	
-	<section>
-	<h3>Historique des versions</h3>
-	<p>
-	Le Mobiliscope est un outil en constante évolution depuis la mise en ligne de la première version en 2017. 
-	</p>
-		<p>
-			<b>v1.</b> Centrée sur l’Ile-de-France (à partir des données de l’Enquête Globale Transport de 2010), la première version (uniquement en anglais) permet d'explorer la population présente au cours des 24 heures de la journée selon trois indicateurs (population totale, niveau d’éducation et catégorie socio-professionnelle du ménage) et avec deux modes de représentations de la population présente (en stock et en parts). La population étudiée est âgée de plus de 16 ans. Une carte centrale donne à voir la population présente dans les différents secteurs de la région. Un premier graphique permet de visualiser les indices de ségrégation (Duncan et Moran) pour l’ensemble de la région. Un second graphique permet de visualiser la population présente dans le secteur sélectionné sur la carte.</br>
-			<i>[mai 2017]</i>
-		</p>
-	
-		<p>
-			<b>v2.</b>	Dans la deuxième version (toujours centrée sur l’Ile-de-France), six nouveaux indicateurs permettant de caractériser la population présente au cours de la journée sont ajoutés (sexe, âge, revenus, occupation, lieu de résidence et activité réalisée). Un nouveau mode de représentation cartographique (en oursins) de la population non résidente est proposé.</br>
-			<i>[septembre 2017]</i>
-		</p>
+
+		<section>
+		<h3>v3.</h3> 
+		
+		<h5>[2019-2020]</h5>
 
 		<p>
-			<b>v3.</b> La troisième version intègre de nouvelles villes. Une interface bilingue (français/anglais) est proposée. Un nouvel indicateur relatif au dernier mode de transport est ajouté. L'âge de la population étudiée est maintenant fixée à 16 ans et plus.
-	
+			La troisième version intègre de nouvelles villes. Une interface bilingue (français/anglais) est proposée. Un nouvel indicateur relatif au dernier mode de transport est ajouté. L'âge de la population étudiée est maintenant fixée à 16 ans et plus.</br>
+			De nouvelles villes françaises mais aussi canadiennes sont intégrées pour étendre le périmètre géographique de l'outil.
+
 			<ul>
-				<li><b>v3.1.</b> 21 villes françaises disposant d’enquêtes ménages-déplacement sont ajoutés. 
+				<li><b>v3.1.</b> 21 villes françaises disposant d’enquêtes ménages-déplacement sont ajoutées.
 				<i>[mars 2019]</i></li>
 
-				<li><b>v3.2.</b> La ville de Nîmes est ajoutée, avec l'aide de l'Agence d’urbanisme, région nîmoise et alésienne. 
+				<li><b>v3.2.</b> La ville de Nîmes est ajoutée, avec l'aide de l'Agence d’urbanisme, région nîmoise et alésienne.
 				<i>[décembre 2019]</i></li>
 
-				<li><b>v3.3.</b> 6 villes québécoises sont ajoutées. La visualisation est la même que pour les villes françaises. Les indicateurs caractérisant la population présente au cours de la journée sont un peu moins nombreux (sexe, âge, revenus, occupation, activité réalisée et dernier mode de transports utilisé). 
+				<li><b>v3.3.</b> 6 villes québécoises sont ajoutées. La visualisation est la même que pour les villes françaises. Les indicateurs caractérisant la population présente au cours de la journée sont un peu moins nombreux (sexe, âge, revenus, occupation, activité réalisée et dernier mode de transports utilisé).
 				<i>[avril 2020]</i></li>
 			</ul>
 		</p>
-	</section>
-	
-	<section>
-	<h3>Dans le futur...</h3>
+
+		</section>
+
+		
+		<section>
+		<h3>v4.</h3>
+
+		<h5>[avril 2021]</h5>
+			
 		<p>
-			De nouvelles fonctionnalités sont actuellement en préparation!
+			La quatrième version de l'outil compte 25 nouvelles villes/régions françaises comme Rouen, Metz, Besançon, Brest, Le Havre, Poitiers et Tours mais aussi les territoires de la Martinique et de La Réunion. Les données pour Valenciennes ont été actualisées à partir de l'enquête EMC² 2019. Les 49 villes-régions françaises intégrées à l'outil couvrent maintenant 65% de la population française (10 000 communes).</br>
+			Des corrections sur les estimations des populations présentes des villes québécoises ont aussi été effectuées.
+		</p>
+
+		<p>
+			Cette nouvelle version connait une importante refonte de son interface (refonte graphique et ajout de tuiles <i>OpenStreetMap</i> notamment).
+		</p> 
+
+		<p>
+			De nouveaux <a href="/fr/info/methods/indicators">indicateurs</a> sont intégrés : 
 			<ul>
-				<li>Proposer l'affichage de tuiles Open Street Map</li>
-				<li>Permettre le téléchargement des données agrégées de la composition sociale des personnes présentes par secteur et par heure</li>
-				<li>Intégrer de nouveaux indicateurs (par exemple habitant oui/non dans des Quartiers Prioritaires en Politique de la Ville pour les villes françaises).</li>
-				<li>Proposer un mode expert pour la géovisualisation</li>
-				<li>Ajouter d’autres villes françaises dont les enquêtes sur les déplacements quotidiens ont été menées récemment: Rouen, Metz, Besançon, Brest, Le Havre, Poitiers et Tours.</li>
-				<li>....</li>
+				<li> un indicateur résidents/non-résidents du secteur</li>
+				<li> un indicateur permettant de distinguer les habitants selon qu'ils résident ou non en Quartier Prioritaire en Politique de la Ville - QPV (pour la France uniquement).</li>
+			</ul>
+		</p> 
+
+		<p> 
+			Des modifications sont apportées sur l'affichage des données carto(graphiques) :
+			<ul>
+				<li> Un nouveau de mode de répresentation (densité de population présente - nb. de pers par km²) est ajoutée pour l'indicateur "Population totale". </li>
+				<li> Il a également été décidé de changer le filtre auparavant appliqué sur les cartes et graphiques de la population non-résidente (mode en oursins). Le seuil de 12 des versions précédentes (seuil à partir duquel l'information était diffusée) appliqué sur le stock brut de non-résidents et sur leurs liens entre secteur de présence et secteur de résidence est supprimé. Il est remplacé par un seuil de 6 répondants bruts appliqué uniquement sur les flux entre secteurs de présence et de résidence.</li>
+				<li> Les indices de ségrégation ne sont plus affichés pour les indicateurs "activités" et "mode de transports".</li>
 			</ul>
 		</p>
-	</section>
-	
-	<section>
-     <h3>Rejoignez-nous !</h3>
-		<p> 
+
+		<p>
+			Enfin cette quatrième version permet aux utilisateurs de <b>télécharger</b> les <b>données françaises</b> pondérées et agrégées par heure et par secteur, telles qu'affichées dans l'outil. Ces données sont mises à disposition sous <b>licence libre <a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">ODbL</a></b> : elles sont donc librement réutilisables et modifiables sous réserve qu’elles demeurent sous licence ODbL et que les <a href="/fr/info/open/license">sources</a> soient identifiées.
+		</p>
+	 			
+		</section>
+
+
+		<section>
+		<h3>Dans le futur...</h3>
+			
+		<p>
+			De nouvelles fonctionnalités sont à l'étude.
+			
+			<ul>
+				<li>Ajouter des villes sud-américaines (dans le cadre d'un nouveau partenariat avec l'Ined)</li>
+				<li>Proposer un mode expert pour la géovisualisation</li>
+				<li>Mettre en open-data les données pondérées et agrégées par heure et par secteur pour les villes canadiennes</li>
+				<li>...</li>
+			</ul>
+		</p>
+
+		</section>
+
+
+		<section>
+     	<h3>Rejoignez-nous !</h3>
+		
+		<p>
 			Contactez-nous via <a href="mailto:mobiliscope@parisgeo.cnrs.fr">mobiliscope[at]parisgeo.cnrs.fr</a> si vous souhaitez participer au développement de l'outil ou aux analyses.
 		</p>
-	</section>
-	
-	<p>
-	<div class="btn-c"><a class="btn"href="/fr/info/methods">Découvrez les méthodes</a></div>
-	</p>
-	
-</div>
 
+		</section>
+		
 </div>

@@ -1,0 +1,76 @@
+$violetColor:#857ea6;
+$orangeColor:#e29424;
+$greyColor:#f2f2f2;
+$darkGreyColor:#d2d2d2;
+$bordColor:#595959;
+
+$fontcolor: black;
+
+
+$mainColor: blue;
+$height: 66px;
+
+
+@font-face{
+  font-family: 'OpenSans';
+  src: url('/dist/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'OpenSansExtraBold';
+  src: url('/dist/fonts/OpenSans-ExtraBold.ttf');
+  font-weight: bolder;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'OpenSansBold';
+  src: url('/dist/fonts/OpenSans-Bold.ttf');
+  font-weight: bold;
+
+}
+
+/*
+font-face{
+  font-family: 'BebasNeueBold';
+  src: url('/dist/fonts/BebasNeue-Bold.ttf');
+  font-display: swap;
+  //font-weight: 800;
+}*/
+
+@font-face{
+  font-family: 'BebasNeueRegular';
+  src: url('/dist/fonts/BebasNeue-Regular.ttf');
+  font-display: swap;
+  font-weight: 600;
+}
+
+/*
+@font-face{
+  font-family: 'BebasNeueBook';
+  src: url('/dist/fonts/BebasNeue-Book.ttf');
+  font-display: swap;
+  font-weight: 600;
+}*/
+
+/*
+@font-face{
+  font-family: 'BebasNeueLight';
+  src: url('/dist/fonts/BebasNeue-Light.ttf');
+  font-display: swap;
+  font-weight: 400;
+}*/
+
+@font-face{
+  font-family: 'Symbol';
+  src: url('/dist/fonts/symbol-signs.otf')
+}
+
+
+//$fontBBold: "BebasNeueBold", sans-serif;
+$fontBR: "BebasNeueRegular", sans-serif;
+//$fontBB: "BebasNeueBook", sans-serif;
+//$fontBL: "BebasNeueLight", sans-serif;
+$fontO: "OpenSans", sans-serif;
+$fontOB: "OpenSansBold", sans-serif;
+$fontOXB: "OpenSansExtraBold", sans-serif;

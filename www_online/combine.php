@@ -24,11 +24,11 @@
      * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      */
 
-    //echo "elo";
+
     $cache    = true;
     $cachedir = dirname(__FILE__) . '/cache';
-    $cssdir   = dirname(__FILE__) . '/styles';
-    $jsdir    = dirname(__FILE__) . '/scripts';
+    $cssdir   = dirname(__FILE__) . '/dist';
+    $jsdir    = dirname(__FILE__) . '/dist';
 
     // Determine the directory and type we should use
     switch ($_GET['type']) {

@@ -1,84 +1,104 @@
-
 // Déclaration des variables propres à l'enquête observée
 
-	// Déclaration du nom de l'enquête pour guider le chemin vers les données (loads.js)
-	var nomED = "ANGERS";
+// Déclaration du nom de l'enquête pour guider le chemin vers les données (loads.js)
+var nomED = 'ANGERS';
+// Nom de la ville centre
+var nomVC = 'Angers';
+// Année de fin d'enquête
+var anneeED = '2012';
 
-	// Nom de la ville centre
-	var nomVC = "Angers";
+// Source des données
+var dataSource = "Enquête Déplacements Grand Territoire (EDGT) 2012 - Angers / Pays Loire, Cerema (prod.), Adisp (distrib.)";
 
-	// Source des données
-	var dataSource = "Source: Enquête Déplacements Grand Territoire (EDGT) 2012 - Angers/Pays Loire, CEREMA (prod.) - ADISP (distrib.)";
+// Centrer la projection leaflet sur la ville centre (load.js)
+var setview = [47.46, -0.46];
+// Paramétrer les niveaux de zoom leaflet (load.js)
+var zoom = 10,
+minZoom = 10,
+maxZoom = 15;
 
-	// Centrer la projection sur la ville centre (load.js)
-	var centerProj = [-0.55, 47.47],
-		scaleProj = 65000;
-	// Centrer le zoom sur la ville centre (load.js)
-	var centerZ_w = 2,
-		centerZ_h = 2;
+// Stockage du nom de la 1ere colonne dans le csv dataSect (sert à pointer vers les valeurs min et max pour l'affichage du graph simple)
+var nomCol = '001';
+var nameSec = "ANGERS ST-JEAN, VOLTAIRE";
 
-	// Stockage du nom de la 1ere colonne dans le csv dataSect (sert à pointer vers les valeurs min et max pour l'affichage du graph simple)
-	var nomCol = "001"
+// Adapter la taille min/max des cercles proportionnels en fonction des ordres de grandeur des données (load.js)
+var radiusRange = [0, 195];
 
-	// Adapter la taille min/max des cercles proportionnels en fonction des ordres de grandeur des données (load.js)
-	var radiusRange = [0, 300];
+// Déclaration des valeurs des cercles proportionnels des légendes uniques (load.js)
+var datasetProp = [21000, 11000, 5000, 100],
+datasetFlow = [11000, 6000, 2000, 100];
 
-	// Déclaration des valeurs des cercles proportionnels des légendes uniques (loads.js)
-	var datasetProp = [20000, 10000, 2500, 100],
-		datasetFlow = [10000, 5000, 1000, 100];
+// Seuils des liens (carte et légende flow)
+var sLink = [120, 500, 1000, 2800];
 
-	// Seuils des liens (carte et légende flow)
-    var sLink = [500, 1000];
+// Déclaration des bornes de classes pour chaque modalité (loads.js)
+// Moyennes emboîtées, 8 classes
+var colDom_dens = [10, 100, 290, 820, 1500, 2800, 4100, 6400, 10700];
 
-	// Déclaration des bornes de classes pour chaque modalité (loads.js)
-	var colDom_age1 = [0, 10, 12, 14, 22],
-		colDom_age2 = [0, 8, 11, 14, 17],
-		colDom_age3 = [0, 45, 53, 56, 60],
-		colDom_age4 = [0, 16, 18, 20, 23];
+// Discrétisation en amplitude égale
+var colDom_res1 = [0, 19, 38, 57, 76, 96];
+var colDom_res2 = [4, 24, 43, 62, 81, 100];
 
-	var colDom_sex1 = [0, 35, 40, 50, 55],
-		colDom_sex2 = [0, 45, 50, 60, 65];
+//Méthode des quintiles
+var colDom_age1 = [0, 10, 12, 14, 22, 54];
+var colDom_age2 = [0, 8, 11, 14, 17, 23];
+var colDom_age3 = [26, 45, 53, 56, 60, 68];
+var colDom_age4 = [6, 16, 18, 20, 23, 42];
 
-	var colDom_cleduc1 = [0, 8, 10, 12, 15],
-		colDom_cleduc2 = [0, 33, 39, 44, 50],
-		colDom_cleduc3 = [0, 23, 26, 29, 32],
-		colDom_cleduc4 = [0, 12, 16, 22, 28];
+// Discrétisation manuelle
+var colDom_sex1 = [17, 35, 40, 50, 55, 73];
+var colDom_sex2 = [27, 45, 50, 60, 65, 83];
 
-	var colDom_educmen1 = [0, 9, 12, 16, 18],
-		colDom_educmen2 = [0, 38, 43, 47, 53],
-		colDom_educmen3 = [0, 19, 23, 26, 31],
-		colDom_educmen4 = [0, 8, 12, 17, 23];
+//Méthode des quintiles
+var colDom_cleduc1 = [0, 8, 10, 12, 15, 30];
+var colDom_cleduc2 = [21, 33, 39, 44, 50, 61];
+var colDom_cleduc3 = [15, 23, 26, 29, 32, 41];
+var colDom_cleduc4 = [2, 12, 16, 22, 28, 40];
 
-	var colDom_cs1 = [0, 2, 3, 4, 5],
-		colDom_cs2 = [0, 11, 15, 19, 26],
-		colDom_cs3 = [0, 31, 36, 40, 43],
-		colDom_cs4 = [0, 18, 24, 28, 35],
-		colDom_cs5 =  [0, 10, 12, 15, 20];
+//Méthode des quintiles
+var colDom_educmen1 = [4, 9, 12, 16, 18, 30];
+var colDom_educmen2 = [22, 38, 43, 47, 53, 65];
+var colDom_educmen3 = [12, 19, 23, 26, 31, 42];
+var colDom_educmen4 = [1, 8, 12, 17, 23, 42];
 
-	var colDom_cspmen1 = [0, 2, 4, 5, 7],
-		colDom_cspmen2 = [0, 15, 20, 26, 34],
-		colDom_cspmen3 = [0, 32, 35, 38, 43],
-		colDom_cspmen4 = [0, 15, 21, 27, 31],
-		colDom_cspmen5 = [0, 4, 7, 10, 15];
+//Méthode des quintiles
+var colDom_cs1 = [0, 1.6, 3, 3, 5, 12];
+var colDom_cs2 = [2, 11, 15, 19, 26, 39];
+var colDom_cs3 = [22, 31, 36, 40, 43, 57];
+var colDom_cs4 = [8, 18, 24, 29, 35, 54];
+var colDom_cs5 = [3, 10, 12, 15, 20, 37];
 
-	var colDom_occ1 = [0, 46, 51, 55, 60],
-		colDom_occ2 = [0, 5, 8, 10, 15],
-		colDom_occ3 = [0, 3, 4, 6, 8],
-		colDom_occ4 =  [0, 20, 24, 26, 32],
-		colDom_occ5 =   [0, 2, 3, 4, 5];
+//Méthode des quintiles
+var colDom_cspmen1 = [0, 2, 4, 5, 7, 15];
+var colDom_cspmen2 = [5, 15, 20, 26, 34, 52];
+var colDom_cspmen3 = [22, 32, 35, 38, 43, 60];
+var colDom_cspmen4 = [2, 15, 21, 27, 31, 54];
+var colDom_cspmen5 = [0, 4, 7, 10, 15, 32];
 
-	var colDom_resarea3 = [0, 3, 10, 20, 30],
-		colDom_resarea2 = [0, 3, 10, 20, 30],
-		colDom_resarea1 = [0, 3, 10, 20, 30];
+//Méthode des quintiles
+var colDom_occ1 = [30, 46, 51, 55, 60, 70];
+var colDom_occ2 = [0, 5, 8, 10, 15, 51];
+var colDom_occ3 = [0, 3, 4, 6, 8, 26];
+var colDom_occ4 = [8, 20, 24, 27, 32, 65];
+var colDom_occ5 = [0, 2, 3, 4, 5, 10];
 
-	var colDom_act1 = [0, 40, 55, 70, 85],
-		colDom_act2 = [0, 6, 15, 30, 45],
-		colDom_act3 = [0, 3, 6, 12, 18],
-		colDom_act4 = [0, 3, 6, 12, 18],
-		colDom_act5 = [0, 3, 6, 12, 18];
+// Discrétisation manuelle
+var colDom_resarea1 = [0, 3, 10, 20, 30, 100];
+var colDom_resarea2 = [0, 3, 10, 20, 30, 100];
+var colDom_resarea3 = [0, 3, 10, 20, 30, 100];
 
-	var colDom_mod3 = [0, 14, 18, 23, 30],
-		colDom_mod2 = [0, 60, 70, 77, 83],
-		colDom_mod1 = [0, 2, 5, 7, 11];
+// Discrétisation en amplitude égale
+var colDom_qpv1 = [24, 39, 54, 70, 85, 100];
+var colDom_qpv2 = [0, 15, 30, 46, 61, 76];
 
+//Seuils naturels (fisher)
+var colDom_act1 = [3, 43, 61, 77, 91, 100];
+var colDom_act2 = [0, 7, 18, 30, 46, 84];
+var colDom_act3 = [0, 2, 8, 16, 35, 65];
+var colDom_act4 = [0, 1, 4, 10, 22, 45];
+var colDom_act5 = [0, 2, 6, 10, 18, 54];
 
+//Méthode des quintiles
+var colDom_mod1 = [0, 2, 5, 7, 11, 23];
+var colDom_mod2 = [24, 60, 70, 77, 83, 91];
+var colDom_mod3 = [6, 14, 18, 23, 30, 57];

@@ -1,79 +1,109 @@
 <div class = "corps">
-    <h2>Un outil en évolution</h2>
-	
-	
-	<h3>Un outil libre</h3>
-	
-		<p>
-			Le Mobiliscope s’inscrit dans une démarche de science ouverte.</br>
-			Il est proposé sous licence libre <a href = "https://www.gnu.org/licenses/gpl-3.0.en.html"   target="_blank">GNU GPLv3</a> et les scripts qui ont servi à son développement sont accessibles sur un dépôt <a href = "https://github.com/Geographie-cites/mobiliscope" target="_blank">github</a>.
-		</p>
-	
-		<p>
-			Le Mobiliscope est développé en HTML, CSS (framework <a href = "https://minicss.org/" target = "_blank"> mini.css</a>), javascript et PHP. La géovisualisation a été codée en javascript et s’appuie intégralement, pour l'interactivité des cartes et graphiques, sur la libraire <a  href = "https://d3js.org/" target="_blank" >D3.js</a> developpé par Mike Bostock.
-		</p>
-	
-		<p>		
-			Les données sont stockées localement sous forme de fichiers geojson pour les données spatiales et csv pour les données attributaires sans géométrie. Elles sont générées automatiquement en amont grâce à deux scripts R : le premier transforme les données de la table des déplacements issues des enquêtes en table de présences ; le second produit l’ensemble des fichiers nécessaires à la représentation (carto)graphique pour chaque indicateur.
-		</p>
-	
-		<p>		
-			Actuellement, l'outil de géovisualisation est optimisé pour les navigateurs Firefox, Chrome, Opera et IE Edge.</br>
-		</p>
-	
+    <section>
+	<h2>Codes, données et visuels sous licences libres</h2>
+	</section>
 
-	<h3>Historique des versions</h3>
-		<p>
-			<b>v1.</b> Centrée sur l’Ile-de-France (à partir des données de l’Enquête Globale Transport de 2010), la première version (uniquement en anglais) donne à voir la population présente au cours des 24 heures de la journée selon trois indicateurs (population totale ; niveau d’éducation du ménage ; catégorie socio-professionnelle du ménage) et avec deux modes de représentations de la population présente (en stock et en parts).</br>
-			La limite d’âge de la population étudiée est fixée à 16 ans.</br>
-			Une carte centrale donne à voir la population présente dans les différents secteurs de la région. Un premier graphique permet de visualiser les indices de ségrégation (Duncan et Moran) pour l’ensemble de la région. Un second graphique permet de visualiser la population présente dans le secteur sélectionné sur la carte.</br>
-			<i>Date de mise en ligne : mai 2017</i>
-		</p>
-	
-		<p>
-			<b>v2.</b>	Dans la deuxième version (toujours centrée sur l’Ile-de-France), six nouveaux indicateurs permettant de caractériser la population présente au cours de la journée sont ajoutés (sexe, âge ; revenus ; occupation ; lieu de résidence et activité réalisée). Un nouveau mode de représentation cartographique (en oursins) de la population non résidente est proposé.</br>
-			<i>Date de mise en ligne : septembre 2017</i>
-		</p>
+	<section>
 
-		<p>
-			<b>v3.</b> La troisième version intègre de nouvelles villes. Une interface bilingue (français/anglais) est proposée. Un nouvel indicateur relatif au dernier mode de transport est ajouté. La limite d’âge de la population étudiée est modifiée et fixée à 15 ans.
-	
-			<ul>
-				<li><b>v3.1.</b> 21 villes/régions françaises disposant d’enquêtes ménages-déplacement sont ajoutés.</br>
-				<i>Date de mise en ligne : mars 2019</i></li>
-
-				<li><b>v3.2.</b> La région de Nîmes est ajoutée.</br>
-				<i>Date de mise en ligne : décembre 2019</i></li>
-
-				<li><b>v3.3.</b> Six villes québécoises et leur périphérie sont ajoutées. La visualisation est la même que pour les villes françaises, mais les indicateurs caractérisant  la population présente au cours de la journée sont moins nombreux (sexe, âge ; revenus ; activité réalisée ; dernier mode de transports utilisé).</br>
-				<i>Date de mise en ligne : avril 2020</i></li>
-			</ul>
-		</p>
-	
-	<h3>Dans le futur...</h3>
-		<p>
-			Différents développements sont envisagés :
-			<ul>
-				<li>Proposer l'affichage de tuiles Open Street Map</li>
-				<li>Permettre le téléchargement des données agrégées par secteur et par heure</li>
-				<li>Intégrer de nouveaux indicateurs (par exemple habitant oui/non dans des Quartiers Prioritaires en Politique de la Ville pour les villes françaises).</li>
-				<li>Proposer un mode expert pour la géovisualisation</li>
-				<li>Ajouter d’autres villes françaises dont les enquêtes sur les déplacements quotidiens ont été menées récemment: Rouen, Metz, Besançon, Brest, Le Havre, Poitiers et Tours.</li>
-				<li>....</li>
-			</ul>
-		</p>
-		
-	
-     <h3>Rejoignez-nous !</h3>
-		<p> 
-			Contactez-nous via <a href="mailto:mobiliscope@parisgeo.cnrs.fr">mobiliscope[at]parisgeo.cnrs.fr</a> si vous souhaitez participer au développement de cet outil.
-		</p>
-
-	
 	<p>
-	<div class="btn-c"><a class="btn"href="/fr/info/methods">Découvrez les méthodes</a></div>
+		Le développement du Mobiliscope s’inscrit dans une démarche de <b>science ouverte</b> : nous faisons notre maximum pour que les données construites par l'équipe et affichées dans l'outil respectent les principes FAIR : « <b>F</b>aciles à trouver, <b>A</b>ccessibles, <b>I</b>nteropérables et <b>R</b>éutilisables ».</br>
 	</p>
+
+	</section>
+
+	<section>
+	<h3>Code source</h3>
+
+		<p>
+			Le Mobiliscope est développé en HTML, CSS (framework <a href = "https://minicss.org/" target = "_blank"> mini.css</a>), javascript et PHP. La géovisualisation a été codée en javascript et s’appuie, pour l'interactivité des cartes et graphiques, sur les libraires <a  href = "https://d3js.org/" target="_blank" >D3.js</a> - développé par Mike Bostock - et <a href="http://leafletjs.com" title="A JS library for interactive maps" target="_blank">Leaflet</a>. La superposition des tuiles OSM et des cartes dessinées avec D3.js a été facilitée par l'utilisation du plugin <a href="https://github.com/teralytics/Leaflet.D3SvgOverlay" target="_blank">Leaflet.D3SvgOverlay</a> sous licence MIT.
+		</p>
+
+		<p>
+			Les données  agrégées et pondérées (qui ne permettent pas la réidentification des personnnes enquêtées) sont stockées localement sous forme de fichiers geojson pour les données spatiales et csv pour les données attributaires sans géométrie. Ces données ont été automatiquement générées en amont grâce à deux scripts R : le premier transforme les données de déplacements issues des enquêtes en données de présences ; le second produit l’ensemble des fichiers nécessaires à la représentation (carto)graphique pour chaque indicateur.
+		</p>
+
+		<p>
+			Le code du Mobiliscope (comprenant les codes du logiciel et les programmes de traitements de données) est accessible sur un <a href = "https://github.com/Geographie-cites/mobiliscope" target="_blank">dépôt public github</a>. Ce code est mis à disposition sous <b>licence libre <a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">AGPL</a></b>.
+		</p>
+
+		<p>
+			Cette licence AGPL autorise toute redistribution ou modification du code sous réserve  qu’il demeure sous licence AGPL et que la source du code soit identifiée avec la mention : <i>« Code sous licence AGPL issu du Mobiliscope (v4), un outil de géovisualisation de la ville à toute heure (https://mobiliscope.cnrs.fr) »</i>.
+		</p>
+
+			<h4>
+			<a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">
+				<figure class="inline">
+			  <img src="/dist/assets/agpl.png" alt="AGPL" width="150"/>
+			</figure>
+			</a>
+			</h4>
+
+
+ 	</section>
+
+ 	<section>
+	<h3>Données</h3>
+
+	<p>
+		Les données de présence dans les villes françaises sont proposées au <b>téléchargement</b> (format .cvs et .geojson) sur le site du Mobiliscope, accompagnées d'un fichier résumant les termes de la licence ODbL et les sources à indiquer. 
+	</p>
+
+	<p>
+		Pour télécharger les données, cliquez sur le bouton <img src="/dist/assets/download.svg" width="20px" height= "20px"/>
+		<ul>
+			<li> soit au dessus de la carte centrale pour obtenir les valeurs agrégées par secteur selon l'indicateur et le mode de représentation sélectionné</li>
+			<li> soit à côté du graphique du bas pour obtenir les valeurs des indices de ségrégation pour l'ensemble de la région selon l'indicateur sélectionné et l'indice de ségrégation choisi.</li>
+		</ul>
+	</p>
+
+	<p>
+		Ces données sont mises à disposition sous <b>licence libre <a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">ODbL</a></b>. Elles sont donc librement réutilisables et modifiables sous réserve qu’elles demeurent sous licence ODbL et que les sources soient identifiées avec la mention : « Données sous licence ODbL issues du Mobiliscope (v4), un outil de géovisualisation de la ville à toute heure (https://mobiliscope.cnrs.fr), à partir des données initiales de <i>[à compléter selon les sources indiquées sur la carte de la ville correspondante ou dans les termes de licence de réutilisation] »</i>.
+	</p>
+
+		<h4>
+		<a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">
+		<figure class="inline">
+		  	<img src="/dist/assets/odbl.png" alt="OBL" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
+	<section>
+	<h3>Visuels</h3>
+
+	<p>
+		Les visuels (cartes et graphiques) affichés dans le Mobiliscope sont mis à disposition sous <b>licence libre <a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">creative commons CC-BY-SA</a></b>.
+	</p>
+
+	<p>
+		Les visuels sont donc librement réutilisables sous réserve que les auteurs et les sources soient cités, par exemple avec la mention: « Visuels issus du Mobiliscope (v4), un outil libre de géovisualisation des villes à toute heure (https://mobiliscope.cnrs.fr) ».
+	</p>
+
+		<h4>
+		<a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">
+		<figure class="inline">
+		  <img src="/dist/assets/cc-by-sa.png" alt="CC-BY-SA" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
 	
-</div>
+
+	<section>
+	<h3>DOI</h3>
+
+	<p>
+		Le Mobiliscope a aussi son Digital Object Identifier (DOI) </br>
+		 </br>
+		<a href="https://doi.org/10.5281/zenodo.3628713" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3628713.svg" alt="doi"></a>
+	</p>
+		</br>
+		</br>
+
+	</section>
 
 </div>

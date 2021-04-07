@@ -1,0 +1,96 @@
+<div class = "corps">
+    <section>
+	<h2>Codes, visuels et données sous licences libres</h2>
+
+	<p>
+		Le développement du Mobiliscope s’inscrit dans les principes du FAIR : nous faisons notre maximum pour que les données construites par l'équipe et affichées dans l'outil soient « Faciles à trouver, Accessibles, Interopérables et Réutilisables ».</br>
+	</p>
+
+	</section>
+
+	<section>
+	<h3>Code source</h3>
+
+		<p>
+			Le Mobiliscope est développé en HTML, CSS (framework <a href = "https://minicss.org/" target = "_blank"> mini.css</a>), javascript et PHP. La géovisualisation a été codée en javascript et s’appuie, pour l'interactivité des cartes et graphiques, sur les libraires <a  href = "https://d3js.org/" target="_blank" >D3.js</a> - developpé par Mike Bostock - et <a href="http://leafletjs.com" title="A JS library for interactive maps" target="_blank">Leaflet</a>. La superposition des tuiles OSM et des cartes dessinées avec D3.js a été facilitée par l'utilisation du plugin <a href="https://github.com/teralytics/Leaflet.D3SvgOverlay" target="_blank">Leaflet.D3SvgOverlay</a> sous licence MIT.
+		</p>
+
+		<p>
+			Les données (stockées localement sous forme de fichiers geojson pour les données spatiales et csv pour les données attributaires sans géométrie) sont générées automatiquement en amont grâce à deux scripts R : le premier transforme les données de déplacements issues des enquêtes en données de présences ; le second produit l’ensemble des fichiers nécessaires à la représentation (carto)graphique pour chaque indicateur.
+		</p>
+
+		<p>
+			Le code du Mobiliscope  (comprenant les codes du logiciel et les programmes de traitements de données) est accessible sur un <a href = "https://github.com/Geographie-cites/mobiliscope" target="_blank">dépôt public github</a>. Ce code est mis à disposition sous  <b>licence libre <a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">AGPL</a></b>.
+		</p>
+
+		<p>
+			Cette licence AGPL autorise toute redistribution ou modification du code sous réserve  qu’il demeure sous licence AGPL et que la source du code soit identifiée, par exemple avec la mention : « Code issu du Mobiliscope (v4), un outil libre de géovisualisation des villes à toute heure (https://mobiliscope.cnrs.fr) ».
+		</p>
+
+			<h4>
+			<a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">
+				<figure class="inline">
+			  <img src="/dist/assets/agpl.png" alt="AGPL" width="150"/>
+			</figure>
+			</a>
+			</h4>
+
+
+ 	</section>
+
+	<section>
+	<h3>Visuels</h3>
+
+	<p>
+		Les visuels (cartes et graphiques) affichés dans le Mobiliscope sont mis à disposition sous <b>licence libre <a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">creative commons CC-BY-SA</a></b>.
+	</p>
+
+	<p>
+		Les visuels sont donc librement réutilisables sous réserve que les auteurs et les sources soient cités, par exemple avec la mention: « Visuels issus du Mobiliscope (v4), un outil libre de géovisualisation des villes à toute heure (https://mobiliscope.cnrs.fr) ».
+	</p>
+
+		<h4>
+		<a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">
+		<figure class="inline">
+		  <img src="/dist/assets/cc-by-sa.png" alt="CC-BY-SA" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
+	<section>
+	<h3>Données</h3>
+
+	<p>
+		Certaines données de présence agrégées par heure et par secteur peuvent être téléchargées (format .cvs et .geojson) sur le site du Mobiliscope (ainsi que la licence de réutilisation).
+	</p>
+
+	<p>
+		Ces données mises à disposition sous <b>licence libre <a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">ODbL</a></b> sont librement réutilisables et modifiables sous réserve qu’elles demeurent sous licence ODbL et que les sources soient identifiées, par exemple avec la mention : « Données sous licence ODbL issues du Mobiliscope (v4), un outil de géovisualisation de la ville à toute heure (https://mobiliscope.cnrs.fr), à partir des données initiales de <i>[à compléter selon les sources indiquées sur la carte de la ville correspondante ou dans les tremes de licene de réutilsation] »</i>.
+	</p>
+
+		<h4>
+		<a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">
+		<figure class="inline">
+		  	<img src="/dist/assets/odbl.png" alt="OBL" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
+	<section>
+	<h3>DOI</h3>
+
+	<p>
+		Le Mobiliscope a aussi son Digital Object Identifier (DOI) </br>
+		 </br>
+		<a href="https://doi.org/10.5281/zenodo.3628713" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3628713.svg" alt="doi"></a>
+	</p>
+		</br>
+		</br>
+
+	</section>
+
+

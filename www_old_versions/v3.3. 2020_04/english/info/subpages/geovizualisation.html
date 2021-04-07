@@ -1,0 +1,68 @@
+<div class = "corps">
+  <section>
+  <h2>Geovizualisation</h2>
+  </section>
+  
+  <section>
+  <h3>To explore city around the clock</h3>
+
+  <p>With timeline (on the top), users can animate maps hour by hour. In the indicator block (on the left-side), users can choose to display the whole population present ("Global overview") or to look at the population present according to demographic profile (sex and age), social profile (socioprofessional status, educational level and occupational status), or residential areas. It is also possible to explore the types of activities carried out by the population present in each area in a given hour, as well as the last mode of transport used to get to destination.<br>
+  </p>
+
+  <p>In the center of the screen, maps are displayed according to the indicator chosen in the indicator block. Maps are dynamics: users can zoom, move around it, display the names of the sectors on mouseover. Three cartography modes are available: numbers (choropleth maps), % (proportional symbol maps) or flows (from residential districts).<br>
+  </p>
+
+  <p>In the right side of the screen, a first graph (top) provides information on the hourly spatial distribution of population in the whole city region.<br>
+  A second graph (bottom) shows hourly information for a specific district (selected on the map).<br>
+  </p>
+  </section>
+
+
+  <section>
+  <h3>Central map</h3>
+  <p>In <b>choropleth maps</b> (representing estimated <b>proportions</b> of people in a specified group at district level), five class have constantly been defined. For each group, the same class intervals apply over the 24h period for all maps of the same city region.
+  <ul>
+    <li>For indicators related to sex, residential rings and activities, class intervals have been defined manually and are the same for every city;</li>
+    <li>For other indicators (age; education level; socioprofessional status; occupational status and travel mode), we used a quintile method based on values distribution over the 24h period in every city. Class intervals can then diverge according to the city.</li>
+    <li>In the Paris region, there are two additional indicators (household income and deparetment of residence). For the "household income" indicator, the legend has been constructed using the equal amplitude method: the statistical distribution has been divided into five classes with equal amplitude. For the "deparetment of residence" indicator, the classes were determined manually according to the natural distribution thresholds.</li>
+    <li>For the Canadian cities, the equal amplitude method has also been used for household income.</li>
+  </ul>
+  </p>
+
+  <p>In <b>proportional symbol maps</b> (representing estimated <b>number</b> of people in a specified group at district level), circles are proportionally sized according to the number of people and are similar over the 24h period for all maps of the same city region (but can diverge according to the city region).
+  </p>
+  
+  <p>In <b>flow maps</b>, link thickness (displayed on mouseover) represents estimated flow of people from their districts of residence to the district where they are located. Link thickness are similar over the 24h period for all maps of the same city region (but can diverge according to the city region). Flow maps cannot be displayed for the group 'at home' from 'activity' indicator.
+  </br>
+  For confidentiality and statistical power reasons, we introduced a filter for not displaying the estimated number of non-resident people when the crude number of concerned respondents is below 12.
+  </p>
+
+  </section>
+  
+  <section>
+  <h3>Top graph</h3>
+
+  <p>In the top graph, two segregation indices measure spatial distribution over the 24h period in the whole city region</p>
+
+  <ul>
+    <li><b>Duncan dissimilarity index</b> gives information about the dispersal of every group across spatial units. It is commonly used as a measure of pairwise segregation (e.g. Black versus White) but can also be used when measuring segregation through an indicator divided in more than two groups. In this case, Duncan dissimilarity index expresses the proportion of individuals of a given group who would have to change spatial unit (without being replaced) to get an even distribution of the group relative to the total population.</li>
+    <li><b>Moran index</b> is a measure of spatial autocorrelation. Its value varies from -1 (the group perfectly repulses itself) to 1 (the group is perfectly clustered in space). A zero value indicates an absence of spatial structure.</li>
+  </ul>
+
+  <p>In graphs representing Duncan or Moran indices, minimum and maximum values are similar for all groups of a same indicator which makes graphs comparable. Moreover, intervals between minimum and maximum values cannot be less than 0.4 not to give too much importance to minor variations in spatial structure (eg. sex).
+  </p>
+
+  </section>
+  
+  <section>
+  <h3>Bottom graph</h3>
+  
+  <p>The bottom graph shows the estimated number/proportion of people in the district selected in the central map over the 24h period. Two modes are available : unique or stacked</p>
+
+  </section>
+  
+  <p>
+  <div class="btn-c"><a class="btn"href="/en/info/news">Our dissemination activities</a></div>
+  </p>
+
+</div>
