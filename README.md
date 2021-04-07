@@ -1,4 +1,4 @@
-# Mobiliscope - v3.3 (April 2020)
+# Mobiliscope - v4.0 (April 2021)
 
 Mobiliscope is a free and open-source web mapping platform for the interactive exploration of cities around the clock.
 
@@ -17,7 +17,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 You can also use our Digital Object Identifier (DOI) : [10.5281/zenodo.3628713](https://doi.org/10.5281/zenodo.3628713)
 
-![Mobiliscope v3](/img_v3.3.png?raw=true)
+![Mobiliscope v4](/img_v4.0_Martinique.png?raw=true)
 
 # Version history
 
