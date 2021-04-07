@@ -2,7 +2,7 @@
 
 Mobiliscope is a free and open-source web mapping platform for the interactive exploration of cities around the clock.
 
-29 city regions are included in the actual version (v3.3) of the Mobiliscope : 23 French cities and 6 Canadian cities.
+55 city regions are included in the actual version (v4.0) of the Mobiliscope : 49 French cities and 6 Canadian cities.
 https://mobiliscope.cnrs.fr/
 
 Mobiliscope is licensed under the **AGPL-3.0 License**.
@@ -38,15 +38,18 @@ In the third version, new cities have been added. A bilingual interface (French/
 ### v3.2.
 With one more French city (Nîmes). [December 2019]
 
-### v3.3. - ONLINE -
+### v3.3. 
 6 Canadian cities have been added. Indicators are slightly less numerous (sex, age, income, occupational status, activity carried out and last mode of transport used). [April 2020]
+
+### v4.0. - ONLINE -
+26 French cities have been added and data for Valenciennes region have been updated from the EMC² 2019 survey. Corrections were also made on estimates of the present populations in Canadian cities. New indicators are added (residential population, and for the French cities, residential location in or outside 'Poverty Areas') and present population density (people per km²) is now available for the 'Whole population' indicator.  In this fourth version, users can freely download the French data aggregated by hour and district - available under ODbL license. Moreover this new version is undergoing a major overhaul of its interface (graphic design and addition of OpenStreetMap layers). [April 2021]
 
 # Future developments
 
 More functionalities will be available soon, hang tight! 
-* Enable users to display OpenStreetMap mapping
-* Enable users to download aggregated data (by city, by district and by hour)
-* Add new French and world cities in the geovizualisation platform
+* Add South American cities (as part of a new partnership with Ined)
+* Propose an expert mode for geovisualization
+* Provide open access to aggregated data per hour and per distrcit for the the Canadian cities
 * ....
 
 # Contact
