@@ -26,11 +26,15 @@ Focused on the Paris region, the first version (only in english) allows to explo
 [May 2017] 
 
 ## v2.
-In the second version (still focused on the Paris region), six new indicators have been included (sex, age, income, occupational status, residential areas and activity). Flows (from residential districts) have been adeed.
+In the second version (still focused on the Paris region), six new indicators have been included (sex, age, income, occupational status, residential areas and activity). 
+Flows (from residential districts) have been adeed.
 [September 2017] 
 
 ## v3.
-In the third version, new cities have been added. A bilingual interface (French/English) is proposed. A new indicator for the last mode of transport is added. The age of the study population is now set at 16 years and older. 
+In the third version, new cities have been added. 
+A bilingual interface (French/English) is proposed. 
+A new indicator for the last mode of transport is added. 
+The age of the study population is now set at 16 years and older. 
 
 ### v3.1. 
 21 French cities have been added. [March 2019]
@@ -43,11 +47,14 @@ With one more French city (Nîmes). [December 2019]
 
 ## v4.0. - ONLINE -
 26 French cities have been added and data for Valenciennes region have been updated from the EMC² 2019 survey. Corrections were also made on estimates of the present populations in Canadian cities. 
+
 New indicators are added : 
 - The whole present population can be splitted into two groups (resident versus non resident) according the original district of residence.
-- It is now possible to distinguish people according to whether they reside or not in the 'Poverty Areas' (ie. Quartiers Priortaires en Politique de la Ville). For France only.
 - Present population density (people per km²) is now available for the 'Whole population' indicator.  
+- It is now possible to distinguish people according to whether they reside or not in the 'Poverty Areas' (ie. Quartiers Priortaires en Politique de la Ville). For France only.
+
 In this fourth version, users can freely download the French data aggregated by hour and district - available under ODbL license. 
+
 Lastly, this new version is undergoing a major overhaul of its interface : graphic design and addition of OpenStreetMap layers. 
 [April 2021]
 
