@@ -11,7 +11,7 @@ var anneeED = '2011';
 var dataSource = "Enquête Déplacements Ville Moyenne (EDVM) 2011 - Albi / Grand Albigeois, Cerema (prod.), Adisp (distrib.)";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
-var setview = [43.91, 2.15];
+var setview = [43.91, 2.16];
 // Paramétrer les niveaux de zoom leaflet (load.js)
 var zoom = 11,
 minZoom = 11,

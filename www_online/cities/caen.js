@@ -11,7 +11,7 @@ var anneeED = '2011';
 var dataSource = "Enquête Déplacements Grand Territoire (EDGT) 2011 - Caen / Calvados, Cerema (prod.), Adisp (distrib.)";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
-var setview = [49, -0.35];
+var setview = [49, -0.36];
 // Paramétrer les niveaux de zoom leaflet (load.js)
 var zoom = 9,
 minZoom = 9,

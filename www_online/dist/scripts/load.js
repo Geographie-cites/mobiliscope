@@ -688,12 +688,12 @@ var lc = L.Control.Layers.extend({
 
 var ua = navigator.userAgent.toLowerCase();
 if (ua.includes('chrome')) {
-  console.log(ua);
-  console.log('yes');
+  //console.log(ua);
+  //console.log('yes');
   layerControl.addTo(leafletMap);
 } else {
-  console.log(ua);
-  console.log('no');
+  //console.log(ua);
+  //console.log('no');
   leafletMap.addControl(new lc());
 };
 
@@ -736,6 +736,7 @@ var slider ;
 var	interval ;
 var currentFrame = 14 ;
 var xAxis ;
+
 
 var typeGrIDF = 'Duncan';
 var typeGraph = 'stacked';
@@ -1112,6 +1113,8 @@ function load(chemin, colDom, col){
 			  clearInterval( interval );
 			}
 		});
+
+
 
 
 	// FONCTIONS
@@ -3365,6 +3368,12 @@ function load(chemin, colDom, col){
 
 		interval = setInterval(function(){
 
+      /*if (currentFrame == 9) {
+        clearInterval( interval );
+        return;
+      }*/
+
+
 			currentFrame++ ;
 
 			if (currentFrame == 28) currentFrame = 4 ;
@@ -3405,9 +3414,7 @@ function load(chemin, colDom, col){
 			if (currentFrame == 28){
 
 			isPlaying = false ;
-			// d3.select("#play").classed("pause",false).attr("title","Jouer l'animation");
 			d3.select("#play").classed("pauseB",false).classed("playB",true);
-			d3.select("#play-mobile").classed("pauseB",false).classed("playB",true);
 			clearInterval( interval );
 			return;
 
@@ -3434,10 +3441,18 @@ function load(chemin, colDom, col){
         		.attr('y', -12)
         		.attr('font-weight', 'bold')
         		.text(xAxis.tickValues()[(slider.value()-4)]);
+      
 
 		}, 1400) ;
 
-	}
+    setTimeout(function( ) { 
+      clearInterval( interval ); 
+      d3.select("#play").attr("class", "playB");
+      $('#play').attr('aria-label', tooltipPlay);
+    }, 35000); //stop after 25h
 
+    
+
+	}
 
 }

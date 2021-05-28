@@ -8,8 +8,7 @@ var nomVC = 'Lille';
 var anneeED = '2016';
 
 // Source des données
-var dataSource = 
-"Enquête Déplacements Grand Territoire (EDGT) 2016 - Lille / Métropole Européenne de Lille, Cerema,  <a href=https://opendata.lillemetropole.fr/explore/dataset/enquete-deplacement-2016/information/ target=_blank>Licence Ouverte</a>";
+var dataSource = "Enquête Déplacements Grand Territoire (EDGT) 2016 - Lille / Métropole Européenne de Lille, Cerema, <a href=https://opendata.lillemetropole.fr/explore/dataset/enquete-deplacement-2016/information/ target=_blank>Licence Ouverte</a> ";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
 var setview = [50.65, 3.05];

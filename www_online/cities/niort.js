@@ -88,8 +88,8 @@ var colDom_resarea2 = [0, 3, 10, 20, 30, 100];
 var colDom_resarea3 = [0, 3, 10, 20, 30, 100];
 
 // Discrétisation en amplitude égale
-var colDom_qpv1 = [37, 50, 63, 75, 88, 100];
-var colDom_qpv2 = [0, 12, 25, 37, 50, 63];
+var colDom_qpv1 = [2, 22, 42, 61, 81, 100];
+var colDom_qpv2 = [0, 19, 39, 58, 78, 98];
 
 //Seuils naturels (fisher)
 var colDom_act1 = [3, 43, 61, 77, 91, 100];

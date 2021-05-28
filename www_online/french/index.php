@@ -83,7 +83,7 @@ include ('./settings.php');
 
           <div class="col-sm-12 col-md-6 ">
             <section class="right-side">
-              <h4>Les habitants d'une ville ne sont pas immobiles : leurs déplacements quotidiens occasionnent des modifications dans l'organisation sociale et spatiale des villes.</br>
+              <h4>Les habitants d'une ville ne sont pas immobiles. Leurs déplacements quotidiens occasionnent des modifications dans l'organisation sociale et spatiale des villes.</br>
                 </br>
                 Le Mobiliscope est un outil de géovisualisation qui donne à voir l'évolution de la population présente dans les villes françaises et canadiennes au cours des 24 heures de la journée. Il permet ainsi d'étudier les changements de composition sociale des quartiers au fil des heures.</br>
               </h4>

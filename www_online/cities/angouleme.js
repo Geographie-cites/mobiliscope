@@ -11,7 +11,7 @@ var anneeED = '2012';
 var dataSource = "Enquête Déplacements Ville Moyenne (EDVM) 2012 - Angoulême / Bassin de vie de l'Angoumois, Cerema (prod.), Adisp (distrib.)";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
-var setview = [45.62, 0.18];
+var setview = [45.64, 0.18];
 // Paramétrer les niveaux de zoom leaflet (load.js)
 var zoom = 10,
 minZoom = 10,

@@ -1,0 +1,78 @@
+﻿EXTRAIT DE LA BASE DE DONNEES GEOGRAPHIQUES DU MOBILISCOPE
+
+L'ensemble des couches vecteurs des 50 enquêtes ménage-déplacement (EMD) françaises et des 6 à enquêtes 
+origine-destination (EOD) à notre disposition ont été compilés afin d'obtenir 
+une seule couche pour les zones fines (EMD uniquement) et une seule couche pour les secteurs.
+
+Cet extrait contient 49 EMD, voir la liste plus bas.
+
+Toutes les couches ont fait l'objet d'un long travail de correction des géométries sous QGis pour pouvoir effectuer
+des opérations spatiales sous R sans incident et pour cartographier des couches visuellement propres.
+
+Les deux couches sont stockées au format esri shape en WGS 84 (epsg: 4326) et encodée en utf8.
+
+
+1/Couches Zones fines :
+
+Elle contient 15 variables dans sa table attributaire :
+ - LIB_ED = libellé unique de l'enquête (Nom de l'enquête, ANNEE)
+ - ID_ZF = identifiant unique des zones fines (NOM DE L'ENQUÊTE_ANNEE_CODE DE LA ZF)
+ - ENQUETE = Nom de l'EMD (nom de la ville centre de la zone enquêtée)
+ - ANNEE = Année de fin de l'enquête
+ - CODE_ZF = Code de la zone fine
+ - NOM_ZF = Nom de la zone fine*
+ - CODE_COM = Code Insee de la commune d'apartenance de la zone fine au moment de l'enquête
+ - NOM_COM = Nom de la commune* d'appartenance de la zone fine au moment de l'enquête
+ - LENGTH = Périmètre du secteur en mètre**
+ - AREA = Surface du secteur en mètre**
+ - X = Centroïde X du secteur en mètre**
+ - Y = Centroïde Y du secteur en mètre**
+ - CODE_SEC = Code du secteur d'appartenance de la zone fine
+ - COG19 = Code Officiel Géographique (INSEE) de la commune d'apartenance de la zone fine au 1er janvier 2019
+ - LIBCOM19 = Nom de la commune d'appartenance de la zone fine au 1er janvier 2019
+
+* Les toponymes sont renseignés si l'information existait dans les couches sources et sans modification de la typographie.
+Seul les problèmes d'encodage des caractères ont été corrigés. 
+
+** Les variables géométriques ont été calculées dans la projection de référence des zones enquêtées 
+à savoir Lambert 93 pour la France métropolitaine (epsg: 2154), UTM40 sud pour La réunion (epsg: 2975) et  
+RGAF09 (epsg: 5490) pour la Martinique
+
+
+2/Couches secteurs :
+
+Elle contient 11 variables dans sa table attributaire :
+ - PAYS = "CA" pour Canada et "FR" pour France
+ - LIB_ED = libellé unique de l'enquête (Nom de l'enquête, ANNEE)
+ - ID_SEC = identifiant unique des secteurs (NOM DE L'ENQUÊTE_ANNEE_CODE DU SECTEUR)
+ - ENQUETE = nom de l'enquête (nom de la ville centre de la zone enquêtée)
+ - ANNEE = année de fin de l'enquête
+ - CODE_SEC = code du secteur
+ - LENGTH = Périmètre du secteur en mètre*
+ - AREA = surface du secteur en mètre*
+ - X_W84 = centroïde X du secteur en dégré**
+ - Y_W84 = centroïde Y du secteur en degré**
+ - LIB = libellé des secteurs
+
+* Les calculs de surface et de périmètre ont été effectués dans la projection de référence des zones enquêtées, 
+à savoir Lambert 93 pour la France métropolitaine (epsg: 2154), UTM40 sud pour La réunion (epsg: 2975),  
+RGAF09 (epsg: 5490) pour la Martinique et NAD83 / Canada Atlas Lambert (epsg: 3978).
+
+** Pour les besoins de la géovisualisation, les centroïdes ont été calculés après reprojection de tous les secteurs en WGS 84 et sur le polygone le plus large
+
+
+3/ Liste des 49 EMD présentes dans l'extrait de la BU géo (mai 2021) :
+
+"Albi, 2011"             "Alençon, 2018"         
+"Amiens, 2010"           "Angers, 2012"           "Angoulême, 2012"        "Annecy, 2017"          
+"Annemasse, 2016"        "Bayonne, 2010"          "Besançon, 2018"         "Béziers, 2014"         
+"Bordeaux, 2009"         "Brest, 2018"            "Caen, 2011"             "Carcassonne, 2015"     
+"Cherbourg, 2016"        "Clermont-Ferrand, 2012" "Creil, 2017"            "Dijon, 2016"           
+"Douai, 2012"            "Dunkerque, 2015"        "Fort-de-France, 2014"   "Grenoble, 2010"        
+"La Rochelle, 2011"      "Le Havre, 2018"         "Lille, 2016"            "Longwy, 2014"          
+"Lyon, 2015"             "Marseille, 2009"        "Metz, 2017"             "Montpellier, 2014"     
+"Nancy, 2013"            "Nantes, 2015"           "Nice, 2009"             "Nîmes, 2015"           
+"Niort, 2016"            "Paris, 2010"            "Poitiers, 2018"         "Quimper, 2013"         
+"Rennes, 2018"           "Rouen, 2017"            "Saint-Brieuc, 2012"     "Saint-Denis, 2016"     
+"Saint-Étienne, 2010"    "Strasbourg, 2009"       "Thionville, 2012"       "Toulouse, 2013"        
+"Tours, 2019"            "Valence, 2014"          "Valenciennes, 2019"    

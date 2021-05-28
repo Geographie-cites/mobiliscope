@@ -11,7 +11,7 @@ var anneeED = '2010';
 var dataSource = "Enquête Ménages Déplacements (EMD) 2010 - Grenoble / Grande région grenobloise, Cerema (prod.), Adisp (distrib.)";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
-var setview = [45.09, 5.7];
+var setview = [45.10, 5.7];
 // Paramétrer les niveaux de zoom leaflet (load.js)
 var zoom = 9,
 minZoom = 9,

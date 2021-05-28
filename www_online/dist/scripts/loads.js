@@ -83,7 +83,7 @@ function pop0_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[2].length;
-	console.log(len);
+	// console.log(len);
 
 	if (screen.width<1440  && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -1094,7 +1094,7 @@ function cleduc2_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[33].length;
-	console.log(len);
+	// // console.log(len);
 
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -1299,7 +1299,7 @@ function educmen4_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[39].length;
-	console.log(len);
+	// // console.log(len);
 
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -1403,7 +1403,7 @@ function educmen3_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[42].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[42], find, replace));
@@ -1506,7 +1506,7 @@ function educmen2_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[45].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[45], find, replace));
@@ -1609,7 +1609,7 @@ function educmen1_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[48].length;
-	console.log(len);
+	// // console.log(len);
 
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -2392,7 +2392,7 @@ function cs3_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[72].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<val && screen.width>1024 && len<=173) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[72], find, replace));
@@ -2500,7 +2500,7 @@ function cs2_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[75].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<1440 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[75], find, replace));
@@ -2704,7 +2704,7 @@ function cspmen5_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[81].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<1920 && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[81], find, replace));
@@ -2904,7 +2904,7 @@ function cspmen3_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[87].length;
-	console.log(len);
+	// // console.log(len);
 	if (screen.width<=val && screen.width>1024) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[87], find, replace));
@@ -3404,7 +3404,7 @@ function occ3_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[102].length;
-	console.log(len);
+	// console.log(len);
 	if (screen.width<val && screen.width>1024 && len<=176) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[102], find, replace));
@@ -4698,7 +4698,7 @@ function act5_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[144].length;
-	console.log(len);
+	// console.log(len);
 	if (screen.width<=val && screen.width>1024 && len>174) {
 		$("#mapTitle").css('cursor', 'pointer');
 		$("#mapTitle").attr('lab', replaceStr(tMap[144], find, replace));
@@ -4802,7 +4802,7 @@ function act4_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[147].length;
-	console.log(len);
+	// console.log(len);
 
 	if (screen.width<=val && screen.width>1024 && len>172) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -4906,7 +4906,7 @@ function act3_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[150].length;
-	console.log(len);
+	// console.log(len);
 
 	if (screen.width<=val && screen.width>1024 && len>172) {
 		$("#mapTitle").css('cursor', 'pointer');
@@ -5011,7 +5011,7 @@ function act2_flow2(){
 	var colDom = "" ;
 
 	var len = tMap[153].length;
-	console.log(len);
+	// console.log(len);
 
 	if (screen.width<=val && screen.width>1024 && len>171) {
 		$("#mapTitle").css('cursor', 'pointer');

@@ -251,7 +251,7 @@ function is_touch_device() {
 
 function isIE() {
     var ua = window.navigator.userAgent;
-    console.log('user Agent = ' + ua);
+    //console.log('user Agent = ' + ua);
     //ua= 'this a test MSIE for IE';
     return (ua.match(/MSIE|Trident/) !== null);
 }

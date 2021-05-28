@@ -11,7 +11,7 @@ var anneeED = '2012';
 var dataSource = "Enquête Déplacements Grand Territoire (EDGT) 2012 - Angers / Pays Loire, Cerema (prod.), Adisp (distrib.)";
 
 // Centrer la projection leaflet sur la ville centre (load.js)
-var setview = [47.46, -0.46];
+var setview = [47.46, -0.47];
 // Paramétrer les niveaux de zoom leaflet (load.js)
 var zoom = 10,
 minZoom = 10,
@@ -88,8 +88,8 @@ var colDom_resarea2 = [0, 3, 10, 20, 30, 100];
 var colDom_resarea3 = [0, 3, 10, 20, 30, 100];
 
 // Discrétisation en amplitude égale
-var colDom_qpv1 = [24, 39, 54, 70, 85, 100];
-var colDom_qpv2 = [0, 15, 30, 46, 61, 76];
+var colDom_qpv1 = [22, 38, 53, 69, 84, 100];
+var colDom_qpv2 = [0, 16, 31, 47, 62, 78];
 
 //Seuils naturels (fisher)
 var colDom_act1 = [3, 43, 61, 77, 91, 100];
