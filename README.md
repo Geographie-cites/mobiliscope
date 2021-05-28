@@ -46,7 +46,7 @@ With one more French city (Nîmes). [December 2019]
 6 Canadian cities have been added. Indicators are slightly less numerous (sex, age, income, occupational status, activity carried out and last mode of transport used). [April 2020]
 
 ## v4.0. - ONLINE -
-26 French cities have been added and data for Valenciennes region have been updated from the EMC² 2019 survey. Corrections were also made on estimates of the present populations in Canadian cities. 
+26 French cities have been added and data for Valenciennes region have been updated from the EMC² 2019 survey. 18 peripherical districts for the Bordeaux region (2009) have been added. Corrections were also made on estimates of the present populations in Canadian cities. 
 
 New indicators are added: 
 * The whole present population can be splitted into two groups (resident versus non resident) according the original district of residence.
