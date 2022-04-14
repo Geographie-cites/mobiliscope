@@ -1,0 +1,108 @@
+<div class = "corps">
+  <section>
+  <h2>Geovizualisation</h2>
+  </section>
+
+
+  <section>
+  <h3>To explore city around the clock</h3>
+
+    <p>
+      With timeline (on the top), users can animate maps hour by hour. In the indicator block (on the left-side), users can choose to display the whole present population ('Global overview') or to look at the population present according to demographic profile (sex and age), social profile (socioprofessional status, educational level and occupational status), or residential areas. It is also possible to explore the types of activities carried out by the population present in each area in a given hour, as well as the last mode of transport used to get to destination.<br>
+    </p>
+
+    <p>
+      In the center of the screen, maps are displayed according to the indicator chosen in the indicator block. Maps are dynamics: users can zoom, move around it, display the names of the sectors on mouseover. Three cartography modes are available: numbers (choropleth maps), % (proportional symbol maps) or flows (from residential districts).<br>
+    </p>
+
+    <p>
+      In the right side of the screen, a first chart (top) shows hourly information for a specific district (selected on the map).<br>
+    A second chart (bottom) provides information on the hourly spatial distribution of population in the whole city region.<br>
+    </p>
+ 
+  </section>
+
+
+  <section>
+  <h3>Central map</h3>
+
+    <p>
+      <b>Three map representations</b> can be displayed: choropleth maps, maps in proportional symbols and 'flow' maps.Flow maps allow to visualize on the one hand the stock of "non-resident" population present in the areas and on the other hand to display (on the mouseover) their original districts of residence.<br>
+      In the case of the 'Whole Population' indicator, present population densities (people per km²) can also be displayed. Population densities are discretised into 8 classes according to the nested mean method. The resulting classes are therefore region-specific, but remain the same throughout the day in a given region.
+    </p>
+
+      <p>
+        In other <b>choropleth maps</b> (displaying estimated <b>proportions</b> of people in a specified group at district level), five class have constantly been defined. For each group, same class intervals apply over the 24h period for all maps of the same city region. Different <b>discretisation methods</b> are used to delineate the thresholds of these five classes.
+        <ul>
+            <li>
+              For the majority of the avalaible indicators (<i>age</i>; <i>education level</i>; <i>socioprofessional status</i>; <i>occupational status</i>; <i>professional informality</i>; <i>socio-economic stratum</i>; <i>household composition</i>; <i>housing tenure</i> and <i>travel mode</i>), we used a <b>quintile method</b> based on the values distribution over the 24h period in every city. Class intervals can then diverge according to the city.
+            </li>
+
+            <li>
+              The <b>equal amplitude method</b> has been used for three indicators: <i>Resident/Non-resident population</i>; <i>French 'Poverty Areas'</i>; and <i>household income</i>. For the latter two indicators, the class thresholds differ from city to city due to highly variable statistical distributions. For the indicator Residents/Non-residents, the legend is identical for all Mobiliscope regions and for both modalities since the distributions always range between 0% and 100% (of residents or non-residents per sector).
+            </li>
+
+            <li>
+              For the indicator relating to <i>sex</i>, the classes are defined <b>manually</b>: the central class always includes the average of the percentage of men or women (which varies respectively between 40% and 50% and between 50% and 60% depending on the surveys) whatever the region observed. The class boundaries are therefore identical for all cities. In this way, the inter-city comparison of the proportion of women (or men) is facilitated.
+            </li>
+
+            <li>
+              For the indicator related to the <i>French residential rings</i>, class intervals have been defined <b>manually</b> ensuring they remain unchanged for every city region.
+            </li>
+
+            <li>
+              <b>Natural threshold discretization (Fisher)</b> is used for the <i>activity</i> indicator based on the distribution of data across all city regions. Class intervals are therefore the same regardless of the city region. The same method is used for the <i>residence rings</i> indicator for Latin American cities.
+            </li>
+
+            <li>
+              For the <i>departement of residence</i> indicator (only displayed in the Paris region), class intervals have been determined according to <b>natural thresholds (Jenks)</b>.
+            </li>
+        </ul>
+       </p>
+
+
+      <p>
+        In <b>proportional symbol maps</b> (representing estimated <b>number</b> of people in a specified group at district level), circles are proportionally sized according to the number of people and are similar over the 24h period for all maps of the same city region (but can diverge according to the city region). Flow maps cannot be displayed for the group 'at home' from 'activity' indicator to prevent unnecessary duplications.
+      </p>
+
+      <p>
+        In <b>flow maps</b>, link thickness (displayed on mouseover) represents estimated flow of people from their <b>main</b> original districts of residence. For confidentiality and statistical power reasons, we have indeed introduced a filter for not displaying the estimated flow of people from their original districts of residence when the crude number of concerned respondents is below 6. Link thickness are similar over the 24h period for all maps of the same city region (but can diverge according to the city region). 
+      </p>
+
+
+  </section>
+
+  <section>
+  <h3>Top chart</h3>
+
+      <p>
+        The top chart shows the estimated number/proportion of people in the district selected in the central map over the 24h period. Two modes are available: unique or stacked.
+      </p>
+
+  </section>
+
+  <section>
+  <h3>Bottom chart</h3>
+
+      <p>
+        In the buttom chart, two segregation indices measure spatial distribution over the 24h period in the whole city region
+
+        <ul>
+          <li><b>Duncan dissimilarity index</b> gives information about the dispersal of every group across spatial units. It is commonly used as a measure of pairwise segregation (e.g. Black versus White) but can also be used when measuring segregation through an indicator divided in more than two groups. In this case, Duncan dissimilarity index expresses the proportion of individuals of a given group who would have to change spatial unit (without being replaced) to get an even distribution of the group relative to the total population.</li>
+          <li><b>Moran index</b> is a measure of spatial autocorrelation. It ranges from -1 (nearby locations tend to be more different than distant locations - negative autocorrelation) to 1 (nearby locations tend to be more similar than distant locations - positive autocorrelation), a value close to zero indicating no spatial structure.</li>
+        </ul>
+      </p>
+
+      <p>
+        In charts representing Duncan or Moran indices, minimum and maximum values are similar for all groups of a same indicator which makes them comparable. Moreover, intervals between minimum and maximum values cannot be less than 0.4 not to give too much importance to minor variations in spatial structure (eg. sex).
+      </p>
+
+      <p>
+        Hourly Duncan and Moran values displayed in the Mobiliscope are <b>freely reusable</b>, as they remain under open license (ODbL) and the <a href="/en/info/open/license">sources</a> are mentioned. Values can be <b>downloaded</b> by clicking the button <img src="/dist/assets/download.svg" width="20px" height="20px"> next to the bottom chart.
+      </p>
+
+  </section>
+
+
+
+</div>

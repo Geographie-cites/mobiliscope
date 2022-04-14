@@ -1,0 +1,98 @@
+[data-tooltip][aria-label] {
+  position: relative;
+}
+[data-tooltip][aria-label]::before {
+  content: attr(aria-label);
+  pointer-events: none;
+  white-space: pre;
+  position: absolute;
+  color: #fff;
+  background: #000;
+  padding: 5px 10px;
+  border-radius: 0.3rem;
+  opacity: 0;
+  visibility: none;
+  z-index: 200;
+  font-size: 14px;
+}
+[data-tooltip][aria-label]::after {
+  content: "";
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-color: #000;
+  border-width: 0;
+  border-style: solid;
+  opacity: 0;
+  visibility: none;
+}
+[data-tooltip^="up"][aria-label]::before {
+  bottom: calc(0.5rem + 100%);
+  right: 50%;
+  transform: translateX(50%);
+}
+[data-tooltip^="up"][aria-label]::after {
+  border-top-width: 0.5rem;
+  border-right-width: 0.5rem;
+  border-right-color: #000;
+  border-left-width: 0.5rem;
+  border-left-color: #000;
+  bottom: 100%;
+  right: 50%;
+  transform: translateX(50%);
+}
+[data-tooltip^="down"][aria-label]::before {
+  top: calc(0.5rem + 100%);
+  right: 50%;
+  transform: translateX(50%);
+}
+[data-tooltip^="down"][aria-label]::after {
+  border-bottom-width: 0.5rem;
+  border-right-width: 0.5rem;
+  border-right-color: #0000;
+  border-left-width: 0.5rem;
+  border-left-color: #0000;
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+[data-tooltip^="left"][aria-label]::before {
+  top: calc(0.5rem + 20%);
+  right: 58%;
+  transform: translateX(-15%);
+}
+[data-tooltip^="left"][aria-label]::after {
+  border-bottom-width: 0.5rem;
+  border-right-width: 0.5rem;
+  border-right-color: #0000;
+  border-left-width: 0.5rem;
+  border-left-color: #0000;
+  top: 45%;
+  right: 50%;
+  transform: translateX(-115%) rotate(90deg);
+}
+
+
+[data-tooltip][aria-label]:hover::before,
+[data-tooltip][aria-label]:hover::after {
+  visibility: visible;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+[data-tooltip$="1000"][aria-label]:hover::before,
+[data-tooltip$="1000"][aria-label]:hover::after {
+  transition-delay: 0.1s;
+  z-index: 60;
+}
+
+@media only screen and (max-width: 768px) {
+  [data-tooltip][aria-label]::after, [data-tooltip][aria-label]::before {
+    display: none !important;
+  }
+}

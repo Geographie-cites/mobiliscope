@@ -1,0 +1,108 @@
+<div class = "corps">
+    <section>
+	<h2>Códigos, datos y visuales bajo licencias libres</h2>
+	</section>
+
+	<section>
+
+	<p>
+		El desarrollo de Mobiliscope se inscribe en un enfoque de <b>ciencia abierta</b>: hacemos lo máximo para que los datos construidos por el equipo y visualizados en la herramienta respeten los principios FAIR: «<b>F</b>áciles de encontrar, <b>A</b>ccesibles, <b>I</b>nteroperables y <b>R</b>eutilizables».</br>
+	</p>
+	</section>
+
+	<section>
+	<h3>Código fuente</h3>
+
+		<p>
+			Mobiliscope se desarrolla en HTML, CSS (framework <a href = "https://minicss.org/" target = "_blank"> mini.css</a>), javascript y PHP. La geovisualización se ha codificado en javascript y se basa, para la interactividad de los mapas y gráficos, en las librerías <a  href = "https://d3js.org/" target="_blank" >D3.js</a> - desarrolladas por Mike Bostock - y <a href="http://leafletjs.com" title="A JS library for interactive maps" target="_blank">Leaflet</a>. Para la superposición de las capas OSM y los mapas diseñados con D3.js se utiliza el plugin <a href="https://github.com/teralytics/Leaflet.D3SvgOverlay" target="_blank">Leaflet.D3SvgOverlay</a> bajo licencia MIT.
+		</p>
+
+		<p>
+			Los datos agregados y ponderados (que no permiten la identificación de las personas encuestadas) se almacenan localmente en forma de archivos geojson para los datos espaciales y csv para los datos de atributo sin geometría. Estos datos han sido generados automáticamente con antelación gracias a dos scripts R: el primero transforma los datos de desplazamiento procedentes de las encuestas en datos de presencias; el segundo produce el conjunto de archivos necesarios para la representación (carto)gráfica para cada uno de los indicadores.
+		</p>
+
+		<p>
+			El código de Mobiliscope (que incluye los códigos del programa y los programas de tratamiento de datos) es accesible a partir de un <a href = "https://github.com/Geographie-cites/mobiliscope" target="_blank">depósito público github</a>. Este código está disponible bajo <b>licencia libre <a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">AGPL</a></b>.
+		</p>
+
+		<p>
+			La licencia AGPL autoriza cualquier redistribución o modificación del código siempre y cuando siga bajo licencia AGPL y que la fuente del código se identifique con la mención: <i>«Código bajo licencia AGPL procedente de Mobiliscope (v4), una herramienta de geovisualización de la ciudad a cualquier hora (https://mobiliscope.cnrs.fr)»</i>.
+		</p>
+
+			<h4>
+			<a href = "https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank">
+				<figure class="inline">
+			  <img src="/dist/assets/agpl.png" alt="AGPL" width="150"/>
+			</figure>
+			</a>
+			</h4>
+
+
+ 	</section>
+
+ 	<section>
+	<h3>Datos</h3>
+
+	<p>
+		Los datos de presencia en las ciudades están disponibles para la <b>descarga</b> (formato .csv y .geojson) en la página de Mobiliscope, acompañados de un archivo que resume los términos de la licencia ODbL y las fuentes que hay que indicar. 
+	</p>
+
+	<p>
+		Para descargar los datos, haga clic en el botón <img src="/dist/assets/download.svg" width="20px" height= "20px"/>
+		<ul>
+			<li> o bien arriba del mapa central para obtener los valores agregados por sector según el indicador y el modo de representación seleccionado.</li>
+			<li> o bien junto al gráfico de abajo para obtener los valores de los índices de segregación para el conjunto de la región según el indicador seleccionado y el índice de segregación elegido.</li>
+		</ul>
+	</p>
+
+	<p>
+		Estos datos están disponibles bajo <b>licencia libre <a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">ODbL</a></b>. De este modo, pueden reutilizarse y modificarse libremente siempre y cuando sigan bajo licencia ODbL y que se identifiquen las fuentes con la mención: «Datos bajo licencia ODbL procedentes de Mobiliscope (v4), una herramienta de geovisualización de la ciudad a cualquier hora (https://mobiliscope.cnrs.fr), a partir de los datos iniciales de <i>[completar según las fuentes indicadas en el mapa de la ciudad correspondiente o en los términos de licencia de reutilización]»</i>.
+	</p>
+
+		<h4>
+		<a href = "https://spdx.org/licenses/ODbL-1.0.html" target="_blank">
+		<figure class="inline">
+		  	<img src="/dist/assets/odbl.png" alt="OBL" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
+	<section>
+	<h3>Visuales</h3>
+
+	<p>
+		Los visuales (mapas y gráficos) visualizados en Mobiliscope están disponibles bajo <b>licencia libre <a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">creative commons CC-BY-SA</a></b>.
+	</p>
+
+	<p>
+		Los visuales pueden así reutilizarse siempre y cuando los autores y las fuentes sean citados, por ejemplo con la mención: Visuales procedentes de Mobiliscope (v4), una herramienta de geovisualización de la ciudad a todas horas (https://mobiliscope.cnrs.fr)».
+	</p>
+
+		<h4>
+		<a href = "https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr" target="_blank">
+		<figure class="inline">
+		  <img src="/dist/assets/cc-by-sa.png" alt="CC-BY-SA" width="150"/>
+		</figure>
+		</a>
+		</h4>
+
+	</section>
+
+	
+
+	<section>
+	<h3>DOI</h3>
+
+	<p>
+		Mobiliscope (v4) también tiene su Digital Object Identifier (DOI). </br>
+		 </br>
+		 <a href="https://doi.org/10.5281/zenodo.4670766" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4670766.svg" alt="doi"></a>
+	</p>
+		</br>
+		</br>
+
+	</section>
+
+</div>

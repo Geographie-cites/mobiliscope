@@ -1,0 +1,828 @@
+<div class = "corps">
+  <section>
+<h2>Datos</h2>
+</section>
+
+<section>
+	<p>
+		<b>58 ciudades/regiones</b> situadas en Francia, en Quebec (Canadá) y en América Latina son accesibles en la versión actual de Mobiliscope.
+	</p>
+</section>
+
+<section>
+<h3>Las encuestas</h3>
+	
+	<p>
+	Los datos provienen de grandes encuestas públicas sobre los desplazamientos de los individuos que permiten  <b>cuantificar </b> y <b>cualificar</b> a la población presente en las distintas horas del día.
+	<ul>
+		<li>En <b>Francia</b> estas encuestas las encargan los municipios, cada 10 años aproximadamente, y se realizan según una metodología estandarizada del <a href = "https://www.cerema.fr/fr/actualites/emc2-enquete-mobilite-certifiee-cerema-emc2-anciennement" target="_blank">Cerema</a>, salvo para Île-de-France y su <a href = "http://www.omnil.fr/spip.php?article81" target="_blank">Enquête Globale Transport</a> (DRIEA-STIF-OMNIL).</br>
+		La mayoría de estas encuestas están disponibles para fines relacionados con la investigación a través de <a href = "http://www.progedo-adisp.fr/" target="_blank">Progedo</a> (archivos de datos provenientes de la Estadística Pública). Los datos de las otras encuestas provienen de la mencionada base de datos unificada del Cerema: esta base reagrupa el conjunto de las encuestas realizadas desde 2009.</br>
+		Algunas de las encuestas también están disponibles en open data (<a href = "https://www.data.gouv.fr/fr/datasets/enquete-deplacements-en-loire-atlantique-2/" target="_blank">Nantes</a>, <a href = "http://data.montpellier3m.fr/dataset/enquete-menages-deplacements" target="_blank">Montpellier</a> y <a href = "https://opendata.lillemetropole.fr/explore/dataset/enquete-deplacement-2016/information/" target="_blank">Lille</a>).
+		</li>
+		<li>En <b>Quebec</b>, se trata de encuestas origen-destino proporcionadas por el <a href = "http://www.transports.gouv.qc.ca" target="_blank">Ministerio de Transporte de Quebec</a>.</li>
+		<li>En <b>América Latina</b>, se trata de encuestas origen-destino proporcionadas por: el <a href = "https://www.simur.gov.co/encuestas-de-movilidad" target="_blank"><i>Sistema Integrado de información sobre Movilidad Urbana Regional</i> (SIMUR) para Bogotá</a>; el <a href = "http://www.sectra.gob.cl/biblioteca/detalle1.asp?mfn=3253" target="_blank"><i>Ministerio de Transportes y Telecomunicaciones, Programa de Vialidad y Transporte Urbano: SECTRA</i></a> para Santiago de Chile; la <a href = "http://www.metro.sp.gov.br/pesquisa-od/" target="_blank"><i>Companhia do Metrô de São Paulo </i></a>para São Paulo.</li>
+	</ul>
+	</p>
+
+	<p>
+	 Las encuestas se han realizado a una muestra de hogares representativa de la población del territorio. En el transcurso de las entrevistas cara a cara o telefónicas, las personas han sido invitadas a describir todos los desplazamientos de su jornada anterior precisando los puntos de salida y de llegada de cada uno de los desplazamientos, la hora exacta del inicio y del fin del desplazamiento, el motivo del desplazamiento y el modo de transporte utilizado. En las encuestas quebequenses, la hora de llegada no se ha preguntado sistemáticamente a los participantes interrogados. Estos datos omitidos han sido imputados utilizando desplazamientos comparables o calculando la duración del desplazamiento a partir de un Sistema de Información Geográfica.
+    </p>
+
+    <p>
+		Los ritmos cotidianos de los territorios también pueden cuantificarse a partir del rastro digital que dejan los teléfonos móviles. Aunque, con respecto al rastro digital, las grandes encuestas utilizadas por el equipo de Mobiliscope tienen la ventaja de permitir que la población presente sea cualificada según un gran número de <a href="/es/info/methods/indicators">indicadores</a> relativos al perfil sociodemográfico de los individuos (sin utilizar, por ejemplo, las estimaciones a partir de la antena de residencia de los titulares de teléfonos móviles), al tipo de actividades efectuadas (trabajo, estudios, ocio, etc.) y al modo de transporte utilizado para llegar al destino. No obstante, un inconveniente que presentan las encuestas es que las personas que residen <i>fuera de la zona de estudio</i> no son interrogadas: así que no son tenidas en cuenta en las estimaciones de la población presente.  
+	</p>
+
+	</section>
+
+<section>
+<h3>Localización por hora</h3>
+  	<p>
+		Con el fin de localizar a la población presente en cada sector de las ciudades <b>a cada hora del día</b>, hemos transformado los datos de <b>desplazamientos </b> en datos de <b>presencias</b>por horas. 
+
+			<ul>
+				<li>La idea era obtener así 24 fotografías de la población presente en las ciudades: una fotografía de la repartición de la población para cada hora <b>"en punto" (4:00, 5:00, etc.) del día</b>. Por lo tanto, las asistencias cortas entre dos horas "en punto" no se tienen en cuenta en nuestra base de datos de presencias por horas.</li>
+				<li>Sólo se han considerado los desplazamientos realizados en un <b>día hábil</b> (de lunes a viernes), lo que ha permitido razonar según un día tipo entre semana.</li>
+				<li>Los <b>periodos de desplazamiento</b> han sido excluidos del análisis, con excepción de los desplazamientos realizados en un modo de transporte blando (a pie, en bicicleta, etc.). Para los desplazamientos realizados a pie o en bicicleta, se considera la primera mitad del tiempo de desplazamiento como presencia en el sector de partida y la segunda mitad como presencia en el sector de llegada. En los (raros) casos en los que el desplazamiento blando se produce de forma simétrica a lo largo de una hora en punto, la presencia en ese momento concreto se sitúa en el distrito en el que el encuestado permaneció menos tiempo (porque la presencia más larga en el otro distrito tiene una alta probabilidad de ser contabilizada en otro momento).</li>
+			</ul>
+	</p>
+
+    <p>
+		Sólo se incluyen a los encuestados de <b>16 años y más</b> (o de 15 años y más para las ciudades de Quebec).
+	</p>
+
+	<p>
+        Cada una de las medidas agregadas por hora y por sector publicadas en Mobiliscope proviene de un ajuste ponderado para así garantizar una distribución de la población similar a la observada en el censo de la población. Se han utilizado por tanto <b>factores de expansión</b>.
+		
+		<ul>
+			<li>En las ciudades francesas, estos factores toman en cuenta el tamaño y el tipo de vivienda de los hogares así como la edad y el sexo de los individuos (para Île-de-France, la ocupación y la categoría socioprofesional de los individuos son igualmente consideradas).</li>
+			<li>Para las ciudades de Quebec, estos factores únicamente tienen en cuenta la edad y el sexo de los individuos.</li>
+			<li>En América Latina, todos los factores no siguen la misma lógica. En Bogotá, el factor se ha ajustado sobre el número de hogares contabilizados por el censo. En Santiago, el factor tiene en cuenta el tamaño y el equipamiento en vehículos del hogar, así como la edad y el sexo de los individuos. En São Paulo, no disponemos de información sobre los datos tenidos en cuenta en el factor de expansión proporcionado por los productores de la encuesta. </li>
+		</ul>
+	</p>
+
+	<p>
+		Los datos que se visualizan en Mobiliscope son datos agregados y ponderados (que no permiten la identificación de las personas encuestadas). Para las ciudades francesas y latinoamericanas, estos datos están disponibles bajo <a href="/es/info/open/license">licencia libre</a> y pueden descargarse haciendo clic en el botón <img src="/dist/assets/download.svg" width="20px" height= "20px"/> situado arriba del mapa central.
+	</p>
+</section>
+
+<section>
+ <h3>Sectores</h3>
+	
+	<p>
+		La superficie de los sectores varía según la densidad de población: son más pequeños en el centro de las ciudades y más extensos en la periferia.
+		<ul>
+			<li>Para las ciudades francesas, los sectores corresponden a la unidad espacial mínima para la difusión de los resultados de las encuestas origen-destino. En las ciudades centrales, los sectores corresponden a <b>grandes barrios</b> (o a distritos para París, Lyon y Marsella). En el resto, los sectores corresponden a un <b>municipio</b> o a un <b>grupo de municipios</b> (si hay más de tres en un sector, Mobiliscope sólo muestra, al deslizar el ratón, el nombre de los tres más poblados).</li>
+			<li>Para las ciudades de Quebec, los sectores corresponden a los <b>sectores municipales</b>.</li>
+			<li>Para América Latina, los sectores se han definido de forma diferente:</br>
+				<ul style='margin-top: 0px'>
+					<li>En Bogotá, los sectores corresponden a la unidad espacial mínima para la difusión de los resultados de la encuesta origen-destino (las UTAM). No obstante, los fondos cartográficos utilizados en Mobiliscope son aquellos elaborados por Florent Demoraes en el marco del proyecto ANR MODURAL, que permiten reajustar los grandes sectores con muy poca densidad a las zonas realmente habitadas y estudiadas.</li>
+					<li>En Santiago, los sectores han sido definidos por el equipo de Mobiliscope reagrupando las zonas definidas por la encuesta origen-destino, según un criterio de número mínimo de residentes encuestados de 16 años y más (al menos 100) y manteniendo lo mejor posible la coherencia de las divisiones administrativas y de su composición social. </li>
+					<li>En São Paulo, los sectores también han sido definidos por el equipo de Mobiliscope y corresponden a los <b>distritos</b> en el municipio de São Paulo y, para el resto, a las <b>zonas</b> definidas por la encuesta origen-destino. </li>
+				</ul>
+			</li>
+		</ul>
+	</p>
+	
+</section>
+
+<section>
+	<p>
+		Puede encontrar más información sobre la metodología en el artículo <a href = "/pdf/2017_SegregationAroundTheClock.pdf" target="_blank">Social segregation around the clock in the Paris región (France)</a>.
+	</p>
+</section>
+
+<p>
+<button class="style-button mb50"><a href="/es/info/methods/indicators">Descubra los indicadores disponibles</a></button>
+</p>
+
+
+
+	<h3>Descripción de cada una de las encuestas</h3>
+	<h4>Encuestados de 15 años o más para Canadá o de 16 años o más para otros países</h4>
+
+<table>
+<thead>
+<tr>
+<th>Ciudad</th>
+<th>Fecha</th>
+<th>Número de encuestados</th>
+<th>Número de viajes</th>
+<th>Número de presencias</th>
+<th>Número de sectores</th>
+<th>Tamaño de los sectores en km². Área mediana (min-max)</th>
+<th>Número de encuestados por sector. Mediana (min-max) a las 3:00</th>
+<th>Número de encuestados por sector. Mediana (min-max) a las 15:00</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td data-label="Ciudad">Albi y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados">  2 339</td>
+<td data-label="Número de viajes">  9 171</td>
+<td data-label="Número de presencias"> 10 518</td>
+<td data-label="Número de sectores">15</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">7 (1,3-54)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">155 (148-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">119 (77-290)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Alençon y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  6 520</td>
+<td data-label="Número de viajes"> 30 315</td>
+<td data-label="Número de presencias"> 31 728</td>
+<td data-label="Número de sectores">46</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">145 (1,9-435)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (131-154)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">118 (78-231)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Amiens y su región</td>
+<td data-label="Fecha">2010</td>
+<td data-label="Número de encuestados">  7 097</td>
+<td data-label="Número de viajes"> 30 933</td>
+<td data-label="Número de presencias"> 33 241</td>
+<td data-label="Número de sectores">45</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">13 (0,8-410)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">145 (127-238)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">128 (76-443)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Angers y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  3 983</td>
+<td data-label="Número de viajes"> 18 399</td>
+<td data-label="Número de presencias"> 18 908</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">17 (2-111)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">138 (124-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">111 (63-258)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Angoulême y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  2 684</td>
+<td data-label="Número de viajes"> 11 300</td>
+<td data-label="Número de presencias"> 12 463</td>
+<td data-label="Número de sectores">18</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">14 (1,5-151)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">146 (139-172)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">130 (76-249)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Annecy y su región</td>
+<td data-label="Fecha">2017</td>
+<td data-label="Número de encuestados">  4 953</td>
+<td data-label="Número de viajes"> 22 944</td>
+<td data-label="Número de presencias"> 23 472</td>
+<td data-label="Número de sectores">34</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">27 (0,9-486)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">143 (130-172)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">124 (84-246)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Annemasse y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados">  5 905</td>
+<td data-label="Número de viajes"> 26 700</td>
+<td data-label="Número de presencias"> 25 307</td>
+<td data-label="Número de sectores">42</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">36 (0,8-232)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">137 (121-213)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">97 (66-162)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Bayonne y su región</td>
+<td data-label="Fecha">2010</td>
+<td data-label="Número de encuestados">  7 387</td>
+<td data-label="Número de viajes"> 28 716</td>
+<td data-label="Número de presencias"> 32 684</td>
+<td data-label="Número de sectores">50</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">20 (0,8-642)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">147 (129-171)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">122 (88-437)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Besançon y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  3 980</td>
+<td data-label="Número de viajes"> 17 568</td>
+<td data-label="Número de presencias"> 18 679</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">5 (0,5-191)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (127-157)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">104 (75-451)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Béziers y su región</td>
+<td data-label="Fecha">2014</td>
+<td data-label="Número de encuestados">  4 212</td>
+<td data-label="Número de viajes"> 18 661</td>
+<td data-label="Número de presencias"> 19 719</td>
+<td data-label="Número de sectores">30</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">52 (1,2-822)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">138 (130-153)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">118 (82-205)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Bogotá y su región</td>
+<td data-label="Fecha">2019</td>
+<td data-label="Número de encuestados"> 49 767</td>
+<td data-label="Número de viajes">127 405</td>
+<td data-label="Número de presencias">152 725</td>
+<td data-label="Número de sectores">133</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">4 (0,8-15)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">365 (46-729)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">323 (70-1454)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Bordeaux y su región</td>
+<td data-label="Fecha">2009</td>
+<td data-label="Número de encuestados"> 13 793</td>
+<td data-label="Número de viajes"> 60 641</td>
+<td data-label="Número de presencias"> 67 282</td>
+<td data-label="Número de sectores">95</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">10 (0,4-1206)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (124-216)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">127 (61-294)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Brest y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  6 519</td>
+<td data-label="Número de viajes"> 29 237</td>
+<td data-label="Número de presencias"> 31 323</td>
+<td data-label="Número de sectores">46</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">13 (0,9-236)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">139 (125-161)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">116 (74-301)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Caen y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados"> 10 000</td>
+<td data-label="Número de viajes"> 43 194</td>
+<td data-label="Número de presencias"> 48 466</td>
+<td data-label="Número de sectores">67</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">15 (0,5-647)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">151 (125-165)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">123 (70-486)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Carcassonne y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados">  2 891</td>
+<td data-label="Número de viajes"> 11 915</td>
+<td data-label="Número de presencias"> 13 393</td>
+<td data-label="Número de sectores">19</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">36 (0,8-246)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">153 (140-159)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">119 (90-306)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Cherbourg y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados">  4 207</td>
+<td data-label="Número de viajes"> 18 978</td>
+<td data-label="Número de presencias"> 21 388</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">42 (1,3-231)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">150 (142-158)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">125 (88-337)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Clermont-Ferrand y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  8 052</td>
+<td data-label="Número de viajes"> 34 182</td>
+<td data-label="Número de presencias"> 37 639</td>
+<td data-label="Número de sectores">56</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">39 (0,7-471)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">144 (130-159)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">112 (71-374)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Creil y su región</td>
+<td data-label="Fecha">2017</td>
+<td data-label="Número de encuestados">  4 581</td>
+<td data-label="Número de viajes"> 18 956</td>
+<td data-label="Número de presencias"> 19 471</td>
+<td data-label="Número de sectores">31</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">16 (1-144)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">146 (140-153)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">104 (60-199)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Dijon y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados">  4 372</td>
+<td data-label="Número de viajes"> 18 685</td>
+<td data-label="Número de presencias"> 20 035</td>
+<td data-label="Número de sectores">30</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">6 (0,7-241)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (126-179)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">120 (67-341)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Douai y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  5 344</td>
+<td data-label="Número de viajes"> 23 883</td>
+<td data-label="Número de presencias"> 22 973</td>
+<td data-label="Número de sectores">38</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">8 (1-54)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">139 (127-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">110 (64-214)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Dunkerque y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados">  4 537</td>
+<td data-label="Número de viajes"> 22 491</td>
+<td data-label="Número de presencias"> 22 585</td>
+<td data-label="Número de sectores">32</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">9 (1,1-117)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (128-154)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">114 (71-290)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Grenoble y su región</td>
+<td data-label="Fecha">2010</td>
+<td data-label="Número de encuestados"> 13 834</td>
+<td data-label="Número de viajes"> 63 336</td>
+<td data-label="Número de presencias"> 67 131</td>
+<td data-label="Número de sectores">97</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">14 (0,2-834)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">139 (124-273)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">107 (50-473)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Paris y su región</td>
+<td data-label="Fecha">2010</td>
+<td data-label="Número de encuestados"> 26 312</td>
+<td data-label="Número de viajes">124 258</td>
+<td data-label="Número de presencias">130 329</td>
+<td data-label="Número de sectores">109</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">26 (3-1324)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">235 (129-420)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">204 (86-746)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">La Réunion y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados"> 13 801</td>
+<td data-label="Número de viajes"> 53 363</td>
+<td data-label="Número de presencias"> 57 813</td>
+<td data-label="Número de sectores">99</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">11 (0,6-275)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">139 (121-159)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">124 (72-321)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">La Rochelle y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados">  2 902</td>
+<td data-label="Número de viajes"> 12 203</td>
+<td data-label="Número de presencias"> 13 847</td>
+<td data-label="Número de sectores">19</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">8 (1,3-40)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">153 (137-164)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">120 (75-403)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Le Havre y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  6 540</td>
+<td data-label="Número de viajes"> 29 029</td>
+<td data-label="Número de presencias"> 30 608</td>
+<td data-label="Número de sectores">43</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">25 (0,7-256)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">141 (127-262)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">108 (72-436)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Lille y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados">  7 950</td>
+<td data-label="Número de viajes"> 38 180</td>
+<td data-label="Número de presencias"> 39 031</td>
+<td data-label="Número de sectores">57</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">5 (1-56)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">138 (123-156)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">118 (76-324)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Longwy y su región</td>
+<td data-label="Fecha">2014</td>
+<td data-label="Número de encuestados">  3 347</td>
+<td data-label="Número de viajes"> 13 178</td>
+<td data-label="Número de presencias"> 13 589</td>
+<td data-label="Número de sectores">22</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">32 (2,2-200)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">152 (145-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">108 (79-156)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Lyon y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados"> 24 072</td>
+<td data-label="Número de viajes"> 99 585</td>
+<td data-label="Número de presencias">107 667</td>
+<td data-label="Número de sectores">169</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">10 (0,4-346)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (121-251)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">122 (68-445)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Marseille y su región</td>
+<td data-label="Fecha">2009</td>
+<td data-label="Número de encuestados"> 19 380</td>
+<td data-label="Número de viajes"> 87 031</td>
+<td data-label="Número de presencias"> 93 970</td>
+<td data-label="Número de sectores">137</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">18 (0,3-342)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">141 (117-165)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">118 (67-402)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Martinique y su región</td>
+<td data-label="Fecha">2014</td>
+<td data-label="Número de encuestados">  4 179</td>
+<td data-label="Número de viajes"> 14 005</td>
+<td data-label="Número de presencias"> 16 152</td>
+<td data-label="Número de sectores">24</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">36 (4,7-129)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">156 (129-283)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">146 (110-296)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Metz y su región</td>
+<td data-label="Fecha">2017</td>
+<td data-label="Número de encuestados">  6 492</td>
+<td data-label="Número de viajes"> 31 131</td>
+<td data-label="Número de presencias"> 31 320</td>
+<td data-label="Número de sectores">44</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">13 (1,1-176)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (129-238)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">112 (70-414)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Montpellier y su región</td>
+<td data-label="Fecha">2014</td>
+<td data-label="Número de encuestados"> 11 433</td>
+<td data-label="Número de viajes"> 52 387</td>
+<td data-label="Número de presencias"> 55 662</td>
+<td data-label="Número de sectores">80</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">10 (0,3-547)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (126-236)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">115 (71-421)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Montréal y su región</td>
+<td data-label="Fecha">2013</td>
+<td data-label="Número de encuestados">155 854</td>
+<td data-label="Número de viajes">404 563</td>
+<td data-label="Número de presencias">510 016</td>
+<td data-label="Número de sectores">113</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">36 (1-762)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">1069 (116-4551)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">862 (109-9657)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Nancy y su región</td>
+<td data-label="Fecha">2013</td>
+<td data-label="Número de encuestados">  9 657</td>
+<td data-label="Número de viajes"> 40 664</td>
+<td data-label="Número de presencias"> 43 563</td>
+<td data-label="Número de sectores">68</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">17 (0,6-407)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (124-163)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">111 (57-542)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Nantes y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados"> 17 358</td>
+<td data-label="Número de viajes"> 81 924</td>
+<td data-label="Número de presencias"> 85 372</td>
+<td data-label="Número de sectores">123</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">21 (0,6-331)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">138 (113-195)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">118 (66-389)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Nice y su región</td>
+<td data-label="Fecha">2009</td>
+<td data-label="Número de encuestados"> 14 989</td>
+<td data-label="Número de viajes"> 58 239</td>
+<td data-label="Número de presencias"> 65 860</td>
+<td data-label="Número de sectores">104</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">5 (0,4-505)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">143 (128-163)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">126 (65-389)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Nîmes y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados">  4 519</td>
+<td data-label="Número de viajes"> 18 598</td>
+<td data-label="Número de presencias"> 19 271</td>
+<td data-label="Número de sectores">31</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">8 (0,3-152)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">144 (132-168)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">114 (75-327)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Niort y su región</td>
+<td data-label="Fecha">2016</td>
+<td data-label="Número de encuestados">  2 869</td>
+<td data-label="Número de viajes"> 12 705</td>
+<td data-label="Número de presencias"> 13 895</td>
+<td data-label="Número de sectores">19</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">15 (1,1-156)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">150 (142-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">130 (83-226)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Ottawa-Gatineau y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados"> 48 767</td>
+<td data-label="Número de viajes">149 147</td>
+<td data-label="Número de presencias">180 842</td>
+<td data-label="Número de sectores">26</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">58 (2,6-1278)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">1792 (400-4367)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">1568 (338-4702)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Poitiers y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  4 106</td>
+<td data-label="Número de viajes"> 17 305</td>
+<td data-label="Número de presencias"> 18 586</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">51 (1,1-228)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (127-255)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">104 (60-450)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Québec y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados"> 48 663</td>
+<td data-label="Número de viajes">135 788</td>
+<td data-label="Número de presencias">168 394</td>
+<td data-label="Número de sectores">69</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">16 (1,5-697)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">666 (301-1553)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">529 (179-2416)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Quimper y su región</td>
+<td data-label="Fecha">2013</td>
+<td data-label="Número de encuestados">  4 696</td>
+<td data-label="Número de viajes"> 17 291</td>
+<td data-label="Número de presencias"> 20 382</td>
+<td data-label="Número de sectores">30</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">57 (2,5-260)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">152 (142-200)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">130 (96-285)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Rennes y su región</td>
+<td data-label="Fecha">2018</td>
+<td data-label="Número de encuestados">  9 317</td>
+<td data-label="Número de viajes"> 44 004</td>
+<td data-label="Número de presencias"> 45 964</td>
+<td data-label="Número de sectores">68</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">55 (0,8-466)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">136 (118-159)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">106 (64-381)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Rouen y su región</td>
+<td data-label="Fecha">2017</td>
+<td data-label="Número de encuestados">  8 905</td>
+<td data-label="Número de viajes"> 38 146</td>
+<td data-label="Número de presencias"> 40 260</td>
+<td data-label="Número de sectores">63</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">15 (1,1-231)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">140 (118-166)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">108 (59-295)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Saguenay y su región</td>
+<td data-label="Fecha">2015</td>
+<td data-label="Número de encuestados"> 13 942</td>
+<td data-label="Número de viajes"> 41 229</td>
+<td data-label="Número de presencias"> 50 038</td>
+<td data-label="Número de sectores">21</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">26 (3,2-616)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">667 (456-760)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">601 (326-1200)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Saint-Brieuc y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  3 570</td>
+<td data-label="Número de viajes"> 14 556</td>
+<td data-label="Número de presencias"> 16 190</td>
+<td data-label="Número de sectores">22</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">8 (1,1-35)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">152 (146-245)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">124 (71-377)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Saint-Étienne y su región</td>
+<td data-label="Fecha">2010</td>
+<td data-label="Número de encuestados">  8 525</td>
+<td data-label="Número de viajes"> 38 576</td>
+<td data-label="Número de presencias"> 40 284</td>
+<td data-label="Número de sectores">52</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">30 (1,2-345)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">156 (137-220)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">127 (78-333)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Santiago y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados"> 29 733</td>
+<td data-label="Número de viajes"> 75 733</td>
+<td data-label="Número de presencias"> 93 088</td>
+<td data-label="Número de sectores">185</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">3 (0,7-855)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">156 (93-412)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">121 (58-1130)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">São Paulo y su región</td>
+<td data-label="Fecha">2017</td>
+<td data-label="Número de encuestados"> 71 866</td>
+<td data-label="Número de viajes">152 975</td>
+<td data-label="Número de presencias">203 777</td>
+<td data-label="Número de sectores">259</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">11 (1,3-522)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">146 (60-1540)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">162 (40-1870)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Sherbrooke y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados"> 19 909</td>
+<td data-label="Número de viajes"> 58 361</td>
+<td data-label="Número de presencias"> 70 571</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">22 (1,7-357)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">668 (533-1245)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">505 (329-1518)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Strasbourg y su región</td>
+<td data-label="Fecha">2009</td>
+<td data-label="Número de encuestados"> 10 052</td>
+<td data-label="Número de viajes"> 46 935</td>
+<td data-label="Número de presencias"> 48 815</td>
+<td data-label="Número de sectores">67</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">35 (0,6-581)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">145 (128-225)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">123 (78-284)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Thionville y su región</td>
+<td data-label="Fecha">2012</td>
+<td data-label="Número de encuestados">  3 609</td>
+<td data-label="Número de viajes"> 15 676</td>
+<td data-label="Número de presencias"> 15 585</td>
+<td data-label="Número de sectores">22</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">7 (0,6-62)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">164 (155-173)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">106 (80-246)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Toulouse y su región</td>
+<td data-label="Fecha">2013</td>
+<td data-label="Número de encuestados"> 11 141</td>
+<td data-label="Número de viajes"> 48 919</td>
+<td data-label="Número de presencias"> 53 524</td>
+<td data-label="Número de sectores">66</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">11 (0,9-237)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">154 (128-331)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">128 (66-530)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Tours y su región</td>
+<td data-label="Fecha">2019</td>
+<td data-label="Número de encuestados">  7 624</td>
+<td data-label="Número de viajes"> 33 388</td>
+<td data-label="Número de presencias"> 36 137</td>
+<td data-label="Número de sectores">54</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">43 (0,5-637)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">139 (122-160)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">120 (78-279)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Trois-Rivières y su región</td>
+<td data-label="Fecha">2011</td>
+<td data-label="Número de encuestados"> 18 936</td>
+<td data-label="Número de viajes"> 50 687</td>
+<td data-label="Número de presencias"> 63 028</td>
+<td data-label="Número de sectores">28</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">62 (1,9-305)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">562 (422-1514)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">428 (284-1444)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Valence y su región</td>
+<td data-label="Fecha">2014</td>
+<td data-label="Número de encuestados">  5 143</td>
+<td data-label="Número de viajes"> 23 230</td>
+<td data-label="Número de presencias"> 24 159</td>
+<td data-label="Número de sectores">36</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">41 (1,3-477)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">142 (127-163)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">122 (72-326)</td>
+</tr>
+
+<tr>
+<td data-label="Ciudad">Valenciennes y su región</td>
+<td data-label="Fecha">2019</td>
+<td data-label="Número de encuestados">  5 647</td>
+<td data-label="Número de viajes"> 46 441</td>
+<td data-label="Número de presencias"> 23 662</td>
+<td data-label="Número de sectores">41</td>
+<td data-label="Tamaño de los sectores en km². Área mediana (min-max)">12 (0,9-51)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 3:00">137 (125-150)</td>
+<td data-label="Número de encuestados por sector. Mediana (min-max) a las 15:00">112 (75-256)</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("thead").sticky({topSpacing:62});
+  });
+</script>

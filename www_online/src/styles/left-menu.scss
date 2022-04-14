@@ -1,0 +1,156 @@
+/*  LEFT MENU - for simple page only for the moment */
+@import "variables";
+
+
+#menu {
+  //width : 16% ;
+  //min-width: 200px;
+  //float : left ;
+  background-color : white ;
+  flex: 0 0 280px;
+  flex-wrap: wrap;
+}
+
+.right-page{
+  margin-left: 2%;
+  //width: 84%;
+  //max-width : calc(82% - 200px);
+  flex: 1;
+}
+
+
+
+
+.menu-item {
+  display: block;
+  color: #000000;
+  height: auto;
+  padding-left: 5%;
+  background-color: #d2d2d2;
+  line-height: 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background .5s;
+  font-family: $fontBR;
+  font-size: 18px;
+  font-weight: 100;
+  text-decoration : none;
+  &:hover {
+    //background-color: $orangeColor;
+    //color: white;
+    text-decoration : none;
+    &::after{
+      background: url(../images/chevron-down-orange.svg);
+    }
+  }
+
+  &::after{
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: url(../images/chevron-down-black.svg);
+    top: 12px;
+    position: relative;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 16px;
+    float: right;
+  }
+
+  &.opened-item{
+      cursor: default;
+    &::after{
+        background: url(../images/chevron-up-black.svg);
+      }
+    &.current-page {
+
+
+      &:hover{
+        cursor: default;
+      }
+      &::after{
+        background: url(../images/chevron-up-orange.svg);
+      }
+    }
+  }
+
+  &.current-page {
+      text-decoration : none;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &::after{
+        background: url(../images/chevron-down-orange.svg);
+      }
+
+
+    }
+
+
+}
+
+
+
+.item{
+  display: block;
+  height: auto;
+  padding-left: 8%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: 1px solid #E5E5E5;
+  line-height: 1.6em;
+  color: black;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+
+  a{
+    font-family: $fontO;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  &:hover, &.current{
+    background-color: $orangeColor;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+}
+
+.left-menu-niv2 a:hover{
+  text-decoration: none;
+}
+
+.menu-item-container{
+  border-bottom: 2px solid white;
+  a {
+    color: $fontcolor;
+    text-decoration: none;
+  }
+}
+
+
+
+@media only screen and (max-width: 1080px) {
+  .menu-item {
+    font-size: 18px;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .menu-item {
+    font-size: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  #menu {
+    flex: 1 0 100%;
+  }
+}

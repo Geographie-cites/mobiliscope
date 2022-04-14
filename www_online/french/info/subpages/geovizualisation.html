@@ -1,0 +1,110 @@
+<div class = "corps">
+	<section>
+    <h2>Géovisualisation</h2>
+	</section>
+
+	<section>
+	<h3>Une géovisualisation par ville</h3>
+
+	<p>
+		L’<b>axe des heures</b> positionné au dessus de la carte permet d’animer les données heure par heure. 
+	</p>
+
+	<p>
+		Dans le <b>menu des indicateurs</b> (à gauche), l’utilisateur peut choisir d’afficher l’ensemble de la population présente (indicateur « Global ») ou bien de regarder la population présente selon son profil démographique (sexe, âge, composition du ménage), son profil social (niveau d'éducation, catégorie socioprofessionnelle, revenu du ménage et occupation principale), ou encore selon la position de son lieu de résidence dans la ville. Il est aussi possible d'observer les types d’activités réalisées par la population présente dans chacun des secteurs à une heure choisie, ainsi que le mode de transport utilisé pour se rendre à destination.</br>
+	</p>
+
+	<p>
+		Au centre de l’écran, une <b>carte</b> s’affiche selon l’indicateur choisi dans le bloc indicateur. La carte est dynamique&nbsp;: on peut la zoomer, s’y déplacer, afficher le nom des secteurs au survol de la souris. Pour se repérer plus facilement, des couches Open Street Map plus ou moins détaillées peuvent être affichées.
+	</p>
+	<p>
+		Dans la partie droite de l’écran, un premier graphique (en haut) permet d’afficher des <b>informations détaillées pour le secteur sélectionné sur la carte</b> et de suivre l’évolution au cours de la journée de la distribution de la population présente dans ce secteur (en stock ou en part). Un second graphique (en bas) renseigne sur <b>l'intensité de la ségrégation dans l'ensemble de la région</b> considérée aux différentes heures de la journée.</br>
+	</p>
+
+	<p>
+		Pour les informations (carto)graphiques relatives à un indicateur donné, un même code couleur a été choisi. Les gradients de couleur ont été construits grâce à l'application <a target="_blank"  href = "http://www.geotests.net/couleurs/gradients_inflex_en.html">color gradients explorer</a>.
+	</p>
+
+	</section>
+
+	<section>
+	<h3>Carte</h3>
+
+	<p>
+		<b>Trois modes de représentation cartographique</b> sont proposés&nbsp;: des cartes choroplèthes, en cercles proportionnels et en oursins. Ces dernières permettent à la fois de visualiser le stock d'individus "non-résidents" présents dans les secteurs et d'afficher (au survol de la souris) les secteurs principaux de résidence.</br>
+		Dans le cas de l'indicateur "Population totale", un mode de représentation permettant d'afficher la densité de population présente (nb. pers/km²) par secteur est également disponible. Les densités de population sont discrétisées en 8 classes selon la méthode des moyennes emboîtées. Les classes obtenues sont dès lors propres à chaque région, mais restent identiques au fil de la journée dans une région donnée.
+	</p>
+
+    <p>
+    	Dans les autres <b>cartes choroplèthes</b> (où sont représentées par secteur les <b>parts (%)</b> estimées de personnes d'un groupe donné), la légende est toujours construite avec cinq classes dont les bornes demeurent les mêmes au cours de la journée dans une région donnée. Différentes <b>méthodes de discrétisation</b> sont utilisées pour délimiter les bornes de ces cinq classes.
+
+		<ul>
+			<li>
+				Pour la majorité des indicateurs (<i>groupe d'âge</i>, <i>niveau d'éducation</i>, <i>catégorie socioprofessionnelle</i>, <i>informalité professionnelle</i>, <i>occupation principale</i>, <i>strate socio-économique</i>, <i>composition du ménage</i>, <i>statut d'occupation du logement</i> et <i>mode de transport</i>), une discrétisation en <b>quintiles</b> est utilisée&nbsp;: chaque classe regroupe 20% des secteurs de la région considérée sur les 24h de la journée. La distribution étant différente d'une ville à l'autre, les bornes de classes varient également d'une ville à l'autre.
+			</li>
+
+			<li>
+				Une discrétisation en <b>amplitude égale</b> est choisie pour trois indicateurs&nbsp;: <i>population résidente/non-résidente</i>, <i>Quartiers Prioritaires en Politique de la vile - QPV</i>, et <i>revenu du ménage</i>. Pour ces deux derniers indicateurs, les bornes de classes diffèrent d'une ville à l'autre en raison de distributions statistiques très variables d'une ville à l'autre. Pour l'indicateur résidents/non-résidents, la légende est identique pour toutes les régions du Mobiliscope et pour les deux modalités puisque les distributions s'étendent toujours entre 0% et 100% (de résidents ou de non-résidents par secteur).
+			</li>
+
+			<li>
+				Pour l'indicateur relatif au <i>sexe</i>, les classes sont définies <b>manuellement</b>&nbsp;: la classe centrale inclut toujours la moyenne du pourcentage d'hommes ou de femmes (qui varie respectivement entre 40% et 50% et entre 50% et 60% selon les enquêtes) quelle que soit la région observée. Les bornes des classes sont donc identiques pour toutes les villes. De la sorte, la comparaison inter-villes de la proportion de femmes (ou d'hommes) est facilitée.
+			</li>
+
+			<li>
+				Pour les modalités relatives au <i>Zonage en Aires Urbaines</i> (France uniquement), les bornes des classes ont aussi été définies <b>manuellement</b> et sont identiques pour toutes les villes.
+			</li>
+
+			<li>
+				Une discrétisation en <b>seuils naturels</b> (Fisher) est utilisée pour l'indicateur <i>activité</i> à partir de la distribution des données sur l'ensemble des villes. Les bornes des classes sont donc les mêmes quelle que soit la ville. La même méthode est utilisée pour l'indicateur <i>couronne de résidence</i> des villes latino-américaines.
+			</li>
+
+			<li>
+				Pour l'indicateur <i>département de résidence</i> affiché uniquement en Île-de-France, une discrétisation en <b>seuils naturels</b> (Jenks) est choisie.
+			</li>
+		</ul>
+	</p>
+
+	<p>
+		Dans les <b>cartes en cercles proportionnels</b> (qui représentent le <b>nombre</b> estimé de personnes d'un groupe donné à l'échelle des secteurs), la taille des cercles est proportionnelle au stock de personnes présentes dans les secteurs. La proportionnalité est rigoureusement similaire pour toutes les cartes d'une même région et à toute heure (elle peut varier selon la région observée).
+	</p>
+
+
+	<p>
+		Dans les cartes en cercles proportionnels et <b>en oursins</b> (qui représentent le <b>nombre</b> estimé de personnes <b>non-résidentes</b> d'un groupe donné à l'échelle des secteurs), la taille des cercles est proportionnelle au stock de personnes présentes non résidentes. La proportionnalité est rigoureusement similaire pour toutes les cartes d'une même région et à toute heure (elle peut varier selon la région observée). Pour éviter toute redondance, ce mode de représentation n'est pas disponible pour la modalité "à la maison" de l'indicateur "activité", ni pour l'indicateur relatif à la population résidente/non résidente.<br/>
+
+		Pour ce mode de représentation, des liens (qui s'affichent au survol de la souris) correspondent aux <b>principaux</b> secteurs de résidence des personnes présentes dans le secteur selectionné. Pour des raisons de confidentialité et de puissance statistique, nous avons en effet appliqué un seuil de 6 personnes (en donnée brute non pondérée) en deçà duquel nous ne représentons pas les liens entre le secteur de résidence et le secteur de présence. La légende des liens est similaire pour toutes les cartes d'une même région et à toute heure (mais peut varier en fonction de la région observée). 
+	</p>
+	</section>
+
+	<section>
+	<h3>Graphiques</h3>
+
+	<h4>Graphique du haut</h4>
+
+	<p>
+		Le graphique du haut montre heure par heure l'évolution de la population présente (en nombre ou en pourcentage) dans le secteur sélectionné (par un clic sur la carte centrale). Ce graphique se décline en deux modes&nbsp;: affichage d'une seule modalité ("simple") ou affichage de l'ensemble des modalités d'un indicateur ("empilé").
+	</p>
+
+	</section>
+
+	<section>
+	<h4>Graphique du bas</h4>
+
+	<p>
+		Le graphique du bas propose deux mesures de la ségrégation à l'échelle de la région observée. Ces mesures de la ségrégation sont calculées pour chacune des heures de la journée.
+		<ul>
+			<li><b>L'indice de dissimilarité de Duncan</b> varie entre 0 et 1. Il exprime la proportion d'individus d'un groupe donné qu'il faudrait déplacer pour obtenir une répartition égale de ce groupe par rapport à la population totale. Il mesure l'ampleur de la ségrégation spatiale.</li>
+			<li><b>L'indice de Moran</b> est une mesure d'autocorrélation spatiale. Il varie de -1 (les lieux proches ont tendance à être plus différents que les lieux éloignés - autocorrélation négative) à 1 (les lieux proches ont tendance à se ressembler davantage que les lieux éloignés - autocorrélation positive), une valeur proche de zéro indiquant une absence de structure spatiale.</li>
+		</ul><br />
+	<p>
+		Dans les graphiques de Duncan et de Moran, les valeurs minimum et maximum sont les mêmes pour toutes les modalités d'un même indicateur afin de permettre la comparaison. De plus, l'amplitude entre le minimum et le maximum ne peut pas être en deçà de 0,4 pour ne pas donner trop d'importance à d'éventuelles variations mineures dans la structure spatiale (cf. par exemple l'indicateur "sexe")
+	</p>
+
+	<p>
+		Les données sur les indices Duncan et Moran affichées dans le Mobiliscope sont mises à disposition sous <a href="/fr/info/open/license">licence libre</a> et peuvent être <b>téléchargées</b> en cliquant sur le bouton <img src="/dist/assets/download.svg" width="20px" height= "20px"/></span> à côté du graphique du bas.
+	</p>
+	</section>
+
+
+</div>

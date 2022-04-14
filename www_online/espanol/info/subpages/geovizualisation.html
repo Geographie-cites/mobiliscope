@@ -1,0 +1,111 @@
+<div class = "corps">
+	<section>
+    <h2>Geovisualización</h2>
+	</section>
+
+	<section>
+	<h3>Ciudad por ciudad</h3>
+
+	<p>
+		El <b>eje de las horas </b> situado arriba del mapa permite animar los datos hora por hora. 
+	</p>
+
+	<p>
+		En el <b>menú de los indicadores</b> (a la izquierda), el usuario puede elegir visualizar el conjunto de la población presente (indicador «Global») o bien verla según su perfil demográfico (sexo y edad), su perfil social (nivel educativo, categoría socioprofesional, ingresos del hogar y ocupación profesional), o incluso según la situación del lugar de residencia en la ciudad. También es posible observar los tipos de actividades realizadas por la población presente en cada uno de los sectores a una hora seleccionada, así como el modo de transporte utilizado para llegar al destino.</br>
+	</p>
+
+	<p>
+		En el centro de la pantalla, aparece un <b>mapa</b> según el indicador elegido en el menú de la izquierda. El mapa es dinámico: puede hacer zoom, desplazarse sobre él, deslizar el ratón para que aparezcan los nombres de los sectores. Para ubicarse con más facilidad, puede visualizar capas Open Street Map más o menos detalladas.
+	</p>
+	<p>
+		En la parte derecha de la pantalla, un primer gráfico (arriba) permite visualizar <b>información detallada para el sector seleccionado en el mapa</b> y seguir la evolución a lo largo del día de la distribución de la población presente en ese sector (en stock o en porcentaje). Un segundo gráfico (abajo) da información sobre <b>la intensidad de la segregación en el conjunto de la región</b> considerada a las diferentes horas del día.</br>
+	</p>
+
+	<p>
+		Para la información (carto)gráfica relativa a un indicador determinado, se ha elegido un mismo código de color. Los gradientes de color se han construido gracias a la aplicación <a target="_blank"  href = "http://www.geotests.net/couleurs/gradients_inflex_en.html">color gradients explorer</a>.
+	</p>
+
+	</section>
+
+	<section>
+	<h3>Mapa</h3>
+
+	<p>
+		Se proponen <b>tres modos de representación cartográfica</b>: mapas de coropletas, de círculos proporcionales y de flujo. Estos últimos permiten visualizar a la vez el stock de individuos "no-residentes" presentes en los sectores y (al desplazar el ratón) los sectores principales de residencia.
+		</br>
+		En el caso del indicador "Población total", también hay un modo de representación que permite mostrar la densidad de población presente (n° personas / km²) por sector. Las densidades de población se discretizan en ocho clases según el método de medias anidadas. Las clases obtenidas son por tanto propias a cada región, pero siguen siendo idénticas a lo largo del día en una región determinada.
+	</p>
+
+    <p>
+    	En los <b>mapas de coropletas</b> (donde están representados por sectores los <b>porcentajes  (%)</b> estimados de personas de un grupo determinado), la leyenda siempre está construida con cinco clases cuyos límites siguen siendo los mismos a lo largo del día en una región determinada. Se utilizan diferentes <b>métodos de discretización</b> para definir los límites de estas cinco clases.
+
+		<ul>
+			<li>
+				Para la mayoría de los indicadores (<i>grupo de edad</i>, <i>nivel educativo</i>, <i>categoría socio-ocupacional</i>, <i>informalidad laboral</i>, <i>ocupación principal</i>, <i>estrato socioeconómico</i>, <i>composición del hogar</i>, <i>tenencia de la vivienda</i> y <i>modo de transporte</i>), se utiliza una discretización en <b>cuantiles</b>: cada clase agrupa un 20% de los sectores de la región considerada en las 24h del día. Al ser la distribución diferente de una ciudad a otra, los límites de clases varían igualmente entre ciudades. 
+			</li>
+
+			<li>
+				Una discretización en <b>igual amplitud </b> se ha aplicado para tres indicadores: <i>población residente/no-residente</i>, <i>Barrios Prioritarios en Políticas Urbanas - QPV</i> e <i>ingresos del hogar</i>. Para estos dos últimos indicadores, los límites de clases difieren de una ciudad a otra en razón de distribuciones estadísticas muy variables para cada ciudad. Para el indicador residentes/no-residentes, la leyenda es idéntica para todas las regiones de Mobiliscope y para las dos modalidades, puesto que las distribuciones oscilan siempre entre el 0% y el 100% (de residentes o de no-residentes por sector). 
+			</li>
+
+			<li>
+				Para el indicador relativo al <i>sexo</i>, las clases se definen <b>manualmente</b>: la clase central siempre incluye la media del porcentaje de hombres o de mujeres (que varía respectivamente entre un 40% y un 50% y entre un 50% y un 60% según las encuestas) sea cual sea la región observada. Los límites de clases son pues idénticos para todas las ciudades. De este modo, se facilita la comparación entre ciudades de la proporción de mujeres o de hombres.
+			</li>
+
+			<li>
+				Para las modalidades relativas a la <i>Zonificación en Áreas Urbanas</i> (Francia únicamente), los límites de clases también han sido definidos <b>manualmente</b> y son idénticos para todas las ciudades.
+			</li>
+
+			<li>
+				Una discretización en <b>cortes naturales</b> (Fisher) se utiliza para el indicador <i>actividad</i> a partir de la distribución de los datos en el conjunto de las ciudades. Los límites de clases son pues los mismos sea cual sea la ciudad. Se utiliza el mismo método para el indicador <i>anillo de residencia</i> de las ciudades latinoamericanas.
+			</li>
+
+			<li>
+				Para el indicador <i>departamento de residencia</i> mostrado únicamente en Île-de-France, se opta por una discretización en <b>cortes naturales</b> (Jenks). 
+			</li>
+		</ul>
+	</p>
+
+	<p>
+		En los <b>mapas de círculos proporcionales </b> (que representan el <b>número</b> estimado de personas de un grupo determinado a escala de los sectores), el tamaño de los círculos es proporcional al stock de personas presentes en los sectores. La proporcionalidad es rigurosamente similar para todos los mapas de una misma región y a cualquier hora (puede variar según la región observada).
+	</p>
+
+
+	<p>
+		En los mapas de círculos proporcionales y <b>de flujo</b> (que representan el <b>número</b> estimado de personas <b>no residentes</b> de un grupo determinado a escala de los sectores), el tamaño de los círculos es proporcional al stock de personas presentes no residentes. La proporcionalidad es rigurosamente similar para todos los mapas de una misma región y a cualquier hora (puede variar según la región observada). Para evitar cualquier redundancia, este modo de representación no está disponible para la modalidad "a casa" del indicador "actividad", ni para el indicador relativo a la población residente/no residente.<br/>
+
+		Para este modo de representación, las relaciones (que se muestran al deslizar el ratón) corresponden a los <b>principales</b> sectores de residencia de las personas presentes en el sector seleccionado. Por razones de confidencialidad y de poder estadístico, hemos aplicado un umbral de 6 personas (en dato bruto no ponderado) por debajo del cual no representamos las relaciones entre el sector de residencia y el sector de presencia. La leyenda de las relaciones es similar para todos los mapas de una misma región y a cualquier hora (pero puede variar en función de la región observada).
+	</p>
+	</section>
+
+	<section>
+	<h3>Gráficos</h3>
+
+	<h4>Gráfico de arriba</h4>
+
+	<p>
+		El gráfico de arriba muestra hora por hora la evolución de la población presente (en número o en porcentaje) en el sector seleccionado (haciendo clic en el mapa central). Este gráfico se declina en dos modos: visualización de una única modalidad ("simple") o visualización del conjunto de las modalidades de un indicador ("apilada").
+	</p>
+
+	</section>
+
+	<section>
+	<h4>Gráfico de abajo</h4>
+
+	<p>
+		El gráfico de abajo propone dos medidas de la segregación a escala de la región observada. Estas medidas de la segregación se calculan para cada una de las horas del día.
+		<ul>
+			<li>El <b>índice de disimilitud de Duncan </b> varía entre 0 y 1. Expresa la proporción de individuos de un grupo determinado que habría que desplazar para obtener una repartición igual de ese grupo con respecto a la población total. Mide la uniformidad de la segregación espacial.</li>
+			<li>El <b>índice de disimilitud de Moran</b> es una medida de autocorrelación espacial. Varía de -1 (los lugares próximos tienen tendencia a ser más diferentes que los lugares alejados - autocorrelación negativa) a 1 (los lugares próximos tienen tendencia a parecerse más que los lugares alejados - autocorrelación positiva), un valor cercano a cero indica ausencia de estructura espacial.</li>
+		</ul><br />
+	<p>
+		En los gráficos de Duncan y de Moran, los valores mínimo y máximo son los mismos para todas las modalidades de un mismo indicador para que pueda efectuarse la comparación. Asimismo, los intervalos entre el mínimo y el máximo no pueden ser inferiores a 0,4 para no dar demasiada importancia a eventuales variaciones menores en la estructura espacial (cf. por ejemplo el indicador "sexo").
+	</p>
+
+	<p>
+		Los datos sobre los índices Duncan y Moran mostrados en Mobiliscope están disponibles bajo  <a href="/es/info/open/license">licencia libre</a> y pueden <b>descargarse</b> haciendo clic en el botón <img src="/dist/assets/download.svg" width="20px" height= "20px"/></span>  junto al gráfico de abajo.
+	</p>
+	</section>
+
+
+</div>

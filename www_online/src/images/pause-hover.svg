@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 46 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Plan-de-travail1" serif:id="Plan de travail1" transform="matrix(1.07323,0,0,1.04466,7.87119,5.8485)">
+        <rect x="-7.334" y="-5.598" width="42.853" height="46.843" style="fill:none;"/>
+        <g transform="matrix(0.931768,0,0,0.957249,-6.40235,-5.59847)">
+            <rect x="7.19" y="9.29" width="10.955" height="29.973" style="fill:rgb(254,161,28);"/>
+        </g>
+        <g transform="matrix(0.928026,0,0,0.957249,-6.74324,-5.59847)">
+            <path d="M22.557,10.583C22.557,7.98 20.435,5.866 17.822,5.866L8.35,5.866C5.737,5.866 3.615,7.98 3.615,10.583L3.615,38.883C3.615,41.486 5.737,43.599 8.35,43.599L17.822,43.599C20.435,43.599 22.557,41.486 22.557,38.883L22.557,10.583Z" style="fill:rgb(254,161,28);fill-opacity:0.42;"/>
+        </g>
+        <g transform="matrix(0.909316,0,0,0.957249,11.2578,-5.67129)">
+            <path d="M22.557,10.488C22.557,7.937 20.435,5.866 17.822,5.866L8.35,5.866C5.737,5.866 3.615,7.937 3.615,10.488L3.615,38.978C3.615,41.528 5.737,43.599 8.35,43.599L17.822,43.599C20.435,43.599 22.557,41.528 22.557,38.978L22.557,10.488Z" style="fill:rgb(254,161,28);fill-opacity:0.42;"/>
+        </g>
+        <g transform="matrix(0.931768,0,0,0.957249,-5.47058,-5.59847)">
+            <rect x="25.144" y="9.366" width="10.955" height="29.517" style="fill:rgb(254,161,28);"/>
+        </g>
+    </g>
+</svg>
