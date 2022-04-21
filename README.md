@@ -1,4 +1,4 @@
-# Mobiliscope - v4.0 (April 2021)
+# Mobiliscope - v4.1 (April 2022)
 
 Mobiliscope is a free and open-source web mapping platform for the interactive exploration of cities around the clock.
 
