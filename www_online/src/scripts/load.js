@@ -3595,6 +3595,7 @@ function load(chemin, colDom, col){
           // calcul pop moyenne ensemble secteur-heure
           var valMoy = d3.mean(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : d[key] });
+            vals = vals.map((i) => Number(i));
             // console.log(vals);
             return d3.mean(vals);
           });
@@ -3608,13 +3609,18 @@ function load(chemin, colDom, col){
 
           var valMin = d3.min(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : d[key] });
+            vals = vals.map((i) => Number(i));
             return d3.min(vals);
           });
 
           var valMax = d3.max(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : 0 });
+            vals = vals.map((i) => Number(i));
+            // console.log(d3.max(vals));
             return d3.max(vals);
           });
+          // console.log(valMax);
+          // console.log(valMin);
 
 
           // build legend
@@ -4174,17 +4180,20 @@ function load(chemin, colDom, col){
           // calcul pop moyenne ensemble secteur-heure
           var valMoy = d3.mean(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : d[key] });
+            vals = vals.map((i) => Number(i));
             // console.log(vals);
             return d3.mean(vals);
           });
 
           var valMin = d3.min(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : d[key] });
+            vals = vals.map((i) => Number(i));
             return d3.min(vals);
           });
 
           var valMax = d3.max(data, function(d){
             var vals = d3.keys(d).map(function(key){ return key !== "hour" ? d[key] : 0 });
+            vals = vals.map((i) => Number(i));
             return d3.max(vals);
           });
 
