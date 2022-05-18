@@ -4,7 +4,6 @@ var language = $('html').attr('lang');
 var cities = Array();
 var sec = {};
 var secN = {};
-var currSect = [];
 
 
 function init (data, cb){
@@ -12,16 +11,16 @@ function init (data, cb){
 var currentPathname = window.location.pathname;
 var res = currentPathname.slice(11);
 
-Object.keys(data).forEach(function(i){
-  var queryString = window.location.search;
-  var urlParams = new URLSearchParams(queryString);
+$.getJSON( "/cities/codenamesec.json", function( data ) {
+    Object.keys(data).forEach(function(i){
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
 
-  if(data[i].sec_com == urlParams.get('s') && data[i].id == res){
-    $('#nameSect').html(data[i].libsec);
-  }
+    if(data[i].codesec == urlParams.get('s') && data[i].id == res){
+      $('#nameSect').html(data[i].libsec);
+    }
+  });
 });
-
-
 
 if (currentPathname.slice(1,3)==="fr"){
    $( ".dropLang" ).css("background-image","url('/dist/assets/french-flag-arrow.svg')");

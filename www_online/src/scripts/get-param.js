@@ -23,13 +23,14 @@ var urlParams = new URLSearchParams(queryString);
 var url = new URL(location.href);
 var search_params = url.searchParams;
 
+var currSect = [nomCol, ""];
+
 var m1 = '';
 var m2 = '';
 var m3 = '';
 var m4 = '';
 var t = '';
-var s = '';
-
+var s = currSect[0];
 
 if( !queryString){
   age2_prop();

@@ -1,1 +1,351 @@
-L.Control.Appearance=L.Control.extend({options:{collapsed:!1,position:"topright",label:null,radioCheckbox:!0,layerName:!0,opacity:!1,color:!1,remove:!1,removeIcon:null},initialize:function(e,t,a,l){for(var i in L.Util.setOptions(this,l),this._layerControlInputs=[],this._layers=[],this._lastZIndex=0,this._handlingClick=!1,e)this._addLayer(e[i],i);for(var i in t)this._addLayer(t[i],i,!0,!0);for(var i in a)this._addLayer(a[i],i,!0)},onAdd:function(e){return this._initLayout(),this._update(),this._container},addOverlay:function(e,t){return this._addLayer(e,e.options.name,!0,t),this._map?this._update():this},_onLayerChange:function(e){this._handlingClick||this._update();var t=this._getLayer(Util.stamp(e.target)),a=t.overlay?"add"===e.type?"overlayadd":"overlayremove":"add"===e.type?"baselayerchange":null;a&&this._map.fire(a,t)},expand:function(){L.DomUtil.addClass(this._container,"leaflet-control-layers-expanded"),this._form.style.height=null;var e=this._map.getSize().y-(this._container.offsetTop+50);return e<this._form.clientHeight?(L.DomUtil.addClass(this._form,"leaflet-control-layers-scrollbar"),this._form.style.height=e+"px"):L.DomUtil.removeClass(this._form,"leaflet-control-layers-scrollbar"),this},collapse:function(){return L.DomUtil.removeClass(this._container,"leaflet-control-layers-expanded"),this},_initLayout:function(){var e="leaflet-control-layers",t=this._container=L.DomUtil.create("div",e),a=this.options.collapsed;if(t.setAttribute("aria-haspopup",!0),L.DomEvent.disableClickPropagation(t),L.DomEvent.disableScrollPropagation(t),this.options.label){var l=L.DomUtil.create("p",e+"-label");l.innerHTML=this.options.label,t.appendChild(l)}var i=this._form=L.DomUtil.create("form",e+"-list");a&&(L.Browser.android||L.DomEvent.on(t,{mouseenter:this.expand,mouseleave:this.collapse},this)),a||this.expand(),this._baseLayersList=L.DomUtil.create("div",e+"-base",i),this._separator=L.DomUtil.create("div",e+"-separator",i),this._overlaysList=L.DomUtil.create("div",e+"-overlays",i),t.appendChild(i)},_update:function(){if(!this._container)return this;var e,t,a,l;for(L.DomUtil.empty(this._baseLayersList),L.DomUtil.empty(this._overlaysList),this._layerControlInputs=[],a=0;a<this._layers.length;a++)l=this._layers[a],this._addItem(l),t=t||l.overlay,e=e||!l.overlay,l.overlay;return this._separator.style.display=t&&e?"":"none",this},_getLayer:function(e){for(var t=0;t<this._layers.length;t++)if(this._layers[t]&&L.Util.stamp(this._layers[t].layer)===e)return this._layers[t]},_addLayer:function(e,t,a,l){this._layers.push({layer:e,name:t,overlay:a,uneditable:l})},_removeLayer:function(e){for(var t=0;t<this._layers.length;t++)if(this._layers[t]&&L.Util.stamp(this._layers[t].layer)===e){this._layers.splice(t,1);break}},_addItem:function(e){var t=document.createElement("label"),a=this._map.hasLayer(e.layer),l=e.name;opacity=e.layer.options.opacity,color=e.layer.options.color,elements=[],e.overlay?(this.options.radioCheckbox&&elements.push(this._createCheckboxElement("leaflet-control-layers-selector",a)),this.options.layerName&&elements.push(this._createNameElement("leaflet-control-layers-name",l)),this.options.opacity&&elements.push(this._createRangeElement("leaflet-control-layers-range",opacity)),this.options.color&&!e.uneditable&&elements.push(this._createColorElement("leaflet-control-layers-color",color)),this.options.remove&&!e.uneditable&&elements.push(this._createRemoveElement("leaflet-control-layers-remove"))):(this.options.radioCheckbox&&elements.push(this._createRadioElement("leaflet-control-layers-selector",a)),this.options.layerName&&elements.push(this._createNameElement("leaflet-control-layers-name",l)));var i=document.createElement("div");i.style="display: flex; align-items: baseline;",t.appendChild(i);for(var n=0;n<elements.length;n++)if(i.appendChild(elements[n]),1!=n)switch(this._layerControlInputs.push(elements[n]),elements[n].layerId=L.Util.stamp(e.layer),elements[n].className){case"leaflet-control-layers-range":L.DomEvent.on(elements[n],"change",this._onRangeClick,this);break;case"leaflet-control-layers-selector":L.DomEvent.on(elements[n],"change",this._onRadioCheckboxClick,this);break;case"leaflet-control-layers-color":L.DomEvent.on(elements[n],"change",this._onColorClick,this);break;case"leaflet-control-layers-remove":L.DomEvent.on(elements[n],"change",this._onRemoveClick,this)}return(e.overlay?this._overlaysList:this._baseLayersList).appendChild(t),t},_createRadioElement:function(e,t){var a='<input type="radio" class="leaflet-control-layers-selector" name="'+e+'"'+(t?' checked="checked"':"")+"/>",l=document.createElement("div");return l.innerHTML=a,l.firstChild},_createCheckboxElement:function(e,t){return input=document.createElement("input"),input.type="checkbox",input.className=e,input.defaultChecked=t,input},_createNameElement:function(e,t){var a=document.createElement("span");return a.style.display="inline-block",a.style.width="100px",a.style.margin="0 5 0 5",a.style.overflow="hidden",a.style.verticalAlign="middle",a.innerHTML=" "+t,a},_createRangeElement:function(e,t){return input=document.createElement("input"),input.type="range",input.style.width="50px",input.className=e,input.min=0,input.max=100,input.value=100*t,input},_createColorElement:function(e,t){var a='<input type="color" class="leaflet-control-layers-color" value="'+t+'"list="data1"/ style="width:50px; margin:0 5 0 5;">',l=document.createElement("div");return l.innerHTML=a,l.firstChild},_createRemoveElement:function(e,t){return input=document.createElement("input"),input.type="checkbox",input.className=e,input.defaultChecked=!0,(t=this.options.removeIcon)&&(input.style="-webkit-appearance:none; background:url("+t+"); width:1rem; height:1rem; background-size: contain;"),input},_onRadioCheckboxClick:function(){var e,t,a=this._layerControlInputs,l=[],i=[];this._handlingClick=!0;for(var n=0;n<a.length;n++)"leaflet-control-layers-selector"==(e=a[n]).className&&(t=this._getLayer(e.layerId).layer,e.checked?this._map.addLayer(t):e.checked||this._map.removeLayer(t));for(n=0;n<i.length;n++)this._map.hasLayer(i[n])&&this._map.removeLayer(i[n]);for(n=0;n<l.length;n++)this._map.hasLayer(l[n])||this._map.addLayer(l[n]);this._handlingClick=!1,this._refocusOnMap()},_onRangeClick:function(){var e,t,a=this._layerControlInputs;this._handlingClick=!0;for(var l=a.length-1;l>=0;l--)if("leaflet-control-layers-range"==(e=a[l]).className)if(void 0===(t=this._getLayer(e.layerId).layer)._url){var i=parseFloat(parseInt(e.value/10)/10),n={opacity:i,fillOpacity:i/2};t.setStyle(n),t.options.opacity=i,t.options.fillOpacity=i/2}else t.setOpacity(e.value/100);this._handlingClick=!1,this._refocusOnMap()},_onColorClick:function(){var e,t,a=this._layerControlInputs;this._handlingClick=!0;for(var l=0;l<a.length;l++)if("leaflet-control-layers-color"==(e=a[l]).className&&void 0===(t=this._getLayer(e.layerId).layer)._url){var i={color:e.value,opacity:t.options.opacity,fillOpacity:t.options.fillOpacity};t.setStyle(i),t.options.color=e.value}this._handlingClick=!1,this._update(),this._refocusOnMap()},_onRemoveClick:function(){var e,t,a=this._layerControlInputs;this._handlingClick=!0;for(var l=0;l<a.length;l++)if("leaflet-control-layers-remove"==(e=a[l]).className&&!e.checked){t=this._getLayer(e.layerId).layer,this._map.removeLayer(t),this._removeLayer(e.layerId);break}this._handlingClick=!1,this._update(),this._refocusOnMap()}}),L.control.appearance=function(e,t,a,l){return new L.Control.Appearance(e,t,a,l)};
+L.Control.Appearance = L.Control.extend({
+	options: {
+		collapsed: false,
+		position: 'topright',
+		label: null,
+		radioCheckbox: true,
+		layerName: true,
+		opacity: false,
+		color: false,
+		remove: false,
+		removeIcon: null,
+	},
+	initialize: function (baseLayers, uneditableOverlays, overlays, options) {
+		L.Util.setOptions(this, options);
+		this._layerControlInputs = [];
+		this._layers = [];
+		this._lastZIndex = 0;
+		this._handlingClick = false;
+
+		for (var i in baseLayers) {
+			this._addLayer(baseLayers[i], i);
+		}
+		for (var i in uneditableOverlays) {
+			this._addLayer(uneditableOverlays[i], i, true, true);
+		}
+		for (var i in overlays) {
+			this._addLayer(overlays[i], i, true);
+		}
+	},
+	onAdd: function (map) {
+		this._initLayout();
+		this._update();
+		return this._container;
+	},
+	// @method addOverlay(layer: Layer, name: String): this
+	// Adds an overlay (checkbox entry) with the given name to the control.
+	addOverlay: function (layer, unremovable) {
+		this._addLayer(layer, layer.options.name, true, unremovable);
+		return (this._map) ? this._update() : this;
+	},
+	_onLayerChange: function (e) {
+		if (!this._handlingClick) {
+			this._update();
+		}
+
+		var obj = this._getLayer(Util.stamp(e.target));
+
+		// @namespace Map
+		// @section Layer events
+		// @event baselayerchange: LayersControlEvent
+		// Fired when the base layer is changed through the [layer control](#control-layers).
+		// @event overlayadd: LayersControlEvent
+		// Fired when an overlay is selected through the [layer control](#control-layers).
+		// @event overlayremove: LayersControlEvent
+		// Fired when an overlay is deselected through the [layer control](#control-layers).
+		// @namespace Control.Layers
+		var type = obj.overlay ?
+			(e.type === 'add' ? 'overlayadd' : 'overlayremove') :
+			(e.type === 'add' ? 'baselayerchange' : null);
+
+		if (type) {
+			this._map.fire(type, obj);
+		}
+	},
+	expand: function () {
+		L.DomUtil.addClass(this._container, 'leaflet-control-layers-expanded');
+		this._form.style.height = null;
+		var acceptableHeight = this._map.getSize().y - (this._container.offsetTop + 50);
+		if (acceptableHeight < this._form.clientHeight) {
+			L.DomUtil.addClass(this._form, 'leaflet-control-layers-scrollbar');
+			this._form.style.height = acceptableHeight + 'px';
+		} else {
+			L.DomUtil.removeClass(this._form, 'leaflet-control-layers-scrollbar');
+		}
+		return this;
+	},
+	collapse: function () {
+		L.DomUtil.removeClass(this._container, 'leaflet-control-layers-expanded');
+		return this;
+	},
+	_initLayout: function () {
+		var className = 'leaflet-control-layers',
+		    container = this._container = L.DomUtil.create('div', className),
+		    collapsed = this.options.collapsed;
+		container.setAttribute('aria-haspopup', true);
+		L.DomEvent.disableClickPropagation(container);
+		L.DomEvent.disableScrollPropagation(container);
+		if(this.options.label){
+			var labelP = L.DomUtil.create('p', className + "-label");
+			labelP.innerHTML = this.options.label;
+			container.appendChild(labelP);
+		}
+		var form = this._form = L.DomUtil.create('form', className + '-list');
+		if (collapsed) {
+			if (!L.Browser.android) {
+				L.DomEvent.on(container, {
+					mouseenter: this.expand,
+					mouseleave: this.collapse
+				}, this);
+			}
+		}
+		if (!collapsed) {
+			this.expand();
+		}
+		this._baseLayersList = L.DomUtil.create('div', className + '-base', form);
+		this._separator = L.DomUtil.create('div', className + '-separator', form);
+		this._overlaysList = L.DomUtil.create('div', className + '-overlays', form);
+		container.appendChild(form);
+	},
+	_update: function () {
+		if (!this._container) { return this; }
+		L.DomUtil.empty(this._baseLayersList);
+		L.DomUtil.empty(this._overlaysList);
+		this._layerControlInputs = [];
+		var baseLayersPresent, overlaysPresent, i, obj, baseLayersCount = 0;
+		for (i = 0; i < this._layers.length; i++) {
+			obj = this._layers[i];
+			this._addItem(obj);
+			overlaysPresent = overlaysPresent || obj.overlay;
+			baseLayersPresent = baseLayersPresent || !obj.overlay;
+			baseLayersCount += !obj.overlay ? 1 : 0;
+		}
+		this._separator.style.display = overlaysPresent && baseLayersPresent ? '' : 'none';
+		return this;
+	},
+	_getLayer: function (id) {
+		for (var i = 0; i < this._layers.length; i++) {
+			if (this._layers[i] && L.Util.stamp(this._layers[i].layer) === id) {
+				return this._layers[i];
+			}
+		}
+	},
+	_addLayer: function (layer, name, overlay, uneditable) {
+		this._layers.push({
+			layer: layer,
+			name: name,
+			overlay: overlay,
+			uneditable: uneditable
+		});
+	},
+	_removeLayer: function (id) {
+		for (var i = 0; i < this._layers.length; i++) {
+			if (this._layers[i] && L.Util.stamp(this._layers[i].layer) === id) {
+				this._layers.splice(i,1);
+				break;
+			}
+		}
+	},
+	_addItem: function (obj) {
+		var label = document.createElement('label'),
+			checked = this._map.hasLayer(obj.layer),
+			layerName = obj.name
+			opacity = obj.layer.options.opacity,
+			color = obj.layer.options.color,
+			elements = [];
+
+		//HTML Elements for OVERLAY
+		if (obj.overlay) {
+			if (this.options.radioCheckbox){elements.push(this._createCheckboxElement('leaflet-control-layers-selector', checked))};
+			if (this.options.layerName){elements.push(this._createNameElement('leaflet-control-layers-name', layerName))};
+			if (this.options.opacity){elements.push(this._createRangeElement('leaflet-control-layers-range', opacity))};
+			if (this.options.color && !obj.uneditable){elements.push(this._createColorElement('leaflet-control-layers-color', color))};
+			if (this.options.remove && !obj.uneditable){elements.push(this._createRemoveElement('leaflet-control-layers-remove'))};
+		}else{
+			if (this.options.radioCheckbox){elements.push(this._createRadioElement('leaflet-control-layers-selector', checked))};
+			if (this.options.layerName){elements.push(this._createNameElement('leaflet-control-layers-name', layerName))};
+		}
+		var holder = document.createElement('div');
+		holder.style = "display: flex; align-items: baseline;";
+		label.appendChild(holder);
+		for (var i = 0; i < elements.length; i++) {
+			holder.appendChild(elements[i]);
+			if (i == 1){continue}; //layer name don't need UI
+			this._layerControlInputs.push(elements[i]);
+			elements[i].layerId = L.Util.stamp(obj.layer);
+			switch(elements[i].className){
+				case "leaflet-control-layers-range":
+					L.DomEvent.on(elements[i], 'change', this._onRangeClick, this);
+					break;
+				case "leaflet-control-layers-selector":
+					L.DomEvent.on(elements[i], 'change', this._onRadioCheckboxClick, this);
+					break;
+				case "leaflet-control-layers-color":
+					L.DomEvent.on(elements[i], 'change', this._onColorClick, this);
+					break;
+				case "leaflet-control-layers-remove":
+					L.DomEvent.on(elements[i], 'change', this._onRemoveClick, this);
+					break;
+			}
+		};
+		var container = obj.overlay ? this._overlaysList : this._baseLayersList;
+		container.appendChild(label);
+		return label;
+	},
+	_createRadioElement: function (name, checked) {
+		var radioHtml = '<input type="radio" class="leaflet-control-layers-selector" name="' +
+				name + '"' + (checked ? ' checked="checked"' : '') + '/>';
+		var radioFragment = document.createElement('div');
+		radioFragment.innerHTML = radioHtml;
+		return radioFragment.firstChild;
+	},
+	_createCheckboxElement: function (name, checked) {
+		input = document.createElement('input');
+		input.type = 'checkbox';
+		input.className = name;
+		input.defaultChecked = checked;
+		return input;
+	},
+	_createNameElement: function (name, layerName) {
+		var nameLabel = document.createElement('span');
+		nameLabel.style.display = "inline-block";
+		nameLabel.style.width = "100px";
+		nameLabel.style.margin = "0 5 0 5";
+		nameLabel.style.overflow = "hidden";
+		nameLabel.style.verticalAlign = "middle";
+		nameLabel.innerHTML = ' ' + layerName;
+		return nameLabel;
+	},
+	_createRangeElement: function (name, opacity) {
+		input = document.createElement('input');
+		input.type = 'range';
+		input.style.width = "50px";
+		input.className = name;
+		input.min = 0;
+		input.max = 100;
+		input.value = opacity * 100;
+		return input;
+	},
+	_createColorElement: function (name, color) {
+		var colorHtml = '<input type="color" class="leaflet-control-layers-color" value="' +
+						color + '"' +
+						'list="data1"/ style="width:50px; margin:0 5 0 5;">';
+		var colorFragment = document.createElement('div');
+		colorFragment.innerHTML = colorHtml;
+		return colorFragment.firstChild;
+	},
+	_createRemoveElement: function (name, imgUrl) {
+		input = document.createElement('input');
+		input.type = 'checkbox';
+		input.className = name;
+		input.defaultChecked = true;
+		imgUrl = this.options.removeIcon;
+		if (imgUrl){
+			input.style = "-webkit-appearance:none; background:url(" + imgUrl + "); width:1rem; height:1rem; background-size: contain;";
+		}
+		return input;
+	},
+	_onRadioCheckboxClick: function () {
+		var inputs = this._layerControlInputs,
+		    input, layer;
+		var addedLayers = [],
+		    removedLayers = [];
+
+		this._handlingClick = true;
+		for (var i = 0; i < inputs.length; i++) {
+			input = inputs[i];
+			if (input.className != "leaflet-control-layers-selector"){continue};
+			layer = this._getLayer(input.layerId).layer;
+
+			if (input.checked) {
+				this._map.addLayer(layer);
+			} else if (!input.checked) {
+				this._map.removeLayer(layer);
+			}
+		}
+
+		for (i = 0; i < removedLayers.length; i++) {
+			if (this._map.hasLayer(removedLayers[i])) {
+				this._map.removeLayer(removedLayers[i]);
+			}
+		}
+		for (i = 0; i < addedLayers.length; i++) {
+			if (!this._map.hasLayer(addedLayers[i])) {
+				this._map.addLayer(addedLayers[i]);
+			}
+		}
+
+		this._handlingClick = false;
+
+		this._refocusOnMap();
+	},
+	_onRangeClick: function () {
+		var inputs = this._layerControlInputs,
+			input, layer;
+			
+		this._handlingClick = true;
+		
+		for (var i = inputs.length - 1; i >= 0; i--) {
+			input = inputs[i];
+			if (input.className != "leaflet-control-layers-range"){continue};
+			layer = this._getLayer(input.layerId).layer;
+			//undefined = overlay, not undefined = tilemap
+			if( typeof layer._url === 'undefined'){
+				var rangeVal = parseFloat(parseInt(input.value / 10)/10);
+				var style = {"opacity":rangeVal,
+							"fillOpacity":(rangeVal / 2)};
+				layer.setStyle(style);
+				layer.options.opacity = rangeVal;
+				layer.options.fillOpacity = rangeVal / 2;
+			}else{
+				layer.setOpacity(input.value / 100);
+			}
+		}
+		this._handlingClick = false;
+		this._refocusOnMap();
+	},
+	_onColorClick: function () {
+		var inputs = this._layerControlInputs,
+			input, layer;
+			
+		this._handlingClick = true;
+		for (var i = 0; i < inputs.length; i++) {
+			input = inputs[i];
+			if (input.className != "leaflet-control-layers-color"){continue};
+			layer = this._getLayer(input.layerId).layer;
+			//not tilemap
+			if( typeof layer._url === 'undefined'){
+				var style = {"color":input.value,
+							"opacity":layer.options.opacity,
+							"fillOpacity":layer.options.fillOpacity};
+				layer.setStyle(style);
+				layer.options.color = input.value;
+			};
+		}
+		this._handlingClick = false;
+		this._update();
+		this._refocusOnMap();
+	},
+	_onRemoveClick: function () {
+		var inputs = this._layerControlInputs,
+			input, layer;
+			
+		this._handlingClick = true;
+		for (var i = 0; i < inputs.length; i++) {
+			input = inputs[i];
+			if (input.className != "leaflet-control-layers-remove"){continue};
+			if (!input.checked){
+				layer = this._getLayer(input.layerId).layer;
+				this._map.removeLayer(layer);
+				this._removeLayer(input.layerId);
+				break;
+			}
+		}
+		this._handlingClick = false;
+		this._update();
+		this._refocusOnMap();
+	},
+});
+L.control.appearance = function (baseLayers, uneditableOverlays, overlays, options) {
+        return new L.Control.Appearance(baseLayers, uneditableOverlays, overlays, options);
+};

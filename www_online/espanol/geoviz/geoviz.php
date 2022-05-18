@@ -11,8 +11,6 @@ include ('../settings.php');
 	<meta name="description" content="<?php echo $curPage['pageMeta']; ?>" />
 	<meta name="author" content="Aurélie Douet & Constance Lecomte">
 
-<script type="text/javascript" charset="utf-8" src="/dist/scripts/jquery-3.6.0.js" ></script>
-
 <script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-selection.v1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-transition.v1.min.js"></script>
@@ -42,7 +40,7 @@ include ('../settings.php');
 <meta property="og:type" content="website" />
 <meta property="og:title" content="<?php echo $curPage['pageTitle']; ?>" />
 <meta property="og:description" content="<?php echo $curPage['pageMeta']; ?><?php echo $curPage['pageMeta']; ?>" />
-<meta property="og:url" content="https://mobiliscope.cnrs.fr" />
+<meta property="og:url" content="https://mobiliscope.cnrs.fr/es" />
 <meta property="og:site_name" content="Mobiliscope" />
 <meta property="og:image" content="https://mobiliscope.cnrs.fr/dist/assets/mobiliscope-fb.png" />
 <meta property="og:image:secure_url" content="https://mobiliscope.cnrs.fr/dist/assets/mobiliscope-fb.png" />

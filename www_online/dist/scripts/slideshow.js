@@ -1,1 +1,49 @@
-var slideIndex=1;function plusSlides(e){showSlides(slideIndex+=e)}function currentSlide(e){showSlides(slideIndex=e)}function showSlides(e){var s,l=document.getElementsByClassName("mySlides"),d=document.getElementsByClassName("dot");for(e>l.length&&(slideIndex=1),e<1&&(slideIndex=l.length),s=0;s<l.length;s++)l[s].style.display="none";for(s=0;s<d.length;s++)d[s].className=d[s].className.replace(" active","");void 0!==l[slideIndex-1]&&(d[slideIndex-1],1)&&(l[slideIndex-1].style.display="inline-block",d[slideIndex-1].className+=" active")}showSlides(slideIndex),$(".card-slideshow .prev").click((function(){showSlides(slideIndex-=1)})),$(".card-slideshow .next").click((function(){showSlides(slideIndex+=1)}));
+//slideshow
+
+//$(".dropLang").click(function() {
+//if ($("#myDropdown").css("display")==="none"){
+//  $("#myDropdown").css("display","block");
+//}else{
+//  $("#myDropdown").css("display","none")
+//}
+//});
+
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+$(".card-slideshow .prev").click(function plusSlides() {
+  showSlides(slideIndex -= 1);
+});
+
+$(".card-slideshow .next").click(function plusSlides() {
+  showSlides(slideIndex += 1);
+});
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  if( typeof slides[slideIndex-1] !== 'undefined'
+      && typeof dots[slideIndex-1] ){
+    slides[slideIndex-1].style.display = "inline-block";
+    dots[slideIndex-1].className += " active";
+  }
+
+}

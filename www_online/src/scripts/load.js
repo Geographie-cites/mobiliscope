@@ -995,12 +995,19 @@ var typeGraph = 'stacked';
 
 // var currSect = [nomCol, nameSec];
 var currSect = [];
+// var currSect = ["", ""];
 
-if (currSect[0] === undefined) {
-  currSect[0] = nomCol;
-}
+// if (currSect[0] === undefined) {
+//   currSect[0] = nomCol;
+// }
 
-// console.log(currSect);
+$.getJSON( "/cities/codenamesec.json", function( data ) {
+  Object.keys(data).forEach(function(i){
+    if(data[i].codesec == currSect[0] && data[i].id == res){
+      currSect[1]=data[i].libsec;
+    }
+  });
+});
 
 
 var radius = d3.scale.sqrt()
@@ -1286,11 +1293,11 @@ function load(chemin, colDom, col){
 	if (currSect && typeGraph == "stacked" && chemin.split('/')[3].split('_')[0] != "pop0"){
 
 		// Initialisation
-    if (currSect[0] === nomCol) {
-      currSect[1] = nameSec;
-    } else {
-      currSect[1];
-    }
+    // if (currSect[0] === nomCol) {
+    //   currSect[1] = nameSec;
+    // } else {
+    //   currSect[1];
+    // }
 
 		$("#mainGr2").html("<strong>" + titleGraph2 + "</strong></br>" + "<span id = 'nameSect'>" + currSect[1] + "</span>");
 
@@ -3311,7 +3318,6 @@ function load(chemin, colDom, col){
 
 						currSect[1] = d.properties.LIB ;
 						d3.select('#mainGr2').html('<strong>' + titleGraph2 + '</strong></br>' + '<span id = "nameSect">' + currSect[1] + '</span>');
-
 						// DISPLAY SECTOR CHARTS FROM SELECTION
             currSect[0] = d.properties.Secteur_EM ;
 						if (currSect && typeGraph == 'simple'){
