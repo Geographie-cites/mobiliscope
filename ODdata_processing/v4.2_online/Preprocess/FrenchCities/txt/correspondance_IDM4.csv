@@ -1,0 +1,74 @@
+CODE_INSEE_VC;NOM_VC;ENQUETE;ENQUETE_MIN
+01053;Bourg-en-Bresse;;
+04112;Marseille;;
+05061;Gap;;
+06088;Nice;NICE;Nice
+11069;Carcassonne;CARCASSONNE;Carcassonne
+13055;Marseille;MARSEILLE;Marseille
+14118;Calvados;CAEN;Caen
+16015;Angoulême;ANGOULEME;Angoulême
+17299;Rochefort;;
+17300;La Rochelle;LA ROCHELLE;La Rochelle
+17306;Royans;;
+17415;Saintes;;
+20004;Ajaccio;;
+21231;Dijon;DIJON;Dijon
+22050;Dinan;;
+22278;Saint Brieuc;SAINT BRIEUC;Saint-Brieuc
+25056;Besançon;BESANCON;Besançon
+26362;Valence;VALENCE;Valence
+27229;Evreux;;
+29019;Brest;BREST;Brest
+29232;Quimper;QUIMPER;Quimper
+30189;Nîmes;NIMES;Nîmes
+31555;Toulouse;TOULOUSE;Toulouse
+33063;Bordeaux;BORDEAUX;Bordeaux
+34032;Béziers;BEZIERS;Béziers
+34172;Montpellier;MONTPELLIER;Montpellier
+35238;Rennes;RENNES;Rennes
+37261;Tours;TOURS;Tours
+38185;Grenoble;GRENOBLE;Grenoble
+42187;Roanne;;
+42218;Saint Etienne;SAINT ETIENNE;Saint-Étienne
+44109;Loire_Atlantinque;NANTES;Nantes
+49007;Angers;ANGERS;Angers
+50129;Cherbourg;CHERBOURG;Cherbourg
+53130;Laval;;
+54323;Longwy;LONGWY;Longwy
+54395;Nancy;NANCY;Nancy
+57106;Bouzonville;;
+57463;Metz;METZ;Metz
+57672;Thionville;THIONVILLE;Thionville
+59178;Douai;DOUAI;Douai
+59183;Dunkerque;DUNKERQUE;Dunkerque
+59350;Lille;LILLE;Lille
+59606;Valenciennes;VALENCIENNES;Valenciennes
+60057;Beauvais;;
+60175;Creil;CREIL;Creil
+61001;Alençon;ALENCON;Alençon
+62041;Arras;;
+63113;Clermont-Ferrand;CLERMONT FERRAND;Clermont-Ferrand
+64102;Bayonne;BAYONNE;Bayonne
+67482;Bas-Rhin;STRASBOURG;Strasbourg
+68297;Saint Louis;;
+69123;Lyon;LYON;Lyon
+71076;Châlon sur Saone;;
+71153;Le Creusot;;
+74010;Annecy;ANNECY;Annecy
+74012;Annemasse;ANNEMASSE;Annemasse
+75056;Paris;IDF;Paris
+76351;Le Havre;LE HAVRE;Le Havre
+76540;Rouen;ROUEN;Rouen
+78423;Saint Quentin en Yvelines;;
+79191;Niort;NIORT;Niort
+80021;Amiens;AMIENS;Amiens
+81004;Albi;ALBI;Albi
+83061;Var;;
+83081;Nice;;
+85191;La Roche sur Yon;;
+85194;Les Sables d'Olonne;;
+86194;Poitiers;POITIERS;Poitiers
+89419;Puisaye Forterre;;
+97209;Martinique;MARTINIQUE;Fort-de-France
+97302;Cayenne;;
+97400;La Réunion;LA REUNION;Saint-Denis

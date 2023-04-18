@@ -1,4 +1,0 @@
-Les données des EOD ont été téléchargées au début de l’année 2021 aux adresses suivantes :
--	Bogotá : https://www.simur.gov.co/encuestas-de-movilidad
--	Santiago : http://www.sectra.gob.cl/biblioteca/detalle1.asp?mfn=3253
--	São Paulo : http://www.metro.sp.gov.br/pesquisa-od/
