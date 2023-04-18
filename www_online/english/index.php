@@ -86,9 +86,12 @@
 
           <div class="col-sm-12 col-md-6 ">
             <section class="right-side">
-              <h4>The inhabitants of a city are not immobile: their daily movements cause changes in the social and spatial organization of cities. </br>
-                </br>
-                The Mobiliscope is a geovisualization tool that shows the evolution of the population present in French and Canadian cities and in 3 Latin American cities during the 24 hours of the day. It thus makes it possible to study the changes in the social composition of neighborhoods over the hours. </br>
+              <h4>People are not immobile and their daily trips lead to changes in the organisation of urban areas and their surroundings.</br></br>
+
+                Mobiliscope is a geovisualisation tool that shows the <b>variations of the ambient population</b> during the 24 hours of a typical weekday. It offers <b>interactive maps and graphs</b> to explore <b>hour by hour</b> the attractiveness of areas according to the demographic and social profile of ambient populations, their activities and their modes of transport.</br></br>
+
+                It is a <b>free and open source</b> tool that is part of an open science approach.</br>
+
               </h4>
               <div class="row hidden-sm">
                 <button class="style-button mb50"><a href="/en/info/about/summary">Learn more</a></button>
@@ -112,8 +115,11 @@
             <h2 class="section-title">A GEOVIZUALIZATION TOOL RESULTING FROM LARGE PUBLIC TRANSPORTATION SURVEYS</h2>
             <div class="img-section-lg"><img src="/dist/assets/bandeau-violet-en-v4.png" /></div>
             <p>
-              Stemming from major public transportation surveys, the data on daily trips were edited and analyzed by a public research laboratory.
-              From this work was born the Mobiliscope which allows everyone to explore the spatial distribution of populations and the social segregation not only at night but also during the day.
+              Stemming from major public transportation surveys, the data on daily trips were edited and analyzed by a public research laboratory.</br>
+              
+              From this work was born the Mobiliscope which allows everyone to explore the spatial distribution of populations and the social segregation not only at night but also during the day.</br>
+
+              It is available for a large number of city regions in France, Canada and Latin America.
             </p>
           </div>
           <button class="section-link">  <a href="/en/info/methods/data">Discover the data</a></button>
@@ -128,8 +134,12 @@
             <div class="img-section"><span><img src="/dist/assets/people-en-v4.png" /></span></div>
             <div class="img-section"><span><img src="/dist/assets/location-en-v4.png" /></span></div>
             <p>
-              Stemming from major public surveys, the data on daily trips were edited and analyzed by a public research laboratory.
-              From this work was born the Mobiliscope which allows everyone to explore the spatial distribution of populations and the social segregation not only at night but also during the day. </p>
+              Stemming from major public transportation surveys, the data on daily trips were edited and analyzed by a public research laboratory.</br>
+              
+              From this work was born the Mobiliscope which allows everyone to explore the spatial distribution of populations and the social segregation not only at night but also during the day.</br>
+
+              It is available for a large number of city regions in France, Canada and Latin America. 
+            </p>
           </div>
           <button class="section-link">  <a href="/en/info/methods/data">Discover the data</a></button>
         </div>

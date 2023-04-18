@@ -22,6 +22,15 @@ function popup_pop0(e){
 	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
 
 }
+function popup_pop0_qc(e){
+   e.stopPropagation();
+	$("#popup").css("display", "block") ;
+	$(".popup-container").css("display", "inherit") ;
+	$("#text").html( "" );
+	$("#text").html("<h3>Present population</h3><p>The <span style='color:" + gammePop[0] + "'><strong>whole population</strong></span> concern all people <b>aged 15 and over</b>.</p>" );
+	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
+
+}
 
 // Resident population
 function popup_respop(e){

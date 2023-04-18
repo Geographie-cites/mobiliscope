@@ -38,9 +38,25 @@
             <div class = "row col-order-4">
 
                 <?php
+
+                    $frenchcities = [];
+                    $cancities = [];
+                    $ascities = [];
+
+                    foreach( $city as $key=>$val ){
+
+                        if( $val['zoneGeo'] == 'FR' )
+                            $frenchcities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'CA' )
+                            $cancities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'AS' )
+                            $ascities[$key] = $val["longName"][$language];
+                    }
+
                     $len = sizeof($frenchcities);
                     $numpercol = (int) ($len / 4) +1 ;
-
 
                     for($i = 0; $i < 4; $i++){
                         echo "<div class = 'col-sm-6 col-md-3'><section>";
@@ -48,8 +64,9 @@
                             for($j = 0; $j < $numpercol; $j++){
                                 $theCity = !empty(array_values($frenchcities)[$numpercol*$i+$j]) ? array_values($frenchcities)[$numpercol*$i+$j] : '';
                                 $frenchcitiesSlugs = array_keys($frenchcities);
-                                if(!empty($theCity))
+                                if(!empty($theCity)){
                                     echo "<li><i class='arrow right'></i><a href='/" . $language . '/geoviz/' . $frenchcitiesSlugs[$numpercol*$i+$j] . "'>" . array_values($frenchcities)[$numpercol*$i+$j] . "</a></li>  ";
+                                }
                             }
                             echo "</ul><br>";
                         echo "</section></div>";
@@ -234,23 +251,23 @@
 <div>
   <div class="card help-card">
 
+    <div class="help-card-header">
         <label for="help-modal-control" id="label-modal">
           <img class="modal-close"  src="/dist/assets/close-white.png" />
         </label>
 
-
-    <h3 class="section">Help to use the Mobiliscope</h3>
-
+        <h3 class="section">Help to use the Mobiliscope</h3>
+    </div>
     <div class="help-card-container">
 
        <h5><b>1) Preliminary notes</b></h5>
 
         <p class="section">
-            Initial data come from Origin-Destination surveys (from 2009 to 2019). Once transformed, these data have been used to estimate the present population in every district <b>at exact hours</b> (04.00, 05.00 etc.) during a <b>typical weekday</b> (Monday-Friday).<br/><br/>
+            Initial data come from Origin-Destination surveys (from 2009 to 2019). Once transformed, these data have been used to estimate the ambient population in every district <b>at exact hours</b> (04.00, 05.00 etc.) during a <b>typical weekday</b> (Monday-Friday).<br/><br/>
 
-            Number and proportion of present population aggregated by district and hour are estimation : they are subject to <b>statistical margins of error</b>.<br/><br/>
+            Number and proportion of ambient population aggregated by district and hour are estimation : they are subject to <b>statistical margins of error</b>.<br/><br/>
 
-            <b>58 city regions</b>(spread over 5 countries) are included in the actual version of the Mobiliscope (v4.1).</br>
+            <b>58 city regions</b> (spread over 5 countries) are included in the actual version of the Mobiliscope (v4.2).</br>
             To choose the city region you want to observe, please selection the city region in the drop-down menu <img src="/dist/assets/menu-icon.svg" width="50px" height= "50px"/> or use the magnify tool <img src="/dist/assets/search-black.svg" width="20px" height= "20px"/> from a search by name.
         </p>
 
@@ -280,7 +297,7 @@
             Select one district by clicking on the map.<br/><br/>
             <img src="/dist/assets/select-secteur-en.png" alt="select-secteur" width="600"/><br/><br/>
 
-            Have a look at the chart entitled <b>"In the selected district"</b> where you can follow hourly variations of present population (for each group of the selected indicator) in the district under consideration. Colours have the same colour code than in the indicator menu. Here, last transportation mode used by present population in the selected district was coloured in blue for public transportation, in pink for private motor vehicle and in green for soft mobility.<br/><br/>
+            Have a look at the chart entitled <b>"In the selected district"</b> where you can follow hourly variations of ambient population (for each group of the selected indicator) in the district under consideration. Colours have the same colour code than in the indicator menu. Here, last transportation mode used by present population in the selected district was coloured in blue for public transportation, in pink for private motor vehicle and in green for soft mobility.<br/><br/>
             <img src="/dist/assets/graph-empile-en.png" alt="graph-empile" width="500"/><br/><br/>
             
             By clicking on 'Unique' mode, you can limit representation of the hourly variations for only one subgroup&nbsp;:<br/><br/>
@@ -295,12 +312,12 @@
             <b>Duncan Index</b> (also called Dissimilarity Index) measures the evenness with which a specific population subgroup is distributed across districts in a whole region. This index score can be interpreted as the percentage of people belonging to the subgroup under consideration that would have to move to achieve an even distribution in the whole region. <br/><br/>
 
             <img src="/dist/assets/duncan-en.png" alt="duncan" width="500"/> <br/><br/>
-            The example above displays, hour by hour, the Duncan Index (Paris region - 2010) for to present people residing in or outside 'Poverty Areas'. Duncan index range from 0 to 1. A Duncan Segregation Index value of 0 occurs when the share of present people residing in 'Poverty Areas' in every district is the same as the share of people residing in 'Poverty Areas' in the whole region. Conversely, a Duncan Segregation Index value of 1 occurs when each district gathers only one of the two population subgroups. In our example, Duncan value is found to be higher between 8pm and 7am, indicating a stronger segregation at night (further away from an even distribution): this corresponds to the hours when most of the individuals are at home or in their district of residence. The value of the index decreases during the day: because of their mobility, people residing in and outside of 'Poverty Areas' are more mixed (situation closer to even distribution).<br/><br/>
+            The example above displays, hour by hour, the Duncan Index (Paris region - 2010) for to ambient population residing in or outside 'Poverty Areas'. Duncan index range from 0 to 1. A Duncan Segregation Index value of 0 occurs when the share of ambient population residing in 'Poverty Areas' in every district is the same as the share of people residing in 'Poverty Areas' in the whole region. Conversely, a Duncan Segregation Index value of 1 occurs when each district gathers only one of the two population subgroups. In our example, Duncan value is found to be higher between 8pm and 7am, indicating a stronger segregation at night (further away from an even distribution): this corresponds to the hours when most of the individuals are at home or in their district of residence. The value of the index decreases during the day: because of their mobility, people residing in and outside of 'Poverty Areas' are more mixed (situation closer to even distribution).<br/><br/>
 
-            By clicking on the "Moran" button, a second graph is displayed with the <b>Moran index</b> which measures the similarity of the profiles of the population present for the neighbouring districts. <br/><br/>
+            By clicking on the "Moran" button, a second graph is displayed with the <b>Moran index</b> which measures the similarity in the profiles of the ambient population for neighbouring districts. <br/><br/>
 
             <img src="/dist/assets/moran-en.png" alt="moran" width="500"/><br/><br/>
-            The Moran index values vary from -1 to +1: the closer its value is to 1, the more similar the spatially close districts are (with same distribution of the present subgroup under consideration); the closer its value is to -1, the more dissimilar the spatially close districts are (with different distribution of the present subgroup under consideration). When the Moran index value is 0, no similarity/dissimilarity pattern between neighbouring districts appears in the whole region. In our example, the Moran index values are positive and increase during the day: it means that spatial blocks of similar districts (according to the proportion of inhabitants of 'Poverty Areas') are formed during the day. This result does not contradict Duncan's index but complements it: people residing in 'Poverty Areas' visit during the day other districts than their residential district but tend to visit districts close to each other. And the same is true for people residing outside 'Poverty Areas'<br/><br/>
+            The Moran index values vary from -1 to +1: the closer its value is to 1, the more similar the spatially close districts are (with same distribution of the subgroup under consideration); the closer its value is to -1, the more dissimilar the spatially close districts are (with different distribution of the subgroup under consideration). When the Moran index value is 0, no similarity/dissimilarity pattern between neighbouring districts appears in the whole region. In our example, the Moran index values are positive and increase during the day: it means that spatial blocks of similar districts (according to the proportion of inhabitants of 'Poverty Areas') are formed during the day. This result does not contradict Duncan's index but complements it: people residing in 'Poverty Areas' visit during the day other districts than their residential district but tend to visit districts close to each other. And the same is true for people residing outside 'Poverty Areas'<br/><br/>
 
             It should be noted that in the case of an indicator subdivided into two groups (eg. male/female or people residing in/outside 'Poverty Areas'), Duncan and Moran values are the same for the two groups and therefore the curves are overlapping.<br/><br/>
 
@@ -340,9 +357,6 @@
             Enjoy!
         </p>
 
-        <div class="close-help">
-            <label for="help-modal-control" class="" > <i class="fas fa-times"></i><b>&nbsp;Close help window</b></label>
-        </div>
    </div>
   </div>
 </div>

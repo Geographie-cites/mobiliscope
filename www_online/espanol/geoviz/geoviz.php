@@ -10,30 +10,13 @@ include ('../settings.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="<?php echo $curPage['pageMeta']; ?>" />
 	<meta name="author" content="Aurélie Douet & Constance Lecomte">
-
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-dispatch.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-selection.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-transition.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-zoom.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-drag.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-array.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-geo.v1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="https://unpkg.com/d3-geo-scale-bar@0.2.0/build/d3-geo-scale-bar.min.js"></script>
+	<link rel="icon" href="/dist/assets/favicon.png">
 
 
-<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
-<script type="text/javascript" charset="utf-8" src="https://d3js.org/d3-array.v1.min.js"></script>
-
-<link rel="icon" href="/dist/assets/favicon.png">
-
-
-<!-- leaflet -->
-<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> -->
-<!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script> -->
+<script src="/dist/geoviz.js"></script>
+<script type="text/javascript" charset="utf-8" src="/dist/scripts/geostats.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/dist/scripts/leaflet.js"></script>
 <script type="text/javascript" charset="utf-8" src="/dist/scripts/leaflet-src.js"></script>
-<script src="/dist/geoviz.js"></script>
 <script type="text/javascript" charset="utf-8" src="/dist/scripts/L.D3SvgOverlay.min.js"></script>
 
 <meta property="og:locale" content="es_ES" />
@@ -53,7 +36,23 @@ include ('../settings.php');
 <meta name="twitter:image" content="https://mobiliscope.cnrs.fr/dist/assets/mobiliscope-tw.png" />
 
 <link rel='stylesheet'  href='/dist/geoviz.bundle.css' type='text/css' media='all' />
-
+<script type="text/javascript">
+<?php
+	include('../../data/translation.php');
+	$_t = $translation['frontTranslation'];
+	echo "var translation = " . json_encode($_t) ;
+?>
+</script>
+<script type="text/javascript">
+	<?php 
+		echo "const city = '" . $page . "'"; 
+	?>
+</script>
+<script type="text/javascript">
+<?php
+	echo "var paramCity = " . json_encode($city) ;
+?>
+</script>
 <!-- Matomo -->
 <script type="text/javascript">
   var _paq = window._paq = window._paq || [];
@@ -77,23 +76,18 @@ include ('../settings.php');
 
 		<?php include('../topbar.php');?>
 
-		<div class="container-top-info">
+		<div id="geoviz-container">
 
 			<div id="city-name">
-				<h2></h2>
+				<h2><?php echo $city[$page]['htmlName'][$language];?></h2>
 			</div>
 
-			<div id="menu-mobile" class="menu menu-sm">
-				<?php include('accordeon-menu.php'); ?>
-			</div>
-
-
-			<div  class="container-timeline">
+			<div  id="container-timeline">
 				<div id = "play" class="playB" data-tooltip="down 1000" aria-label=""></div>
 				<div id="timeline">
 					<div id="slider"></div><div id="timeAxis"></div>
 				</div>
-				<label class="" for="help-modal-control" data-tooltip="left 1000" aria-label="Ayuda para la aplicación">
+				<label for="help-modal-control" data-tooltip="left 1000" aria-label="Ayuda para la aplicación">
 					<img class="ask" src="/dist/assets/ask.svg"/>
 				</label>
 				<label for="share-modal-control" data-tooltip="left 1000" aria-label="Comparte esta página">
@@ -101,69 +95,75 @@ include ('../settings.php');
 				</label>
 			</div>
 
-		</div>
+			<ul id= "geoviz-menu">
+				<?php include('../../geoviz_menu.php'); ?>
+			</ul>
 
-		<div id= "menu" class="menu menu-lg">
-			<?php include('accordeon-menu.php'); ?>
-		</div>
+			<div id="geoviz-map-title">
 
-		<div class = "cont" id = "mapTitleCont">
-			<div class = "fittext1" id = "mapTitle" lab = ""></div>
-			<div onclick="popup_mapTitle1()" data-tooltip="down 1000" aria-label="Información" class="cont-picto">
-				<span class="helpTitle"></span>
-			</div>
-			<a href="" id = "stacked-dowload" data-tooltip="down 1000" aria-label="Descargar los datos" class="cont-picto">
-			</a>
-		</div>
-
-		<div id="map-container"></div>
-
-		<div class="popup-container">
-			<div id= "popup">
-				<img id = "close" src ="/dist/assets/close-white.png"></img>
-				<div id = "text"></div>
-			</div>
-		</div>
-
-		<div class="menu-graphiques" >
-			<div id="picto-graph-container" style="margin-left: 1em;" data-tooltip="down 1000" aria-label="Cerrar gráficos">
-			<img  class="picto-graph" src='/dist/assets/close-graphiques.png'/>
-			</div>
-		</div>
-
-		<div id = "graphiques">
-
-			<div class="graphiques-bloc">
-				<div id = "mainGr2Cont">
-					<span id="mainGr2"></span>
-					<img src='/dist/assets/download.svg' />
+				<div class = "cont" id = "mapTitleCont">
+					<div class = "fittext1" id = "mapTitle" lab = ""></div>
+					<div onclick="popup_mapTitle1()" data-tooltip="down 1000" aria-label="Información" class="cont-picto">
+						<span class="helpTitle"></span>
+					</div>
+					<a href="" id = "stacked-dowload" data-tooltip="down 1000" aria-label="Descargar los datos" class="cont-picto">
+					</a>
 				</div>
-				<div class="cont" id = "titleGr2Cont"><span class = "fittext1" id = "titleGr2"></span></div>
-				<div id= "grSect"></div>
-				<div id="altGr22"></div><div id="altGr12"></div>
+
+				<div id="map-container"></div>
+
 			</div>
-			<div class="graphiques-bloc">
-				<div id = "mainGr1Cont">
-					<span id = "mainGr1"></span>
-					<a id = "segreg-dowload" class="mainGr1-tooltip" data-tooltip="down 1000" aria-label="Descargar">
-				  	</a>
+
+			<div class="popup-container">
+				<div id= "popup">
+					<img id = "close" src ="/dist/assets/close-white.png"></img>
+					<div id = "text"></div>
 				</div>
-				<div class = "cont" id = "titleGr1Cont"><span class = "fittext1" id = "titleGr1"></span></div>
-				<div id= "grIDF"></div>
-                <div id="altGr11"></div><div id="altGr21"></div>
+			</div>
+
+			<div id="geoviz-charts">
+				
+				<div class="menu-graphiques" >
+					<div id="picto-graph-container" style="margin-left: 1em;" data-tooltip="down 1000" aria-label="Cerrar gráficos">
+					<img  class="picto-graph" src='/dist/assets/close-graphiques.png'/>
+					</div>
+				</div>
+
+				<div id = "graphiques">
+
+					<div class="graphiques-bloc1">
+						<div id = "mainGr1Cont">
+							<span id = "mainGr1"></span>
+							<a id = "segreg-dowload" class="mainGr1-tooltip" data-tooltip="down 1000" aria-label="Descargar"></a>
+						</div>
+						<div class = "cont" id = "titleGr1Cont"><span class = "fittext1" id = "titleGr1"></span></div>
+						<div id= "grIDF"></div>
+		        <div class="alt"><div id="altGr11"></div><div id="altGr21"></div></div>
+					</div>
+
+					<div class="graphiques-bloc2">
+						<div id = "mainGr2Cont">
+							<span id="mainGr2"></span>
+							<img src='/dist/assets/download.svg' />
+						</div>
+						<div class="cont" id = "titleGr2Cont"><span class = "fittext1" id = "titleGr2"></span></div>
+						<div id= "grSect"></div>
+						<div class="alt"><div id="altGr22"></div><div id="altGr12"></div></div>
+					</div>
+					
+				</div>
+
 			</div>
 		</div>
 
-
-
-	<script type="text/javascript" src="/cities/<?php echo $page; ?>.js"></script>
-	<script type="text/javascript" src='/dist/scripts/loads.js'></script>
-	<script type="text/javascript" src='/dist/scripts/text-es.js'></script>
+	<script type="text/javascript" src="/data/<?php echo $page; ?>/paramgeom.js"></script> 
+	<script type="text/javascript" src='/data/colors.js'></script>
 	<script type="text/javascript" src='/dist/scripts/load.js'></script>
-	<script type="text/javascript" src='/dist/scripts/popups-es.js'></script>
+	<script type="text/javascript" src='/dist/scripts/controller.js'></script>
+	<script type="text/javascript" src='/dist/scripts/view.js'></script>
+	<script type="text/javascript" src='/dist/scripts/popups.js'></script>
 	<script type="text/javascript" src="/dist/scripts/typeahead.bundle.min.js"></script>
 	<script type="text/javascript" src="/dist/scripts/get-param.js"></script>
-
 
 </body>
 </html>

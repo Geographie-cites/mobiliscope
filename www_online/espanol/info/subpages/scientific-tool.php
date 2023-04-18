@@ -1,0 +1,43 @@
+<div class = "corps">
+    <section>
+	<h2>Una herramienta de investigación</h2>
+	</section>
+
+	<section>
+		<p>
+		Mobiliscope se sitúa en la intersección de varios campos de investigación, en continuidad con los trabajos de la <i>time-geography</i>.
+		</p>
+
+		<p>
+		En los trabajos científicos sobre <b>segregación</b> social o <b>efectos de barrio</b>, los estudios sobre la movilidad cotidiana de la población siguen siendo insuficientes. Las divisiones socio-espaciales de las ciudades y sus lógicas internas se analizan esencialmente según los lugares de residencia. No obstante, los desplazamientos cotidianos pueden (i) conducir a que la población se exponga a otros barrios y no sólo a sus barrios de residencia, y (ii) cambiar la composición social de los barrios y la segregación de las ciudades (<a href = "/pdf/2017_SegregationAroundTheClock.pdf"target="_blank">Le Roux et al., 2017</a>). Estas dinámicas cotidianas deben considerarse aún más al analizar las lógicas espaciales relativas a la producción y reproducción de desigualdades sociales (educación, empleo, salud, etc.).
+		</p>
+
+		<p> Los ritmos cotidianos de la ciudad pueden así analizarse en función de la posición socioeconómica de los individuos, pero igualmente en función del género. Algunos análisis provenientes de Mobiliscope han puesto de relieve la <b>ocupación de la ciudad ligada al género</b> a lo largo de las 24 horas del día. En este sentido, Mobiliscope permite proyectar en el espacio y el tiempo las restricciones a las que mujeres y hombres están sometidos de manera desigual (<a href = "https://asmn.univ-nantes.fr/index.php?id=465"target="_blank">Vallée, 2020</a>).
+		</p>
+
+		<p>
+		La información procedente de Mobiliscope puede alimentar <b>modelos de simulación</b> (SMA) en los que los datos espacio-temporales sobre desplazamientos o localización de la población merecen ser integrados –y sobre territorios con configuraciones socio-espaciales variadas–. Dotar a los agentes de comportamientos más realistas en el espacio y el tiempo es sumamente útil para simular las dinámicas que operan tanto con el paso de las horas como de los años.
+		</p>
+
+		<p>
+		Al defender un enfoque dinámico del espacio, Mobiliscope participa en la discusión sobre la eficacia de las <b>políticas territoriales selectivas</b>, tradicionalmente centradas en un enfoque estático y residencial. Cuando se reflexiona sobre los "barrios prioritarios" y estos se definen según el perfil de la población residente, en realidad se están ignorando un cierto número de mecanismos de producción y reproducción de desigualdades. 
+
+			<h2>
+			<figure class="inline">
+			  	<img src="/dist/assets/aquarium.png" alt="aquariumfr" width="500"/>
+			  	<figcaption>"La definición de los barrios que concentran poblaciones prioritarias a lo largo del tiempo"</br>in <a href = "/pdf/2017_TargetAreas.pdf" target="_blank">Challenges in targeting areas for public action. Target areas at the right place and at the right time,</a></figcaption>
+			</figure>
+			</h2>
+
+		</p>
+
+
+	</section>
+
+	<p>
+		<button class="style-button mb50"><a href="/es/info/multitask-tool/pedagogical-tool">Descubra el alcance pedagógico de la herramienta</a></button>
+	</p>
+
+
+
+</div>

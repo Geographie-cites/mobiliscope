@@ -22,7 +22,14 @@ function popup_pop0(e){
 	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
 
 }
+function popup_pop0_qc(e){
+	e.stopPropagation();
+	$("#popup").css("display", "block") ;
+	$(".popup-container").css("display", "inherit") ;
+	$("#text").html("<h3>Población total</h3><p>La <span style='color:" + gammePop[0] + "'><strong>población total</strong></span> se refiere a todas las personas de 15 años o más</b>.</p>" );
+	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
 
+}
 // Resident population
 function popup_respop(e){
 	e.stopPropagation();

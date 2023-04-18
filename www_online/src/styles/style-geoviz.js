@@ -10,4 +10,4 @@ import dropdown from  '../styles/dropdown.scss';
 import tooltip from  '../styles/tooltip.scss';
 import d3slider from  '../styles/d3.slider.css';
 import leaflet from  '../styles/leaflet.scss';
-import geoviz from  '../styles/geoviz.scss';
+import geoviz from  '../styles/geoviz-container.scss';

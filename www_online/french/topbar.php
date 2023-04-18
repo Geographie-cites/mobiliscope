@@ -35,9 +35,25 @@
             <div class = "row col-order-4">
 
                 <?php
+
+                    $frenchcities = [];
+                    $cancities = [];
+                    $ascities = [];
+
+                    foreach( $city as $key=>$val ){
+
+                        if( $val['zoneGeo'] == 'FR' )
+                            $frenchcities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'CA' )
+                            $cancities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'AS' )
+                            $ascities[$key] = $val["longName"][$language];
+                    }
+
                     $len = sizeof($frenchcities);
                     $numpercol = (int) ($len / 4) +1 ;
-
 
                     for($i = 0; $i < 4; $i++){
                         echo "<div class = 'col-sm-6 col-md-3'><section>";
@@ -45,8 +61,9 @@
                             for($j = 0; $j < $numpercol; $j++){
                                 $theCity = !empty(array_values($frenchcities)[$numpercol*$i+$j]) ? array_values($frenchcities)[$numpercol*$i+$j] : '';
                                 $frenchcitiesSlugs = array_keys($frenchcities);
-                                if(!empty($theCity))
+                                if(!empty($theCity)){
                                     echo "<li><i class='arrow right'></i><a href='/" . $language . '/geoviz/' . $frenchcitiesSlugs[$numpercol*$i+$j] . "'>" . array_values($frenchcities)[$numpercol*$i+$j] . "</a></li>  ";
+                                }
                             }
                             echo "</ul><br>";
                         echo "</section></div>";
@@ -63,6 +80,7 @@
                 <?php
                     $len = sizeof($cancities);
                     $numpercol = (int) ($len / 4) +1 ;
+
 
 
                     for($i = 0; $i < 4; $i++){
@@ -89,7 +107,6 @@
                 <?php
                     $len = sizeof($ascities);
                     $numpercol = (int) ($len / 4) +1 ;
-
 
                     for($i = 0; $i < 4; $i++){
                         echo "<div class = 'col-sm-6 col-md-3'><section>";
@@ -232,12 +249,13 @@
 <div>
   <div class="card help-card">
 
-    <label for="help-modal-control" id="label-modal">
-      <img class="modal-close"  src="/dist/assets/close-white.png" />
-    </label>
+    <div class="help-card-header">
+        <label for="help-modal-control" id="label-modal">
+          <img class="modal-close"  src="/dist/assets/close-white.png" />
+        </label>
 
-    <h3 class="section">Aide sur l'utilisation de l'interface</h3>
-
+        <h3 class="section">Aide sur l'utilisation de l'interface</h3>
+    </div>
     <div class="help-card-container">
 
 	   <h5><b>1) Précisions </b></h5>
@@ -247,7 +265,7 @@
 
             Les proportions/nombres de personnes présentes par secteur et par heure affichées dans le Mobiliscope sont des estimations : elles sont soumises à une marge d’erreur statistique.<br/><br/>
 
-            <b>58 villes et leur périphérie</b> (réparties dans 5 pays) sont incluses dans la version actuelle du Mobiliscope (v4.1). Pour choisir la ville à observer, vous pouvez utiliser le menu déroulant <img src="/dist/assets/menu-icon.svg" width="60px" height= "60px"/> ou effectuer une recherche par nom de commune via l'outil loupe <img src="/dist/assets/search-black.svg" width="25px" height= "25px"/>.  
+            <b>58 villes et leur périphérie</b> (réparties dans 5 pays) sont incluses dans la version actuelle du Mobiliscope (v4.2). Pour choisir la ville à observer, vous pouvez utiliser le menu déroulant <img src="/dist/assets/menu-icon.svg" width="60px" height= "60px"/> ou effectuer une recherche par nom de commune via l'outil loupe <img src="/dist/assets/search-black.svg" width="25px" height= "25px"/>.  
         </p>
 
        <h5><b>2) Sélectionner un indicateur à afficher sur la carte centrale et les graphiques</b></h5>
@@ -310,7 +328,7 @@
             <img src="/dist/assets/osm-detail-fr.png" alt="osm-details" width="360" margin-right="5"/>
             <img src="/dist/assets/satellite-fr.png" alt="satellite" width="360"/><br/><br/>
 
-            Ce menu contient d'autres couches d'information specfiques à certaines villes. Vous pouvez par exemple afficher le périmètre des quartiers prioritaires (QPV) des villes françaises ou les couronnes centre/périphérie des villes latino-américaines.<br/><br/>
+            Ce menu contient d'autres couches d'information spécifiques à certaines villes. Vous pouvez par exemple afficher le périmètre des quartiers prioritaires (QPV) des villes françaises ou les couronnes centre/périphérie des villes latino-américaines.<br/><br/>
             <img src="/dist/assets/qpv-fr.png" alt="qpv" width="400" margin-right="5"/>
             <img src="/dist/assets/couronne-fr.png" alt="couronne" width="400"/>
         </p>
@@ -340,9 +358,6 @@
             Bonne visite !
         </p>
 
-        <div class="close-help">
-            <label for="help-modal-control" class="" > <i class="fas fa-times"></i><b>&nbsp;Fermer la fenêtre d'aide</b></label>
-        </div>
    </div>
   </div>
 </div>

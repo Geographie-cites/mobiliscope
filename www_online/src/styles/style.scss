@@ -13,7 +13,6 @@ html, * {
 }
 
 body {
-  overflow-x: hidden;
   height: 100%;
   width: 100%;
   background: #ffffff !important;
@@ -392,11 +391,21 @@ thead{
 
 .card.help-card {
   width: 80vw;
-  height: 90vh;
+  //height: 90vh;
   max-width: 90vw;
-  max-height: 90vh !important;
+  max-height: 80vh !important;
   border: none!important;
+  top: 5vh;
 
+  .help-card-header{
+    position: fixed;
+    width: inherit;
+    margin-top: -72px;
+    h3{
+      margin: 0;
+      padding-right: 60px
+    }
+  }
    h3{
      background: #8780a4;
      color: white;
@@ -429,6 +438,9 @@ thead{
 }
 .help-card-container{
   padding: 20px;
+  .close-help {
+      margin-bottom: 100px;
+  }
 }
 
 

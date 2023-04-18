@@ -11,7 +11,7 @@ function init (data, cb){
 var currentPathname = window.location.pathname;
 var res = currentPathname.slice(11);
 
-$.getJSON( "/cities/codenamesec.json", function( data ) {
+$.getJSON( "/data/codenamesec.json", function( data ) {
     Object.keys(data).forEach(function(i){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
@@ -111,7 +111,7 @@ $('.typeahead').typeahead({
 
   $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
     currSect = [sec[suggestion], secN[suggestion]];
-    var cityPage = '/' + language + '/geoviz/' + map[suggestion] + "?m1=2&m2=1&m3=3&m4=nb&t=14&s=" + currSect[0];
+    var cityPage = '/' + language + '/geoviz/' + map[suggestion] + "?m1=2&m2=2&m3=1&m4=nb&t=14&s=" + currSect[0];
     window.location = cityPage;
   });
 
@@ -305,7 +305,7 @@ $(document).ready(function() {
   }
 
 // lecture du fichier cities : attention en janvier 2022, il fait déjà 10k lignes et 1,5M
-  $.getJSON( "/cities/cities_list.json", function( data ) {
+  $.getJSON( "/data/town_list_autocomplete.json", function( data ) {
     init(data, function(){
       $.getScript('/dist/scripts/home-layers.js',function(){
         if (typeof printMap1 !== 'undefined' && $.isFunction(printMap1)) {

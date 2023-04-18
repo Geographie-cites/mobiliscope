@@ -1,5 +1,12 @@
 ﻿<?php
+include($_SERVER['DOCUMENT_ROOT'].'/data/city.php');
 //phpinfo();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
 $language = "en";
 $page = '';
 $subpage = '';
@@ -9,149 +16,15 @@ $pagePath = '';
 $pageCrumbs = "<a href='/".$language."'>Home</a>";
 
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$curCity = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($city)))? $_GET['city']: 'albi';
 
-// list of cities
-$cities = [
-    'albi'=>'Albi region',
-    'angers'=>'Angers region',
-    'angouleme'=>'Angoulême region',
-    'beziers'=>'Béziers region',
-    'bordeaux'=>'Bordeaux region',
-    'caen'=>'Caen region',
-    'clermont-ferrand'=>'Clermont-Ferrand region',
-    'grenoble'=>'Grenoble region',
-    'la-rochelle'=>'La Rochelle region',
-    'lille'=>'Lille region',
-    'lyon'=>'Lyon region',
-    'marseille'=>'Marseille region',
-    'montpellier'=>'Montpellier region',
-    'montreal' =>'Montreal region',
-    'nancy'=>'Nancy region',
-    'nantes'=>'Nantes region',
-    'nice'=>'Nice',
-	'nimes'=>'Nîmes region',
-    'ottawa-gatineau' =>'Ottawa-Gatineau region',
-    'idf'=>'Paris region',
-    'quebec' =>'Québec region',
-    'quimper'=>'Quimper region',
-    'rennes'=>'Rennes region',
-    'saguenay'=>'Saguenay region',
-    'saint-etienne'=>'Saint-Étienne region',
-    'sherbrooke'=>'Sherbrooke region',
-    'strasbourg'=>'Strasbourg region',
-    'toulouse'=>'Toulouse region',
-    'trois-rivieres'=>'Trois-Rivières region',
-    'valenciennes'=>'Valenciennes region',
-    'alencon'=>'Alençon',
-    'amiens'=>'Amiens',
-    'annecy'=>'Annecy',
-    'annemasse'=>'Annemasse',
-    'bayonne'=>'Bayonne',
-    'besancon'=>'Besancon',
-    'brest'=>'Brest',
-    'carcassonne'=>'Carcassonne',
-    'cherbourg'=>'Cherbourg',
-    'creil'=>'Creil',
-    'dijon'=>'Dijon',
-    'douai'=>'Douai',
-    'dunkerque'=>'Dunkerque',
-    'la-reunion'=>'La Réunion',
-    'longwy'=>'Longwy',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz',
-    'niort'=>'Niort',
-    'poitiers'=>'Poitiers',
-    'rouen'=>'Rouen',
-    'saint-brieuc'=>'Saint-Brieuc',
-    'thionville'=>'Thionville',
-    'tours'=>'Tours',
-    'valence'=>'Valence',
-    'le-havre'=>'Le Havre',
-    'valenciennes2011'=>'Valenciennes et sa région',
-    'bogota'=>'Bogotá region',
-    'santiago'=>'Santiago region',
-    'sao-paulo'=>'São Paulo region'
-];
-
-//French cities
-$frenchcities = [
-    'albi'=>'Albi region',
-    'alencon'=>'Alençon & St-Lô region',
-    'amiens'=>'Amiens region',
-    'angers'=>'Angers region',
-    'angouleme'=>'Angoulême region',
-    'annecy'=>'Annecy region',
-    'annemasse'=>'Annemasse region',
-    'bayonne'=>'Bayonne region',
-    'besancon'=>'Besancon region',
-    'beziers'=>'Béziers region',
-    'bordeaux'=>'Bordeaux region',
-    'brest'=>'Brest region',
-    'caen'=>'Caen region',
-    'carcassonne'=>'Carcassonne region',
-    'cherbourg'=>'Cherbourg region',
-    'clermont-ferrand'=>'Clermont-Ferrand region',
-    'creil'=>'Creil region',
-    'dijon'=>'Dijon region',
-    'douai'=>'Douai region',
-    'dunkerque'=>'Dunkerque region',
-    'grenoble'=>'Grenoble region',
-    'la-reunion'=>'La Réunion',
-    'la-rochelle'=>'La Rochelle region',
-    'le-havre'=>'Le Havre region',
-    'lille'=>'Lille region',
-    'longwy'=>'Longwy region',
-    'lyon'=>'Lyon region',
-    'marseille'=>'Marseille region',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz region',
-    'montpellier'=>'Montpellier region',
-    'nancy'=>'Nancy region',
-    'nantes'=>'Nantes region',
-    'nice'=>'Nice region',
-	'nimes'=>'Nîmes region',
-    'niort'=>'Niort region',
-    'idf'=>'Paris region',
-    'poitiers'=>'Poitiers region',
-    'quimper'=>'Quimper region',
-    'rennes'=>'Rennes region',
-    'rouen'=>'Rouen region',
-    'saint-brieuc'=>'Saint-Brieuc region',
-    'saint-etienne'=>'Saint-Étienne region',
-    'strasbourg'=>'Strasbourg region',
-    'thionville'=>'Thionville region',
-    'toulouse'=>'Toulouse region',
-    'tours'=>'Tours region',
-    'valence'=>'Valence region',
-    'valenciennes'=>'Valenciennes region',
-];
-
-//Canadian cities
-$cancities = [
-    'montreal' =>'Montreal region',
-    'ottawa-gatineau' =>'Ottawa-Gatineau region',
-    'quebec' =>'Québec region',
-    'saguenay'=>'Saguenay region',
-    'sherbrooke'=>'Sherbrooke region',
-    'trois-rivieres'=>'Trois-Rivières region'
-];
-
-//Villes sud-américaines
-$ascities = [
-    'bogota'=>'Bogotá region',
-    'santiago'=>'Santiago region',
-    'sao-paulo'=>'São Paulo region'
-];
 
  // List of pages and their titles
     $pages = [
         'about'=>'About',
         'methods'=>'Methods',
         'multitask-tool'=>'A multitask tool',
-        'open'=>'An open and evolving tool',
+        'open'=>'Open science',
     ];
 
     $subpages = [
@@ -175,7 +48,7 @@ $ascities = [
         ],
 
         'open'=>[
-            'license'=>'Open-source and open-data',
+            'license'=>'Open-data and open-source',
             'evolution'=>'Version history',
         ]
     ];
@@ -192,7 +65,7 @@ $ascities = [
        
         //'methods'=>['title'=>'Mobiliscope – some methodological information','meta'=>'Daily time matters! In the Mobiliscope, city maps and graphs change over the 24h period to explore dynamically copresence between rich and poor, women and men, active and retired people etc.'],
         'data'=>['title'=>'Mobiliscope – data from origin-destination surveys','meta'=>'Using large public origin-destination surveys, the Mobiliscope expands traditional urban studies based on residential census and home-work commuting.'],
-        'indicators'=>['title'=>'Mobiliscope –  crossing individual data in space and time','meta'=>'Let’s explore hourly present population in cities according to their demographic (sex, age) and social (education level, socioprofessional status) profile. Transportation mode is also available. '],
+        'indicators'=>['title'=>'Mobiliscope –  crossing individual data in space and time','meta'=>'Let’s explore hourly ambient population in cities according to their demographic (sex, age) and social (education level, socioprofessional status) profile. Transportation mode is also available. '],
         'geovizualisation'=>['title'=>'Mobiliscope - animated maps over the 24h period ','meta'=>'Spatio-temporal interface has been developed with d3.js library. Choose a city region in France and explore change from animated maps and hourly segregation and spatial autocorrelation indices (Duncan and Moran).'],
        
         //'news'=>['title'=>'Mobiliscope - News','meta'=>'To promote temporal approach in urban inequalities for various audience (national or local planners, scientific world, education community etc.).'],
@@ -223,10 +96,10 @@ $ascities = [
     }
 
     if($section == "geoviz"){
-        $page = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($cities)))? $_GET['city']: 'albi';
+        $page = $curCity;
         $sectionName = "Maps";
         $pagePath = "/".$section."/".$page;
-        $pageName = !empty($pages[$page]) ? $pages[$page] : $cities[$page] ;
+        $pageName = !empty($pages[$page]) ? $pages[$page] : $city[$page]['shortName'];
         $pageCrumbs = "";
     }
 

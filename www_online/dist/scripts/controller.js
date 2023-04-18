@@ -1,0 +1,1 @@
+console.log("controller.js"),initGeovizMenu(),initLeafletMap(),initCodeSec(),$(document).ready((function(){$(".niv-logo button").click((function(){loadGeoviz($(this).data("iduphp"),$(this).data("color"))})),$(".leaflet-control-layers-list label input").change((function(t){setLayerController()})),$(".share-container").click((function(t){getShareInfo($(this).attr("id"))}))}));

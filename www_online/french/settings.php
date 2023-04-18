@@ -1,5 +1,12 @@
 ﻿<?php
+include($_SERVER['DOCUMENT_ROOT'].'/data/city.php');
 //phpinfo();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
 $language = "fr";
 $page = '';
 $subpage = '';
@@ -9,150 +16,15 @@ $pagePath = '';
 $pageCrumbs = "<a href='/".$language."'>Accueil</a>";
 
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$curCity = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($city)))? $_GET['city']: 'albi';
 
-// list of cities
-$cities = [
-    'albi'=>'Albi et sa région',
-    'angers'=>'Angers et sa région',
-    'angouleme'=>'Angoulême et sa région',
-    'beziers'=>'Béziers et sa région',
-    'bordeaux'=>'Bordeaux et sa région',
-    'caen'=>'Caen et sa région',
-    'clermont-ferrand'=>'Clermont-Ferrand et sa région',
-    'grenoble'=>'Grenoble et sa région',
-    'la-rochelle'=>'La Rochelle et sa région',
-    'lille'=>'Lille et sa région',
-    'lyon'=>'Lyon et sa région',
-    'marseille'=>'Marseille et sa région',
-    'montpellier'=>'Montpellier et sa région',
-    'montreal'=>'Montréal et sa région',
-    'nancy'=>'Nancy et sa région',
-    'nantes'=>'Nantes et sa région',
-	'nimes'=>'Nîmes et sa région',
-    'nice'=>'Nice',
-    'ottawa-gatineau'=>'Ottawa-Gatineau et sa région',
-    'idf'=>'Paris et sa région',
-    'quebec'=>'Québec et sa région',
-    'quimper'=>'Quimper et sa région',
-    'rennes'=>'Rennes et sa région',
-    'saguenay'=>'Saguenay et sa région',
-    'saint-etienne'=>'Saint-Étienne et sa région',
-    'sherbrooke'=>'Sherbrooke et sa région',
-    'strasbourg'=>'Strasbourg et sa région',
-    'toulouse'=>'Toulouse et sa région',
-    'trois-rivieres'=>'Trois-Rivières et sa région',
-    'valenciennes'=>'Valenciennes et sa région',
-    'alencon'=>'Alençon',
-    'amiens'=>'Amiens',
-    'annecy'=>'Annecy',
-    'annemasse'=>'Annemasse',
-    'bayonne'=>'Bayonne',
-    'besancon'=>'Besancon',
-    'brest'=>'Brest',
-    'carcassonne'=>'Carcassonne',
-    'cherbourg'=>'Cherbourg',
-    'creil'=>'Creil',
-    'dijon'=>'Dijon',
-    'douai'=>'Douai',
-    'dunkerque'=>'Dunkerque',
-    'la-reunion'=>'La Réunion',
-    'longwy'=>'Longwy',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz',
-    'niort'=>'Niort',
-    'poitiers'=>'Poitiers',
-    'rouen'=>'Rouen',
-    'saint-brieuc'=>'Saint-Brieuc',
-    'thionville'=>'Thionville',
-    'tours'=>'Tours',
-    'valence'=>'Valence',
-    'le-havre'=>'Le Havre',
-    'valenciennes2011'=>'Valenciennes et sa région',
-    'bogota'=>'Bogotá',
-    'santiago'=>'Santiago',
-    'sao-paulo'=>'São Paulo'
-];
-
-
-//Villes françaises
-$frenchcities = [
-    'albi'=>'Albi et sa région',
-    'alencon'=>'Alençon St-Lô et la région',
-    'amiens'=>'Amiens et sa région',
-    'angers'=>'Angers et sa région',
-    'angouleme'=>'Angoulême et sa région',
-    'annecy'=>'Annecy et sa région',
-    'annemasse'=>'Annemasse et sa région',
-    'bayonne'=>'Bayonne et sa région',
-    'besancon'=>'Besancon et sa région',
-    'beziers'=>'Béziers et sa région',
-    'bordeaux'=>'Bordeaux et sa région',
-    'brest'=>'Brest et sa région',
-    'caen'=>'Caen et sa région',
-    'carcassonne'=>'Carcassonne et sa région',
-    'cherbourg'=>'Cherbourg et sa région',
-    'clermont-ferrand'=>'Clermont-Ferrand et sa région',
-    'creil'=>'Creil et sa région',
-    'dijon'=>'Dijon et sa région',
-    'douai'=>'Douai et sa région',
-    'dunkerque'=>'Dunkerque et sa région',
-    'grenoble'=>'Grenoble et sa région',
-    'la-reunion'=>'La Réunion',
-    'la-rochelle'=>'La Rochelle et sa région',
-    'le-havre'=>'Le Havre et sa région',
-    'lille'=>'Lille et sa région',
-    'longwy'=>'Longwy et sa région',
-    'lyon'=>'Lyon et sa région',
-    'marseille'=>'Marseille et sa région',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz et sa région',
-    'montpellier'=>'Montpellier et sa région',
-    'nancy'=>'Nancy et sa région',
-    'nantes'=>'Nantes et sa région',
-    'nice'=>'Nice et sa région',
-    'nimes'=>'Nîmes et sa région',
-    'niort'=>'Niort et sa région',
-    'idf'=>'Paris et sa région',
-    'poitiers'=>'Poitiers et sa région',
-    'quimper'=>'Quimper et sa région',
-    'rennes'=>'Rennes et sa région',
-    'rouen'=>'Rouen et sa région',
-    'saint-brieuc'=>'Saint-Brieuc et sa région',
-    'saint-etienne'=>'Saint-Étienne et sa région',
-    'strasbourg'=>'Strasbourg et sa région',
-    'thionville'=>'Thionville et sa région',
-    'toulouse'=>'Toulouse et sa région',
-    'tours'=>'Tours et sa région',
-    'valence'=>'Valence et sa région',
-    'valenciennes'=>'Valenciennes et sa région',
-];
-
-//Villes canadiennes
-$cancities = [
-    'montreal'=>'Montréal et sa région',
-    'ottawa-gatineau'=>'Ottawa-Gatineau et sa région',
-    'quebec'=>'Québec et sa région',
-    'saguenay'=>'Saguenay et sa région',
-    'sherbrooke'=>'Sherbrooke et sa région',
-    'trois-rivieres'=>'Trois-Rivières et sa région'
-];
-
-//Villes sud-américaines
-$ascities = [
-    'bogota'=>'Bogotá et sa région',
-    'santiago'=>'Santiago et sa région',
-    'sao-paulo'=>'São Paulo et sa région'
-];
 
  // List of pages and their titles
     $pages = [
         'about'=>'A propos',
         'methods'=>'Méthodes',
         'multitask-tool'=>'Un outil multifonction',
-        'open' => "Un outil libre en évolution"
+        'open' => "Science ouverte"
     ];
 
     $subpages = [
@@ -176,11 +48,13 @@ $ascities = [
 
         ],
         'open'=>[
-            'license'=>'Codes, données et visuels libres',
+            'license'=>'Open-data et open-source',
             'evolution'=>'Historique des versions',
         ]
 
     ];
+
+
 
     // this description will be used by Google as the text under the title of the page
     // TITLE it should be max 70 char
@@ -212,6 +86,8 @@ $ascities = [
     ];
 
 
+
+
     if($section == "info"){
         $page = (!empty($_GET['page']) && in_array($_GET['page'], array_keys($pages) ) ) ? $_GET['page']: 'about';
         $subpage = (!empty($_GET['subpage']) && in_array($_GET['subpage'], array_keys($subpages[$page]) ) ) ? $_GET['subpage']: '';
@@ -225,14 +101,12 @@ $ascities = [
     }
 
     if($section == "geoviz"){
-        $page = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($cities)))? $_GET['city']: 'albi';
+        $page = $curCity;
         $sectionName = "Maps";
         $pagePath = "/".$section."/".$page;
-        $pageName = !empty($pages[$page]) ? $pages[$page] : $cities[$page] ;
+        $pageName = !empty($pages[$page]) ? $pages[$page] : $city[$page]['shortName'];
         $pageCrumbs = "";
     }
-
-
 
     if($section == 'home'){
         $pagePath = "";

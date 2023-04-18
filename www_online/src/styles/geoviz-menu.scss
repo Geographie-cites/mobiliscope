@@ -1,0 +1,306 @@
+@import "variables";
+
+ul {
+	margin: 0 ;
+  padding-left: 0 ;
+}
+
+a {
+	text-decoration: none ;
+}
+
+
+
+ul#geoviz-menu {
+
+	order: 3 ;
+	flex-direction: column ;
+	background-color: white ;
+	height: calc(100% - 63px - 10%) ;
+	width: 18% ;
+
+	li {
+	    list-style: none ;
+	}
+
+	li a.niv1 {
+		display: block ;
+  		height: 36px ;
+
+		background-color: $darkGreyColor ;
+		border-bottom: 3px solid white ;
+		cursor: pointer ;
+		color: $fontcolor ;
+
+		padding-left: 10px ;
+		font-family: $fontBR ;
+		font-size: 18px ;
+		line-height: 40px ;
+
+		&:after {
+			content: "";
+			width: 14px;
+			height: 14px;
+			top: 12px;
+			position: relative;
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin-right: 16px;
+			float: right;
+			background: url(../images/chevron-right-black.svg);
+		}
+		&:hover{
+			opacity: 0.8;
+			&:after {
+				background: url(../images/chevron-down-black.svg);
+			}
+		}
+
+		&.active-map{
+			&:after {
+				background: url(../images/chevron-right-orange.svg);
+			}
+		}
+
+	}
+
+
+
+	li a.niv1.opened-niv-content{
+		&:after {
+			background: url(../images/chevron-down-black.svg);
+		}
+
+		&.active-map{
+			&:after {
+				background: url(../images/chevron-down-orange.svg);
+			}
+		}
+	}
+
+	.opened-niv-content ~ ul.niv1-content{
+		display: block;
+	}
+
+	ul.niv1-content {
+		display: none;
+
+		transition: all 0.5s;
+
+		li a.niv2 {
+
+			//display: block;
+
+			display: flex ;
+			flex-direction: row ;
+			justify-content: space-between ;
+			align-items: center ;
+
+			width: 95% ;
+			margin: 0 ;
+			padding-left: 0 ;
+			height: 36px ;
+			border-bottom: 2px solid #ffffff;
+			color: #262626 ;
+			cursor : pointer ;
+			background-color : #f2f2f2 ;
+			padding-left: 5% ;
+			font-size: 12px ;
+			font-weight: 500 ;
+			line-height: 1.5 ;
+
+			// helpAcc => popup menu / helpAcc2 => aide sur la géoviz
+			.helpAcc, .helpAcc2{
+				cursor: pointer;
+				margin: 8px 15px 0 0 ;
+				width: 21px;
+				height: 20px;
+				background-repeat: no-repeat;
+				background-size: 90%;
+				background-image: url('../images/information.svg');
+			}
+			.helpAcc:hover{
+			    background-image: url('../images/information-black.svg');
+			}
+
+		}
+
+		.opened-niv-content ~ ul.niv2-content{
+			display: block;
+		}
+
+		ul.niv2-content {
+			display: none ;
+			//display: flex ;
+			flex-direction: column ;
+			margin: 0px ;
+			padding-left: 0 ;
+			border-bottom: none !important ;
+			height: auto ;
+			width: 100% ;
+			background-color: #ffffff ;
+
+			li.niv3 {
+				display: flex ;
+				flex-direction: row ;
+				justify-content: space-between ;
+				margin: 0;
+				//color: #262626 ;
+				padding-left: 5% ;
+				//width: 38% ;
+
+				p {
+				    display: flex;
+	  				justify-content: left;
+	  				align-items: center;
+				    margin: 0;
+				    font-size: 12px;
+				    font-weight: 600;
+				    width: 38%;
+				}
+
+				span.niv-logo {
+					width: auto ;
+					display: flex ;
+					//justify-content: left ;
+					padding: 4px ;
+					//margin-right: 10px ;
+
+					button {
+						border: 1px solid rgb(210, 210, 210);
+						background-color: white ;
+						padding: 0 ;
+						box-shadow: 1px 1px 3px rgb(0 0 0 / 50%);
+					}
+
+					button:hover {
+					  	background-color : grey !important;
+					  	color : white !important ;
+					  	box-shadow: 0px 0px 3px rgb(0 0 0 / 50%);
+					}
+					.clicked-button {
+						border: 1px solid white !important;
+						color: white !important;
+					}
+
+					.part, .nb, .flow {
+						height: 2.5em;
+						width: 2.5em;
+						font-size: .8em;
+						text-align: center;
+						margin: 2px;
+
+					}
+					.flow{
+
+
+					}
+
+				}
+			}
+
+		}
+
+	}
+
+}
+
+// popup geoviz-menu
+#close{
+  width: 20px;
+  height: auto;
+  float: right;
+  cursor: pointer;
+  padding: 20px;
+}
+.popup-container{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #00000087;
+    top: 0;
+    z-index: 100;
+    overflow: auto;
+}
+
+#popup{
+  height : auto ;
+  width : 40% ;
+  margin-left : 28.5% ;
+  margin-top : 10% ;
+  position : absolute ;
+  z-index : 20 ;
+  background-color : white ;
+  border-radius : 5px ;
+  text-align : justify ;
+  display : none ;
+
+  ul {
+  padding-left: 9%;
+	padding-right: 9%;
+	padding-bottom: 3%;
+  }
+}
+
+#popup h3{
+  background: #8780a4;
+  color: white;
+  padding: 20px 20px 16px 20px;
+  font-family: BebasNeueRegular;
+  font-family: 15em;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+#popup h4{
+  padding: 10px 0px 0px 10px;
+  font-family: BebasNeueRegular;
+}
+
+#popup p {
+  padding: 3%
+}
+
+
+
+/*Media queries*/
+
+
+// menu small screen
+@media only screen and (max-width: 1024px) {
+
+	ul#geoviz-menu{
+		order: 2 ;
+		width: 100% ;
+		height: auto ;
+	}
+
+}
+
+
+// fix for button geoviz on tablet
+@media only screen and (max-width: 1220px) and (min-width: 1160px) {
+  button{
+    width: 30px !important;
+  }
+}
+@media only screen and (max-width: 1160px) and (min-width: 1120px) {
+  button{
+    width: 28px !important;
+  }
+}
+@media only screen and (max-width: 1120px) and (min-width: 1080px) {
+  button{
+    width: 24px !important;
+  }
+}
+@media only screen and (max-width: 1080px) and (min-width: 1024px) {
+  button{
+    width: 22px !important;
+  }
+}
+
+
+

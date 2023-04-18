@@ -1,5 +1,6 @@
 [data-tooltip][aria-label] {
   position: relative;
+  font-weight: 500;
 }
 [data-tooltip][aria-label]::before {
   content: attr(aria-label);

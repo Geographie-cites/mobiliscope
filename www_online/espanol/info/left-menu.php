@@ -33,10 +33,10 @@
 
 
      <div class="menu-item-container">
-     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">Una herramienta libre en evolución
+     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">Ciencia abierta
      </a>
      <div class="left-menu-niv2">
-        <a href="/es/info/open/license"><div class="item">Códigos, datos y visuales libres</div></a>
+        <a href="/es/info/open/license"><div class="item">Open-data y open-source</div></a>
         <a href="/es/info/open/evolution"><div class="item">Histórico de las versiones</div></a>
     </div>
    </div>

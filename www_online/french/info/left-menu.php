@@ -1,7 +1,7 @@
 
 
    <div class="menu-item-container">
-     <a href="#" class = "menu-item <?php echo $page == 'about' ? 'current-page' : ''; ?>">A propos</a>
+     <a href="#" class = "menu-item <?php echo $page == 'about' ? 'current-page' : ''; ?>">À propos</a>
       <div class="left-menu-niv2">
         <a href="/fr/info/about/summary"><div class="item">En quelques mots...</div></a>
         <a href="/fr/info/about/team"><div class="item">Équipe</div></a>
@@ -33,10 +33,10 @@
 
 
      <div class="menu-item-container">
-     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">Un outil libre et en évolution
+     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">Science ouverte
      </a>
      <div class="left-menu-niv2">
-        <a href="/fr/info/open/license"><div class="item">Codes, données et visuels libres</div></a>
+        <a href="/fr/info/open/license"><div class="item">Open-data et open-source</div></a>
         <a href="/fr/info/open/evolution"><div class="item">Historique des versions</div></a>
     </div>
    </div>

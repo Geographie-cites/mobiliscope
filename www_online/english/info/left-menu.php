@@ -29,10 +29,10 @@
    </div>
 
     <div class="menu-item-container">
-     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">An open and evolving tool
+     <a href="#" class = "menu-item <?php echo $page == 'open' ? 'current-page' : ''; ?>">Open science
      </a>
      <div class="left-menu-niv2">
-        <a  href="/en/info/open/license"><div class="item">Open-source and open-data</div></a>
+        <a  href="/en/info/open/license"><div class="item">Open-data and open-source</div></a>
         <a href="/en/info/open/evolution"><div class="item">Version history</div></a>
     </div>
    </div>

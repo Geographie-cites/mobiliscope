@@ -37,9 +37,26 @@
             <div class = "row col-order-4">
 
                 <?php
+
+                    $frenchcities = [];
+                    $cancities = [];
+                    $ascities = [];
+
+                    foreach( $city as $key=>$val ){
+
+                        if( $val['zoneGeo'] == 'FR' )
+                            $frenchcities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'CA' )
+                            $cancities[$key] = $val["longName"][$language];
+
+                        if( $val['zoneGeo'] == 'AS' )
+                            $ascities[$key] = $val["longName"][$language];
+                    }
+
+
                     $len = sizeof($frenchcities);
                     $numpercol = (int) ($len / 4) +1 ;
-
 
                     for($i = 0; $i < 4; $i++){
                         echo "<div class = 'col-sm-6 col-md-3'><section>";
@@ -47,8 +64,9 @@
                             for($j = 0; $j < $numpercol; $j++){
                                 $theCity = !empty(array_values($frenchcities)[$numpercol*$i+$j]) ? array_values($frenchcities)[$numpercol*$i+$j] : '';
                                 $frenchcitiesSlugs = array_keys($frenchcities);
-                                if(!empty($theCity))
+                                if(!empty($theCity)){
                                     echo "<li><i class='arrow right'></i><a href='/" . $language . '/geoviz/' . $frenchcitiesSlugs[$numpercol*$i+$j] . "'>" . array_values($frenchcities)[$numpercol*$i+$j] . "</a></li>  ";
+                                }
                             }
                             echo "</ul><br>";
                         echo "</section></div>";
@@ -232,12 +250,13 @@
 <div>
   <div class="card help-card">
 
-    <label for="help-modal-control" id="label-modal">
-      <img class="modal-close"  src="/dist/assets/close-white.png" />
-    </label>
+        <div class="help-card-header">
+            <label for="help-modal-control" id="label-modal">
+                <img class="modal-close"  src="/dist/assets/close-white.png" />
+            </label>
 
-    <h3 class="section">Ayuda para el uso de la interfaz</h3>
-
+        <h3 class="section">Ayuda para el uso de la interfaz</h3>
+    </div>
     <div class="help-card-container">
 
 	   <h5><b>1) Detalles </b></h5>
@@ -247,7 +266,7 @@
 
         	Las proporciones/número de personas por sector y por hora que aparecen en el Mobiliscope son estimaciones. Por lo tanto, están sujetos a un <b>margen de error estadístico</b>.<br/><br/>
 
-            La versión actual de Mobiliscope (v4.1) incluye 58 ciudades y sus alrededores. 
+            La versión actual de Mobiliscope (v4.2) incluye 58 ciudades y sus alrededores. 
             Para elegir la ciudad a observar, puede utilizar el menú desplegable <img src="/dist/assets/menu-icon.svg" width="50px" height= "50px"/> o buscar por el nombre del municipio utilizando la herramienta de la lupa <img src="/dist/assets/search-black.svg" width="20px" height= "20px"/>.
         </p>
 
@@ -341,9 +360,6 @@
             ¡Disfrute de su visita!
         </p>
 
-        <div class="close-help">
-            <label for="help-modal-control" class="" > <i class="fas fa-times"></i><b>&nbsp;Cerrar la ventana de ayuda</b></label>
-        </div>
    </div>
   </div>
 </div>

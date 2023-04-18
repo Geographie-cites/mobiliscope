@@ -3,9 +3,9 @@
   include ('../settings.php');
 
   if(!empty($subpage))
-    echo file_get_contents('./subpages/'.$subpage.'.html');
+    include('./subpages/'.$subpage.'.php');
   else
-    echo file_get_contents('./subpages/'.$page.'.html');
+    include('./subpages/'.$page.'.php');
 exit;
 ?>
 

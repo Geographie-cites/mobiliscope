@@ -1,5 +1,12 @@
 ﻿<?php
+include($_SERVER['DOCUMENT_ROOT'].'/data/city.php');
 //phpinfo();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
 $language = "es";
 $page = '';
 $subpage = '';
@@ -9,150 +16,15 @@ $pagePath = '';
 $pageCrumbs = "<a href='/".$language."'>Inicio</a>";
 
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$curCity = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($city)))? $_GET['city']: 'albi';
 
-// list of cities
-$cities = [
-    'albi'=>'Albi y su región',
-    'angers'=>'Angers y su región',
-    'angouleme'=>'Angoulême y su región',
-    'beziers'=>'Béziers y su región',
-    'bordeaux'=>'Bordeaux y su región',
-    'caen'=>'Caen y su región',
-    'clermont-ferrand'=>'Clermont-Ferrand y su región',
-    'grenoble'=>'Grenoble y su región',
-    'la-rochelle'=>'La Rochelle y su región',
-    'lille'=>'Lille y su región',
-    'lyon'=>'Lyon y su región',
-    'marseille'=>'Marseille y su región',
-    'montpellier'=>'Montpellier y su región',
-    'montreal'=>'Montréal y su región',
-    'nancy'=>'Nancy y su región',
-    'nantes'=>'Nantes y su región',
-	'nimes'=>'Nîmes y su región',
-    'nice'=>'Nice',
-    'ottawa-gatineau'=>'Ottawa-Gatineau y su región',
-    'idf'=>'Paris y su región',
-    'quebec'=>'Québec y su región',
-    'quimper'=>'Quimper y su región',
-    'rennes'=>'Rennes y su región',
-    'saguenay'=>'Saguenay y su región',
-    'saint-etienne'=>'Saint-Étienne y su región',
-    'sherbrooke'=>'Sherbrooke y su región',
-    'strasbourg'=>'Strasbourg y su región',
-    'toulouse'=>'Toulouse y su región',
-    'trois-rivieres'=>'Trois-Rivières y su región',
-    'valenciennes'=>'Valenciennes y su región',
-    'alencon'=>'Alençon y St-Lô',
-    'amiens'=>'Amiens',
-    'annecy'=>'Annecy',
-    'annemasse'=>'Annemasse',
-    'bayonne'=>'Bayonne',
-    'besancon'=>'Besancon',
-    'brest'=>'Brest',
-    'carcassonne'=>'Carcassonne',
-    'cherbourg'=>'Cherbourg',
-    'creil'=>'Creil',
-    'dijon'=>'Dijon',
-    'douai'=>'Douai',
-    'dunkerque'=>'Dunkerque',
-    'la-reunion'=>'La Réunion',
-    'longwy'=>'Longwy',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz',
-    'niort'=>'Niort',
-    'poitiers'=>'Poitiers',
-    'rouen'=>'Rouen',
-    'saint-brieuc'=>'Saint-Brieuc',
-    'thionville'=>'Thionville',
-    'tours'=>'Tours',
-    'valence'=>'Valence',
-    'le-havre'=>'Le Havre',
-    'valenciennes2011'=>'Valenciennes y su región',
-    'bogota'=>'Bogotá',
-    'santiago'=>'Santiago',
-    'sao-paulo'=>'São Paulo'
-];
-
-
-//Villes françaises
-$frenchcities = [
-    'albi'=>'Albi y su región',
-    'alencon'=>'Alençon St-Lô y su región',
-    'amiens'=>'Amiens y su región',
-    'angers'=>'Angers y su región',
-    'angouleme'=>'Angoulême y su región',
-    'annecy'=>'Annecy y su región',
-    'annemasse'=>'Annemasse y su región',
-    'bayonne'=>'Bayonne y su región',
-    'besancon'=>'Besancon y su región',
-    'beziers'=>'Béziers y su región',
-    'bordeaux'=>'Bordeaux y su región',
-    'brest'=>'Brest y su región',
-    'caen'=>'Caen y su región',
-    'carcassonne'=>'Carcassonne y su región',
-    'cherbourg'=>'Cherbourg y su región',
-    'clermont-ferrand'=>'Clermont-Ferrand y su región',
-    'creil'=>'Creil y su región',
-    'dijon'=>'Dijon y su región',
-    'douai'=>'Douai y su región',
-    'dunkerque'=>'Dunkerque y su región',
-    'grenoble'=>'Grenoble y su región',
-    'la-reunion'=>'La Réunion',
-    'la-rochelle'=>'La Rochelle y su región',
-    'le-havre'=>'Le Havre y su región',
-    'lille'=>'Lille y su región',
-    'longwy'=>'Longwy y su región',
-    'lyon'=>'Lyon y su región',
-    'marseille'=>'Marseille y su región',
-    'martinique'=>'Martinique',
-    'metz'=>'Metz y su región',
-    'montpellier'=>'Montpellier y su región',
-    'nancy'=>'Nancy y su región',
-    'nantes'=>'Nantes y su región',
-    'nice'=>'Nice y su región',
-    'nimes'=>'Nîmes y su región',
-    'niort'=>'Niort y su región',
-    'idf'=>'Paris y su región',
-    'poitiers'=>'Poitiers y su región',
-    'quimper'=>'Quimper y su región',
-    'rennes'=>'Rennes y su región',
-    'rouen'=>'Rouen y su región',
-    'saint-brieuc'=>'Saint-Brieuc y su región',
-    'saint-etienne'=>'Saint-Étienne y su región',
-    'strasbourg'=>'Strasbourg y su región',
-    'thionville'=>'Thionville y su región',
-    'toulouse'=>'Toulouse y su región',
-    'tours'=>'Tours y su región',
-    'valence'=>'Valence y su región',
-    'valenciennes'=>'Valenciennes y su región',
-];
-
-//Villes canadiennes
-$cancities = [
-    'montreal'=>'Montréal y su región',
-    'ottawa-gatineau'=>'Ottawa-Gatineau y su región',
-    'quebec'=>'Québec y su región',
-    'saguenay'=>'Saguenay y su región',
-    'sherbrooke'=>'Sherbrooke y su región',
-    'trois-rivieres'=>'Trois-Rivières y su región'
-];
-
-//Villes sud-américaines
-$ascities = [
-    'bogota'=>'Bogotá y su región',
-    'santiago'=>'Santiago y su región',
-    'sao-paulo'=>'São Paulo y su región'
-];
 
  // List of pages and their titles
     $pages = [
         'about'=>'Sobre nosotros',
         'methods'=>'Métodos',
         'multitask-tool'=>'Una herramienta multifuncional',
-        'open' => "Una herramienta libre en evolución"
+        'open' => "Ciencia abierta"
     ];
 
     $subpages = [
@@ -176,7 +48,7 @@ $ascities = [
 
         ],
         'open'=>[
-            'license'=>'Códigos, datos y visuales libres',
+            'license'=>'Open-data y open-source',
             'evolution'=>'Histórico de las versiones',
         ]
 
@@ -225,10 +97,10 @@ $ascities = [
     }
 
     if($section == "geoviz"){
-        $page = (!empty($_GET['city']) && in_array($_GET['city'], array_keys($cities)))? $_GET['city']: 'albi';
+        $page = $curCity;
         $sectionName = "Maps";
         $pagePath = "/".$section."/".$page;
-        $pageName = !empty($pages[$page]) ? $pages[$page] : $cities[$page] ;
+        $pageName = !empty($pages[$page]) ? $pages[$page] : $city[$page]['shortName'];
         $pageCrumbs = "";
     }
 

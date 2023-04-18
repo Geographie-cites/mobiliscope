@@ -1,0 +1,609 @@
+@import "variables";
+
+
+
+/*MAIN STYLE RULES*/
+html{
+overflow: auto;
+}
+
+
+html, * {
+  font-family: $fontO;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  background: #ffffff !important;
+  margin-top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+input:not([type="button"]):not([type="submit"]):not([type="reset"]) {
+  &:focus {
+    outline: none !important;
+    border: 1px solid #e29424;
+    box-shadow: 0 0 10px #e29424;
+  }
+
+  &:hover {
+    border-color: #e29424;
+  }
+}
+
+pre {
+  border: 3px solid #e29424;
+}
+
+
+a {
+  color: $orangeColor;
+  &:visited, &:link {
+    color: $orangeColor;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $orangeColor;
+  }
+
+
+}
+
+
+section {
+  p, a, ul li, a {
+    line-height: 1.5em;
+  }
+  padding-bottom: 1em;
+}
+
+
+
+/*FIX MINCSS*/
+
+.info.container {
+  margin: 0 auto;
+  padding: 0 1vw;
+  min-height: 65vh;
+}
+
+.home.container {
+  margin: 0 auto;
+  padding: 0 0;
+  background-image: url(../images/line-image-footer.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: inherit;
+  padding-bottom: 20em;
+}
+
+.row.fullWidth {
+  width: 100vw;
+  //margin-left: -5vw;
+}
+
+
+thead{
+  z-index: 0!important;
+}
+
+.notabene {
+  line-height: 1.1em;
+}
+.notabene2 {
+  font-weight: bold;
+  font-size: 9px;
+}
+
+
+/***** HELPER *****/
+
+// Margin helpers
+
+ .mb50 {
+    margin-bottom: 50px !important;
+  }
+  .mt50 {
+    margin-top: 50px !important;
+  }
+
+  .nopad {
+    padding: 0 !important;
+  }
+
+
+@media only screen and (max-width: 1080px) {
+
+  .mb50-lg {
+    margin-bottom: 50px !important;
+  }
+  .mt50-lg {
+    margin-top: 50px !important;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .mb50-md {
+    margin-bottom: 50px !important;
+  }
+  .mt50-md {
+    margin-top: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mb50-sm {
+    margin-bottom: 50px !important;
+  }
+  .mt50-sm {
+    margin-top: 50px !important;
+  }
+  .home.container {
+    padding-bottom: 12em;
+  }
+
+}
+
+
+
+
+.greySeparator {
+  display: block;
+  width: 100%;
+  padding: 0em 0 2em;
+
+  &::after {
+    display: block;
+    width: 25%;
+    border-top: 3px solid #E3E3E3;
+    margin: 2em 5px;
+    border-radius: 3px;
+    content: " ";
+    margin: 0 auto;
+  }
+}
+
+.al {
+  text-align: left;
+}
+
+.ar {
+  text-align: right;
+}
+
+
+
+/*  BUTTONS*/
+.style-button {
+  background: $orangeColor;
+  color: white;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  padding: 9px 25px 9px 25px;
+  margin: auto;
+  display: block;
+  a{
+    color: white;
+  }
+
+  &:hover{
+      background: white;
+      border: 2px solid $orangeColor;
+    a{
+      color: $orangeColor;
+      text-decoration: none;
+    }
+
+  }
+}
+
+
+/* TYPEHEAD CUSTOM STYLES*/
+
+.twitter-typeahead {
+  width: 100%;
+  display: inherit!important;
+}
+
+.text-block .search-icon {
+  background: red;
+}
+
+
+// attention la barre de recherche est dans le header est dans le menu maintenant.
+.topbar .top-search-container {
+  display: none;
+  top: -150px;
+  font-size: 1em;
+  line-height: 45px;
+
+  &.down {
+    top: -15px;
+    display: inline;
+  }
+}
+
+
+.tt-menu {
+  background: #fff;
+  padding: 5%;
+  border-radius: 0px 0px 30px 30px;
+  border: 1px solid $orangeColor;
+  border-top: none;
+}
+
+.top-search-container .tt-menu {
+  padding-top: 10px;
+  left: 0px !important;
+  width: 70%;
+  font-size: 1em;
+  text-align: left;
+  top: 51px !important;
+  margin-left: 6%;
+}
+
+.tt-menu {
+  top: 10px !important;
+  margin: auto;
+
+  margin-left: 22%;
+
+  width: 70%;
+  font-size: 1em;
+  text-align: left;
+}
+
+.tt-dataset .tt-suggestion {
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+  line-height: 1em;
+  padding: 6px;
+  border-radius: 3px;
+  -webkit-transition: background .5s;
+  -o-transition: background .5s;
+  transition: background .5s;
+  text-transform: none;
+  font-weight: normal;
+
+  &:hover {
+    background: #fea11c;
+  }
+}
+
+.tt-highlight {
+  padding: 3px 0;
+  font-weight: bold;
+}
+
+.tt-dataset .tt-cursor {
+  background: #e29424;
+  padding: 3px 0 0;
+  font-weight: bold;
+}
+
+
+
+
+
+/*
+.toggle-nav, .topbar a i {
+  cursor: pointer;
+  -webkit-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+}
+
+.toggle-nav:hover {
+  color: #e29424;
+}
+
+
+
+.toggle-nav.active {
+  color: #e29424;
+}
+
+
+.toggle-nav .fa-angle-double-up {
+  padding: 3px;
+}
+/*
+
+
+.tooltip {
+  padding: 0px 5px;
+  font-size: 1em;
+
+  &.bottom::after {
+    font-size: 0.8em;
+  }
+}
+
+
+
+
+/* SHARE popup */
+
+
+.card.share-card {
+  width: 360px;
+  height: 60vh;
+  max-width: 90vw;
+  max-height: 90vh !important;
+  border: none!important;
+
+
+  .share-card-container {
+        padding: 20px;
+        margin-left: 10%;
+    }
+
+  .share-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 7px;
+
+
+    &:first-child{
+      padding-top: 80px;
+    }
+    .ask{
+      margin-top: 0px;
+    }
+    span{
+      padding: 10px;
+      &:hover{
+        color: $orangeColor;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+   h3{
+     background: #8780a4;
+     color: white;
+     font-family:  $fontBR;
+     padding: 20px;
+     font-size: 1.7em;
+     position: absolute;
+     top:0px;
+   }
+
+   h4{
+    font-family:  $fontBR;
+    padding: 3%;
+   }
+    .section{
+     padding: 20px;
+   }
+}
+
+/* HELP popup */
+
+.card.help-card {
+  width: 80vw;
+  height: 90vh;
+  max-width: 90vw;
+  max-height: 90vh !important;
+  border: none!important;
+
+   h3{
+     background: #8780a4;
+     color: white;
+     font-family:  $fontBR;
+     padding: 20px;
+     font-size: 1.7em;
+   }
+
+   h4{
+    font-family:  $fontBR;
+    padding: 3%;
+   }
+    .section{
+     padding: 20px;
+   }
+}
+
+
+#label-modal{
+  padding: 0;
+}
+
+.card .modal-close{
+    width: 20px;
+    height: 20px;
+}
+
+.card .modal-close:hover{
+  background: #8780a4 !important;
+}
+.help-card-container{
+  padding: 20px;
+}
+
+
+.close-help label, .close-share label {
+  cursor: pointer;
+  float: right;
+
+  &:hover {
+    color: #e29424;
+  }
+}
+
+[type="checkbox"].modal + div .card .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+
+  &:hover, &:focus {
+    background: transparent;
+  }
+
+  &:hover:before {
+    color: #e29424;
+  }
+}
+
+
+
+/** HELPERS **/
+
+figure {
+  &.inline {
+    display: inline-block;
+    margin: 30px;
+
+    figcaption {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &.block {
+    display: block;
+    margin: 30px;
+
+    figcaption {
+      display: inline-block;
+      text-align: left;
+      margin-left: 20px;
+    }
+  }
+}
+
+
+
+.cta {
+  background-color: rgb(241, 214, 0);
+
+  // #F1D602
+  color: black;
+}
+
+/* CORPS DE TEXTE*/
+
+
+
+a.button {
+  color: black;
+  background: none;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px 30px;
+  display: inline;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+
+a.button {
+  border: 3px solid #e29424;
+  color: black;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+
+  &:active {
+    border-color: #e29424;
+    color: #black;
+  }
+
+  &:hover {
+    background: #e29424;
+    color: white;
+  }
+
+  &:before {
+    position: absolute;
+    height: 100%;
+    font-size: 125%;
+    line-height: 3.5;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+}
+
+
+/*button right*/
+
+.btn-c {
+  width: fit-content;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.btn-r {
+  width: 100%;
+  text-align: right;
+}
+
+a.btn {
+  background: #fea11c;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 31px 10px 31px;
+  margin: auto;
+  display: block;
+  &:link {
+    color: white;
+  }
+  &:visited {
+    color: white;
+  }
+  &:active {
+    color: #e29424;
+  }
+
+  &:hover {
+    background: none;
+    color: #e29424;
+    left: 30px;
+  }
+
+  &:hover::after {
+    color: #e29424;
+    left: 20px;
+  }
+
+  &:active:before {
+    color: #0F0;
+  }
+}
+
+
+
+
+
+
+
+.section {
+  padding: 0em 0em 0em;
+}
+
+.sectionSpacer {
+  padding: 5em 0em 5em;
+}
+
+.sectionSpacerSmall {
+  padding: 2em 0em 2em;
+}

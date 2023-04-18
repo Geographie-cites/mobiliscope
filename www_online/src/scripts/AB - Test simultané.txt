@@ -1,0 +1,291 @@
+Test simultané : 
+Requetes simultanée : 100 / 400
+err
+
+________________________________________
+
+Requetes simultanée : 100 / 100
+err
+
+________________________________________
+
+Requetes simultanée : 50 / 50
+OK
+
+S
+
+Document Path:          /?results=71174
+Document Length:        2585 bytes
+
+Concurrency Level:      50
+Time taken for tests:   8.794 seconds
+Complete requests:      500
+Failed requests:        0
+Total transferred:      1496500 bytes
+HTML transferred:       1292500 bytes
+Requests per second:    56.86 [#/sec] (mean)
+Time per request:       879.383 [ms] (mean)
+Time per request:       17.588 [ms] (mean, across all concurrent requests)
+Transfer rate:          166.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       78  359 114.4    360     609
+Processing:    67  485 140.0    468     931
+Waiting:       65  476 132.1    466     819
+Total:        154  843 182.8    851    1448
+
+Percentage of the requests served within a certain time (ms)
+  50%    851
+  66%    931
+  75%    959
+  80%    983
+  90%   1044
+  95%   1104
+  98%   1180
+  99%   1186
+ 100%   1448 (longest request)
+
+
+Document Path:          /ajax.php?q=bre
+Document Length:        7154 bytes
+
+Concurrency Level:      50
+Time taken for tests:   8.691 seconds
+Complete requests:      500
+Failed requests:        0
+Total transferred:      3697000 bytes
+HTML transferred:       3577000 bytes
+Requests per second:    57.53 [#/sec] (mean)
+Time per request:       869.129 [ms] (mean)
+Time per request:       17.383 [ms] (mean, across all concurrent requests)
+Transfer rate:          415.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       66  384 125.8    399     626
+Processing:    76  395 120.6    401     728
+Waiting:       76  386 116.0    399     702
+Total:        256  779 176.5    813    1330
+
+Percentage of the requests served within a certain time (ms)
+  50%    813
+  66%    868
+  75%    898
+  80%    909
+  90%    973
+  95%    989
+  98%   1054
+  99%   1147
+ 100%   1330 (longest request)
+
+
+
+________________________________________
+
+Requetes simultanée : 70 / 70
+OK
+
+
+
+Document Path:          /?results=71174
+Document Length:        2585 bytes
+
+Concurrency Level:      70
+Time taken for tests:   11.690 seconds
+Complete requests:      700
+Failed requests:        0
+Total transferred:      2095100 bytes
+HTML transferred:       1809500 bytes
+Requests per second:    59.88 [#/sec] (mean)
+Time per request:       1168.956 [ms] (mean)
+Time per request:       16.699 [ms] (mean, across all concurrent requests)
+Transfer rate:          175.03 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       82  281 140.3    231     631
+Processing:    70  841 278.1    858    1618
+Waiting:       66  835 278.6    851    1617
+Total:        152 1122 229.2   1142    1724
+
+Percentage of the requests served within a certain time (ms)
+  50%   1142
+  66%   1228
+  75%   1259
+  80%   1296
+  90%   1409
+  95%   1475
+  98%   1605
+  99%   1651
+ 100%   1724 (longest request)
+
+
+
+ Document Path:          /ajax.php?q=bre
+Document Length:        7154 bytes
+
+Concurrency Level:      70
+Time taken for tests:   11.173 seconds
+Complete requests:      700
+Failed requests:        0
+Total transferred:      5175800 bytes
+HTML transferred:       5007800 bytes
+Requests per second:    62.65 [#/sec] (mean)
+Time per request:       1117.294 [ms] (mean)
+Time per request:       15.961 [ms] (mean, across all concurrent requests)
+Transfer rate:          452.39 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       69  339 184.3    301    1168
+Processing:    62  696 214.1    727    1240
+Waiting:       61  682 211.5    704    1212
+Total:        361 1035 211.1   1038    2319
+
+Percentage of the requests served within a certain time (ms)
+  50%   1038
+  66%   1127
+  75%   1182
+  80%   1242
+  90%   1305
+  95%   1321
+  98%   1400
+  99%   1430
+ 100%   2319 (longest request)
+________________________________________
+
+Requetes simultanée : 70 / 100
+OK
+
+Concurrency Level:      70
+Time taken for tests:   12.882 seconds
+Complete requests:      700
+Failed requests:        0
+Total transferred:      2095100 bytes
+HTML transferred:       1809500 bytes
+Requests per second:    54.34 [#/sec] (mean)
+Time per request:       1288.204 [ms] (mean)
+Time per request:       18.403 [ms] (mean, across all concurrent requests)
+Transfer rate:          158.83 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       70  360 168.9    384     940
+Processing:    98  865 290.0    829    1606
+Waiting:       93  855 291.4    823    1606
+Total:        187 1225 280.7   1212    2017
+
+Percentage of the requests served within a certain time (ms)
+  50%   1212
+  66%   1316
+  75%   1391
+  80%   1465
+  90%   1604
+  95%   1745
+  98%   1792
+  99%   1820
+ 100%   2017 (longest request)
+
+
+ Document Path:          /ajax.php?q=bre
+Document Length:        7154 bytes
+
+Concurrency Level:      100
+Time taken for tests:   13.995 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      7394000 bytes
+HTML transferred:       7154000 bytes
+Requests per second:    71.45 [#/sec] (mean)
+Time per request:       1399.509 [ms] (mean)
+Time per request:       13.995 [ms] (mean, across all concurrent requests)
+Transfer rate:          515.95 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       66  607 269.1    647    1365
+Processing:    43  737 198.8    730    1545
+Waiting:       43  717 193.9    710    1377
+Total:        379 1344 318.1   1387    2185
+
+Percentage of the requests served within a certain time (ms)
+  50%   1387
+  66%   1480
+  75%   1496
+  80%   1510
+  90%   1552
+  95%   1994
+  98%   2178
+  99%   2180
+ 100%   2185 (longest request)
+
+________________________________________
+
+Requetes simultanée : 70 / 200
+premiere pertes
+
+Concurrency Level:      100
+Time taken for tests:   18.780 seconds
+Complete requests:      1000
+Failed requests:        95
+   (Connect: 0, Receive: 0, Length: 95, Exceptions: 0)
+Non-2xx responses:      95
+Total transferred:      2746760 bytes
+HTML transferred:       2339425 bytes
+Requests per second:    53.25 [#/sec] (mean)
+Time per request:       1878.024 [ms] (mean)
+Time per request:       18.780 [ms] (mean, across all concurrent requests)
+Transfer rate:          142.83 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       58  554 302.7    476    1356
+Processing:    47 1251 561.3   1267    2502
+Waiting:       43 1237 558.3   1244    2501
+Total:        140 1804 652.3   1775    3241
+
+Percentage of the requests served within a certain time (ms)
+  50%   1775
+  66%   2084
+  75%   2180
+  80%   2247
+  90%   2627
+  95%   3107
+  98%   3211
+  99%   3213
+ 100%   3241 (longest request)
+
+
+
+
+ Concurrency Level:      200
+Time taken for tests:   24.854 seconds
+Complete requests:      2000
+Failed requests:        147
+   (Connect: 0, Receive: 0, Length: 147, Exceptions: 0)
+Non-2xx responses:      147
+Total transferred:      13735333 bytes
+HTML transferred:       13256362 bytes
+Requests per second:    80.47 [#/sec] (mean)
+Time per request:       2485.370 [ms] (mean)
+Time per request:       12.427 [ms] (mean, across all concurrent requests)
+Transfer rate:          539.69 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       64 1019 437.5   1066    1758
+Processing:    32 1278 451.3   1238    2419
+Waiting:       25 1253 445.9   1213    2408
+Total:        573 2297 584.7   2345    3948
+
+Percentage of the requests served within a certain time (ms)
+  50%   2345
+  66%   2468
+  75%   2822
+  80%   2853
+  90%   3050
+  95%   3085
+  98%   3096
+  99%   3125
+ 100%   3948 (longest request)

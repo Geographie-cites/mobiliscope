@@ -1,0 +1,37 @@
+<div class = "corps">
+	<section>
+    <h2>A planning tool</h2>
+    </section>
+
+	<section>
+    <p>
+		The Mobiliscope is designed to help public and municipal actors who want to know how their whole city region (or only one specified district) changes around the clock. The Mobiliscope is thus a <b>open and <a href="/en/info/open/license">free</a> alternative</b> to paid and proprietary services that are currently developing about the quantification of the ambient population over time.
+	</p>
+
+	<p>
+		Quantifying and qualifying the ambient population is a major issue for the public action. This can be helpful to set up services <b>in the right place</b> and plan their opening hours to make them accessible <b>at the right time</b>. These issues echo the <b>time policies</b> that a number of local actors are seeking to put in place.
+	</p>
+
+	<p>
+		As a spatial-temporal projection of the constraints affecting unequally people's timetable and locations, the Mobiliscope helps for <b>measuring</b> the inequalities that weigh on people's everyday geography, but also for <b>monitoring</b> the effectiveness of public policies working for a more inclusive city.
+	</p>
+
+	<p>
+		It provides elements of answers to questions about...   
+		<ul>    
+			<li> space (where? in which area?) </li>
+			<li> time (when? what time?)</li>
+			<li> population subgroups (who?)</li>
+			<li> activity (what?) </li>
+			<li> mode of transportation (how?).</li>   
+		</ul> 
+	</p>		
+
+	<p>
+    	<button class="style-button mb50"><a href="/en/info/multitask-tool/scientific-tool">A scientific tool</a></button>
+	</p>
+	
+	</section>
+
+
+</div>

@@ -69,9 +69,9 @@
                     <span id="page-loader">
                         <?php
                           if(!empty($subpage))
-                            include('./subpages/'.$subpage.'.html');
+                            include('./subpages/'.$subpage.'.php');
                           else
-                            include('./subpages/'.$page.'.html');
+                            include('./subpages/'.$page.'.php');
                         ?>
                     </span>
                 </div>

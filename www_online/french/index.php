@@ -86,10 +86,16 @@ include ('./settings.php');
 
           <div class="col-sm-12 col-md-6 ">
             <section class="right-side">
-              <h4>Les habitants d'une ville ne sont pas immobiles. Leurs déplacements quotidiens occasionnent des modifications dans l'organisation sociale et spatiale des villes.</br>
+              <h4>
+              Les individus ne sont pas immobiles et leurs déplacements quotidiens modifient la géographie des territoires.</br>
                 </br>
-                Le Mobiliscope est un outil de géovisualisation qui donne à voir l'évolution de la population présente dans les villes françaises, canadiennes et dans trois villes latino-américaines au cours des 24 heures de la journée. Il permet ainsi d'étudier les changements de composition sociale des quartiers au fil des heures.</br>
+
+                Le Mobiliscope est un outil de géovisualisation qui donne à voir les <b>variations de la population présente</b> dans les territoires au cours des 24 heures d’une journée typique de semaine. Il propose des <b>cartes</b> et des <b>graphiques interactifs</b> pour explorer heure par heure l’<b>attractivité</b> des territoires selon le profil démographique et social des populations présentes, leurs activités et leurs modes de transport.</br></br>
+
+                C'est un outil <b>libre</b> et <b>gratuit</b> qui s’inscrit dans une démarche de science ouverte.</br>
+
               </h4>
+
               <div class="row hidden-sm">
                 <button class="style-button mb50"><a href="/fr/info/about/summary">En savoir plus</a></button>
               </div>
@@ -109,7 +115,7 @@ include ('./settings.php');
           <div class="img-section-lg"><img src="/dist/assets/bandeau-violet-v4.png" /></div>
           <p>
             Issues de grandes enquêtes publiques, les données sur les déplacements quotidiens ont été mises en forme et analysées par un laboratoire public de recherche.</br>
-            De ce travail est né le Mobiliscope qui permet d'explorer les villes et la répartition spatiale des populations au cours de la journée.
+            De ce travail est né le Mobiliscope qui permet d'explorer la répartition spatiale des populations au cours de la journée dans un grand nombre de territoires en France, au Canada et en Amérique latine.</br></br>
           </p>
         </div>
         <button class="section-link">  <a href="/fr/info/methods/data">Découvrir les données</a></button>
@@ -125,7 +131,7 @@ include ('./settings.php');
           <div class="img-section"><span><img src="/dist/assets/location-v4.png" /></span></div>
           <p>
             Issues de grandes enquêtes publiques, les données sur les déplacements quotidiens ont été mises en forme et analysées par un laboratoire public de recherche.</br>
-            De ce travail est né le Mobiliscope qui permet d'explorer les villes et la répartition spatiale des populations au cours de la journée.
+            De ce travail est né le Mobiliscope qui permet d'explorer la répartition spatiale des populations au cours de la journée dans un grand nombre de territoires en France, au Canada et en Amérique latine</br></br>.
         </p>
         </div>
         <button class="section-link">  <a href="/fr/info/methods/data">Découvrir les données</a></button>

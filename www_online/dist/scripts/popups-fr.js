@@ -22,6 +22,14 @@ function popup_pop0(e){
 	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
 
 }
+function popup_pop0_qc(e){
+	e.stopPropagation();
+	$("#popup").css("display", "block") ;
+	$(".popup-container").css("display", "inherit") ;
+	$("#text").html("<h3>Population totale</h3><p>La <span style='color:" + gammePop[0] + "'><strong>population totale</strong></span> concerne toutes les personnes <b>âgées de 15 ans et plus</b>.</p>" );
+	$("#close").click(function() {$("#popup").css("display", "none") ; $(".popup-container").css("display", "none") ; }) ;
+
+}
 
 // Resident population
 function popup_respop(e){

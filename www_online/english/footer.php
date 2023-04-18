@@ -42,7 +42,7 @@
 	</div>
 
 		<!-- <div id="copyright"> Mobiliscope - <?php echo date('Y'); ?> <a href="/en/info/about/evolution">(v4.0)</a></div> -->
-		<div id="copyright"> Mobiliscope <a href="/en/info/open/evolution">(v4.1)</a></div>
+		<div id="copyright"> Mobiliscope <a href="/en/info/open/evolution">(v4.2)</a></div>
 
 
 </div>

@@ -1,0 +1,39 @@
+<div class = "corps">
+	<section>
+    <h2>A scientific tool</h2>
+    </section>
+
+
+    <section>
+ 
+		<p>
+			The Mobiliscope falls within several scientific fields (eg. geography, sociology, transportation, economy) and draws notably upon the 'time-geography' approach. 
+		</p>    
+
+		<p>   
+			In literature on social segregation or neighbourhood effects, daily mobility remains understudied. While social scientists have invested a lot of energy in exploring the uneven distribution of social groups in the city, they have surprisingly limited their efforts to investigating the social composition of the residential population. Yet, daily commuting can (i) lead people to be exposed to neighbourhoods other than their neighbourhoods of residence alone and (ii) cause changes in the social composition of neighbourhoods and in urban segregation (<a href = "/pdf/2017_SegregationAroundTheClock.pdf"target="_blank">Le Roux et al., 2017</a>). Rather than considering neighbourhoods as necessarily frozen over a 24h period, the Mobiliscope can help removing ‘clock blinders’ and to explicitly consider the "daycourse of place" (<a href = "/pdf/2017_TheDaycourseOfPlace.pdf" target="_blank" >Vallée, 2017)</a> in relationship with dynamics of inequality (education, employment, health, etc.).
+		</p>
+		
+		<p> 
+			A large range of thematical and methodological fields are actually concerned. 
+			<ul>
+				<li>Hourly maps and charts displayed in the Mobiliscope can be explored to highlight to what extent urban experiences vary around the clock but also across age group, gender and social class.</li>
+				<li>A large range of city regions can also be compared according to their segregation level not only at night but also during the day.</li>
+				<li>Data issued from the Mobiliscope can also feed simulation models and agent-based models (ABM) in which spatial-temporal data on population trips or presences benefit from being integrated to simulate dynamics over hours, and ultimately over years. </li>
+				<li>Last example: When assessing area-based interventions and their efficiency, it could be interesting to take into consideration the spatio-temporal locations of the people in need of support (instead of just their residential locations).</li>
+			</ul>
+   		<h2>
+			<figure class="inline">
+			  	<img src="/dist/assets/aquarium.png" alt="aquariumfr" width="500"/>
+			  	<figcaption>"Target areas for public interventions aiming to reach people"</br>in <a href = "/pdf/2017_TargetAreas.pdf" target="_blank">Challenges in targeting areas for public action. Target areas at the right place and at the right time</a>.</figcaption>
+			</figure>
+		</h2>
+
+			<p>
+		<button class="style-button mb50"><a href="/en/info/multitask-tool/pedagogical-tool">A pedagogical tool</a></button>
+	</p>
+
+ 
+	</section>
+
+</div>

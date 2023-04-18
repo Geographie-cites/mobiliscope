@@ -1,0 +1,639 @@
+// Mise en page du contenu des pages de géovisualisation
+// le css du menu accordéon et des cartes et graphiques est construit 
+// dans des fichiers dédiés et importé ici
+
+@import "variables";
+
+#container{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  top: 0px;
+}
+
+// t'es qui ?
+* {
+  font-size: inherit;
+}
+
+a:hover{
+  font-weight : bold ;
+}
+
+
+#geoviz-container {
+
+  display: flex ;
+  flex-direction: row ;
+  height: calc(100% - 62px) ;
+  margin-top: 62px ;
+  flex-wrap: wrap ;
+  align-content: flex-start ;
+  //overflow: hidden !important;
+
+  // 1er flex item : géoviz name
+  #city-name {
+    order: 1 ;
+    width: 18%;
+    //height: 8% ;
+    min-height: 80px;
+    //display: inline-block ;
+    margin-left: 0px ;
+    background: #000000b3 ;
+    border-radius: 2px ;
+    color: white ;
+    text-align: center ;
+    h2 {
+      margin-left: 0px;
+      font-size: 24px;
+      p, small {
+        font-size: 15px ;
+        color: white;
+        margin: 8px;
+      }
+    }
+  }
+
+  // 2eme flex item : la timeline et les boutons oranges
+  #container-timeline {
+    order: 2 ;
+    display: flex ;
+    margin: 0 ;
+    width: 82% ;
+    //height: 8% ;
+    min-height: 80px;
+    padding: 0 ;
+
+    #timeline {
+      width: 100% ;
+      height: 2em ;
+      float: left ;
+      padding-top: 2em ;
+      margin: 5px 0em 0 5px ;
+      max-width: 1218px ;
+    }
+
+    .playB {
+      width: 57px ;
+      height: 60px ;
+      border-radius: 5px ;
+      cursor: pointer ;
+      margin-left: 20px ;
+      margin-top: 10px ;
+      float: left ;
+      background: url("../images/play.svg") ;
+      background-repeat: no-repeat ;
+      background-size: 60px ;
+      background-position: center ;
+      &:hover{
+        background: url("../images/play-hover.svg") ;
+        background-repeat: no-repeat ;
+      }
+    }
+
+    .pauseB {
+      width: 57px ;
+      height: 60px ;
+      border-radius: 5px ;
+      cursor: pointer ;
+      margin-left: 20px ;
+      margin-top: 10px ;
+      float: left ;
+      background: url("../images/pause.svg") ;
+      background-repeat: no-repeat ;
+      background-size: 60px ;
+      background-position: center ;
+      &:hover{
+        background: url("../images/pause-hover.svg") ;
+        background-repeat: no-repeat ;
+      }
+    }
+
+    //Pourquoi ?
+    #playB{
+      width : 100% ;
+    }
+
+    #slider {
+      width : 98% ;
+      margin-left : 1% ;
+    }
+
+    #timeAxis {
+      position : relative ;
+      width : 100% ;
+      height : 100% ;
+      margin-left : 0 ;
+      font-size : 0.6em ;
+    }
+
+    #timeAxis path {
+      fill: none ;
+    }
+
+    #timeAxis line {
+      stroke: black ;
+    }
+
+    .d3-slider-handle {
+      background: #fea11c ;
+    }
+
+    // bouton ? orange
+    .ask {
+      width: 45px ;
+      margin-top: 15px ;
+      margin-left: 0px ;
+      cursor: pointer ;
+    }
+  }
+
+  //3eme flex-item : le menu accordéon
+  @import "geoviz-menu";
+
+  //4eme flex-item : l'ensemble titre + carte
+  #geoviz-map-title {
+
+    order: 4 ;
+    display: flex ;
+    flex-direction: column ;
+    width: 50% ;
+    height: calc(100% - 85px) ;  // moins la hauteur de la timeline
+
+    // Titre de carte
+    #mapTitleCont {
+      display: flex ;
+      height : 36px ;
+      text-align : center ;
+      background-color : #f2f2f2 ;
+      //border-left: 6px solid ;
+      //border-left-color: rgba(233, 98, 29, 1) ;
+      margin-left: 2px ;
+      white-space: nowrap ;
+
+      .fittext1 {
+         display: inline-block ;
+         width: 90% ;
+       }
+       // t'es qui ?
+       .cont-picto {
+         display: flex;
+         width: 3%;
+         margin: 0 3px;
+       }
+
+      #mapTitle {
+        padding-left: 5px ;
+        overflow: hidden ;
+        text-overflow: ellipsis ;
+        //cursor: pointer;
+        pointer-events:none;
+      }
+      #mapTitle:after {
+        content:"";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        z-index: 50;
+        //border: 1px solid red;
+        pointer-events:initial;
+      }
+      
+      [lab] {
+        position: relative;
+      }
+      [lab]::before {
+        position : absolute;
+        white-space: normal;
+        content : attr(lab);
+        line-height: 1;
+        opacity : 0;
+        z-index: 50;
+        overflow: visible;
+        //visibility: visible;
+        padding: 5px;
+        text-align: left;
+        background: #f2f2f2;
+        border-radius: 0.3rem;
+        width: 100%;
+        height: 100%
+      }
+      [lab]:hover:before {
+          opacity : 1;
+      }
+
+      .downloadTitle{
+        background: url("../images/download.svg") no-repeat center;
+        background-size: 100%;
+        width: 32px;
+        padding: 0 4px;
+        max-width: 17px;
+        cursor: pointer;
+        &:hover{
+          background: url("../images/download-black.svg") no-repeat center;
+        }
+      }
+
+      .helpTitle{
+        background: url("../images/information.svg") no-repeat 0px;
+        background-size: 100%;
+        width: 32px;
+        padding: 0 4px;
+        max-width: 17px;
+        cursor: pointer;
+        &:hover{
+          background: url("../images/information-black.svg") no-repeat 0px;
+        }
+      }
+
+      
+    }
+
+    // La carte
+    #map-container {
+      display: flex ;
+      background-color: #fff;
+      //flex-wrap: wrap ;
+      height: calc(100% - 36px);
+      margin-left: 2px ;
+      }
+  }
+
+  @import "geoviz-map-charts";
+
+  // 5eme flex-item : les blocs de graphiques
+  #geoviz-charts {
+    order: 5 ;
+    display: flex ;
+    flex-direction: column ;
+    width: 32% ;
+    height: calc(100% - 85px) ;  //moins la hauteur de la timeline
+
+    // La X de fermeture des graphiques
+    .picto-graph {
+      max-width: 100%;
+      display: inline-block;
+      position: relative;
+      padding: -24%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+      cursor: pointer;
+      height: fit-content;
+    }
+    .picto-graph:hover{
+      filter: brightness(0.5);
+    }
+
+    #message{
+      font-size : 2vh ;
+      text-align : center ;
+      font-style : italic ;
+    }
+
+    .mainGr1-tooltip{
+      width: 20px;
+      margin-left: 5px;
+      top: 5px;
+      display: inline-block;
+    }
+
+    
+
+    // Bouton i des graphiques
+    .help{
+      display: inline-block;
+      position: relative;
+      width: 15px;
+      height: 15px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      background-image: url(../images/information.svg);
+      cursor: pointer;
+      background-position: center;
+      margin-left: 0px;
+    }
+    .help:hover{
+      background-image: url('../images/information-black.svg');
+    }
+
+    .menu-graphiques {
+      display: flex ;
+      background: $greyColor ;
+      //margin-top: 0.7% ;
+      //width :31.6% ;
+      height: 36px ;
+      border-left: 0.1px solid ;
+      border-left-color: #bebebe60 ;
+      //box-shadow: -3px 2px 5px -3px #bebebe ;
+    }
+
+    #graphiques {
+      display: flex ;
+      flex-direction: column ;
+      height: calc(100% - 36px) ; //moins la hauteur du bandeau titre (ci-dessus)
+      margin-left: 5px ;
+      //margin-bottom: 5px ;
+
+      // 2=1 et 1=2 pour des raisons historiques
+      .graphiques-bloc2 {
+        order: 1 ;
+      }
+      .graphiques-bloc1 {
+        order: 2 ;
+      }
+      .graphiques-bloc2, .graphiques-bloc1 {
+        display: flex ;
+        flex-direction: column ;
+        height: 49% ;
+
+        #mainGr2Cont, #mainGr1Cont {
+          margin-top: 10px ;
+          min-height: 36px ;
+          width: 97% ;
+          font-family: JBold ;
+          line-height: 1.8vh ;
+          color: #514d47 ;
+          border-left: 6px solid ;
+          //border-left-color: rgba(233, 98, 29, 1) ; //orange age2
+          border-left-color: #47b291 ;  //vert sex2
+          span strong {
+            font-size: 0.85em ;
+            font-weight: bolder ;
+            color: black ;
+            margin-left: 3px ;
+          }
+          #nameSect {
+            font-size: 1.2vh ;
+            font-weight: 700 ;
+            margin-top: 0 ;
+            margin-left: 3px ;
+          }
+        }
+        #mainGr1Cont {
+          img {
+            width: 20px ;
+            cursor: pointer ;
+            display: inline-block ;
+            content:url("../images/download.svg") ;
+          }
+        }
+        #mainGr1Cont img:hover {
+          content: url("../images/download-black.svg") ;
+        }
+        // Finalement, pas de télécharhement ici :
+        #mainGr2Cont img {
+          display: none ;
+        }
+        #titleGr1Cont, #titleGr2Cont {
+          height: 8% ;
+          width: 98% ;
+          text-align: center ;
+          background-color: white ;
+          margin-top: 0 ;
+          white-space: nowrap ;
+          .help {
+            margin-left: 0px ;
+            width: 16px ;
+            height: 16px ;
+            right: -5px ;
+            top: 2px ;
+          }
+        }
+        // Remember V.1 only IDF
+        #grSect, #grIDF {
+          //margin-left: 5% ;
+          width: 95% ;
+          height: 68% ;
+          font-size: 0.5em ;
+        }
+        // les boutons empilés/simple Duncan/Moran
+        .alt {
+          display: flex ;
+          flex-direction: row-reverse;
+          justify-content: flex-start ;
+          margin-right: 70px ;
+          top: -10 ;
+
+          #altGr12, #altGr22, #altGr21, #altGr11 {
+            width: 18%;
+            height: 26px;
+            text-align: center;
+            font-size: 0.8em;
+            line-height: 2.2em;
+            margin-right: 5px;
+            border-radius: 3px;
+            z-index: 1 ;
+          }
+          .style1{
+            border: 1px solid #d2d2d2;
+            background-color: #d2d2d2;
+            color: black;
+            transition: all 0.5s;
+            font-weight: bold;
+          }
+          .style2{
+            border: 1px solid #d2d2d2;
+            color: grey;
+            transition: all 0.5s;
+          }
+          .style3{
+            display: none;
+          }
+          .style2:hover{
+            cursor: pointer;
+            background-color: #d2d2d2;
+            border: 1px solid #d2d2d2;
+            color: white;
+          }
+          .style1:hover{
+            cursor: default;
+          }
+          
+        } 
+
+      }
+      
+    }
+
+  }
+
+}
+
+
+
+
+
+
+/*Media queries*/
+
+@media only screen and (min-width: 1920px) {
+  #city-name h2 {
+    font-size: 26px ;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+
+  //
+  #city-name {
+    flex: 0 0 100% ;
+    margin-left: 0% ;
+  }
+
+  // Changement de la mise en page sur petit écran
+  #container-timeline {
+    order: 3 !important ;
+    width: 100% !important ;
+  }
+
+  //
+  #play {
+    width: 45px;
+    height: 42px;
+    margin-top: 14px;
+     margin-left: 7px;
+  }
+  #timeline {
+    width: 100% ;
+    margin-top: 0.7% ;
+    margin-left: 1% ;
+  }
+  #timeAxis {
+    font-size: 0.8em ;
+    margin-top: 3px ;
+  }
+  #hour {
+    width: 14% ;
+    font-size: 1.6em ;
+    margin-right: 2.5% ;
+  }
+  #mapTitleCont {
+    //height: 5%;
+    width: 100% !important ;
+  }
+  .ask {
+    width: 45px ;
+    margin-right: 7px ;
+    margin-left: 0px ;
+    margin-top: 9px ;
+  }
+
+  // Emprise de la carte
+  #geoviz-map-title {
+    width: 100% !important ;
+  }
+
+  // Graphiques
+  #geoviz-charts {
+    width: 100% !important;
+    height: auto !important;
+    .menu-graphiques {
+      display: none !important;
+    }
+    #graphiques {
+      flex-direction : row !important;
+      height: 100% !important;
+      .graphiques-bloc2, .graphiques-bloc1 {
+        width: 50% ;
+        height: auto !important;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+
+  //
+  #timeAxis {
+    font-size: 0.8em ;
+    margin-top: 3px ;
+  }
+  #play {
+    width: 48px ;
+    height: 43px ;
+    margin-top: 14px ;
+  }
+  #hour {
+    width: 14% ;
+    font-size: 1.6em ;
+    margin-right: 2.5% ;
+  }
+
+  //
+  #mapTitleCont .cont-picto {
+    width: 1.6em ;
+  }
+  #mapTitleCont {
+    height: 10% ;
+    width: 100% ;
+    white-space: normal ;
+    text-align: left ;
+  }
+  #mapTitleCont .fittext1 {
+    width:80%;
+    //margin-left: 5px;
+    line-height: 30px !important;
+    span{
+      display: none !important;
+    }
+  }
+
+  //
+  #geoviz-map-title {
+    width: 98%;
+  }
+
+  //
+  #geoviz-charts {
+    #graphiques {
+      flex-direction : column !important;
+      width: 98% ;
+      height: auto ;
+      .graphiques-bloc2, .graphiques-bloc1 {
+        width: 100% !important;
+      }
+      #grSect, #grIDF {
+        height: 100%;
+      }
+    }
+  }
+  #mainGr2Cont, #mainGr1Cont {
+    height: 14.3%;
+  }
+    
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1024px) {
+  #grSect, #grIDF {
+    height: 100%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (min-width: 767px) and (max-width: 1024px) {
+  #mainGr2Cont, #mainGr1Cont {
+    height: 18%;
+  }
+  #nameSect{
+    top: 0px ;
+    font-size : 1vh ;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 767px) {
+  #nameSect{
+    font-size : 2vh ;
+  }
+  #mainGr1Cont span strong{
+    position: relative;
+    top:-7px;
+  }
+}
