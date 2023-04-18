@@ -17,7 +17,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 You can also use our Digital Object Identifier (DOI) : [10.5281/zenodo.3628713](https://doi.org/10.5281/zenodo.3628713)
 
-![Mobiliscope v4](/img_v4.1_Bogota.png?raw=true)
+![Mobiliscope v4](/img_v4.2_Bogota.png?raw=true)
 
 # Version history
 
@@ -60,7 +60,7 @@ Lastly, this new version is undergoing a major overhaul of its interface : graph
 [April 2021]
 
 
-## v4.1. - ONLINE -
+## v4.1. 
 3 Latin American cities have been added: Bogotá (Colombia), Santiago (Chile) and São Paulo (Brazil), with the addition of specific indicators and associated layers (e.g. indicator on informal work, TransMilenio network in Bogotá).  Weighted and aggregated data by hour and by district are available to download for these new cities. A Spanish interface have been developped to offer a trilingual interface (French, English, Spanish).
 
 In addition to the integration of these 3 new cities, several improvements have been made:
@@ -74,6 +74,18 @@ In addition to the integration of these 3 new cities, several improvements have 
 
 * The search tool by municipality/city name has been improved: district associated with the searched commune is now automatically selected in the geovisualization.
 
+## v4.2. - ONLINE -
+Extensive reorganisation of the software architecture, consisting mainly of a refactoring of the web code in order to guarantee stability, efficiency and durability of the tool and to facilitate future developments. 
+Refactoring of the R code for the construction of data read by the Mobiliscope. These data have also been reorganised and simplified.
+
+In addition:
+* For choropleth maps, modification of the discretization methods now carried out "on the fly" city by city thanks to the [geostats.js](https://github.com/simogeo/geostats) library. New class boundaries may consequently differ from those of v4.1, in particular for the indicators "Sex", "Area/Residence" and "Activity" whose class boundaries were previously similar for all cities.
+
+* Introduction of stricter rules for the removal of double counts (i.e. respondents counted twice in the same district at a given hour) in order to correct some hourly estimates. These corrections mainly affect Canadian cities, and are very marginally in French and Latin American cities.
+
+* Simplification of map and chart titles.
+
+* Creation of a [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY) gathering all the data proposed in open-data in.
 
 # Future developments
 
