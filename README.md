@@ -1,8 +1,8 @@
-# Mobiliscope - v4.1 (April 2022)
+# Mobiliscope - v4.2 (April 2023)
 
 Mobiliscope is a free and open-source web mapping platform for the interactive exploration of cities around the clock.
 
-58 city regions are included in the actual version (v4.1) of the Mobiliscope : 49 French cities, 6 Canadian cities and 3 Latin American cities.
+58 city regions are included in the actual version (v4.2) of the Mobiliscope : 49 French cities, 6 Canadian cities and 3 Latin American cities.
 https://mobiliscope.cnrs.fr/
 
 Mobiliscope is licensed under the **AGPL-3.0 License**.
