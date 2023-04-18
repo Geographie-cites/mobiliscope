@@ -11,11 +11,7 @@ Please have a look at the terms and conditions (https://www.gnu.org/licenses/agp
 
 # To cite the Mobiliscope
 
-*In English -* Mobiliscope, a geovisualization platform to explore cities around the clock. https://mobiliscope.cnrs.fr.
-
-*In French -* Mobiliscope, un outil de geovisualisation des villes à toute heure. https://mobiliscope.cnrs.fr.
-
-You can also use our Digital Object Identifier (DOI) : [10.5281/zenodo.3628713](https://doi.org/10.5281/zenodo.3628713)
+Vallée J, Douet A, Le Roux G, Commenges H, Lecomte C, Villard E (2023). Mobiliscope, a geovisualization platform to explore cities around the clock (v4.2). Zenodo. doi: [10.5281/zenodo.7822701](https://doi.org/10.5281/zenodo.7822701).
 
 ![Mobiliscope v4](/img_v4.2_Bogota.png?raw=true)
 
@@ -85,7 +81,7 @@ In addition:
 
 * Simplification of map and chart titles.
 
-* Creation of a [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY) gathering all the data proposed in open-data in.
+* Creation of a [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY) gathering all the data proposed in open-data in the tool.
 
 # Future developments
 
