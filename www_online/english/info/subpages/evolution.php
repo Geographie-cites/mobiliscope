@@ -131,7 +131,7 @@
  							
  					<li>Simplification of map and chart titles.</li>
 
- 					<li>Creation of a <b><a href="https://doi.org/10.5281/zenodo.7822016" target="_blank">Zenodo record</a></b> gathering <b>all the data</b> proposed in open-data in.</li> 
+ 					<li>Creation of a <b><a href="https://doi.org/10.5281/zenodo.7822016" target="_blank">Zenodo record</a></b> gathering <b>all the data</b> proposed in open-data in the tool.</li> 
 
  				</ul>
  				

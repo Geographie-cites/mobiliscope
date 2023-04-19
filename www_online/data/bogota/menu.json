@@ -1,0 +1,1409 @@
+{
+    "niv1": [
+        {
+            "label": "global",
+            "niv2": [
+                {
+                    "label": "Population totale",
+                    "indicateur": "pop",
+                    "niv3": [
+                        {
+                            "label": "Population totale",
+                            "modalite": "0",
+                            "color": "#000093",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "d",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Résidents/non-résidents",
+                    "indicateur": "res",
+                    "niv3": [
+                        {
+                            "label": "Résidents",
+                            "modalite": "2",
+                            "color": "#97bc59",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Non-résidents",
+                            "modalite": "1",
+                            "color": "#f8bd08",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "profilDemo",
+            "niv2": [
+                {
+                    "label": "Groupe d'âge",
+                    "indicateur": "age",
+                    "niv3": [
+                        {
+                            "label": "65 ans et +",
+                            "modalite": "4",
+                            "color": "#816c53",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "35-64 ans",
+                            "modalite": "3",
+                            "color": "#67539b",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "25-34 ans",
+                            "modalite": "2",
+                            "color": "#e9621d",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "16-24 ans",
+                            "modalite": "1",
+                            "color": "#da0846",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Sexe",
+                    "indicateur": "sex",
+                    "niv3": [
+                        {
+                            "label": "Femmes",
+                            "modalite": "2",
+                            "color": "#47b291",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Hommes",
+                            "modalite": "1",
+                            "color": "#4e3e8e",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Composition du ménage",
+                    "indicateur": "strm",
+                    "niv3": [
+                        {
+                            "label": "Ménage complexe avec enfant",
+                            "modalite": "5",
+                            "color": "#4c6fad",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Famille avec enfant",
+                            "modalite": "4",
+                            "color": "#58c2ef",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ménage complexe sans enfant",
+                            "modalite": "3",
+                            "color": "#e81c58",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Famille sans enfant",
+                            "modalite": "2",
+                            "color": "#f37fbc",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Ménage d'une personne",
+                            "modalite": "1",
+                            "color": "#7fb72c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "profilSocial",
+            "niv2": [
+                {
+                    "label": "Niveau d'éducation",
+                    "indicateur": "cleduc",
+                    "niv3": [
+                        {
+                            "label": "Très élevé",
+                            "modalite": "4",
+                            "color": "#c02867",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Élevé",
+                            "modalite": "3",
+                            "color": "#ee7319",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Intermédiaire",
+                            "modalite": "2",
+                            "color": "#00ad78",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Faible",
+                            "modalite": "1",
+                            "color": "#4c6fad",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Niveau d'éducation (ménage)",
+                    "indicateur": "educmen",
+                    "niv3": [
+                        {
+                            "label": "Très élevé",
+                            "modalite": "4",
+                            "color": "#c02867",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Élevé",
+                            "modalite": "3",
+                            "color": "#ee7319",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Intermédiaire",
+                            "modalite": "2",
+                            "color": "#00ad78",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Faible",
+                            "modalite": "1",
+                            "color": "#4c6fad",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Revenu du ménage",
+                    "indicateur": "reval",
+                    "niv3": [
+                        {
+                            "label": "Très élevé",
+                            "modalite": "5",
+                            "color": "#7a1828",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Élevé",
+                            "modalite": "4",
+                            "color": "#dc2c48",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Intermédiaire",
+                            "modalite": "3",
+                            "color": "#fe7562",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Faible",
+                            "modalite": "2",
+                            "color": "#7fb72c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Très faible",
+                            "modalite": "1",
+                            "color": "#348e89",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Catégrorie cocioprofessionnelle",
+                    "indicateur": "cso",
+                    "niv3": [
+                        {
+                            "label": "Cadres et professions intellectuelles",
+                            "modalite": "4",
+                            "color": "#a9002f",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Indépendants",
+                            "modalite": "3",
+                            "color": "#d59900",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Travailleurs qualifiés",
+                            "modalite": "2",
+                            "color": "#008792",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Travailleurs non qualifiés",
+                            "modalite": "1",
+                            "color": "#6c4dc1",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Informalité professionnelle",
+                    "indicateur": "inf",
+                    "niv3": [
+                        {
+                            "label": "Actifs ayant un emploi informel",
+                            "modalite": "2",
+                            "color": "#7fb72c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Actifs ayant un emploi formel",
+                            "modalite": "1",
+                            "color": "#9a2679",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Occupation principale",
+                    "indicateur": "occ",
+                    "niv3": [
+                        {
+                            "label": "Inactifs",
+                            "modalite": "5",
+                            "color": "#f8bd08",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Retraités",
+                            "modalite": "4",
+                            "color": "#957c60",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Sans emploi",
+                            "modalite": "3",
+                            "color": "#586aa3",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Étudiants",
+                            "modalite": "2",
+                            "color": "#97bc59",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Actifs",
+                            "modalite": "1",
+                            "color": "#e4406e",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "profilResid",
+            "niv2": [
+                {
+                    "label": "Couronne de résidence",
+                    "indicateur": "zona",
+                    "niv3": [
+                        {
+                            "label": "Centre",
+                            "modalite": "4",
+                            "color": "#167e88",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Péricentre",
+                            "modalite": "3",
+                            "color": "#58c2ef",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Périphérie proche",
+                            "modalite": "2",
+                            "color": "#ee865c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Périphérie lointaine",
+                            "modalite": "1",
+                            "color": "#9a2679",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Strate socio-économique de résidence",
+                    "indicateur": "sse",
+                    "niv3": [
+                        {
+                            "label": "Strate 4, 5 et 6",
+                            "modalite": "4",
+                            "color": "#dc2c48",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Strate 3",
+                            "modalite": "3",
+                            "color": "#fe7562",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Strate 2",
+                            "modalite": "2",
+                            "color": "#7fb72c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Strate 1 ou non stratifié",
+                            "modalite": "1",
+                            "color": "#348e89",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Statut d'occupation du logement",
+                    "indicateur": "log",
+                    "niv3": [
+                        {
+                            "label": "Propriétaires",
+                            "modalite": "3",
+                            "color": "#fe7562",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Locataires",
+                            "modalite": "2",
+                            "color": "#67539b",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Personnes hébergées",
+                            "modalite": "1",
+                            "color": "#7e3a61",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "activiteTransport",
+            "niv2": [
+                {
+                    "label": "Activité réalisée",
+                    "indicateur": "act",
+                    "niv3": [
+                        {
+                            "label": "Démarches admin./ personnelles",
+                            "modalite": "6",
+                            "color": "#e4406e",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Loisirs",
+                            "modalite": "5",
+                            "color": "#7e3a61",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Achats",
+                            "modalite": "4",
+                            "color": "#e7564d",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Études",
+                            "modalite": "3",
+                            "color": "#379fac",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Travail",
+                            "modalite": "2",
+                            "color": "#76ad71",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "À la maison",
+                            "modalite": "1",
+                            "color": "#17297c",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Dernier mode de transport utilisé",
+                    "indicateur": "mode",
+                    "niv3": [
+                        {
+                            "label": "Mode doux",
+                            "modalite": "3",
+                            "color": "#3d8966",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Véhicule motorisé individuel",
+                            "modalite": "2",
+                            "color": "#b44185",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Transports collectifs",
+                            "modalite": "1",
+                            "color": "#008eaa",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "TransMilenio",
+                            "modalite": "4",
+                            "color": "#f8bd08",
+                            "mode_de_representation": [
+                                {
+                                    "class": "part",
+                                    "label": "%",
+                                    "action": "choro"
+                                },
+                                {
+                                    "class": "nb",
+                                    "label": "nb",
+                                    "action": "prop"
+                                },
+                                {
+                                    "class": "flow",
+                                    "label": "",
+                                    "action": "flow"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
