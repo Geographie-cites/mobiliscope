@@ -5,15 +5,45 @@ Mobiliscope is a free and open-source web mapping platform for the interactive e
 58 city regions are included in the actual version (v4.2) of the Mobiliscope : 49 French cities, 6 Canadian cities and 3 Latin American cities.
 https://mobiliscope.cnrs.fr/
 
+
+# Folders and files available in the repository
+
+## ODdata_processing
+### Preprocess: R preprocessing programms (to be used in a first step)
+ - input: Initial dataset coming from various household surveys
+ - outputs: Standardized trip database and standardized people database
+
+### Process_allCities : R programms (to be used in a second step)
+- inputs: Standardized trip database and standardized people database
+- output 1: Full hourly database (format .rds) for all city regions
+- output 2: Hourly data per city region (geojson files for spatial data, csv files for data without geometry) to be displayed in the Mobiliscope -> folder [data]
+Note: A data dictionary (dictionary.md) is also available
+
+## www_online
+Source code of Mobiliscope v4.2.
+Note about data folder:
+- Data folder contains only the settings data.
+- Hourly data per city region (geojson files for spatial data and csv files for data without geometry) issued from R programms (see above) should be copied in folder data.
+- Some of these hourly data are also available under ODbl license and can be direcly downloaded here : [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY)
+
+## www_old_versions
+Source code of the previous versions
+
+## Manuals
+- v2. Manuel_FR
+- v3.1. Manuel_FR
+
+
+# License
 Mobiliscope is licensed under the **AGPL-3.0 License**.
 Please have a look at the terms and conditions (https://www.gnu.org/licenses/agpl-3.0.fr.html) for copying, distribution and modification.
 
 
-# To cite the Mobiliscope
-
+# To cite the Mobiliscope (v4.2)
 Vallée J, Douet A, Le Roux G, Commenges H, Lecomte C, Villard E (2023). Mobiliscope, a geovisualization platform to explore cities around the clock (v4.2). Zenodo. doi: [10.5281/zenodo.7822701](https://doi.org/10.5281/zenodo.7822701).
 
 ![Mobiliscope v4](/img_v4.2_Bogota.png?raw=true)
+
 
 # Version history
 
@@ -83,13 +113,6 @@ In addition:
 
 * Creation of a [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY) gathering all the data proposed in open-data in the tool.
 
-# Future developments
-
-New features are being considered: 
-* Propose an expert mode for geovisualization
-* Integrate data on mobility during the Covid pandemic and lockdown periods
-* Propose territorial classifications according to districts hourly rhythms
-* ....
 
 # Contact
 mobiliscope[at]parisgeo.cnrs.fr
