@@ -26,7 +26,7 @@ Source code of Mobiliscope v4.2.
 Note about data folder:
 - Data folder contains only the settings data.
 - Hourly data per city region (geojson files for spatial data and csv files for data without geometry) issued from R programms (see above) should be copied in folder data.
-- Some of these hourly data are also available under ODbl license and can be direcly downloaded here : [Zenodo record](https://zenodo.org/record/7822016#.ZD6uS87P1PY)
+- Some of these hourly data are also available under ODbl license and can be direcly downloaded here : [Zenodo record](https://doi.org/10.5281/zenodo.7822016)
 
 ## www_old_versions
 Source code of the previous versions
@@ -102,7 +102,7 @@ District hourly data can be downloaded from the Mobiliscope platform. These open
 - For the choropleth maps, modification of the discretization methods now carried out "on the fly" city by city thanks to the geostats.js library. New class boundaries may consequently differ from those of v4.1, in particular for the indicators "Sex", "Area/Residence" and "Activity" whose class boundaries were previously similar for all cities.
 - Introduction of stricter rules for the removal of double counts (i.e. respondents counted twice in the same district at a given hour) in order to correct some hourly estimates. These corrections mainly affect Canadian cities, and are very marginally in French and Latin American cities.
 - Simplification of map and chart titles.
-- Creation of a [Zenodo record](https://doi.org/10.5281/zenodo.7822701) gathering all the data proposed in open-data in.
+- Creation of a [Zenodo record](https://doi.org/10.5281/zenodo.7822016) gathering all the data proposed in open-data in.
 
 
 # Contact
